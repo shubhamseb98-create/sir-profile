@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="pt-32 pb-24 md:pt-40 md:pb-32 bg-[#004671] border-b border-white/08 relative">
+    <div className="pt-32 pb-24 md:pt-40 md:pb-32 bg-[#0A0F1A] border-b border-white/08 relative">
       <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
         <SectionHeading
           number="01"
@@ -47,7 +47,7 @@ export default function ContactPage() {
                 href={siteConfig.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl bg-[#C6A15B] text-[#004671] font-semibold text-xs uppercase tracking-wider hover:bg-[#E2C98F] transition-colors"
+                className="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl bg-[#C6A15B] text-[#0A0F1A] font-semibold text-xs uppercase tracking-wider hover:bg-[#E2C98F] transition-colors"
               >
                 Open Booking Calendar
               </a>

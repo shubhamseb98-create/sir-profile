@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
@@ -39,7 +39,7 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = "ma
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-[#004671]/85 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
+        className="fixed inset-0 bg-[#0A0F1A]/85 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
       />
 
       {/* Dialog Content */}

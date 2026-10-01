@@ -97,7 +97,7 @@ export default function DigitalGrowthPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
@@ -171,7 +171,7 @@ export default function DigitalGrowthPage() {
       </section>
 
       {/* 3. Digital Agency Services */}
-      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="01"
@@ -251,7 +251,7 @@ export default function DigitalGrowthPage() {
                 {industriesServed.map((ind) => (
                   <div
                     key={ind}
-                    className="p-3.5 rounded-xl bg-[#004671]/60 border border-white/06 flex items-center justify-between text-xs text-[#A9B0BE]"
+                    className="p-3.5 rounded-xl bg-[#0A0F1A]/60 border border-white/06 flex items-center justify-between text-xs text-[#A9B0BE]"
                   >
                     <span className="text-[#F5F3EE] font-medium">{ind}</span>
                     <span className="text-[#C6A15B] font-mono text-[10px] uppercase">
@@ -266,7 +266,7 @@ export default function DigitalGrowthPage() {
       </section>
 
       {/* 5. Featured Digital Case Studies */}
-      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="04"

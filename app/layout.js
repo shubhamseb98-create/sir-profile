@@ -108,11 +108,11 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#042A41] text-[#F8FAFC] font-sans min-h-screen selection:bg-[#005C96] selection:text-white antialiased w-full">
+      <body className="bg-[#0F172A] text-[#F8FAFC] font-sans min-h-screen selection:bg-[#334155] selection:text-white antialiased w-full">
         {/* Skip to Main Content Accessibility Link */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[200] bg-[#005C96] text-white px-4 py-2 font-semibold rounded-full text-sm shadow-xl"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[200] bg-[#334155] text-white px-4 py-2 font-semibold rounded-full text-sm shadow-xl"
         >
           Skip to main content
         </a>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -75,7 +75,7 @@ export default function CustomCursor() {
         }}
       >
         {isCaseStudy && (
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-[#004671]">
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0A0F1A]">
             View
           </span>
         )}

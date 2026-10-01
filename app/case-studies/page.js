@@ -21,7 +21,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium block mb-4">
@@ -52,8 +52,8 @@ export default function CaseStudiesPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`text-xs px-4 py-2.5 rounded-full border transition-all duration-200 cursor-pointer font-medium tracking-wide ${
                   selectedCategory === cat
-                    ? "bg-[#C6A15B] text-[#004671] font-semibold border-[#C6A15B] shadow-sm"
-                    : "bg-[#004671]/60 text-[#A9B0BE] border-white/10 hover:border-[#C6A15B]/50 hover:text-[#F5F3EE]"
+                    ? "bg-[#C6A15B] text-[#0A0F1A] font-semibold border-[#C6A15B] shadow-sm"
+                    : "bg-[#0A0F1A]/60 text-[#A9B0BE] border-white/10 hover:border-[#C6A15B]/50 hover:text-[#F5F3EE]"
                 }`}
               >
                 {cat}

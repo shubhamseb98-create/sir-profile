@@ -165,7 +165,7 @@ export default function KarmaAyurvedaPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-8">
@@ -288,7 +288,7 @@ export default function KarmaAyurvedaPage() {
       </section>
 
       {/* 3. Two Short Transformation Stories */}
-      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="02"
@@ -309,14 +309,14 @@ export default function KarmaAyurvedaPage() {
                   </h3>
 
                   <div className="space-y-4 text-xs leading-relaxed">
-                    <div className="p-4 rounded-xl bg-[#004671]/70 border border-white/04">
+                    <div className="p-4 rounded-xl bg-[#0A0F1A]/70 border border-white/04">
                       <span className="text-[#C6A15B] font-mono uppercase tracking-widest block mb-1">
                         Operational Challenge
                       </span>
                       <p className="text-[#A9B0BE]">{story.challenge}</p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-[#004671]/70 border border-white/04">
+                    <div className="p-4 rounded-xl bg-[#0A0F1A]/70 border border-white/04">
                       <span className="text-[#C6A15B] font-mono uppercase tracking-widest block mb-1">
                         Strategic Intervention
                       </span>
@@ -375,7 +375,7 @@ export default function KarmaAyurvedaPage() {
       </section>
 
       {/* 5. Closing Statement on Business Impact */}
-      <section className="py-20 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-20 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[980px] mx-auto px-6 sm:px-8 text-center">
           <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono block mb-4">
             BUSINESS IMPACT SUMMARY

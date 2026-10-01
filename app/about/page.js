@@ -88,7 +88,7 @@ export default function AboutPage() {
   return (
     <>
       {/* 1. Header / Intro Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7">
@@ -181,7 +181,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Professional Philosophy */}
-      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="02"

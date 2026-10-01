@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -60,15 +60,15 @@ export default function Header() {
             aria-label="Dheeraj Aggarwal - Home"
           >
             {/* Geometric Modern Icon */}
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#005C96] to-[#004671] flex items-center justify-center text-white font-bold text-sm shadow-md shadow-blue-600/25 group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#334155] to-[#0A0F1A] flex items-center justify-center text-white font-bold text-sm shadow-md shadow-blue-600/25 group-hover:scale-105 transition-transform">
               DA
             </div>
 
             <div className="flex flex-col">
-              <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-[#005C96] transition-colors leading-tight">
+              <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-[#334155] transition-colors leading-tight">
                 Dheeraj Aggarwal
               </span>
-              <span className="text-[9px] uppercase tracking-[0.22em] text-[#005C96] font-bold hidden sm:block">
+              <span className="text-[9px] uppercase tracking-[0.22em] text-[#334155] font-bold hidden sm:block">
                 Business Consultant
               </span>
             </div>
@@ -95,15 +95,15 @@ export default function Header() {
                       className={cn(
                         "flex items-center gap-1 px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap",
                         isChildActive
-                          ? "bg-blue-50 text-[#005C96] font-semibold"
-                          : "text-slate-600 hover:text-[#005C96] hover:bg-slate-100"
+                          ? "bg-blue-50 text-[#334155] font-semibold"
+                          : "text-slate-600 hover:text-[#334155] hover:bg-slate-100"
                       )}
                     >
                       <span>{displayLabel}</span>
                       <ChevronDown
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200 text-slate-400",
-                          dropdownOpen && "rotate-180 text-[#005C96]"
+                          dropdownOpen && "rotate-180 text-[#334155]"
                         )}
                         strokeWidth={2}
                       />
@@ -120,9 +120,9 @@ export default function Header() {
                               onClick={() => setDropdownOpen(false)}
                               className="group block p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
                             >
-                              <div className="flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:text-[#005C96]">
+                              <div className="flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:text-[#334155]">
                                 <span>{child.label}</span>
-                                <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#005C96]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#334155]" />
                               </div>
                               <p className="text-[11px] text-slate-500 mt-1 leading-snug">
                                 {child.desc}
@@ -143,8 +143,8 @@ export default function Header() {
                   className={cn(
                     "px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap",
                     isActive
-                      ? "bg-blue-50 text-[#005C96] font-semibold"
-                      : "text-slate-600 hover:text-[#005C96] hover:bg-slate-100"
+                      ? "bg-blue-50 text-[#334155] font-semibold"
+                      : "text-slate-600 hover:text-[#334155] hover:bg-slate-100"
                   )}
                 >
                   {displayLabel}
@@ -158,7 +158,7 @@ export default function Header() {
             <Link
               href="/contact?type=strategy-call"
               onClick={() => trackStrategyCallClick("HeaderCTA")}
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#005C96] hover:bg-[#004671] text-white text-xs font-semibold tracking-wide shadow-sm hover:shadow-md hover:shadow-blue-600/25 transition-all whitespace-nowrap"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#334155] hover:bg-[#0A0F1A] text-white text-xs font-semibold tracking-wide shadow-sm hover:shadow-md hover:shadow-blue-600/25 transition-all whitespace-nowrap"
             >
               <span>Book a Strategy Call</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -167,7 +167,7 @@ export default function Header() {
             <button
               onClick={() => setIsMobileOpen(true)}
               aria-label="Open navigation menu"
-              className="p-2 text-slate-700 hover:text-[#005C96] lg:hidden rounded-lg hover:bg-slate-100 transition-colors"
+              className="p-2 text-slate-700 hover:text-[#334155] lg:hidden rounded-lg hover:bg-slate-100 transition-colors"
             >
               <Menu className="w-6 h-6" strokeWidth={2} />
             </button>

@@ -15,7 +15,7 @@ export default function LeadershipVenturesPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium block mb-4">
@@ -114,7 +114,7 @@ export default function LeadershipVenturesPage() {
       </section>
 
       {/* 3. Future Ventures & Initiatives */}
-      <section id="future" className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section id="future" className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="02"

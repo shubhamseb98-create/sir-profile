@@ -69,7 +69,7 @@ export default async function InsightDetailPage({ params }) {
       />
 
       {/* 1. Article Header */}
-      <article className="pt-32 pb-16 md:pt-40 md:pb-24 bg-[#004671] border-b border-white/08 relative">
+      <article className="pt-32 pb-16 md:pt-40 md:pb-24 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[840px] mx-auto px-6 sm:px-8">
           {/* Breadcrumb back */}
           <Link

@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center pt-28 pb-20 px-6 sm:px-8 text-center bg-[#004671]">
+    <div className="min-h-[80vh] flex items-center justify-center pt-28 pb-20 px-6 sm:px-8 text-center bg-[#0A0F1A]">
       <div className="max-w-xl mx-auto">
         <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#C6A15B] block mb-3 font-semibold">
           Error 404 â€¢ Resource Relocated

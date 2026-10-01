@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="pt-32 pb-24 md:pt-40 md:pb-32 bg-[#004671] border-b border-white/08">
+    <div className="pt-32 pb-24 md:pt-40 md:pb-32 bg-[#0A0F1A] border-b border-white/08">
       <div className="max-w-[860px] mx-auto px-6 sm:px-8">
         <SectionHeading
           number="LEGAL"

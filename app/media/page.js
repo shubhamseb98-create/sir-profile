@@ -85,7 +85,7 @@ export default function MediaPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium block mb-4">
@@ -124,14 +124,14 @@ export default function MediaPage() {
                 }}
                 className="group rounded-2xl bg-[#151D30]/60 border border-white/08 hover:border-[#C6A15B]/50 overflow-hidden transition-all duration-300 shadow-xl cursor-pointer"
               >
-                <div className="relative aspect-video bg-gradient-to-br from-[#151D30] to-[#004671] flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[#004671]/40 group-hover:bg-[#004671]/20 transition-colors" />
+                <div className="relative aspect-video bg-gradient-to-br from-[#151D30] to-[#0A0F1A] flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-[#0A0F1A]/40 group-hover:bg-[#0A0F1A]/20 transition-colors" />
 
-                  <div className="w-14 h-14 rounded-full bg-[#C6A15B] text-[#004671] flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 z-10">
-                    <Play className="w-6 h-6 fill-[#004671] ml-0.5" />
+                  <div className="w-14 h-14 rounded-full bg-[#C6A15B] text-[#0A0F1A] flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 z-10">
+                    <Play className="w-6 h-6 fill-[#0A0F1A] ml-0.5" />
                   </div>
 
-                  <span className="absolute bottom-3 right-3 text-[10px] font-mono bg-[#004671]/80 px-2 py-0.5 rounded text-[#F5F3EE] border border-white/10 z-10">
+                  <span className="absolute bottom-3 right-3 text-[10px] font-mono bg-[#0A0F1A]/80 px-2 py-0.5 rounded text-[#F5F3EE] border border-white/10 z-10">
                     {v.duration}
                   </span>
                 </div>
@@ -157,7 +157,7 @@ export default function MediaPage() {
       </section>
 
       {/* 3. Written Client Testimonials */}
-      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="02"
@@ -217,7 +217,7 @@ export default function MediaPage() {
               <div
                 key={m.id}
                 onClick={() => setLightboxImage(m)}
-                className="group relative rounded-2xl bg-[#004671] border border-white/08 hover:border-[#C6A15B]/40 overflow-hidden transition-all duration-300 cursor-pointer shadow-lg hover:-translate-y-1"
+                className="group relative rounded-2xl bg-[#0A0F1A] border border-white/08 hover:border-[#C6A15B]/40 overflow-hidden transition-all duration-300 cursor-pointer shadow-lg hover:-translate-y-1"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <SafeImage
@@ -229,7 +229,7 @@ export default function MediaPage() {
                     aspectRatio="aspect-[4/3]"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#004671] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1A] via-transparent to-transparent opacity-80" />
                 </div>
 
                 <div className="p-5">
@@ -250,7 +250,7 @@ export default function MediaPage() {
       </section>
 
       {/* 5. Recognition & Credentials Strip */}
-      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="04"

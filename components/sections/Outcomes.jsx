@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
@@ -17,7 +17,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/roas-analytics-real.jpg",
     tags: ["Media Spend Audit", "Conversion CRO", "Sales Velocity"],
     href: "/consulting#roas-conversion",
-    color: "#C2E8FF",
+    color: "#38BDF8",
   },
   {
     id: "brand-positioning",
@@ -206,8 +206,8 @@ export default function Outcomes() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/05 backdrop-blur-md mb-2 sm:mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#C2E8FF]" />
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#C2E8FF] font-bold">
+            <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#38BDF8] font-bold">
               STRATEGIC VALUE CREATION
             </span>
           </div>
@@ -369,7 +369,7 @@ export default function Outcomes() {
                 }}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeIndex === i ? "w-6 bg-[#C2E8FF]" : "w-1.5 bg-white/30 hover:bg-white/60"
+                  activeIndex === i ? "w-6 bg-[#38BDF8]" : "w-1.5 bg-white/30 hover:bg-white/60"
                 }`}
               />
             ))}

@@ -16,7 +16,7 @@ export default function SpeakingPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-8">
@@ -130,7 +130,7 @@ export default function SpeakingPage() {
       </section>
 
       {/* 3. Session Formats */}
-      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="02"
@@ -234,7 +234,7 @@ export default function SpeakingPage() {
                 {speakingData.pastSessions.map((session) => (
                   <div
                     key={session.event}
-                    className="p-5 rounded-xl bg-[#004671]/60 border border-white/06 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                    className="p-5 rounded-xl bg-[#0A0F1A]/60 border border-white/06 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                   >
                     <div>
                       <h4 className="font-editorial text-lg text-[#F5F3EE] mb-1 font-medium">
