@@ -7,12 +7,13 @@ import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 import { gsap, ScrollTrigger, initGSAP } from "@/lib/gsap";
 import Button from "@/components/ui/Button";
 import { caseStudies } from "@/data/caseStudies";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 
 // Representative imagery for the 3 featured transformation cases
 const CASE_IMAGES = {
   "karma-ayurveda-systems-expansion": "/images/cards/crm-systems.jpg",
   "web-tycoons-agency-scale": "/images/cards/digital-visibility.jpg",
-  "happy-hospitality-club-community": "/images/cards/hhc-hospitality.svg",
+  "happy-hospitality-club-community": "/images/cards/hhc-hospitality.jpg",
 };
 
 export default function TransformationsStack() {
@@ -128,9 +129,8 @@ export default function TransformationsStack() {
     >
       {/* Sticky 100vh viewport lock: zero pin-spacer artifacts, zero dead space */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-start overflow-hidden pt-7 sm:pt-9 lg:pt-11 pb-3 sm:pb-5">
-        {/* Background ambient lighting */}
-        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
+        {/* Background lining texture and subtle ambient glow */}
+        <DarkSectionLining glowPosition="split" showTopBeam={true} showBottomBeam={true} />
 
         {/* Section Header: Unified 1:1 with site standard max-w-[1240px] layout */}
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 z-20 shrink-0">
@@ -184,9 +184,26 @@ export default function TransformationsStack() {
                 className="absolute inset-0 w-full will-change-transform"
                 style={{ zIndex: idx + 1, transformOrigin: "center center" }}
               >
-                <article className="w-full h-full rounded-2xl sm:rounded-3xl bg-[#0F172A] border border-slate-700/80 hover:border-[#38BDF8]/60 p-4 sm:p-5 md:p-5 shadow-[0_16px_50px_rgba(0,0,0,0.85)] transition-colors duration-300 relative overflow-hidden group flex flex-col justify-between">
-                  {/* Subtle top edge glow */}
-                  <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-[#38BDF8]/50 to-transparent" />
+                <article className="w-full h-full rounded-2xl sm:rounded-3xl bg-[#0F172A] border border-slate-700/80 hover:border-[#38BDF8]/70 p-4 sm:p-5 md:p-5 shadow-[0_16px_50px_rgba(0,0,0,0.85),0_0_35px_rgba(56,189,248,0.14)] transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
+                  {/* Subtle top edge glow beam */}
+                  <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#38BDF8]/80 to-transparent shadow-[0_0_14px_rgba(56,189,248,0.8)]" />
+
+                  {/* Corner Accent Glow */}
+                  <div className="absolute -top-10 -right-10 w-48 h-48 bg-[#38BDF8]/15 rounded-full blur-[60px] pointer-events-none" />
+
+                  {/* Subtle card internal lining accent */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-[0.25]"
+                    style={{
+                      backgroundImage: `
+                        linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px)
+                      `,
+                      backgroundSize: "28px 28px",
+                      maskImage: "radial-gradient(ellipse 90% 80% at 50% 50%, #000 40%, transparent 100%)",
+                      WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 50% 50%, #000 40%, transparent 100%)",
+                    }}
+                  />
 
                   {/* Top Bar: Badge tags + Card sequence counter */}
                   <div className="flex items-center justify-between pb-2 sm:pb-2.5 mb-2 sm:mb-2.5 border-b border-white/10 shrink-0">

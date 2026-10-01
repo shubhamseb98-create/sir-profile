@@ -58,7 +58,7 @@ export default function AboutSection() {
           <div className="lg:col-span-5 relative">
             <div className="relative h-[300px] sm:h-[360px] md:h-[400px] lg:h-[420px] w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-950 group">
               <Image
-                src="/images/hero/hero-leader-suit.jpg"
+                src="/images/hero/ddab.png"
                 alt="Dheeraj Aggarwal - Business Consultant & Growth Specialist"
                 fill
                 priority
@@ -67,35 +67,18 @@ export default function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
 
-              {/* Floating Badge Top Left: Years Experience */}
-              <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-white/15 text-white shadow-lg">
-                <Award className="w-3.5 h-3.5 text-[#38BDF8]" />
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-wide">15+ Years Practitioner</span>
-              </div>
-
-              {/* Floating Badge Top Right: Ecosystem Deliveries */}
-              <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 hidden sm:flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#334155]/90 backdrop-blur-md border border-white/20 text-white shadow-lg">
-                <Briefcase className="w-3.5 h-3.5" />
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold">3,700+ Deliveries</span>
-              </div>
-
+             
+            
               {/* Bottom Credential Card Overlay */}
-              <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
                 <div className="flex items-center justify-between mb-1">
                   <h3 className="text-sm sm:text-lg font-bold text-white">Dheeraj Aggarwal</h3>
                   <span className="text-[9px] sm:text-[10px] font-mono text-[#38BDF8] bg-blue-950/80 px-2 sm:px-2.5 py-0.5 rounded-full border border-blue-500/30">
                     Executive Advisor
                   </span>
                 </div>
-                <p className="text-[11px] sm:text-xs text-slate-300 mb-2 sm:mb-3">
-                  Business Consultant â€¢ Digital Expert â€¢ Ecosystem Builder
-                </p>
-                <div className="flex flex-wrap gap-1 sm:gap-1.5 text-[9px] sm:text-[10px] font-medium text-slate-300">
-                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/10">Karma Ayurveda</span>
-                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/10">Web Tycoons</span>
-                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/10">Happy Hospitality Club</span>
-                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/10">BNI President</span>
-                </div>
+              
+                
               </div>
             </div>
           </div>

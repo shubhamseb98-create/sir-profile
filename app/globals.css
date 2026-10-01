@@ -72,7 +72,6 @@ body {
   color: #FFFFFF;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -90,7 +89,6 @@ body {
   background: #38BDF8;
 }
 
-/* Modern Card Hover Elevation */
 .modern-card {
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -100,7 +98,6 @@ body {
   box-shadow: 0 20px 40px -15px rgba(29, 78, 216, 0.18);
 }
 
-/* Hide scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -110,7 +107,6 @@ body {
   scrollbar-width: none;
 }
 
-/* Marquee continuous animation */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -131,7 +127,6 @@ body {
   animation-play-state: paused;
 }
 
-/* Focus visibility */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
-import ScrollProgress from "@/components/layout/ScrollProgress";
 import CustomCursor from "@/components/layout/CustomCursor";
 import Preloader from "@/components/layout/Preloader";
 import SmoothScroll from "@/components/layout/SmoothScroll";
@@ -119,7 +118,6 @@ export default function RootLayout({ children }) {
 
         {/* Global UX Layers */}
         <Preloader />
-        <ScrollProgress />
         <CustomCursor />
 
         <SmoothScroll>

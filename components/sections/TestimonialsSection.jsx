@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Modal from "@/components/ui/Modal";
-import { videoTestimonials, writtenTestimonials } from "@/data/testimonials";
-import { Play, Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { trackVideoPlay } from "@/lib/analytics";
+import { writtenTestimonials } from "@/data/testimonials";
+import { Quote, ChevronLeft, ChevronRight, Award, Star } from "lucide-react";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 
 export default function TestimonialsSection() {
-  const [activeVideo, setActiveVideo] = useState(null);
   const [activeQuoteIndex, setActiveQuoteIndex] = useState(0);
 
   const nextQuote = () => {
@@ -24,111 +22,70 @@ export default function TestimonialsSection() {
   const currentQuote = writtenTestimonials[activeQuoteIndex];
 
   return (
-    <section className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#0F172A] border-b border-slate-800 relative font-sans">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full">
+    <section className="py-20 sm:py-24 bg-[#0A0F1A] border-b border-slate-800/50 relative font-sans overflow-hidden">
+      {/* Background lining texture and subtle glow */}
+      <DarkSectionLining glowPosition="top" showTopBeam={true} showBottomBeam={true} />
+
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <SectionHeading
-          number="06"
+          number="07"
           eyebrow="EXECUTIVE CREDIBILITY"
-          title="Endorsements & Results"
-          description="Reflections from promoters, managing directors, and ecosystem stakeholders who have partnered with Dheeraj Aggarwal."
-          className="!mb-4 sm:!mb-6"
+          title="Written Endorsements & Results"
+          description="Institutional reflections from board members, advisory councils, and enterprise leaders who partnered with Dheeraj Aggarwal."
+          className="!mb-12"
         />
 
-        {/* Video Testimonials Showcase Row */}
-        <div className="mb-4 sm:mb-6">
-          <div className="flex items-center justify-between mb-2 sm:mb-3">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#38BDF8]">
-              Video Conversations
-            </span>
-            <span className="text-[10px] sm:text-xs text-[#38BDF8]">
-              Direct Founder Perspectives
-            </span>
-          </div>
+        {/* Written Testimonial Feature Card */}
+        <div className="rounded-3xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-slate-700/60 p-6 sm:p-10 md:p-12 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_40px_rgba(56,189,248,0.12)]">
+          {/* Glowing Top Beam */}
+          <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#38BDF8]/70 to-transparent shadow-[0_0_14px_rgba(56,189,248,0.8)]" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
-            {videoTestimonials.map((v) => (
-              <div
-                key={v.id}
-                className="group relative rounded-2xl bg-[#1E293B] border border-slate-700/60 hover:border-[#38BDF8]/60 p-2.5 sm:p-3 transition-all duration-300 shadow-lg cursor-pointer hover:-translate-y-1 flex flex-col justify-between"
-                onClick={() => {
-                  setActiveVideo(v);
-                  trackVideoPlay(v.topic);
-                }}
-              >
-                <div>
-                  {/* Inset Poster Frame */}
-                  <div className="relative aspect-video rounded-xl bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex items-center justify-center overflow-hidden mb-2">
-                    <div className="absolute inset-0 bg-[#0F172A]/40 group-hover:bg-[#0F172A]/10 transition-colors" />
-
-                    {/* Play Button Trigger */}
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#334155] text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 z-10 group-hover:bg-[#0A0F1A]">
-                      <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white ml-0.5" />
-                    </div>
-
-                    <span className="absolute bottom-1.5 right-1.5 text-[9px] font-mono bg-slate-900/80 px-2 py-0.5 rounded-full text-white border border-white/10 backdrop-blur-sm z-10">
-                      {v.duration}
-                    </span>
-                  </div>
-
-                  {/* Video Info */}
-                  <div className="mb-0.5">
-                    <span className="text-[9px] font-mono font-semibold uppercase tracking-wider text-[#38BDF8] block mb-0.5">
-                      {v.topic}
-                    </span>
-                    <h4 className="text-sm font-bold text-white group-hover:text-[#38BDF8] transition-colors leading-tight truncate">
-                      {v.name}
-                    </h4>
-                  </div>
-                  <p className="text-[10px] text-[#38BDF8] mb-1 truncate">
-                    {v.designation}, {v.organisation}
-                  </p>
-                  <p className="text-[11px] text-[#38BDF8] italic leading-relaxed line-clamp-2">
-                    &ldquo;{v.quote}&rdquo;
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Written Testimonial Feature Slider */}
-        <div className="rounded-2xl sm:rounded-3xl bg-[#1E293B] border border-slate-800 p-4 sm:p-6 md:p-7 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-4 right-4 sm:top-6 sm:right-8 text-[#38BDF8]/10 pointer-events-none">
-            <Quote className="w-12 h-12 sm:w-16 sm:h-16 stroke-[1]" />
+          {/* Subtle Watermark Quote */}
+          <div className="absolute top-6 right-8 text-[#38BDF8]/10 pointer-events-none">
+            <Quote className="w-20 h-20 sm:w-28 sm:h-28 stroke-[1]" />
           </div>
 
           <div className="relative z-10 max-w-3xl">
-            <div className="flex items-center gap-2 mb-2 sm:mb-3">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#38BDF8] px-2.5 py-0.5 rounded-full bg-[#38BDF8]/10 border border-[#38BDF8]/20">
+            {/* Badges Row */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#38BDF8] px-3.5 py-1 rounded-full bg-[#38BDF8]/10 border border-[#38BDF8]/25">
                 {currentQuote.engagementType}
               </span>
+              <div className="flex items-center gap-1 text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+                ))}
+              </div>
             </div>
 
-            <p className="text-base sm:text-lg md:text-xl text-white font-medium leading-[1.35] mb-3 sm:mb-4 line-clamp-3">
+            {/* Quote Body */}
+            <p className="text-lg sm:text-xl md:text-2xl text-white font-medium leading-relaxed mb-8">
               &ldquo;{currentQuote.text}&rdquo;
             </p>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-slate-800">
+            {/* Author Footer */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-slate-700/60">
               <div>
-                <h5 className="text-xl font-bold text-white">
+                <h5 className="text-xl font-bold text-white flex items-center gap-2">
                   {currentQuote.author}
                 </h5>
-                <p className="text-xs text-[#38BDF8] mt-0.5">
-                  {currentQuote.designation} â€¢ {currentQuote.organisation}
+                <p className="text-sm text-slate-400 mt-1">
+                  {currentQuote.designation} &bull; <span className="text-slate-200 font-semibold">{currentQuote.organisation}</span>
                 </p>
-                <p className="text-xs text-[#38BDF8] mt-1 font-mono font-semibold">
-                  Result: {currentQuote.resultHighlight}
-                </p>
+                <div className="mt-3 inline-flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg">
+                  <Award className="w-3.5 h-3.5" />
+                  <span>Result: {currentQuote.resultHighlight}</span>
+                </div>
               </div>
 
               {/* Slider Controls */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3 self-end sm:self-auto">
                 <button
                   onClick={prevQuote}
                   aria-label="Previous quote"
-                  className="p-3 rounded-full border border-slate-700 text-[#38BDF8] hover:text-white hover:border-[#38BDF8] transition-colors"
+                  className="w-11 h-11 rounded-full border border-slate-700 hover:border-[#38BDF8] bg-[#0F172A] text-slate-300 hover:text-white flex items-center justify-center transition-colors shadow-lg"
                 >
-                  <ChevronLeft className="w-4 h-4" />
+                  <ChevronLeft className="w-5 h-5" />
                 </button>
                 <span className="text-xs font-mono text-[#38BDF8] px-2 font-semibold">
                   0{activeQuoteIndex + 1} / 0{writtenTestimonials.length}
@@ -136,40 +93,15 @@ export default function TestimonialsSection() {
                 <button
                   onClick={nextQuote}
                   aria-label="Next quote"
-                  className="p-3 rounded-full border border-slate-700 text-[#38BDF8] hover:text-white hover:border-[#38BDF8] transition-colors"
+                  className="w-11 h-11 rounded-full border border-slate-700 hover:border-[#38BDF8] bg-[#0F172A] text-slate-300 hover:text-white flex items-center justify-center transition-colors shadow-lg"
                 >
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Video Modal Player */}
-      <Modal
-        isOpen={!!activeVideo}
-        onClose={() => setActiveVideo(null)}
-        title={activeVideo ? `${activeVideo.name} â€” ${activeVideo.organisation}` : ""}
-      >
-        {activeVideo && (
-          <div>
-            <div className="aspect-video w-full rounded-xl overflow-hidden bg-black mb-4">
-              <iframe
-                src={activeVideo.videoUrl}
-                title={activeVideo.topic}
-                className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <p className="text-sm text-[#A9B0BE] italic">
-              &ldquo;{activeVideo.quote}&rdquo;
-            </p>
-          </div>
-        )}
-      </Modal>
     </section>
   );
 }
-

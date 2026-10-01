@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, ExternalLink, TrendingUp, Sparkles } from "lucide-react";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 
 const OUTCOMES_CARDS = [
   {
@@ -197,10 +198,10 @@ export default function Outcomes() {
     <section
       id="achieve-section"
       style={{ overflow: "clip" }}
-      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#0E100F] text-white relative font-sans border-b border-white/10"
+      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#0A0F1A] text-white relative font-sans border-b border-slate-800/60"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* ── Background Lining Texture & Subtle Glow ── */}
+      <DarkSectionLining glowPosition="center" showTopBeam={true} showBottomBeam={true} />
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full">
         {/* Section Header */}

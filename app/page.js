@@ -6,6 +6,7 @@ import RolesScroller from "@/components/sections/RolesScroller";
 import TrustBar from "@/components/sections/TrustBar";
 import TransformationsStack from "@/components/sections/TransformationsStack";
 import WhyWorkWithMe from "@/components/sections/WhyWorkWithMe";
+import VideoSection from "@/components/sections/VideoSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import PageCTA from "@/components/sections/PageCTA";
 
@@ -42,7 +43,10 @@ export default function HomePage() {
       {/* 8. Why Work With Me (Ivory Rhythmic Section) */}
       <WhyWorkWithMe />
 
-      {/* 9. Testimonials Section (Video + Quotes) */}
+      {/* 9. Direct Founder Video Conversations (Dedicated Cinema Showcase) */}
+      <VideoSection />
+
+      {/* 10. Written Executive Endorsements & Quotes */}
       <TestimonialsSection />
 
       {/* 10. Final Conversion PageCTA */}

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Menu } from "lucide-react";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 
 const SHOWCASE_VENTURES = [
   {
@@ -152,12 +153,23 @@ export default function RolesScroller() {
   return (
     <section
       id="roles-ecosystems"
-      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#0E100F] text-[#FFFCE1] relative font-sans overflow-hidden border-b border-white/10 select-none"
+      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#0A0F1A] text-white relative font-sans overflow-hidden border-b border-slate-800/60 select-none"
     >
-      <div className="w-full mx-auto">
-        {/* Top Left Title: Exact GSAP Showcase Typography */}
+      {/* ── Background Lining Texture & Subtle Glow ── */}
+      <DarkSectionLining glowPosition="split" showTopBeam={true} showBottomBeam={true} />
+
+      <div className="w-full mx-auto relative z-10">
+        {/* Top Left Title: Exact GSAP Showcase Typography with Eyebrow */}
         <div className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-16 mb-3 sm:mb-4 md:mb-6">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#FFFCE1] font-sans">
+          <div className="flex items-center gap-2.5 mb-2">
+            <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border text-[#38BDF8] border-[#38BDF8]/30 bg-[#38BDF8]/10">
+              03
+            </span>
+            <span className="text-xs uppercase font-semibold tracking-[0.2em] text-[#38BDF8]">
+              ACTIVE VENTURES &amp; LEADERSHIP
+            </span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-sans">
             Showcase
           </h2>
         </div>
@@ -194,8 +206,8 @@ export default function RolesScroller() {
                   onClick={() => setCurrentIndex(idx)}
                   className={`relative shrink-0 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out group ${
                     isCenter
-                      ? "w-[88vw] sm:w-[80vw] md:w-[72vw] lg:w-[60vw] max-w-[940px] h-[220px] sm:h-[290px] md:h-[350px] shadow-2xl ring-1 ring-white/20 z-20 opacity-100"
-                      : "w-[45vw] sm:w-[35vw] md:w-[28vw] lg:w-[24vw] max-w-[420px] h-[200px] sm:h-[260px] md:h-[310px] opacity-35 hover:opacity-75 z-10 hidden sm:block"
+                      ? "w-[88vw] sm:w-[80vw] md:w-[72vw] lg:w-[60vw] max-w-[940px] h-[220px] sm:h-[290px] md:h-[350px] shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(56,189,248,0.15)] ring-1 ring-[#38BDF8]/40 border border-slate-700/80 z-20 opacity-100"
+                      : "w-[45vw] sm:w-[35vw] md:w-[28vw] lg:w-[24vw] max-w-[420px] h-[200px] sm:h-[260px] md:h-[310px] opacity-35 hover:opacity-75 z-10 hidden sm:block border border-slate-800"
                   }`}
                 >
                   {/* Full-bleed visual image */}
@@ -267,7 +279,7 @@ export default function RolesScroller() {
 
             <Link
               href={activeVenture.href}
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-white/30 text-white hover:bg-white hover:text-black text-xs font-semibold tracking-wide transition-all duration-200 active:scale-95 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#38BDF8]/40 bg-[#0F172A]/80 text-white hover:border-[#38BDF8] hover:text-[#38BDF8] text-xs font-semibold tracking-wide transition-all duration-200 active:scale-95 shadow-md backdrop-blur-md"
             >
               <span>Explore All Showcases</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -283,7 +295,7 @@ export default function RolesScroller() {
                 setTimeout(() => setIsPaused(false), 3000);
               }}
               aria-label="Previous Showcase"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/30 text-white hover:bg-white hover:text-black flex items-center justify-center transition-all duration-200 active:scale-90 shadow-sm"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-700 bg-[#0F172A]/80 text-white hover:border-[#38BDF8] hover:text-[#38BDF8] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.75} />
             </button>
@@ -295,7 +307,7 @@ export default function RolesScroller() {
                 setTimeout(() => setIsPaused(false), 3000);
               }}
               aria-label="Next Showcase"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/30 text-white hover:bg-white hover:text-black flex items-center justify-center transition-all duration-200 active:scale-90 shadow-sm"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-700 bg-[#0F172A]/80 text-white hover:border-[#38BDF8] hover:text-[#38BDF8] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
             >
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.75} />
             </button>
