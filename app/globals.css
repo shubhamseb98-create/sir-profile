@@ -1,54 +1,63 @@
 @import "tailwindcss";
 
 @theme {
-  --color-slate-950: #020617;
-  --color-slate-900: #0F172A;
-  --color-slate-800: #1E293B;
-  --color-slate-700: #334155;
-  --color-slate-600: #475569;
-  --color-slate-500: #64748B;
-  --color-slate-400: #94A3B8;
-  --color-slate-300: #CBD5E1;
-  --color-slate-200: #E2E8F0;
-  --color-slate-100: #F1F5F9;
+  /* ── New Palette (#EAFFFF → #004671) ─────────────────────────────── */
+  --color-brand-lightest: #EAFFFF;
+  --color-brand-light:    #C2E8FF;
+  --color-brand-mid:      #7298AF;
+  --color-brand-dark:     #365C73;
+  --color-brand-deeper:   #042A41;
+  --color-brand-navy:     #004671;
 
-  --color-blue-600: #2563EB;
-  --color-blue-700: #1D4ED8;
-  --color-blue-800: #1E40AF;
-  --color-blue-900: #1E3A8A;
-  --color-sky-400: #38BDF8;
-  --color-sky-500: #0EA5E9;
-  --color-sky-300: #7DD3FC;
+  /* Tailwind slate tokens remapped to new palette */
+  --color-slate-950: #020C14;
+  --color-slate-900: #042A41;
+  --color-slate-800: #0A3A56;
+  --color-slate-700: #365C73;
+  --color-slate-600: #4E7A96;
+  --color-slate-500: #7298AF;
+  --color-slate-400: #A8C8DC;
+  --color-slate-300: #C2E8FF;
+  --color-slate-200: #D9F0FF;
+  --color-slate-100: #EAFFFF;
 
-  --color-ice-50: #EFF6FF;
-  --color-white: #FFFFFF;
+  --color-blue-600:  #005C96;
+  --color-blue-700:  #004671;
+  --color-blue-800:  #003358;
+  --color-blue-900:  #002240;
+  --color-sky-400:   #C2E8FF;
+  --color-sky-500:   #7298AF;
+  --color-sky-300:   #EAFFFF;
+
+  --color-ice-50:    #EAFFFF;
+  --color-white:     #FFFFFF;
 
   --font-sans: var(--font-poppins), 'Poppins', system-ui, -apple-system, sans-serif;
   --font-poppins: var(--font-poppins), 'Poppins', system-ui, -apple-system, sans-serif;
 }
 
 :root {
-  --navbar-bg: #0F172A;
-  --hero-from: #0F172A;
-  --hero-to: #1D4ED8;
-  --btn-primary: #2563EB;
-  --btn-hover: #1D4ED8;
-  --highlight: #38BDF8;
-  --section-light: #FFFFFF;
-  --section-ice: #EFF6FF;
-  --section-dark: #0F172A;
-  --section-dark-card: #1E293B;
-  --text-main: #1E293B;
-  --text-muted: #64748B;
-  --text-dark-main: #F8FAFC;
-  --text-dark-muted: #94A3B8;
-  --border-dark: rgba(255, 255, 255, 0.08);
-  --border-light: rgba(15, 23, 42, 0.08);
+  --navbar-bg:          #042A41;
+  --hero-from:          #004671;
+  --hero-to:            #042A41;
+  --btn-primary:        #005C96;
+  --btn-hover:          #004671;
+  --highlight:          #C2E8FF;
+  --section-light:      #EAFFFF;
+  --section-ice:        #C2E8FF;
+  --section-dark:       #004671;
+  --section-dark-card:  #042A41;
+  --text-main:          #042A41;
+  --text-muted:         #7298AF;
+  --text-dark-main:     #EAFFFF;
+  --text-dark-muted:    #7298AF;
+  --border-dark:        rgba(194, 232, 255, 0.10);
+  --border-light:       rgba(4, 42, 65, 0.10);
 }
 
 html {
-  background-color: #0F172A;
-  color: #F8FAFC;
+  background-color: #004671;
+  color: #EAFFFF;
   font-family: var(--font-poppins), 'Poppins', system-ui, -apple-system, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -63,13 +72,13 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background-color: #0F172A;
+  background-color: #004671;
   font-family: var(--font-poppins), 'Poppins', system-ui, -apple-system, sans-serif;
 }
 
 ::selection {
-  background-color: #2563EB;
-  color: #FFFFFF;
+  background-color: #365C73;
+  color: #EAFFFF;
 }
 
 /* Custom scrollbar */
@@ -78,16 +87,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #004671;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #365C73;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #38BDF8;
+  background: #C2E8FF;
 }
 
 /* Modern Card Hover Elevation */
@@ -97,7 +106,7 @@ body {
 
 .modern-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(29, 78, 216, 0.18);
+  box-shadow: 0 20px 40px -15px rgba(0, 70, 113, 0.35);
 }
 
 /* Hide scrollbar */
@@ -137,15 +146,6 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #38BDF8;
-  outline-offset: 2px;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid #38BDF8;
+  outline: 2px solid #C2E8FF;
   outline-offset: 2px;
 }

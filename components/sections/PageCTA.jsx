@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+﻿import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
 import { MessageCircle, Mail } from "lucide-react";
 import Link from "next/link";
@@ -25,12 +25,12 @@ export default function PageCTA({
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10">
         {/* Eyebrow */}
-        <span className="text-[10px] sm:text-xs uppercase tracking-[0.24em] text-[#2563EB] font-mono font-bold block mb-3 sm:mb-4">
+        <span className="text-[10px] sm:text-xs uppercase tracking-[0.24em] text-[#005C96] font-mono font-bold block mb-3 sm:mb-4">
           {eyebrow}
         </span>
 
         {/* H2 Title */}
-        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F172A] max-w-3xl mx-auto leading-[1.15] tracking-tight">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#042A41] max-w-3xl mx-auto leading-[1.15] tracking-tight">
           {title}
         </h2>
 
@@ -55,30 +55,30 @@ export default function PageCTA({
           <div className="mt-12 pt-8 border-t border-slate-300/60 max-w-2xl mx-auto flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs text-slate-500">
             <Link
               href="/speaking"
-              className="hover:text-[#2563EB] transition-colors flex items-center gap-1.5"
+              className="hover:text-[#005C96] transition-colors flex items-center gap-1.5"
             >
               <span>Invite Me to Speak</span>
             </Link>
 
-            <span className="text-slate-300">•</span>
+            <span className="text-slate-300">â€¢</span>
 
             <a
               href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#2563EB] transition-colors flex items-center gap-1.5"
+              className="hover:text-[#005C96] transition-colors flex items-center gap-1.5"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
               <span>WhatsApp Me</span>
             </a>
 
-            <span className="text-slate-300">•</span>
+            <span className="text-slate-300">â€¢</span>
 
             <a
               href={`mailto:${siteConfig.contactEmail}`}
-              className="hover:text-[#2563EB] transition-colors flex items-center gap-1.5"
+              className="hover:text-[#005C96] transition-colors flex items-center gap-1.5"
             >
-              <Mail className="w-3.5 h-3.5 text-[#2563EB]" />
+              <Mail className="w-3.5 h-3.5 text-[#005C96]" />
               <span>Direct Email</span>
             </a>
           </div>
@@ -87,3 +87,4 @@ export default function PageCTA({
     </section>
   );
 }
+

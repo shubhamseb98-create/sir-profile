@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -106,7 +106,7 @@ export default function ExpertiseCards() {
       ref={sectionRef}
       id="core-expertise"
       suppressHydrationWarning
-      className="relative h-[480vh] bg-[#F1F5FB] text-[#0F172A] border-y border-slate-200 select-none"
+      className="relative h-[480vh] bg-[#F1F5FB] text-[#042A41] border-y border-slate-200 select-none"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden z-10">
         {/* Ambient blobs */}
@@ -117,11 +117,11 @@ export default function ExpertiseCards() {
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pt-3 sm:pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[#2563EB] text-[9px] sm:text-[11px] font-mono font-bold tracking-widest uppercase mb-1 sm:mb-1.5">
-                <Sparkles className="w-3 h-3 text-[#38BDF8]" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[#005C96] text-[9px] sm:text-[11px] font-mono font-bold tracking-widest uppercase mb-1 sm:mb-1.5">
+                <Sparkles className="w-3 h-3 text-[#C2E8FF]" />
                 <span>STRATEGIC ARSENAL &amp; DOMAINS</span>
               </div>
-              <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#0F172A] tracking-tight">
+              <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#042A41] tracking-tight">
                 Core Expertise &amp; Strategic Playbooks
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-0.5 font-normal">
@@ -130,7 +130,7 @@ export default function ExpertiseCards() {
             </div>
             <div className="flex items-center gap-3.5 self-start md:self-end">
               <div className="text-left md:text-right">
-                <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#2563EB] block">
+                <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#005C96] block">
                   Domain {String(activeIdx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                 </span>
                 <span className="text-[10px] sm:text-[11px] text-slate-600 font-semibold truncate block max-w-[160px] sm:max-w-[180px]">
@@ -140,7 +140,7 @@ export default function ExpertiseCards() {
               <div className="w-20 sm:w-32 h-1.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300 shadow-inner">
                 <motion.div
                   suppressHydrationWarning
-                  className="h-full bg-gradient-to-r from-[#2563EB] to-[#38BDF8] rounded-full"
+                  className="h-full bg-gradient-to-r from-[#005C96] to-[#C2E8FF] rounded-full"
                   style={{ scaleX: progressScale, transformOrigin: "left" }}
                 />
               </div>
@@ -169,14 +169,14 @@ export default function ExpertiseCards() {
                   key={item.id}
                   className={`w-[85vw] sm:w-[540px] md:w-[620px] lg:w-[680px] rounded-2xl sm:rounded-3xl bg-white p-3.5 sm:p-5 md:p-6 border shrink-0 transition-all duration-300 flex flex-col justify-between shadow-lg relative overflow-hidden group ${
                     isCurrent
-                      ? "border-[#2563EB] ring-1 ring-[#2563EB]/30 shadow-[0_8px_40px_rgba(37,99,235,0.18)]"
+                      ? "border-[#005C96] ring-1 ring-[#005C96]/30 shadow-[0_8px_40px_rgba(37,99,235,0.18)]"
                       : "border-slate-200 hover:border-slate-300 opacity-80 hover:opacity-100"
                   }`}
                 >
-                  <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-[#2563EB]/30 to-transparent" />
+                  <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-[#005C96]/30 to-transparent" />
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                     <div className="flex items-center gap-2">
-                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-[#2563EB] px-2 py-0.5 rounded-full border border-blue-200">
+                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-[#005C96] px-2 py-0.5 rounded-full border border-blue-200">
                         Practice {String(idx + 1).padStart(2, "0")}
                       </span>
                       <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-slate-500">
@@ -203,7 +203,7 @@ export default function ExpertiseCards() {
                     </div>
                     <div className="md:col-span-7 flex flex-col justify-between">
                       <div>
-                        <h3 className="text-sm sm:text-lg md:text-xl font-bold text-[#0F172A] mb-1 leading-snug group-hover:text-[#2563EB] transition-colors">
+                        <h3 className="text-sm sm:text-lg md:text-xl font-bold text-[#042A41] mb-1 leading-snug group-hover:text-[#005C96] transition-colors">
                           {item.title}
                         </h3>
                         <p className="text-[11px] sm:text-[13px] text-slate-500 leading-relaxed mb-2.5 line-clamp-2 sm:line-clamp-3">
@@ -212,7 +212,7 @@ export default function ExpertiseCards() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-1.5 mb-2.5 sm:mb-3">
                           {["Unit Economics Focus","Founder Independence","Weekly KPI Governance","Structured SOP Playbooks"].map((pt) => (
                             <div key={pt} className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-slate-600">
-                              <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#2563EB] shrink-0" />
+                              <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#005C96] shrink-0" />
                               <span className="truncate">{pt}</span>
                             </div>
                           ))}
@@ -220,7 +220,7 @@ export default function ExpertiseCards() {
                       </div>
                       <Link
                         href={`/consulting#${item.id}`}
-                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#2563EB] hover:text-[#1D4ED8] transition-colors group/btn"
+                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#005C96] hover:text-[#004671] transition-colors group/btn"
                       >
                         <span>Explore Domain Framework</span>
                         <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover/btn:translate-x-1" />
@@ -229,7 +229,7 @@ export default function ExpertiseCards() {
                   </div>
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[9px] sm:text-[11px] text-slate-400">
                     <span>Executive Advisory Mandate</span>
-                    <span className="text-[#2563EB] font-mono">Dheeraj Aggarwal</span>
+                    <span className="text-[#005C96] font-mono">Dheeraj Aggarwal</span>
                   </div>
                 </div>
               );
@@ -241,7 +241,7 @@ export default function ExpertiseCards() {
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pb-3 sm:pb-6 md:pb-8">
           <div className="flex items-center justify-between border-t border-slate-200 pt-2.5 sm:pt-3 text-xs text-slate-500">
             <div className="flex items-center gap-2 sm:gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#005C96] animate-pulse" />
               <span className="font-mono text-[10px] sm:text-[11px]">
                 Showing {activeIdx + 1} of {total} Strategic Practices
               </span>
@@ -251,7 +251,7 @@ export default function ExpertiseCards() {
               </div>
             </div>
             {activeIdx >= total - 1 ? (
-              <a href="#roles-ecosystems" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] border border-[#1D4ED8] text-white text-[10px] sm:text-[11px] font-semibold transition-all group">
+              <a href="#roles-ecosystems" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#005C96] hover:bg-[#004671] border border-[#004671] text-white text-[10px] sm:text-[11px] font-semibold transition-all group">
                 <span>Continue to Showcase</span>
                 <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
               </a>
@@ -266,3 +266,4 @@ export default function ExpertiseCards() {
     </section>
   );
 }
+

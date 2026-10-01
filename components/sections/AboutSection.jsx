@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Button from "@/components/ui/Button";
@@ -6,21 +6,21 @@ import { Award, Briefcase } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200">
+    <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#042A41] relative font-sans border-b border-slate-200">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* Left Column: Clean Narrative & Core Philosophy */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#2563EB]" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#2563EB] font-bold">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#005C96]" />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#005C96] font-bold">
                 ABOUT DHEERAJ AGGARWAL
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-extrabold text-[#0F172A] leading-tight tracking-tight mb-2 sm:mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-extrabold text-[#042A41] leading-tight tracking-tight mb-2 sm:mb-3">
               Architecting Strategic Growth, Scalable Systems & High-Value Alliances.
             </h2>
 
@@ -34,12 +34,12 @@ export default function AboutSection() {
             </p>
 
             {/* Guiding Principle Callout */}
-            <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50 border-l-4 border-[#2563EB] mb-3 sm:mb-4">
+            <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50 border-l-4 border-[#005C96] mb-3 sm:mb-4">
               <p className="text-xs text-slate-700 italic leading-relaxed">
                 &ldquo;Sustainable enterprise value is not created by ad-hoc marketing campaigns. It is engineered through unit economic clarity, repeatable SOPs, and ruthless operational accountability.&rdquo;
               </p>
-              <div className="mt-1 text-[10px] font-mono font-bold text-[#2563EB]">
-                — Dheeraj Aggarwal, Executive Advisor
+              <div className="mt-1 text-[10px] font-mono font-bold text-[#005C96]">
+                â€” Dheeraj Aggarwal, Executive Advisor
               </div>
             </div>
 
@@ -69,12 +69,12 @@ export default function AboutSection() {
 
               {/* Floating Badge Top Left: Years Experience */}
               <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-white/15 text-white shadow-lg">
-                <Award className="w-3.5 h-3.5 text-[#38BDF8]" />
+                <Award className="w-3.5 h-3.5 text-[#C2E8FF]" />
                 <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-wide">15+ Years Practitioner</span>
               </div>
 
               {/* Floating Badge Top Right: Ecosystem Deliveries */}
-              <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 hidden sm:flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#2563EB]/90 backdrop-blur-md border border-white/20 text-white shadow-lg">
+              <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 hidden sm:flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#005C96]/90 backdrop-blur-md border border-white/20 text-white shadow-lg">
                 <Briefcase className="w-3.5 h-3.5" />
                 <span className="text-[10px] sm:text-[11px] font-mono font-bold">3,700+ Deliveries</span>
               </div>
@@ -83,12 +83,12 @@ export default function AboutSection() {
               <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
                 <div className="flex items-center justify-between mb-1">
                   <h3 className="text-sm sm:text-lg font-bold text-white">Dheeraj Aggarwal</h3>
-                  <span className="text-[9px] sm:text-[10px] font-mono text-[#38BDF8] bg-blue-950/80 px-2 sm:px-2.5 py-0.5 rounded-full border border-blue-500/30">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#C2E8FF] bg-blue-950/80 px-2 sm:px-2.5 py-0.5 rounded-full border border-blue-500/30">
                     Executive Advisor
                   </span>
                 </div>
                 <p className="text-[11px] sm:text-xs text-slate-300 mb-2 sm:mb-3">
-                  Business Consultant • Digital Expert • Ecosystem Builder
+                  Business Consultant â€¢ Digital Expert â€¢ Ecosystem Builder
                 </p>
                 <div className="flex flex-wrap gap-1 sm:gap-1.5 text-[9px] sm:text-[10px] font-medium text-slate-300">
                   <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/10">Karma Ayurveda</span>
@@ -104,3 +104,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

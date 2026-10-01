@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Counter from "@/components/ui/Counter";
 import Marquee from "@/components/ui/Marquee";
@@ -21,9 +21,9 @@ export default function TrustBar() {
           {siteConfig.metrics.map((m, idx) => (
             <div
               key={m.label}
-              className="p-3.5 sm:p-5 md:p-6 rounded-2xl bg-white border border-slate-200 flex flex-col justify-center shadow-sm hover:border-[#2563EB]/40 hover:shadow-md transition-all"
+              className="p-3.5 sm:p-5 md:p-6 rounded-2xl bg-white border border-slate-200 flex flex-col justify-center shadow-sm hover:border-[#005C96]/40 hover:shadow-md transition-all"
             >
-              <div className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-1 sm:mb-2 flex items-baseline tracking-tight">
+              <div className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#042A41] mb-1 sm:mb-2 flex items-baseline tracking-tight">
                 <Counter value={m.value} suffix={m.suffix} duration={1800 + idx * 200} />
               </div>
               <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 font-medium leading-snug">
@@ -42,15 +42,15 @@ export default function TrustBar() {
               key={item.name}
               className="flex items-center gap-4 px-6 py-2.5 rounded-full border border-slate-200 bg-white shadow-sm"
             >
-              <span className="text-sm font-semibold text-[#0F172A] whitespace-nowrap">
+              <span className="text-sm font-semibold text-[#042A41] whitespace-nowrap">
                 {item.name}
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
-              <span className="text-xs uppercase tracking-wider text-[#2563EB] font-semibold whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#005C96]" />
+              <span className="text-xs uppercase tracking-wider text-[#005C96] font-semibold whitespace-nowrap">
                 {item.role}
               </span>
               <span className="text-xs text-slate-500 whitespace-nowrap hidden sm:inline">
-                • {item.desc}
+                â€¢ {item.desc}
               </span>
             </div>
           ))}
@@ -59,3 +59,4 @@ export default function TrustBar() {
     </section>
   );
 }
+

@@ -97,7 +97,7 @@ export default function HHCPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-8">
@@ -105,7 +105,7 @@ export default function HHCPage() {
                 <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium">
                   CO-DIRECTOR & COMMUNITY CO-FOUNDER
                 </span>
-                <span className="text-white/20">•</span>
+                <span className="text-white/20">â€¢</span>
                 <span className="text-xs text-[#A9B0BE] font-mono">Hospitality Industry Network</span>
               </div>
 
@@ -188,7 +188,7 @@ export default function HHCPage() {
       </section>
 
       {/* 3. Community Growth & Event Architecture */}
-      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
+      <section className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="02"
@@ -243,7 +243,7 @@ export default function HHCPage() {
                 className={`p-8 sm:p-10 rounded-2xl flex flex-col justify-between transition-all duration-300 ${
                   tier.featured
                     ? "bg-[#151D30] border-2 border-[#C6A15B] shadow-2xl"
-                    : "bg-[#0A0F1A] border border-white/08"
+                    : "bg-[#004671] border border-white/08"
                 }`}
               >
                 <div>
@@ -252,7 +252,7 @@ export default function HHCPage() {
                       {tier.target}
                     </span>
                     {tier.featured && (
-                      <span className="text-[10px] font-mono uppercase tracking-widest font-bold bg-[#C6A15B] text-[#0A0F1A] px-2.5 py-0.5 rounded-full">
+                      <span className="text-[10px] font-mono uppercase tracking-widest font-bold bg-[#C6A15B] text-[#004671] px-2.5 py-0.5 rounded-full">
                         Exclusive Tier
                       </span>
                     )}
@@ -302,3 +302,4 @@ export default function HHCPage() {
     </>
   );
 }
+

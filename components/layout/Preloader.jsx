@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -49,7 +49,7 @@ export default function Preloader() {
   return (
     <aside
       aria-label="Site introduction"
-      className={`fixed inset-0 z-[120] flex items-center justify-center bg-[#0A0F1A] transition-all duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${
+      className={`fixed inset-0 z-[120] flex items-center justify-center bg-[#004671] transition-all duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${
         leaving ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
       }`}
     >
@@ -78,3 +78,4 @@ export default function Preloader() {
     </aside>
   );
 }
+

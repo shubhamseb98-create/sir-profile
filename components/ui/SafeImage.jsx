@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -33,7 +33,7 @@ export default function SafeImage({
         <p className="text-xs uppercase tracking-widest text-[#A9B0BE]/70 font-mono">
           {alt || "Executive Portrait"}
         </p>
-        <span className="mt-2 text-[10px] tracking-wider uppercase text-[#C6A15B]/60 font-mono bg-[#0A0F1A]/60 px-2 py-0.5 rounded border border-[#C6A15B]/15">
+        <span className="mt-2 text-[10px] tracking-wider uppercase text-[#C6A15B]/60 font-mono bg-[#004671]/60 px-2 py-0.5 rounded border border-[#C6A15B]/15">
           {placeholderLabel}
         </span>
       </div>
@@ -59,3 +59,4 @@ export default function SafeImage({
     </div>
   );
 }
+

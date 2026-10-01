@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import { initGSAP, gsap } from "@/lib/gsap";
@@ -29,7 +29,7 @@ export default function Timeline() {
       title: "Delivering 3,700+ Digital Web Ecosystems",
       period: "Multi-Sector Delivery", // TODO: CLIENT TO PROVIDE
       description:
-        "Expanding client delivery across 15+ industry verticals—including manufacturing, healthcare, hospitality, education, real estate, and consumer brands.",
+        "Expanding client delivery across 15+ industry verticalsâ€”including manufacturing, healthcare, hospitality, education, real estate, and consumer brands.",
     },
     {
       step: "04",
@@ -135,7 +135,7 @@ export default function Timeline() {
               } gap-6 md:gap-12`}
             >
               {/* Center Dot Indicator */}
-              <div className="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 w-4 h-4 rounded-full bg-[#0A0F1A] border-2 border-[#C6A15B] z-20 flex items-center justify-center">
+              <div className="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 w-4 h-4 rounded-full bg-[#004671] border-2 border-[#C6A15B] z-20 flex items-center justify-center">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#C6A15B]" />
               </div>
 
@@ -178,3 +178,4 @@ export default function Timeline() {
     </div>
   );
 }
+

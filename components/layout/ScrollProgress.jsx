@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -35,3 +35,4 @@ export default function ScrollProgress() {
     </div>
   );
 }
+

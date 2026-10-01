@@ -14,7 +14,7 @@ export default function ConsultingPage() {
   return (
     <>
       {/* 1. Consulting Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#004671] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium block mb-4">
@@ -55,7 +55,7 @@ export default function ConsultingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
             {/* Left Column: Sticky Index Menu */}
             <div className="lg:col-span-4">
-              <div className="sticky top-28 space-y-2 p-4 rounded-2xl bg-[#0A0F1A]/80 border border-white/08 backdrop-blur-md">
+              <div className="sticky top-28 space-y-2 p-4 rounded-2xl bg-[#004671]/80 border border-white/08 backdrop-blur-md">
                 <span className="text-[10px] uppercase tracking-widest text-[#C6A15B] font-mono px-3 py-1 block">
                   Select Practice Area
                 </span>
@@ -71,7 +71,7 @@ export default function ConsultingPage() {
                     className={cn(
                       "w-full text-left px-3.5 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-between group",
                       activeService === service.id
-                        ? "bg-[#C6A15B] text-[#0A0F1A] font-semibold shadow-md"
+                        ? "bg-[#C6A15B] text-[#004671] font-semibold shadow-md"
                         : "text-[#A9B0BE] hover:text-[#F5F3EE] hover:bg-white/05"
                     )}
                   >
@@ -132,7 +132,7 @@ export default function ConsultingPage() {
                   </div>
 
                   {/* Ideal For Callout */}
-                  <div className="p-4 rounded-xl bg-[#0A0F1A]/60 border border-white/06 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="p-4 rounded-xl bg-[#004671]/60 border border-white/06 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="text-xs">
                       <span className="text-[#C6A15B] font-mono uppercase tracking-wider font-semibold block sm:inline mr-2">
                         Ideal For:
@@ -156,7 +156,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* 3. Engagement Models Comparison Row */}
-      <section id="models" className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
+      <section id="models" className="py-24 md:py-32 bg-[#004671] border-b border-white/08 relative">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
           <SectionHeading
             number="02"
@@ -178,7 +178,7 @@ export default function ConsultingPage() {
                 )}
               >
                 {model.featured && (
-                  <span className="absolute -top-3 left-8 text-[10px] font-mono uppercase tracking-widest font-bold bg-[#C6A15B] text-[#0A0F1A] px-3 py-1 rounded-full shadow">
+                  <span className="absolute -top-3 left-8 text-[10px] font-mono uppercase tracking-widest font-bold bg-[#C6A15B] text-[#004671] px-3 py-1 rounded-full shadow">
                     Most Selected Mandate
                   </span>
                 )}
@@ -248,3 +248,4 @@ export default function ConsultingPage() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Button from "@/components/ui/Button";
@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[560px] sm:min-h-[680px] h-[100svh] max-h-[1080px] flex items-center justify-start pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden bg-[#0F172A] font-sans">
+    <section className="relative min-h-[560px] sm:min-h-[680px] h-[100svh] max-h-[1080px] flex items-center justify-start pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden bg-[#042A41] font-sans">
       {/* 1. High-Resolution Visible Corporate Architecture Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
         <Image
@@ -20,10 +20,10 @@ export default function Hero() {
         />
 
         {/* 2. Directional Gradient: Dark on left for text contrast, open & bright on right so image is clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/85 via-45% to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#042A41] via-[#042A41]/85 via-45% to-transparent z-[2]" />
 
         {/* Bottom blending into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#0F172A] to-transparent z-[3]" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#042A41] to-transparent z-[3]" />
       </div>
 
       {/* Main Content: Clean, focused executive hero banner centered vertically in 100vh */}
@@ -31,8 +31,8 @@ export default function Hero() {
         <div className="max-w-2xl lg:max-w-3xl">
           {/* Eyebrow */}
           <div className="flex items-center gap-2.5 mb-3 sm:mb-5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] animate-pulse shadow-[0_0_10px_#38BDF8]" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[#38BDF8] font-bold">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#C2E8FF] animate-pulse shadow-[0_0_10px_#C2E8FF]" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[#C2E8FF] font-bold">
               {siteConfig.designation}
             </span>
           </div>
@@ -40,7 +40,7 @@ export default function Hero() {
           {/* H1 Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold leading-[1.15] tracking-tight text-white drop-shadow-md">
             Building Brands.{" "}
-            <span className="bg-gradient-to-r from-white via-[#7DD3FC] to-[#38BDF8] bg-clip-text text-transparent block mt-1">
+            <span className="bg-gradient-to-r from-white via-[#EAFFFF] to-[#C2E8FF] bg-clip-text text-transparent block mt-1">
               Creating Impact.
             </span>
           </h1>
@@ -66,9 +66,10 @@ export default function Hero() {
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-1.5 text-slate-400 hover:text-white transition-colors cursor-pointer pointer-events-auto">
         <a href="#achieve-section" className="flex flex-col items-center gap-1 text-[11px] font-mono tracking-widest uppercase">
           <span>Scroll</span>
-          <ChevronDown className="w-4 h-4 animate-bounce text-[#38BDF8]" />
+          <ChevronDown className="w-4 h-4 animate-bounce text-[#C2E8FF]" />
         </a>
       </div>
     </section>
   );
 }
+

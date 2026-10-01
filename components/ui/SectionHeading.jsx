@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+﻿import { cn } from "@/lib/utils";
 
 export default function SectionHeading({
   number,
@@ -30,8 +30,8 @@ export default function SectionHeading({
             className={cn(
               "text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border",
               light
-                ? "text-[#2563EB] border-[#2563EB]/20 bg-[#2563EB]/05"
-                : "text-[#38BDF8] border-[#38BDF8]/30 bg-[#38BDF8]/10"
+                ? "text-[#005C96] border-[#005C96]/20 bg-[#005C96]/05"
+                : "text-[#C2E8FF] border-[#C2E8FF]/30 bg-[#C2E8FF]/10"
             )}
           >
             {number}
@@ -42,7 +42,7 @@ export default function SectionHeading({
           <span
             className={cn(
               "text-xs uppercase font-semibold tracking-[0.2em]",
-              light ? "text-[#2563EB]" : "text-[#38BDF8]"
+              light ? "text-[#005C96]" : "text-[#C2E8FF]"
             )}
           >
             {eyebrow}
@@ -53,7 +53,7 @@ export default function SectionHeading({
       <h2
         className={cn(
           "text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.18] tracking-tight",
-          light ? "text-[#1E293B]" : "text-white"
+          light ? "text-[#0A3A56]" : "text-white"
         )}
       >
         {title}
@@ -63,7 +63,7 @@ export default function SectionHeading({
         <p
           className={cn(
             "mt-4 text-base sm:text-lg leading-relaxed font-normal",
-            light ? "text-[#64748B]" : "text-[#94A3B8]"
+            light ? "text-[#4E7A96]" : "text-[#7298AF]"
           )}
         >
           {description}
@@ -75,11 +75,12 @@ export default function SectionHeading({
         className={cn(
           "mt-6 w-16 h-[3px] rounded-full",
           light
-            ? "bg-gradient-to-r from-[#2563EB] to-[#38BDF8]"
-            : "bg-gradient-to-r from-[#38BDF8] to-[#2563EB]",
+            ? "bg-gradient-to-r from-[#005C96] to-[#C2E8FF]"
+            : "bg-gradient-to-r from-[#C2E8FF] to-[#005C96]",
           isCenter && "mx-auto"
         )}
       />
     </div>
   );
 }
+

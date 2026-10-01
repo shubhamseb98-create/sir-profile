@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { cn } from "@/lib/utils";
@@ -52,3 +52,4 @@ export default function Marquee({
     </div>
   );
 }
+

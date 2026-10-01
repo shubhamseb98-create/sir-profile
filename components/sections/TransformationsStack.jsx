@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -124,7 +124,7 @@ export default function TransformationsStack() {
       ref={sectionRef}
       id="transformations"
       suppressHydrationWarning
-      className="relative h-[280vh] bg-[#0A0F1A] border-b border-white/08 font-sans select-none"
+      className="relative h-[280vh] bg-[#004671] border-b border-white/08 font-sans select-none"
     >
       {/* Sticky 100vh viewport lock: zero pin-spacer artifacts, zero dead space */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-start overflow-hidden pt-7 sm:pt-9 lg:pt-11 pb-3 sm:pb-5">
@@ -138,10 +138,10 @@ export default function TransformationsStack() {
             <div>
               {/* Number Pill + Eyebrow */}
               <div className="flex items-center gap-2.5 mb-1.5 sm:mb-2">
-                <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border text-[#38BDF8] border-[#38BDF8]/30 bg-[#38BDF8]/10">
+                <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border text-[#C2E8FF] border-[#C2E8FF]/30 bg-[#C2E8FF]/10">
                   04
                 </span>
-                <span className="text-xs uppercase font-semibold tracking-[0.2em] text-[#38BDF8]">
+                <span className="text-xs uppercase font-semibold tracking-[0.2em] text-[#C2E8FF]">
                   MEASURABLE IMPACT
                 </span>
               </div>
@@ -152,12 +152,12 @@ export default function TransformationsStack() {
               </h2>
 
               {/* Subtitle / Description */}
-              <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm md:text-base leading-relaxed font-normal text-[#94A3B8] max-w-2xl">
+              <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm md:text-base leading-relaxed font-normal text-[#7298AF] max-w-2xl">
                 Rigorous strategy paired with structured operational execution. How strategic interventions solve systemic growth barriers.
               </p>
 
               {/* Modern Accent Bar */}
-              <div className="mt-2.5 sm:mt-3 w-16 h-[3px] rounded-full bg-gradient-to-r from-[#38BDF8] to-[#2563EB]" />
+              <div className="mt-2.5 sm:mt-3 w-16 h-[3px] rounded-full bg-gradient-to-r from-[#C2E8FF] to-[#005C96]" />
             </div>
 
             <div className="shrink-0 hidden sm:block pb-0.5">
@@ -184,14 +184,14 @@ export default function TransformationsStack() {
                 className="absolute inset-0 w-full will-change-transform"
                 style={{ zIndex: idx + 1, transformOrigin: "center center" }}
               >
-                <article className="w-full h-full rounded-2xl sm:rounded-3xl bg-[#0F172A] border border-slate-700/80 hover:border-[#38BDF8]/60 p-4 sm:p-5 md:p-5 shadow-[0_16px_50px_rgba(0,0,0,0.85)] transition-colors duration-300 relative overflow-hidden group flex flex-col justify-between">
+                <article className="w-full h-full rounded-2xl sm:rounded-3xl bg-[#042A41] border border-slate-700/80 hover:border-[#C2E8FF]/60 p-4 sm:p-5 md:p-5 shadow-[0_16px_50px_rgba(0,0,0,0.85)] transition-colors duration-300 relative overflow-hidden group flex flex-col justify-between">
                   {/* Subtle top edge glow */}
-                  <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-[#38BDF8]/50 to-transparent" />
+                  <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-[#C2E8FF]/50 to-transparent" />
 
                   {/* Top Bar: Badge tags + Card sequence counter */}
                   <div className="flex items-center justify-between pb-2 sm:pb-2.5 mb-2 sm:mb-2.5 border-b border-white/10 shrink-0">
                     <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden">
-                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-900/90 text-[#38BDF8] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/10 shrink-0">
+                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-900/90 text-[#C2E8FF] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/10 shrink-0">
                         {study.category}
                       </span>
                       <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 bg-slate-900/60 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/05 hidden sm:inline-block truncate">
@@ -203,7 +203,7 @@ export default function TransformationsStack() {
                       <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest hidden sm:inline">
                         Transformation
                       </span>
-                      <span className="text-base sm:text-xl font-mono font-extrabold text-[#38BDF8]">
+                      <span className="text-base sm:text-xl font-mono font-extrabold text-[#C2E8FF]">
                         {cardNum}
                         <span className="text-white/20 text-xs sm:text-sm font-normal"> / 03</span>
                       </span>
@@ -226,7 +226,7 @@ export default function TransformationsStack() {
 
                         {/* Floating Client Pill */}
                         <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-[9px] sm:text-[10px] font-mono bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-white">
-                          <span className="font-semibold text-[#38BDF8] truncate mr-2">{study.clientName}</span>
+                          <span className="font-semibold text-[#C2E8FF] truncate mr-2">{study.clientName}</span>
                           <span className="text-slate-400 text-[8px] sm:text-[9px] truncate max-w-[120px] sm:max-w-[160px]">
                             {study.clientScale}
                           </span>
@@ -239,7 +239,7 @@ export default function TransformationsStack() {
                       <div className="flex flex-col justify-between flex-1 gap-1 sm:gap-1.5">
                         <div>
                           {/* Title with link */}
-                          <h3 className="text-base sm:text-lg md:text-xl lg:text-[21px] font-bold text-white group-hover:text-[#38BDF8] transition-colors leading-snug mb-1 line-clamp-2">
+                          <h3 className="text-base sm:text-lg md:text-xl lg:text-[21px] font-bold text-white group-hover:text-[#C2E8FF] transition-colors leading-snug mb-1 line-clamp-2">
                             <Link href={`/case-studies/${study.slug}`}>{study.title}</Link>
                           </h3>
 
@@ -252,7 +252,7 @@ export default function TransformationsStack() {
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-1.5 mb-1">
                             {study.results?.slice(0, 2).map((r, rIdx) => (
                               <div key={rIdx} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-200">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-[#38BDF8] shrink-0 mt-0.5" />
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#C2E8FF] shrink-0 mt-0.5" />
                                 <span className="leading-tight">
                                   <strong className="text-white font-medium">{r.metric}:</strong>{" "}
                                   <span className="text-slate-300">{r.outcome}</span>
@@ -265,8 +265,8 @@ export default function TransformationsStack() {
                         {/* Highlighted Outcome Box (Desktop/Tablet) */}
                         <div className="hidden sm:block p-2 sm:p-2.5 rounded-xl bg-[#0B101E] border border-slate-700/80">
                           <div className="flex items-center gap-1.5 mb-0.5">
-                            <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
-                            <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#38BDF8] font-mono font-bold">
+                            <Sparkles className="w-3.5 h-3.5 text-[#C2E8FF]" />
+                            <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#C2E8FF] font-mono font-bold">
                               Key Outcome Metric
                             </span>
                           </div>
@@ -280,7 +280,7 @@ export default function TransformationsStack() {
                       <div className="flex items-center justify-between pt-2 border-t border-white/08 mt-auto shrink-0">
                         <Link
                           href={`/case-studies/${study.slug}`}
-                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#38BDF8] hover:text-white transition-colors"
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#C2E8FF] hover:text-white transition-colors"
                         >
                           <span>Explore Case Study</span>
                         </Link>
@@ -288,7 +288,7 @@ export default function TransformationsStack() {
                         <Link
                           href={`/case-studies/${study.slug}`}
                           aria-label={`Read ${study.title}`}
-                          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] flex items-center justify-center text-white shrink-0 shadow-md transition-transform duration-200 group-hover:scale-110"
+                          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#005C96] hover:bg-[#004671] flex items-center justify-center text-white shrink-0 shadow-md transition-transform duration-200 group-hover:scale-110"
                         >
                           <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                         </Link>
@@ -305,3 +305,4 @@ export default function TransformationsStack() {
   </section>
 );
 }
+

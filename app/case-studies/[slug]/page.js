@@ -39,7 +39,7 @@ export default async function CaseStudyDetailPage({ params }) {
   return (
     <>
       {/* 1. Header & Context */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-[#0A0F1A] border-b border-white/08 relative">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-[#004671] border-b border-white/08 relative">
         <div className="max-w-[1040px] mx-auto px-6 sm:px-8">
           {/* Breadcrumb back */}
           <Link
@@ -130,7 +130,7 @@ export default async function CaseStudyDetailPage({ params }) {
           </div>
 
           {/* Strategy & Interventions */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-[#0A0F1A] border border-white/08">
+          <div className="p-8 sm:p-10 rounded-2xl bg-[#004671] border border-white/08">
             <span className="text-xs font-mono uppercase tracking-wider text-[#C6A15B] block mb-2 font-semibold">
               03 • Strategic Architecture
             </span>
@@ -168,7 +168,7 @@ export default async function CaseStudyDetailPage({ params }) {
               {study.systemsImplemented.map((sys) => (
                 <div
                   key={sys}
-                  className="p-4 rounded-xl bg-[#0A0F1A]/80 border border-white/06 text-xs text-[#F5F3EE] font-medium"
+                  className="p-4 rounded-xl bg-[#004671]/80 border border-white/06 text-xs text-[#F5F3EE] font-medium"
                 >
                   {sys}
                 </div>
@@ -177,7 +177,7 @@ export default async function CaseStudyDetailPage({ params }) {
           </div>
 
           {/* Results Matrix */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#151D30] to-[#0A0F1A] border border-[#C6A15B]/30 shadow-2xl">
+          <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#151D30] to-[#004671] border border-[#C6A15B]/30 shadow-2xl">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#C6A15B] block mb-1">
@@ -192,7 +192,7 @@ export default async function CaseStudyDetailPage({ params }) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/08">
               {study.results.map((res) => (
-                <div key={res.metric} className="p-4 rounded-xl bg-[#0A0F1A]/60 border border-white/06">
+                <div key={res.metric} className="p-4 rounded-xl bg-[#004671]/60 border border-white/06">
                   <span className="text-[11px] uppercase tracking-wider text-[#C6A15B] font-mono block mb-1">
                     {res.metric}
                   </span>
@@ -206,7 +206,7 @@ export default async function CaseStudyDetailPage({ params }) {
 
           {/* Business Learning & Client Quote */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-6 p-8 rounded-2xl bg-[#0A0F1A] border border-white/08">
+            <div className="md:col-span-6 p-8 rounded-2xl bg-[#004671] border border-white/08">
               <span className="text-xs font-mono uppercase tracking-wider text-[#C6A15B] block mb-2 font-semibold">
                 06 • Executive Learning
               </span>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export default function MobileMenu({ isOpen, onClose }) {
   return (
     <aside
       aria-label="Mobile Navigation"
-      className="fixed inset-0 z-[100] bg-[#0A0F1A]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-300"
+      className="fixed inset-0 z-[100] bg-[#004671]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-300"
     >
       {/* Header bar inside menu */}
       <div className="flex items-center justify-between border-b border-white/08 pb-5">
@@ -88,7 +88,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             trackStrategyCallClick("MobileMenu");
             onClose();
           }}
-          className="w-full text-center bg-[#C6A15B] text-[#0A0F1A] font-semibold py-3.5 px-6 rounded-full text-sm hover:bg-[#E2C98F] transition-colors"
+          className="w-full text-center bg-[#C6A15B] text-[#004671] font-semibold py-3.5 px-6 rounded-full text-sm hover:bg-[#E2C98F] transition-colors"
         >
           Book a Strategy Call
         </Link>
@@ -109,3 +109,4 @@ export default function MobileMenu({ isOpen, onClose }) {
     </aside>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
@@ -12,7 +12,7 @@ const SHOWCASE_VENTURES = [
     role: "Founder & Chief Strategist",
     subtitle: "(Premier 15+ Year Digital Agency & 3,700+ Platforms)",
     badge: "Digital Agency & Tech Ecosystem",
-    period: "2008 – Present",
+    period: "2008 â€“ Present",
     href: "/digital-growth",
     image: "/images/roles/web-tycoons-showcase.jpg",
     highlight: "Delivered 3,700+ web platforms and performance marketing engines across 15+ industry sectors.",
@@ -213,7 +213,7 @@ export default function RolesScroller() {
 
                   {/* Top Header Row of Card */}
                   <div className="absolute top-3.5 sm:top-6 left-3.5 sm:left-6 right-3.5 sm:right-6 flex items-center justify-between z-10">
-                    <span className="text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-black/70 text-[#38BDF8] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/15 backdrop-blur-md">
+                    <span className="text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-black/70 text-[#C2E8FF] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/15 backdrop-blur-md">
                       {item.role}
                     </span>
 
@@ -226,7 +226,7 @@ export default function RolesScroller() {
                   {/* Center Branding Watermark (Only visible when center) */}
                   {isCenter && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-6 pointer-events-none z-10">
-                      <span className="text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#38BDF8] font-bold mb-1.5 sm:mb-2 drop-shadow-md">
+                      <span className="text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#C2E8FF] font-bold mb-1.5 sm:mb-2 drop-shadow-md">
                         {item.badge}
                       </span>
                       <h3 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg max-w-xl">
@@ -305,3 +305,4 @@ export default function RolesScroller() {
     </section>
   );
 }
+

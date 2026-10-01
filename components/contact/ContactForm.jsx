@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -111,8 +111,8 @@ export default function ContactForm() {
               onClick={() => handleCategorySelect(cat)}
               className={`text-xs px-3.5 py-2 rounded-full border transition-all duration-200 cursor-pointer ${
                 selectedCategory === cat
-                  ? "bg-[#C6A15B] text-[#0A0F1A] font-semibold border-[#C6A15B] shadow-sm"
-                  : "bg-[#0A0F1A]/50 text-[#A9B0BE] border-white/10 hover:border-[#C6A15B]/50 hover:text-[#F5F3EE]"
+                  ? "bg-[#C6A15B] text-[#004671] font-semibold border-[#C6A15B] shadow-sm"
+                  : "bg-[#004671]/50 text-[#A9B0BE] border-white/10 hover:border-[#C6A15B]/50 hover:text-[#F5F3EE]"
               }`}
             >
               {cat}
@@ -309,7 +309,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C6A15B] text-[#0A0F1A] font-semibold text-sm uppercase tracking-wider py-4 px-8 rounded-full hover:bg-[#E2C98F] transition-all duration-300 shadow-lg hover:shadow-[0_4px_24px_rgba(198,161,91,0.3)] disabled:opacity-50 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C6A15B] text-[#004671] font-semibold text-sm uppercase tracking-wider py-4 px-8 rounded-full hover:bg-[#E2C98F] transition-all duration-300 shadow-lg hover:shadow-[0_4px_24px_rgba(198,161,91,0.3)] disabled:opacity-50 cursor-pointer"
           >
             {isSubmitting ? (
               <>
@@ -337,3 +337,4 @@ export default function ContactForm() {
     </div>
   );
 }
+

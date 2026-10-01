@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/data/site";
@@ -28,3 +28,4 @@ export default function FloatingWhatsApp() {
     </aside>
   );
 }
+

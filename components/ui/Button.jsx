@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
@@ -30,17 +30,17 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_28px_rgba(29,78,216,0.45)] hover:-translate-y-0.5",
+      "bg-[#005C96] text-white font-semibold hover:bg-[#004671] shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_28px_rgba(29,78,216,0.45)] hover:-translate-y-0.5",
     secondary:
-      "bg-transparent text-white border border-white/20 hover:border-[#38BDF8] hover:text-[#38BDF8] hover:bg-white/[0.04]",
+      "bg-transparent text-white border border-white/20 hover:border-[#C2E8FF] hover:text-[#C2E8FF] hover:bg-white/[0.04]",
     outline:
-      "bg-transparent text-[#38BDF8] border border-[#38BDF8]/40 hover:border-[#38BDF8] hover:bg-[#38BDF8]/10",
+      "bg-transparent text-[#C2E8FF] border border-[#C2E8FF]/40 hover:border-[#C2E8FF] hover:bg-[#C2E8FF]/10",
     "light-primary":
-      "bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] shadow-md hover:-translate-y-0.5",
+      "bg-[#005C96] text-white font-semibold hover:bg-[#004671] shadow-md hover:-translate-y-0.5",
     "light-secondary":
-      "bg-white text-[#1E293B] border border-slate-200 hover:border-[#2563EB] hover:text-[#2563EB] shadow-sm hover:shadow",
+      "bg-white text-[#0A3A56] border border-slate-200 hover:border-[#005C96] hover:text-[#005C96] shadow-sm hover:shadow",
     ghost:
-      "bg-transparent text-[#94A3B8] hover:text-white hover:bg-white/[0.05]",
+      "bg-transparent text-[#7298AF] hover:text-white hover:bg-white/[0.05]",
   };
 
   const iconElement =
@@ -94,3 +94,4 @@ export default function Button({
     </button>
   );
 }
+

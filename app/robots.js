@@ -10,3 +10,4 @@ export default function robots() {
     sitemap: `${siteConfig.domain}/sitemap.xml`,
   };
 }
+

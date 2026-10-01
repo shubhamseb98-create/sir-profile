@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -68,3 +68,4 @@ export default function Counter({
     </span>
   );
 }
+
