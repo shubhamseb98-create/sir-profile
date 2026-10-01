@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0F1D" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="glassBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#2563EB" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.8" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" />
+
+  <!-- Ambient Light Orb -->
+  <circle cx="400" cy="225" r="160" fill="#2563EB" opacity="0.25" filter="url(#glow)" />
+  <circle cx="400" cy="225" r="90" fill="#38BDF8" opacity="0.2" filter="url(#glow)" />
+
+  <!-- Subtle Circuit Lines -->
+  <path d="M 150 225 L 300 225 M 500 225 L 650 225 M 400 75 L 400 135 M 400 315 L 400 375" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.25" stroke-dasharray="4 4" />
+
+  <!-- Outer Glass Hexagon -->
+  <polygon points="400,95 510,160 510,290 400,355 290,290 290,160" fill="#0F172A" fill-opacity="0.6" stroke="url(#glassBorder)" stroke-width="3" filter="url(#glow)" />
+
+  <!-- Inner Glass Hexagon Highlight -->
+  <polygon points="400,115 490,170 490,280 400,335 310,280 310,170" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.4" />
+
+  <!-- Center Icon Graphic -->
+  <g transform="translate(400, 225) scale(1.6)" filter="url(#glow)">
+    
+  <rect x="-7" y="-18" width="14" height="24" rx="7" fill="none" stroke="#38BDF8" stroke-width="3" />
+  <path d="M -13 -4 C -13 8 13 8 13 -4" fill="none" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="0" y1="10" x2="0" y2="20" stroke="#38BDF8" stroke-width="3" />
+  <line x1="-8" y1="20" x2="8" y2="20" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+
+  </g>
+
+  <!-- Title & Subtitle Badge -->
+  <text x="400" y="390" text-anchor="middle" fill="#F8FAFC" font-family="'Poppins', sans-serif" font-size="14" font-weight="600" letter-spacing="3">KEYNOTE SPEAKER</text>
+  <text x="400" y="415" text-anchor="middle" fill="#38BDF8" font-family="'Poppins', sans-serif" font-size="11" font-weight="500" letter-spacing="1.5">MSME & FORUMS</text>
+</svg>
