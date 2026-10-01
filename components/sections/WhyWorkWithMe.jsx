@@ -1,10 +1,15 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/data/site";
 import Button from "@/components/ui/Button";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function WhyWorkWithMe() {
   return (
     <section className="min-h-screen py-6 sm:py-8 flex flex-col justify-center bg-[#EFF6FF] text-[#1E293B] relative overflow-hidden font-sans border-b border-slate-200">
+      {/* Subtle side-edge glow effect (left & right margins only, center stays clean) */}
+      <div className="absolute top-1/4 -left-36 sm:-left-52 w-80 sm:w-96 h-80 sm:h-96 bg-sky-400/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-36 sm:-right-52 w-80 sm:w-96 h-80 sm:h-96 bg-cyan-400/15 rounded-full blur-[120px] pointer-events-none" />
+
       {/* Decorative architectural background watermark */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[18rem] text-[#334155]/[0.03] select-none pointer-events-none font-bold font-sans">
         DA
@@ -21,7 +26,7 @@ export default function WhyWorkWithMe() {
             className="!mb-0 max-w-2xl"
           />
 
-          <div className="shrink-0 pb-1">
+          <ScrollReveal delay={0.2} distance={20} className="shrink-0 pb-1">
             <Button
               href="/contact?type=consulting"
               variant="primary"
@@ -29,14 +34,16 @@ export default function WhyWorkWithMe() {
             >
               Discuss Your Growth Objectives
             </Button>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* 6 Core Engagement Principles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
-          {siteConfig.whyWorkWithMe.map((item) => (
-            <div
+          {siteConfig.whyWorkWithMe.map((item, idx) => (
+            <ScrollReveal
               key={item.number}
+              delay={idx * 0.08}
+              distance={25}
               className="relative p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-2xl hover:shadow-blue-950/20 hover:border-[#38BDF8]/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
             >
               {/* Hover Gradient Background Overlay */}
@@ -64,7 +71,7 @@ export default function WhyWorkWithMe() {
                   Non-Negotiable Principle
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -6,6 +6,8 @@ import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import CustomCursor from "@/components/layout/CustomCursor";
 import Preloader from "@/components/layout/Preloader";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import ScrollProgress from "@/components/layout/ScrollProgress";
+import GSAPSectionRevealer from "@/components/layout/GSAPSectionRevealer";
 import { siteConfig } from "@/data/site";
 
 const poppins = Poppins({
@@ -117,6 +119,8 @@ export default function RootLayout({ children }) {
         </a>
 
         {/* Global UX Layers */}
+        <ScrollProgress />
+        <GSAPSectionRevealer />
         <Preloader />
         <CustomCursor />
 

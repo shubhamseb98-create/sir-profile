@@ -15,6 +15,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // Inline Instagram SVG icon
 function InstagramIcon({ className = "w-4 h-4" }) {
@@ -301,7 +302,7 @@ export default function VideoSection() {
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center">
         {/* ── Section Header (Compact for 100vh) ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4 sm:mb-5">
+        <ScrollReveal distance={28} delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4 sm:mb-5">
           <div>
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 bg-[#0F172A] border border-[#38BDF8]/40 rounded-full px-3 py-0.5 mb-1.5 shadow-[0_0_20px_rgba(56,189,248,0.15)]">
@@ -333,14 +334,14 @@ export default function VideoSection() {
             <span>Watch More @indiandheeraj</span>
             <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
-        </div>
+        </ScrollReveal>
 
         {/* ── 3-Column Instagram Reels Grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-center">
+        <ScrollReveal distance={35} delay={0.2} scale={0.98} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-center">
           {reelsData.map((reel) => (
             <InstagramReelCard key={reel.id} reel={reel} />
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

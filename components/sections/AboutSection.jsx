@@ -3,14 +3,19 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { Award, Briefcase } from "lucide-react";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function AboutSection() {
   return (
-    <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full">
+    <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200 overflow-hidden">
+      {/* Subtle side-edge glow effect (left & right margins only, center stays pure white) */}
+      <div className="absolute top-1/4 -left-36 sm:-left-52 w-80 sm:w-96 h-80 sm:h-96 bg-cyan-400/12 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-36 sm:-right-52 w-80 sm:w-96 h-80 sm:h-96 bg-sky-400/12 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* Left Column: Clean Narrative & Core Philosophy */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+          <ScrollReveal direction="up" distance={30} delay={0.1} className="lg:col-span-7 flex flex-col justify-center">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#334155]" />
@@ -52,10 +57,10 @@ export default function AboutSection() {
                 Explore Advisory Frameworks
               </Button>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Executive Image with Floating Glassmorphic Badges */}
-          <div className="lg:col-span-5 relative">
+          <ScrollReveal direction="up" distance={35} delay={0.25} scale={0.97} className="lg:col-span-5 relative">
             <div className="relative h-[300px] sm:h-[360px] md:h-[400px] lg:h-[420px] w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-950 group">
               <Image
                 src="/images/hero/ddab.png"
@@ -67,8 +72,6 @@ export default function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
 
-             
-            
               {/* Bottom Credential Card Overlay */}
               <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
                 <div className="flex items-center justify-between mb-1">
@@ -77,11 +80,9 @@ export default function AboutSection() {
                     Executive Advisor
                   </span>
                 </div>
-              
-                
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

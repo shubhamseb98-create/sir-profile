@@ -8,6 +8,7 @@ import { gsap, ScrollTrigger, initGSAP } from "@/lib/gsap";
 import Button from "@/components/ui/Button";
 import { caseStudies } from "@/data/caseStudies";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 // Representative imagery for the 3 featured transformation cases
 const CASE_IMAGES = {
@@ -133,7 +134,7 @@ export default function TransformationsStack() {
         <DarkSectionLining glowPosition="split" showTopBeam={true} showBottomBeam={true} />
 
         {/* Section Header: Unified 1:1 with site standard max-w-[1240px] layout */}
-        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 z-20 shrink-0">
+        <ScrollReveal distance={28} delay={0.1} className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 z-20 shrink-0">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4">
             <div>
               {/* Number Pill + Eyebrow */}
@@ -166,7 +167,7 @@ export default function TransformationsStack() {
               </Button>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Card Stacking Arena: Clean margin-top prevents header collision, content & image stretch to card bottom */}
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10 mt-4 sm:mt-5 lg:mt-6 flex items-center justify-center">

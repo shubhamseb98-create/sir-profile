@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Menu } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const SHOWCASE_VENTURES = [
   {
@@ -160,7 +161,7 @@ export default function RolesScroller() {
 
       <div className="w-full mx-auto relative z-10">
         {/* Top Left Title: Exact GSAP Showcase Typography with Eyebrow */}
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-16 mb-3 sm:mb-4 md:mb-6">
+        <ScrollReveal distance={28} delay={0.1} className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-16 mb-3 sm:mb-4 md:mb-6">
           <div className="flex items-center gap-2.5 mb-2">
             <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border text-[#38BDF8] border-[#38BDF8]/30 bg-[#38BDF8]/10">
               03
@@ -172,9 +173,10 @@ export default function RolesScroller() {
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-sans">
             Showcase
           </h2>
-        </div>
+        </ScrollReveal>
 
         {/* The Horizontal Viewport Slider Stage (Grab & Scroll, Loop, Autoplay) */}
+        <ScrollReveal distance={35} delay={0.2} scale={0.98}>
         <div
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -313,6 +315,7 @@ export default function RolesScroller() {
             </button>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

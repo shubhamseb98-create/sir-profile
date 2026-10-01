@@ -109,9 +109,9 @@ export default function ExpertiseCards() {
       className="relative h-[480vh] bg-[#F1F5FB] text-[#0F172A] border-y border-slate-200 select-none"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden z-10">
-        {/* Ambient blobs */}
-        <div className="absolute top-1/3 -left-40 w-96 h-96 bg-blue-200/40 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-1/3 -right-40 w-96 h-96 bg-sky-200/40 rounded-full blur-[140px] pointer-events-none" />
+        {/* Subtle side-edge glow */}
+        <div className="absolute top-1/3 -left-48 w-96 h-96 bg-cyan-400/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/3 -right-48 w-96 h-96 bg-sky-400/12 rounded-full blur-[130px] pointer-events-none" />
 
         {/* Header */}
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pt-3 sm:pt-6 md:pt-8">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, ExternalLink, TrendingUp, Sparkles } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const OUTCOMES_CARDS = [
   {
@@ -205,7 +206,7 @@ export default function Outcomes() {
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-8">
+        <ScrollReveal distance={30} delay={0.1} className="text-center max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/05 backdrop-blur-md mb-2 sm:mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
             <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#38BDF8] font-bold">
@@ -220,9 +221,10 @@ export default function Outcomes() {
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-xl mx-auto px-2">
             Transforming strategic intent into predictable operational reality. Explore seven core growth dimensions designed for promoter-led enterprises.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 3D Infinite Perspective Carousel Stage (Grab & Scroll, Loop, Autoplay) */}
+        <ScrollReveal distance={35} delay={0.2} scale={0.98}>
         <div
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -388,6 +390,7 @@ export default function Outcomes() {
             Next
           </button>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

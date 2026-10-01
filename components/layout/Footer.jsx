@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import { ArrowUpRight } from "lucide-react";
-import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import FooterFloatingBackground from "@/components/ui/FooterFloatingBackground";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#0A0F1A] border-t border-slate-800/80 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 text-white font-sans overflow-hidden">
-      {/* ── Background Lining Texture & Ambient Glow ── */}
-      <DarkSectionLining glowPosition="split" showTopBeam={true} showBottomBeam={false} />
+    <footer className="relative bg-[#0A0F1A] border-t border-slate-800/90 pt-14 sm:pt-18 md:pt-20 pb-8 sm:pb-12 text-white font-sans overflow-hidden">
+      {/* ── Floating Luminous Glass Rings, Circles & Ambient Glow ── */}
+      <FooterFloatingBackground />
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 pb-12 sm:pb-16 border-b border-slate-800/80">
@@ -28,7 +28,7 @@ export default function Footer() {
               {siteConfig.positioningLine}
             </p>
 
-            <div className="mt-6 p-4 rounded-2xl bg-[#0F172A]/90 border border-slate-800 max-w-sm backdrop-blur-md shadow-lg">
+            <div className="mt-6 p-4 rounded-2xl bg-[#0F172A]/90 border border-slate-800 hover:border-[#38BDF8]/40 max-w-sm backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(56,189,248,0.06)] transition-all">
               <span className="text-[11px] uppercase tracking-wider text-[#38BDF8] font-mono font-bold block mb-1">
                 Executive Creed
               </span>

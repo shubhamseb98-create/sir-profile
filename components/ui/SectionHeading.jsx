@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export default function SectionHeading({
   number,
@@ -12,7 +15,11 @@ export default function SectionHeading({
   const isCenter = align === "center";
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "mb-12 md:mb-16 font-sans",
         isCenter ? "text-center max-w-3xl mx-auto" : "max-w-3xl",
@@ -80,7 +87,7 @@ export default function SectionHeading({
           isCenter && "mx-auto"
         )}
       />
-    </div>
+    </motion.div>
   );
 }
 

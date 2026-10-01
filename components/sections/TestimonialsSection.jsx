@@ -5,6 +5,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { writtenTestimonials } from "@/data/testimonials";
 import { Quote, ChevronLeft, ChevronRight, Award, Star } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function TestimonialsSection() {
   const [activeQuoteIndex, setActiveQuoteIndex] = useState(0);
@@ -36,6 +37,7 @@ export default function TestimonialsSection() {
         />
 
         {/* Written Testimonial Feature Card */}
+        <ScrollReveal distance={35} delay={0.2} scale={0.98}>
         <div className="rounded-3xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-slate-700/60 p-6 sm:p-10 md:p-12 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_40px_rgba(56,189,248,0.12)]">
           {/* Glowing Top Beam */}
           <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#38BDF8]/70 to-transparent shadow-[0_0_14px_rgba(56,189,248,0.8)]" />
@@ -101,6 +103,7 @@ export default function TestimonialsSection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

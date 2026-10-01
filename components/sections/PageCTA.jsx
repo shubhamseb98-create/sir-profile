@@ -2,6 +2,7 @@ import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
 import { MessageCircle, Mail } from "lucide-react";
 import Link from "next/link";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function PageCTA({
   title = "Let's Build Something Meaningful.",
@@ -19,11 +20,12 @@ export default function PageCTA({
   className = "",
 }) {
   return (
-    <section className={`min-h-screen py-10 sm:py-14 md:py-16 flex flex-col justify-center bg-gradient-to-br from-[#EFF6FF] via-[#F8FAFF] to-[#DBEAFE] border-t border-slate-200 relative overflow-hidden font-sans ${className}`}>
-      {/* Background ambient sky glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-200/40 rounded-full blur-[140px] pointer-events-none" />
+    <section className={`min-h-screen py-10 sm:py-14 md:py-16 flex flex-col justify-center bg-white border-t border-slate-200 relative overflow-hidden font-sans ${className}`}>
+      {/* Subtle side-edge glow effect (left & right margins only, center stays clean) */}
+      <div className="absolute top-1/3 -left-32 sm:-left-48 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-400/16 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute bottom-1/3 -right-32 sm:-right-48 w-72 sm:w-96 h-72 sm:h-96 bg-sky-400/16 rounded-full blur-[110px] pointer-events-none" />
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10">
+      <ScrollReveal distance={35} delay={0.1} className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10">
         {/* Eyebrow */}
         <span className="text-[10px] sm:text-xs uppercase tracking-[0.24em] text-[#334155] font-mono font-bold block mb-3 sm:mb-4">
           {eyebrow}
@@ -83,7 +85,7 @@ export default function PageCTA({
             </a>
           </div>
         )}
-      </div>
+      </ScrollReveal>
     </section>
   );
 }
