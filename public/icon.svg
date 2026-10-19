@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="limeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2FF6E" />
+      <stop offset="60%" stop-color="#CFFF04" />
+      <stop offset="100%" stop-color="#84CC16" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141920" />
+      <stop offset="100%" stop-color="#050709" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="url(#limeGrad)" stroke-width="2.5" />
+
+  <!-- Inner Subtle Accent Rim -->
+  <rect x="5" y="5" width="54" height="54" rx="13" fill="none" stroke="rgba(207, 255, 4, 0.15)" stroke-width="1" />
+
+  <!-- Monogram DA Text -->
+  <text
+    x="31"
+    y="43"
+    text-anchor="middle"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    font-size="31"
+    font-weight="900"
+    letter-spacing="-1.5"
+    fill="url(#limeGrad)"
+  >DA</text>
+
+  <!-- Electric Dot Accent -->
+  <circle cx="49" cy="17" r="2.5" fill="#CFFF04" />
+</svg>

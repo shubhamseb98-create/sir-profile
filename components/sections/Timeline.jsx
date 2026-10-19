@@ -4,67 +4,66 @@ import { useEffect, useRef } from "react";
 import { initGSAP, gsap } from "@/lib/gsap";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-export default function Timeline() {
+export default function Timeline({ light = false }) {
   const containerRef = useRef(null);
-  const lineRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
 
   const milestones = [
     {
       step: "01",
-      title: "Early Entrepreneurial Phase & Digital Inception",
-      period: "Foundational Phase", // TODO: CLIENT TO PROVIDE exact year
+      title: "Early Entrepreneurial & Digital Inception",
+      period: "Foundational Phase",
       description:
-        "Entering the emerging digital ecosystem with an intense focus on internet technologies, web development, search algorithms, and commercial digital potential.",
+        "Entering the emerging internet ecosystem with focused web engineering, search algorithms, and commercial digital solutions.",
     },
     {
       step: "02",
-      title: "Foundation & Scaled Growth of Web Tycoons",
-      period: "Agency Inception", // TODO: CLIENT TO PROVIDE exact year
+      title: "Foundation & Scale of Web Tycoons",
+      period: "Agency Inception",
       description:
-        "Establishing Web Tycoons as a dedicated web engineering and digital marketing agency, developing structured development sprint workflows and search visibility solutions.",
+        "Establishing Web Tycoons as a full-service agency, deploying structured sprint workflows and ROI-focused digital architectures.",
     },
     {
       step: "03",
-      title: "Delivering 3,700+ Digital Web Ecosystems",
-      period: "Multi-Sector Delivery", // TODO: CLIENT TO PROVIDE
+      title: "Delivering 3,700+ Digital Ecosystems",
+      period: "Multi-Sector Delivery",
       description:
-        "Expanding client delivery across 15+ industry verticalsâ€”including manufacturing, healthcare, hospitality, education, real estate, and consumer brands.",
+        "Expanding client delivery across 15+ industry verticals—including manufacturing, healthcare, hospitality, and consumer enterprises.",
     },
     {
       step: "04",
-      title: "Expansion into Strategic Business Consulting",
-      period: "Advisory Mandates", // TODO: CLIENT TO PROVIDE
+      title: "Transition to Business Consulting",
+      period: "Advisory Mandates",
       description:
-        "Transitioning from pure digital execution into executive advisory: diagnosing business models, optimizing sales funnels, and restructuring team accountability.",
+        "Evolving into executive consulting: diagnosing business models, optimizing sales funnels, and restructuring team accountability.",
     },
     {
       step: "05",
       title: "Executive Advisory with Karma Ayurveda",
-      period: "Healthcare Leadership", // TODO: CLIENT TO PROVIDE
+      period: "Healthcare Leadership",
       description:
-        "Leading growth strategy, custom CRM architecture, sales counseling SOPs, clinic conversion optimization, and hospital partnership frameworks across a national network.",
+        "Directing growth strategy, custom CRM architecture, sales counseling SOPs, and hospital partnership frameworks across India.",
     },
     {
       step: "06",
-      title: "Hospitality Ecosystem Leadership via HHC",
-      period: "Community Building", // TODO: CLIENT TO PROVIDE
+      title: "Hospitality Leadership via HHC",
+      period: "Community Building",
       description:
-        "Co-directing the Happy Hospitality Club, architecting structured vendor monetization models, and curating premier executive roundtables for hoteliers and restaurateurs.",
+        "Co-directing Happy Hospitality Club, architecting structured vendor monetization models, and curating executive roundtables.",
     },
     {
       step: "07",
-      title: "BNI Chapter Leadership & Referral Excellence",
-      period: "Networking Governance", // TODO: CLIENT TO PROVIDE
+      title: "BNI Chapter Leadership & Governance",
+      period: "Networking Governance",
       description:
-        "Serving as Chapter President and long-term business mentor within BNI, cultivating a high-accountability referral culture and driving substantial revenue for member enterprises.",
+        "Serving as Chapter President and mentor within BNI, driving high-accountability referral culture and scalable enterprise growth.",
     },
     {
       step: "08",
-      title: "National Speaking, Workshops & MSME Mentoring",
-      period: "Current Horizon", // TODO: CLIENT TO PROVIDE
+      title: "National Speaking & MSME Mentoring",
+      period: "Current Horizon",
       description:
-        "Taking the stage at business forums, association conclaves, and executive offsites to deliver practical masterclasses on digital strategy, ROAS, and system-driven freedom.",
+        "Delivering masterclasses at industry conclaves on digital strategy, ROAS optimization, and system-driven founder freedom.",
     },
   ];
 
@@ -74,34 +73,16 @@ export default function Timeline() {
     const { ScrollTrigger } = initGSAP();
 
     const ctx = gsap.context(() => {
-      // Scrub draw for the vertical gold line
-      if (lineRef.current && containerRef.current) {
-        gsap.fromTo(
-          lineRef.current,
-          { height: "0%" },
-          {
-            height: "100%",
-            ease: "none",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 70%",
-              end: "bottom 80%",
-              scrub: 0.5,
-            },
-          }
-        );
-      }
-
-      // Milestone card fade-ins
-      gsap.utils.toArray(".timeline-node").forEach((node) => {
+      gsap.utils.toArray(".timeline-node").forEach((node, i) => {
         gsap.from(node, {
-          y: 30,
+          y: 20,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.6,
+          delay: (i % 4) * 0.1,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: node,
-            start: "top 85%",
+            trigger: containerRef.current,
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         });
@@ -112,70 +93,74 @@ export default function Timeline() {
   }, [prefersReducedMotion]);
 
   return (
-    <div ref={containerRef} className="relative py-12">
-      {/* Central Guide Track (Static Dim Line) */}
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/08 -translate-x-1/2" />
-
-      {/* Scrubbed Animated Gold Fill Line */}
-      <div
-        ref={lineRef}
-        className="absolute left-4 md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-[#C6A15B] via-[#E2C98F] to-[#C6A15B] -translate-x-1/2 z-10"
-        style={{ height: prefersReducedMotion ? "100%" : "0%" }}
-      />
-
-      <div className="space-y-12 sm:space-y-16">
-        {milestones.map((m, idx) => {
-          const isEven = idx % 2 === 0;
-
-          return (
-            <div
-              key={m.step}
-              className={`timeline-node relative flex flex-col md:flex-row items-start ${
-                isEven ? "md:flex-row-reverse" : ""
-              } gap-6 md:gap-12`}
-            >
-              {/* Center Dot Indicator */}
-              <div className="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 w-4 h-4 rounded-full bg-[#0A0F1A] border-2 border-[#C6A15B] z-20 flex items-center justify-center">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C6A15B]" />
+    <div ref={containerRef} className="w-full">
+      {/* Desktop & Tablet: Spacious 4x2 Milestone Grid with generous breathing room */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+        {milestones.map((m) => (
+          <div
+            key={m.step}
+            className={`timeline-node relative flex flex-col justify-between p-5 sm:p-6 lg:p-7 rounded-2xl transition-all duration-300 group hover:-translate-y-1.5 ${
+              light
+                ? "bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-black"
+                : "bg-[#0A0D14]/90 backdrop-blur-xl border border-white/10 hover:border-[#CFFF04]/50 shadow-lg hover:shadow-[0_0_25px_rgba(207,255,4,0.14)]"
+            }`}
+          >
+            {/* Top Node & Milestone Badge */}
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-3.5">
+                <span
+                  className={`font-mono text-xs font-bold px-2.5 py-0.5 rounded-full ${
+                    light
+                      ? "text-white bg-black border border-black shadow-sm"
+                      : "text-black bg-[#CFFF04] border border-[#CFFF04] font-extrabold"
+                  }`}
+                >
+                  Step {m.step}
+                </span>
+                <span
+                  className={`text-[11px] font-mono ${
+                    light ? "text-slate-500" : "text-slate-400"
+                  }`}
+                >
+                  {m.period}
+                </span>
               </div>
 
-              {/* Content Card */}
-              <div
-                className={`ml-10 md:ml-0 md:w-1/2 ${
-                  isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
+              {/* Title */}
+              <h3
+                className={`font-sans text-sm sm:text-base font-bold mb-2 leading-snug transition-colors line-clamp-2 ${
+                  light
+                    ? "text-slate-900 group-hover:text-black"
+                    : "text-white group-hover:text-[#CFFF04]"
                 }`}
               >
-                <div className="p-6 sm:p-8 rounded-2xl bg-[#0F1626] border border-white/08 hover:border-[#C6A15B]/40 transition-colors shadow-lg">
-                  <div
-                    className={`flex items-center gap-3 mb-2 ${
-                      isEven ? "md:justify-end" : "justify-start"
-                    }`}
-                  >
-                    <span className="font-mono text-xs font-bold text-[#C6A15B] px-2 py-0.5 rounded bg-[#C6A15B]/10">
-                      Step {m.step}
-                    </span>
-                    <span className="text-xs font-mono text-[#A9B0BE]/70">
-                      {m.period}
-                    </span>
-                  </div>
+                {m.title}
+              </h3>
 
-                  <h3 className="font-editorial text-2xl font-medium text-[#F5F3EE] mb-2 leading-snug">
-                    {m.title}
-                  </h3>
-
-                  <p className="text-sm text-[#A9B0BE] leading-relaxed">
-                    {m.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Empty placeholder for opposite side balance on desktop */}
-              <div className="hidden md:block md:w-1/2" />
+              {/* Description */}
+              <p
+                className={`text-xs sm:text-[13px] leading-relaxed line-clamp-3 font-normal ${
+                  light ? "text-slate-600" : "text-slate-300"
+                }`}
+              >
+                {m.description}
+              </p>
             </div>
-          );
-        })}
+
+            {/* Bottom Glow Indicator */}
+            <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#CFFF04] shadow-[0_0_6px_#CFFF04]" />
+              <span
+                className={`text-[10px] uppercase tracking-wider font-mono ${
+                  light ? "text-slate-400" : "text-slate-500"
+                }`}
+              >
+                Milestone 0{m.step}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
-

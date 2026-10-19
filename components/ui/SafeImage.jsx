@@ -22,18 +22,18 @@ export default function SafeImage({
     return (
       <div
         className={cn(
-          "relative overflow-hidden bg-gradient-to-b from-[#151D30] to-[#0F1626] border border-white/08 flex flex-col items-center justify-center p-6 text-center select-none group",
+          "relative overflow-hidden bg-gradient-to-b from-[#0A0D14] to-black border border-white/10 flex flex-col items-center justify-center p-6 text-center select-none group",
           aspectRatio,
           className
         )}
       >
-        <div className="w-12 h-12 rounded-full border border-[#C6A15B]/30 flex items-center justify-center mb-3 bg-[#C6A15B]/05">
-          <span className="font-editorial text-lg text-[#C6A15B] font-semibold">DA</span>
+        <div className="w-12 h-12 rounded-full border border-[#CFFF04]/30 flex items-center justify-center mb-3 bg-[#CFFF04]/10">
+          <span className="font-mono text-base text-[#CFFF04] font-bold">DA</span>
         </div>
-        <p className="text-xs uppercase tracking-widest text-[#A9B0BE]/70 font-mono">
+        <p className="text-xs uppercase tracking-widest text-slate-400 font-mono">
           {alt || "Executive Portrait"}
         </p>
-        <span className="mt-2 text-[10px] tracking-wider uppercase text-[#C6A15B]/60 font-mono bg-[#0A0F1A]/60 px-2 py-0.5 rounded border border-[#C6A15B]/15">
+        <span className="mt-2 text-[10px] tracking-wider uppercase text-[#CFFF04] font-mono bg-black/60 px-2 py-0.5 rounded border border-[#CFFF04]/20">
           {placeholderLabel}
         </span>
       </div>
@@ -59,4 +59,3 @@ export default function SafeImage({
     </div>
   );
 }
-

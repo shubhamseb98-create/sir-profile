@@ -13,13 +13,13 @@ export default function DarkSectionLining({
       aria-hidden="true"
       className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
     >
-      {/* ── 1. Architectural Pinstripe Grid Lines Texture (Crisp Cyan/Slate Tint) ── */}
+      {/* ── 1. Architectural Pinstripe Grid Lines Texture (Subtle Neon #CFFF04 Tint) ── */}
       <div
-        className="absolute inset-0 opacity-[0.65]"
+        className="absolute inset-0 opacity-[0.55]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(56, 189, 248, 0.10) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(56, 189, 248, 0.10) 1px, transparent 1px)
+            linear-gradient(to right, rgba(207, 255, 4, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(207, 255, 4, 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "40px 40px",
           maskImage:
@@ -31,15 +31,15 @@ export default function DarkSectionLining({
 
       {/* ── 2. Subtle Angled Linear Tech Accent Pinstripes ── */}
       <div
-        className="absolute inset-0 opacity-[0.35]"
+        className="absolute inset-0 opacity-[0.25]"
         style={{
           backgroundImage: `
             repeating-linear-gradient(
               -45deg,
               transparent,
               transparent 40px,
-              rgba(56, 189, 248, 0.07) 40px,
-              rgba(56, 189, 248, 0.07) 41px
+              rgba(207, 255, 4, 0.04) 40px,
+              rgba(207, 255, 4, 0.04) 41px
             )
           `,
           maskImage:
@@ -49,52 +49,52 @@ export default function DarkSectionLining({
         }}
       />
 
-      {/* ── 3. High-Impact Ambient Glowing Orbs ── */}
+      {/* ── 3. High-Impact Electric Neon Glow Halos (#CFFF04) ── */}
       {glowPosition === "center" && (
         <>
-          {/* Main Central Electric Cyan/Blue Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#38BDF8]/25 via-[#2563EB]/20 to-transparent rounded-full blur-[130px]" />
-          {/* Top Left Floating Cyan Highlight */}
-          <div className="absolute top-5 left-1/5 w-[500px] h-[400px] bg-[#38BDF8]/20 rounded-full blur-[110px]" />
-          {/* Bottom Right Deep Cobalt Glow */}
-          <div className="absolute bottom-5 right-1/5 w-[550px] h-[450px] bg-[#1D4ED8]/24 rounded-full blur-[120px]" />
+          {/* Main Central Electric Neon Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[520px] bg-gradient-to-b from-[#CFFF04]/16 via-[#A3E635]/10 to-transparent rounded-full blur-[140px]" />
+          {/* Top Left Floating Neon Highlight */}
+          <div className="absolute top-5 left-1/5 w-[500px] h-[400px] bg-[#CFFF04]/14 rounded-full blur-[120px]" />
+          {/* Bottom Right Deep Neon Accent */}
+          <div className="absolute bottom-5 right-1/5 w-[550px] h-[450px] bg-[#84CC16]/12 rounded-full blur-[130px]" />
           {/* Core Spotlight Behind Content */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[300px] bg-[#0284c7]/22 rounded-full blur-[80px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[300px] bg-[#CFFF04]/15 rounded-full blur-[90px]" />
         </>
       )}
 
       {glowPosition === "split" && (
         <>
-          {/* Left Side Vibrant Cyan Radiant Cloud */}
-          <div className="absolute top-1/3 -left-28 w-[700px] h-[600px] bg-gradient-to-br from-[#38BDF8]/26 via-[#0284c7]/20 to-transparent rounded-full blur-[130px]" />
-          {/* Right Side Rich Cobalt Radiant Cloud */}
-          <div className="absolute bottom-1/4 -right-28 w-[700px] h-[600px] bg-gradient-to-tl from-[#2563EB]/28 via-[#1E40AF]/22 to-transparent rounded-full blur-[140px]" />
-          {/* Center Stage Floating Cyan Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[380px] bg-gradient-to-r from-[#38BDF8]/18 via-[#0ea5e9]/16 to-[#2563EB]/16 rounded-full blur-[100px]" />
+          {/* Left Side Vibrant Neon Cloud */}
+          <div className="absolute top-1/3 -left-28 w-[700px] h-[600px] bg-gradient-to-br from-[#CFFF04]/18 via-[#84CC16]/10 to-transparent rounded-full blur-[140px]" />
+          {/* Right Side Radiant Neon Cloud */}
+          <div className="absolute bottom-1/4 -right-28 w-[700px] h-[600px] bg-gradient-to-tl from-[#CFFF04]/16 via-[#A3E635]/10 to-transparent rounded-full blur-[140px]" />
+          {/* Center Stage Floating Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[380px] bg-[#CFFF04]/10 rounded-full blur-[110px]" />
           {/* Top Center Crest Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#38BDF8]/22 rounded-full blur-[90px]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#CFFF04]/14 rounded-full blur-[90px]" />
         </>
       )}
 
       {glowPosition === "top" && (
         <>
-          {/* Top Vibrant Glow Aura */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-[#38BDF8]/28 via-[#2563EB]/18 to-transparent rounded-full blur-[120px]" />
+          {/* Top Vibrant Neon Aura */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-[#CFFF04]/18 via-[#84CC16]/10 to-transparent rounded-full blur-[130px]" />
           {/* Bottom Right Accent Glow */}
-          <div className="absolute bottom-5 right-10 w-[600px] h-[450px] bg-[#1E40AF]/24 rounded-full blur-[130px]" />
+          <div className="absolute bottom-5 right-10 w-[600px] h-[450px] bg-[#CFFF04]/12 rounded-full blur-[130px]" />
           {/* Bottom Left Subtle Accent */}
-          <div className="absolute bottom-10 left-10 w-[450px] h-[350px] bg-[#38BDF8]/16 rounded-full blur-[110px]" />
+          <div className="absolute bottom-10 left-10 w-[450px] h-[350px] bg-[#CFFF04]/12 rounded-full blur-[120px]" />
         </>
       )}
 
-      {/* ── 4. Top Luminous Beam Line with Enhanced Glow Halo ── */}
+      {/* ── 4. Top Luminous Beam Line with Electric Neon Glow (#CFFF04) ── */}
       {showTopBeam && (
-        <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#38BDF8]/60 to-transparent shadow-[0_0_20px_rgba(56,189,248,0.5)]" />
+        <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#CFFF04]/70 to-transparent shadow-[0_0_20px_rgba(207,255,4,0.65)]" />
       )}
 
-      {/* ── 5. Bottom Luminous Beam Line with Enhanced Glow Halo ── */}
+      {/* ── 5. Bottom Luminous Beam Line with Electric Neon Glow (#CFFF04) ── */}
       {showBottomBeam && (
-        <div className="absolute bottom-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#38BDF8]/45 to-transparent shadow-[0_0_16px_rgba(56,189,248,0.35)]" />
+        <div className="absolute bottom-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#CFFF04]/50 to-transparent shadow-[0_0_16px_rgba(207,255,4,0.45)]" />
       )}
     </div>
   );

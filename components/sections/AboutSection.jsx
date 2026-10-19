@@ -4,13 +4,14 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { Award, Briefcase } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import RollingText from "@/components/ui/RollingText";
 
 export default function AboutSection() {
   return (
     <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200 overflow-hidden">
-      {/* Subtle side-edge glow effect (left & right margins only, center stays pure white) */}
-      <div className="absolute top-1/4 -left-36 sm:-left-52 w-80 sm:w-96 h-80 sm:h-96 bg-cyan-400/12 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-36 sm:-right-52 w-80 sm:w-96 h-80 sm:h-96 bg-sky-400/12 rounded-full blur-[120px] pointer-events-none" />
+      {/* Subtle balanced neon lime ambient glow aura */}
+      <div className="absolute top-1/4 -left-28 sm:-left-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#CFFF04]/13 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#CFFF04]/13 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
@@ -26,16 +27,26 @@ export default function AboutSection() {
 
             {/* Headline */}
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-extrabold text-[#0F172A] leading-tight tracking-tight mb-2 sm:mb-3">
-              Architecting Strategic Growth, Scalable Systems & High-Value Alliances.
+              <RollingText text="Architecting Strategic Growth, Scalable Systems & High-Value Alliances." />
             </h2>
 
             {/* Narrative Body */}
             <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-2">
-              Dheeraj Aggarwal is a business consultant, growth specialist, and digital strategist with over 15 years of ground-level entrepreneurial experience. Having delivered 3,700+ digital platforms, advised promoter-driven enterprises, and built institutional industry communities, he bridges high-level strategic vision with disciplined operational execution.
+              <RollingText
+                text="Dheeraj Aggarwal is a business consultant, growth specialist, and digital strategist with over 15 years of ground-level entrepreneurial experience. Having delivered 3,700+ digital platforms, advised promoter-driven enterprises, and built institutional industry communities, he bridges high-level strategic vision with disciplined operational execution."
+                delay={0.2}
+                duration={1.3}
+                stagger={0.025}
+              />
             </p>
 
             <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-2.5 sm:mb-3">
-              Whether advising nationwide healthcare chains like Karma Ayurveda, scaling digital agency ecosystems at Web Tycoons, or uniting hospitality leaders through Happy Hospitality Club, his approach centers on unit economics, automated workflows, and building enterprises that operate seamlessly without founder bottlenecks.
+              <RollingText
+                text="Whether advising nationwide healthcare chains like Karma Ayurveda, scaling digital agency ecosystems at Web Tycoons, or uniting hospitality leaders through Happy Hospitality Club, his approach centers on unit economics, automated workflows, and building enterprises that operate seamlessly without founder bottlenecks."
+                delay={0.35}
+                duration={1.3}
+                stagger={0.025}
+              />
             </p>
 
             {/* Guiding Principle Callout */}
@@ -44,16 +55,16 @@ export default function AboutSection() {
                 &ldquo;Sustainable enterprise value is not created by ad-hoc marketing campaigns. It is engineered through unit economic clarity, repeatable SOPs, and ruthless operational accountability.&rdquo;
               </p>
               <div className="mt-1 text-[10px] font-mono font-bold text-[#334155]">
-                â€” Dheeraj Aggarwal, Executive Advisor
+                — Dheeraj Aggarwal, Executive Advisor
               </div>
             </div>
 
             {/* Actions */}
             <div className="flex flex-wrap items-center gap-3">
-              <Button href="/about" variant="primary" size="sm">
+              <Button href="/about" variant="light-primary" size="sm">
                 Read Full Biography
               </Button>
-              <Button href="/consulting" variant="secondary" size="sm" icon="right">
+              <Button href="/consulting" variant="light-secondary" size="sm" icon="right">
                 Explore Advisory Frameworks
               </Button>
             </div>
@@ -76,7 +87,7 @@ export default function AboutSection() {
               <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
                 <div className="flex items-center justify-between mb-1">
                   <h3 className="text-sm sm:text-lg font-bold text-white">Dheeraj Aggarwal</h3>
-                  <span className="text-[9px] sm:text-[10px] font-mono text-[#38BDF8] bg-blue-950/80 px-2 sm:px-2.5 py-0.5 rounded-full border border-blue-500/30">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-white bg-black/95 px-2 sm:px-2.5 py-0.5 rounded-full border border-white/20">
                     Executive Advisor
                   </span>
                 </div>

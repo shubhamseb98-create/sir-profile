@@ -1,81 +1,83 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
+import Image from "next/image";
 
 export default function Preloader() {
-  const prefersReducedMotion = useReducedMotion();
-  const [visible, setVisible] = useState(false);
-  const [leaving, setLeaving] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    let hasLoaded = false;
+    // Check if session already completed preloader
+    let seen = false;
     try {
-      hasLoaded = Boolean(sessionStorage.getItem("da_preloader_seen"));
+      seen = sessionStorage.getItem("da_preloader_seen") === "true";
     } catch {
-      // Ignore storage access errors
+      // storage unavailable
     }
 
-    if (!hasLoaded) {
-      const enterTimer = setTimeout(() => {
-        setVisible(true);
-      }, 10);
-
-      const leaveTimer = setTimeout(() => {
-        setLeaving(true);
-      }, 1100);
-
-      const endTimer = setTimeout(() => {
-        setVisible(false);
-        try {
-          sessionStorage.setItem("da_preloader_seen", "true");
-        } catch {
-          // Ignore
-        }
-      }, 1600);
-
-      return () => {
-        clearTimeout(enterTimer);
-        clearTimeout(leaveTimer);
-        clearTimeout(endTimer);
-      };
+    if (seen && process.env.NODE_ENV === "production") {
+      setIsMounted(false);
+      return;
     }
-  }, [prefersReducedMotion]);
 
-  if (!visible || prefersReducedMotion) return null;
+    // Logo entrance & hold duration (~1.4s total)
+    const exitTimer = setTimeout(() => {
+      setIsExiting(true);
+    }, 1400);
+
+    const finishTimer = setTimeout(() => {
+      setIsMounted(false);
+      try {
+        sessionStorage.setItem("da_preloader_seen", "true");
+      } catch {
+        // ignore
+      }
+    }, 2200);
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(finishTimer);
+    };
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <aside
-      aria-label="Site introduction"
-      className={`fixed inset-0 z-[120] flex items-center justify-center bg-[#0A0F1A] transition-all duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${
-        leaving ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
+      aria-label="Loading site presentation"
+      className={`fixed inset-0 z-[9999] select-none overflow-hidden font-sans bg-[#000000] transition-all duration-800 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+        isExiting
+          ? "-translate-y-full opacity-0 pointer-events-none"
+          : "translate-y-0 opacity-100 pointer-events-auto"
       }`}
     >
-      <div className="flex flex-col items-center justify-center text-center px-4">
-        {/* Monogram */}
-        <div className="w-16 h-16 rounded-full border border-[#C6A15B]/40 flex items-center justify-center mb-4 bg-[#C6A15B]/05 shadow-[0_0_25px_rgba(198,161,91,0.15)] animate-pulse">
-          <span className="font-editorial text-2xl font-semibold tracking-wider text-[#C6A15B]">
-            DA
-          </span>
-        </div>
+      {/* ── CENTER ONLY SIGNATURE LOGO STAGE ── */}
+      <div
+        className={`relative z-20 h-full w-full flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+          isExiting ? "-translate-y-16 opacity-0 scale-95" : "translate-y-0 opacity-100 scale-100"
+        }`}
+      >
+        <div className="relative flex items-center justify-center">
+          {/* Ambient Glow Aura */}
+          <div className="absolute w-80 sm:w-[480px] h-36 sm:h-48 rounded-full bg-[#CFFF04]/20 blur-[80px] pointer-events-none" />
 
-        {/* Name in Serif */}
-        <h1 className="font-editorial text-2xl md:text-3xl text-[#F5F3EE] font-normal tracking-wide">
-          Dheeraj Aggarwal
-        </h1>
-
-        <p className="mt-1 text-xs uppercase tracking-[0.25em] text-[#C6A15B] font-mono">
-          Building Brands. Creating Impact.
-        </p>
-
-        {/* Animated Hairline Rule */}
-        <div className="mt-6 w-48 h-[1px] bg-white/10 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[#C6A15B] w-full animate-[preloaderLine_1.2s_cubic-bezier(0.22,1,0.36,1)_forwards]" />
+          {/* Official Signature Logo */}
+          <div className="relative w-72 sm:w-96 md:w-[460px] h-24 sm:h-32 md:h-36 flex items-center justify-center">
+            <Image
+              src="/cl-logo/pr-logo.png"
+              alt="Dheeraj Aggarwal Signature"
+              fill
+              priority
+              sizes="(max-width: 768px) 288px, 460px"
+              style={{
+                filter: "brightness(0) invert(1) drop-shadow(0 0 25px rgba(207,255,4,0.75)) drop-shadow(0 0 55px rgba(207,255,4,0.3))",
+              }}
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
     </aside>
   );
 }
-

@@ -1,63 +1,57 @@
+"use client";
+
 import Counter from "@/components/ui/Counter";
-import Marquee from "@/components/ui/Marquee";
-import { siteConfig } from "@/data/site";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function TrustBar() {
-  const credibilityEntities = [
-    { name: "Web Tycoons", role: "Founder", desc: "15+ Years Digital Agency" },
-    { name: "Karma Ayurveda", role: "Executive Consultant", desc: "Healthcare & CRM Strategy" },
-    { name: "Happy Hospitality Club", role: "Co-Director", desc: "Hospitality Network" },
-    { name: "BNI Regional Chapter", role: "Chapter President", desc: "Business Referral Ecosystem" },
-    { name: "MSME & Business Forums", role: "Keynote Speaker", desc: "50+ Masterclasses & Summits" },
+  const metrics = [
+    {
+      value: 15,
+      suffix: "+",
+      label: "Years of Entrepreneurial & Digital Experience",
+    },
+    {
+      value: 3700,
+      suffix: "+",
+      label: "Websites & Digital Ecosystems Delivered",
+    },
+    {
+      value: 100,
+      suffix: "+",
+      label: "Brands & Corporate Clients Consulted",
+    },
+    {
+      value: 50,
+      suffix: "+",
+      label: "Keynotes & Business Workshops Delivered",
+    },
   ];
 
   return (
-    <section id="credibility-bar" className="py-8 sm:py-12 bg-[#F1F5FB] border-b border-slate-200 relative font-sans overflow-hidden">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-8 mb-6 sm:mb-8">
-        {/* Top Key Metrics Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
-          {siteConfig.metrics.map((m, idx) => (
+    <section id="credibility-bar" className="py-10 sm:py-14 bg-[#FFFFFF] border-b border-slate-200 relative font-sans overflow-hidden">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {metrics.map((m, idx) => (
             <ScrollReveal
               key={m.label}
-              delay={idx * 0.08}
-              distance={25}
-              className="p-3.5 sm:p-5 md:p-6 rounded-2xl bg-white border border-slate-200 flex flex-col justify-center shadow-sm hover:border-[#38BDF8]/50 hover:shadow-md transition-all"
+              delay={idx * 0.06}
+              distance={20}
+              className="h-full"
             >
-              <div className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-1 sm:mb-2 flex items-baseline tracking-tight">
-                <Counter value={m.value} suffix={m.suffix} duration={1800 + idx * 200} />
+              <div className="h-full p-6 sm:p-7 md:p-8 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-slate-300 hover:shadow-md transition-all duration-200 flex flex-col justify-center">
+                <div className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0F172A] tracking-tight mb-2 leading-none">
+                  <Counter value={m.value} suffix={m.suffix} duration={1600 + idx * 150} />
+                </div>
+                <p className="text-xs sm:text-sm font-medium text-slate-600 leading-snug">
+                  {m.label}
+                </p>
               </div>
-              <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 font-medium leading-snug">
-                {m.label}
-              </p>
             </ScrollReveal>
           ))}
         </div>
       </div>
-
-      {/* Marquee Strip: Strategic Ecosystems & Roles */}
-      <ScrollReveal delay={0.2} distance={20} className="pt-2">
-        <Marquee speed="slow">
-          {credibilityEntities.map((item) => (
-            <div
-              key={item.name}
-              className="flex items-center gap-4 px-6 py-2.5 rounded-full border border-slate-200 bg-white shadow-sm"
-            >
-              <span className="text-sm font-semibold text-[#0F172A] whitespace-nowrap">
-                {item.name}
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#334155]" />
-              <span className="text-xs uppercase tracking-wider text-[#334155] font-semibold whitespace-nowrap">
-                {item.role}
-              </span>
-              <span className="text-xs text-slate-500 whitespace-nowrap hidden sm:inline">
-                â€¢ {item.desc}
-              </span>
-            </div>
-          ))}
-        </Marquee>
-      </ScrollReveal>
     </section>
   );
 }
+
 

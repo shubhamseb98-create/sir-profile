@@ -11,16 +11,15 @@ export default function SmoothScroll({ children }) {
   useEffect(() => {
     const { ScrollTrigger: st } = initGSAP();
 
-    // Initialize Lenis with ultra-smooth momentum settings
+    // Initialize Lenis with optimal fluid momentum
     const lenis = new Lenis({
-      lerp: 0.08, // Smooth momentum glide (sweet spot for premium fluid feel)
-      duration: 1.2,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.05, // Snappy & effortless response
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.8,
       infinite: false,
     });
 
@@ -30,9 +29,9 @@ export default function SmoothScroll({ children }) {
     }
 
     // Sync Lenis scroll with GSAP ScrollTrigger
-    lenis.on("scroll", () => {
-      st?.update?.();
-    });
+    if (st) {
+      lenis.on("scroll", st.update);
+    }
 
     // Drive Lenis from GSAP Ticker for frame-perfect lockstep
     const updateTicker = (time) => {
@@ -40,7 +39,7 @@ export default function SmoothScroll({ children }) {
     };
 
     gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(500, 33);
 
     // Global smooth anchor link glide (#about-us, #credibility-bar, etc.)
     const handleAnchorClick = (e) => {

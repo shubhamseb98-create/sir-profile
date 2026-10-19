@@ -21,13 +21,13 @@ export default function CaseStudyCard({ study, className = "" }) {
     <article
       data-cursor="view"
       className={cn(
-        "rounded-2xl bg-[#1E293B] border border-slate-700/60 hover:border-[#38BDF8]/60 p-3.5 sm:p-4 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group font-sans",
+        "rounded-2xl bg-black border border-neutral-800 hover:border-[#CFFF04]/60 p-3.5 sm:p-4 shadow-lg hover:shadow-2xl hover:shadow-[0_0_30px_rgba(207,255,4,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group font-sans",
         className
       )}
     >
       <div>
         {/* 1. Inset Image with rounded corners and exactly 300px height */}
-        <div className="relative h-[300px] w-full overflow-hidden rounded-xl bg-slate-950 mb-3.5">
+        <div className="relative h-[300px] w-full overflow-hidden rounded-xl bg-neutral-950 mb-3.5">
           <Image
             src={imageSrc}
             alt={study.title}
@@ -35,37 +35,37 @@ export default function CaseStudyCard({ study, className = "" }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-          <span className="absolute top-2.5 left-2.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-slate-900/80 text-[#38BDF8] px-2.5 py-0.5 rounded-full border border-white/10 backdrop-blur-md">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+          <span className="absolute top-2.5 left-2.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-black/85 text-[#CFFF04] px-2.5 py-0.5 rounded-full border border-[#CFFF04]/30 backdrop-blur-md">
             {study.category}
           </span>
-          <span className="absolute bottom-2 right-2.5 text-[10px] font-mono text-[#38BDF8] bg-slate-900/80 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">
+          <span className="absolute bottom-2 right-2.5 text-[10px] font-mono text-slate-300 bg-black/85 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">
             {isAnonymised ? "Confidential" : study.sector}
           </span>
         </div>
 
         {/* 2. Title + Circular Action Button Row */}
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-base font-bold text-white group-hover:text-[#38BDF8] transition-colors leading-snug line-clamp-2">
+          <h3 className="text-base font-bold text-white group-hover:text-[#CFFF04] transition-colors leading-snug line-clamp-2">
             <Link href={`/case-studies/${study.slug}`}>{study.title}</Link>
           </h3>
           <Link
             href={`/case-studies/${study.slug}`}
             aria-label={study.title}
-            className="w-9 h-9 rounded-full bg-[#334155] hover:bg-[#0A0F1A] flex items-center justify-center text-white shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-105 mt-0.5"
+            className="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 hover:border-[#CFFF04] flex items-center justify-center text-white shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-105 mt-0.5"
           >
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* 3. Subtitle / Summary */}
-        <p className="text-xs text-[#38BDF8] leading-relaxed mt-2.5 line-clamp-2">
+        <p className="text-xs text-slate-300 leading-relaxed mt-2.5 line-clamp-2">
           {study.summary || study.challenge}
         </p>
 
         {/* 4. Key Outcome Metric Pill */}
-        <div className="mt-3.5 p-2.5 rounded-xl bg-[#0F172A]/80 border border-slate-700/60">
-          <span className="text-[10px] uppercase tracking-wider text-[#38BDF8] font-mono font-bold block mb-0.5">
+        <div className="mt-3.5 p-2.5 rounded-xl bg-neutral-950 border border-neutral-800">
+          <span className="text-[10px] uppercase tracking-wider text-[#CFFF04] font-mono font-bold block mb-0.5">
             Key Outcome
           </span>
           <p className="text-xs text-white font-medium line-clamp-1">

@@ -30,17 +30,17 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#334155] text-white font-semibold hover:bg-[#0A0F1A] shadow-[0_4px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_28px_rgba(29,78,216,0.45)] hover:-translate-y-0.5",
+      "bg-[#CFFF04] text-black font-bold hover:bg-[#bef264] shadow-[0_4px_20px_rgba(207,255,4,0.3)] hover:shadow-[0_6px_28px_rgba(207,255,4,0.5)] hover:-translate-y-0.5",
     secondary:
-      "bg-transparent text-white border border-white/20 hover:border-[#38BDF8] hover:text-[#38BDF8] hover:bg-white/[0.04]",
+      "bg-transparent text-white border border-white/20 hover:border-[#CFFF04] hover:text-[#CFFF04] hover:bg-white/[0.04]",
     outline:
-      "bg-transparent text-[#38BDF8] border border-[#38BDF8]/40 hover:border-[#38BDF8] hover:bg-[#38BDF8]/10",
+      "bg-transparent text-[#CFFF04] border border-[#CFFF04]/40 hover:border-[#CFFF04] hover:bg-[#CFFF04]/10",
     "light-primary":
-      "bg-[#334155] text-white font-semibold hover:bg-[#0A0F1A] shadow-md hover:-translate-y-0.5",
+      "bg-black text-white font-semibold hover:bg-neutral-900 border border-black shadow-md hover:-translate-y-0.5",
     "light-secondary":
-      "bg-white text-[#1E293B] border border-slate-200 hover:border-[#334155] hover:text-[#334155] shadow-sm hover:shadow",
+      "bg-white text-[#1E293B] border border-slate-300 hover:border-black hover:text-black shadow-sm hover:shadow hover:-translate-y-0.5",
     ghost:
-      "bg-transparent text-[#38BDF8] hover:text-white hover:bg-white/[0.05]",
+      "bg-transparent text-[#CFFF04] hover:text-white hover:bg-white/[0.05]",
   };
 
   const iconElement =
@@ -64,7 +64,34 @@ export default function Button({
   );
 
   if (href) {
+    const isStrategyModal =
+      href.includes("contact?type=strategy-call") ||
+      href.includes("type=strategy-call") ||
+      href === "#strategy-modal" ||
+      href === "#strategy-call" ||
+      href === "#book-call";
     const isExternal = href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:");
+
+    if (isStrategyModal) {
+      return (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            if (typeof window !== "undefined") {
+              window.dispatchEvent(new CustomEvent("open-lead-modal"));
+            }
+            if (onClick) onClick(e);
+          }}
+          className={combinedClasses}
+          aria-label={ariaLabel || "Book a Strategy Call"}
+        >
+          <span>{children}</span>
+          {iconElement}
+        </button>
+      );
+    }
+
     return (
       <Link
         href={href}

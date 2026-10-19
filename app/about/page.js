@@ -1,9 +1,9 @@
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
-import SafeImage from "@/components/ui/SafeImage";
 import Timeline from "@/components/sections/Timeline";
 import PageCTA from "@/components/sections/PageCTA";
-import { Download, Check, Shield, Lightbulb, Target, BookOpen, Users, HeartHandshake } from "lucide-react";
+import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
+import { Check, Shield, Lightbulb, Target, BookOpen, Users, HeartHandshake } from "lucide-react";
 
 export const metadata = {
   title: "About Dheeraj Aggarwal | Business Consultant, Digital Expert & Growth Specialist",
@@ -14,150 +14,158 @@ export const metadata = {
 export default function AboutPage() {
   const philosophies = [
     {
-      title: "Every business needs clarity before marketing",
-      desc: "Promoting an ill-defined offer or poorly differentiated service burns capital. Strategic positioning and unit economics must always precede ad spend.",
+      title: "Clarity Before Marketing",
+      desc: "Promoting an ill-defined offer burns capital. Strategic positioning and unit economics must always precede ad spend.",
     },
     {
-      title: "Digital growth must connect with revenue and profitability",
-      desc: "Impressions, follower counts, and website traffic are vanity metrics unless they directly translate into qualified sales calls and healthy cash flows.",
+      title: "Digital Growth Connects to Revenue",
+      desc: "Impressions and follower counts are vanity metrics unless they directly translate into qualified sales calls and cash flow.",
     },
     {
-      title: "Systems and SOPs create consistency",
-      desc: "Founder brilliance is unscalable without documented standard operating procedures. True enterprise value lies in processes that run without daily firefighting.",
+      title: "Systems and SOPs Create Freedom",
+      desc: "Founder brilliance is unscalable without documented standard operating procedures. Value lies in repeatable processes.",
     },
     {
-      title: "Strong communities create opportunities",
-      desc: "High-trust networks shorten sales cycles and multiply collaborative value. Structuring genuine reciprocity builds enduring business ecosystems.",
+      title: "High-Trust Communities Multiply Value",
+      desc: "High-trust networks shorten sales cycles and multiply collaborative value. Genuine reciprocity builds enduring ecosystems.",
     },
     {
-      title: "Execution is more important than ideas alone",
-      desc: "A brilliant slide deck without operational follow-through produces zero enterprise value. Relentless weekly execution discipline wins market share.",
+      title: "Execution Wins Over Ideas Alone",
+      desc: "A brilliant slide deck without operational follow-through produces zero value. Disciplined weekly execution wins markets.",
     },
     {
-      title: "Business growth should be measurable and sustainable",
-      desc: "Growth that compromises unit margins or overextends operational capacity is fragile. We engineer steady, profitable, and durable commercial momentum.",
+      title: "Sustainable & Measurable Velocity",
+      desc: "Growth that compromises unit margins or overextends operational capacity is fragile. We engineer durable commercial momentum.",
     },
   ];
 
   const capabilities = [
-    "Strategic Thinking & Business Diagnostics",
-    "Brand Positioning & Value Proposition Architecture",
-    "Digital Marketing & High-Intent Google Visibility",
-    "Sales Funnel Velocity & Conversion Improvement",
-    "Enterprise CRM Planning & Process Architecture",
-    "Team Leadership, Rhythms & Accountability",
-    "Institutional Partnerships & B2B Alliances",
-    "Franchise Modeling & Regional Expansion",
-    "Public Keynote Speaking & Executive Masterclasses",
-    "Community Building & Vendor Ecosystem Monetization",
+    "Strategic Diagnostics & Positioning",
+    "High-Intent Digital Growth & SEO",
+    "Sales Funnel Velocity & Conversion",
+    "Enterprise CRM Architecture & SOPs",
+    "Leadership Rhythms & Accountability",
+    "Institutional Alliances & Networking",
+    "Franchise Modeling & Pan-India Scale",
+    "Executive Masterclasses & Keynotes",
   ];
 
   const values = [
     {
       title: "Integrity",
       icon: Shield,
-      desc: "Absolute transparency with clients, partners, and team members. We never recommend campaigns or systems a business does not genuinely require.",
+      desc: "Absolute transparency with clients and partners. We never recommend campaigns a business does not genuinely need.",
     },
     {
       title: "Innovation",
       icon: Lightbulb,
-      desc: "Staying ahead of algorithmic, technological, and consumer shifts to uncover unfair commercial advantages for our clients.",
+      desc: "Staying ahead of algorithmic and consumer shifts to uncover unfair commercial advantages for our clients.",
     },
     {
       title: "Impact",
       icon: Target,
-      desc: "Evaluating success by tangible bottom-line results: reduced inquiry lag, improved ROAS, smoother branch rollouts, and increased profitability.",
+      desc: "Evaluating success by bottom-line results: reduced inquiry lag, improved ROAS, and increased profitability.",
     },
     {
       title: "Continuous Learning",
       icon: BookOpen,
-      desc: "Continuous refinement through hands-on practice across varied sectorsâ€”from ayurvedic medicine and luxury hospitality to industrial manufacturing.",
+      desc: "Refining execution across varied sectors — from ayurvedic healthcare to luxury hospitality and manufacturing.",
     },
     {
       title: "Relationship Building",
       icon: Users,
-      desc: "Nurturing deep, multi-year commercial bonds grounded in mutual respect, ethical conduct, and reciprocal value creation.",
+      desc: "Nurturing deep commercial bonds grounded in mutual respect, ethical conduct, and reciprocal value creation.",
     },
     {
-      title: "Giving Back to Business Communities",
+      title: "Giving Back",
       icon: HeartHandshake,
-      desc: "Mentoring emerging MSME entrepreneurs, sharing practical operational playbooks, and cultivating regional business leadership.",
+      desc: "Mentoring emerging MSME entrepreneurs, sharing practical operational playbooks, and cultivating business leaders.",
     },
   ];
 
   return (
     <>
-      {/* 1. Header / Intro Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-7">
-              <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium block mb-4">
-                THE FOUNDER & STRATEGIST
-              </span>
+      {/* 1. Sleek Compact Breadcrumb Header (DARK) */}
+      <BreadcrumbHero
+        eyebrow="EXECUTIVE PROFILE"
+        title="About Dheeraj Aggarwal"
+        description="Business Consultant, Founder of Web Tycoons, and Strategic Growth Specialist advising leadership teams across India."
+        breadcrumbs={[{ label: "About Dheeraj" }]}
+        imageSrc="/images/hero/hero-corporate-skyline.jpg"
+      />
 
-              <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] font-medium text-[#F5F3EE] leading-[1.12] mb-6">
+      {/* 2. Section 1: ABOUT US & EXECUTIVE BIO (LIGHT - 80px top & bottom padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
+        {/* Homepage style balanced ambient glow */}
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Column: Story & Executive Overview */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0F172A]" />
+                <span className="text-xs uppercase tracking-[0.2em] text-[#0F172A] font-bold">
+                  ABOUT DHEERAJ AGGARWAL
+                </span>
+              </div>
+
+              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] leading-tight tracking-tight mb-4 sm:mb-5">
                 Bridging Strategic Vision & Disciplined Execution.
-              </h1>
+              </h2>
 
-              <p className="text-base sm:text-lg text-[#A9B0BE] leading-relaxed mb-6 font-normal">
-                Dheeraj Aggarwal is an entrepreneur, business consultant, digital expert, growth
-                specialist, speaker and community builder with more than 15 years of experience
-                helping businesses establish, market, systemise and scale.
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
+                Dheeraj Aggarwal is an entrepreneur, business consultant, digital strategist, and keynote speaker with over 15 years of ground-level experience helping businesses establish, market, systemise, and scale profitably.
               </p>
 
-              <p className="text-sm text-[#A9B0BE]/80 leading-relaxed mb-8">
-                From pioneering digital web platforms in 2008 and scaling Web Tycoons across 3,700+
-                deliveries, to driving executive strategy at Karma Ayurveda and co-directing the Happy
-                Hospitality Club, his work centers on a single truth: sustainable growth requires
-                both commercial clarity and disciplined systems.
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                From delivering 3,700+ digital platforms at Web Tycoons and driving executive growth at Karma Ayurveda, to uniting hospitality leaders through Happy Hospitality Club, his approach centers on unit economics, automated workflows, and building enterprise value.
               </p>
 
-              {/* Download Profile CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button
-                  href="/public/downloads/Dheeraj-Aggarwal-Professional-Profile.pdf"
-                  variant="primary"
-                  size="md"
-                  icon="none"
-                  download
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  <span>Download Professional Profile (PDF)</span>
-                </Button>
-
-                <Button
-                  href="/public/downloads/Dheeraj-Aggarwal-Speaker-Profile.pdf"
-                  variant="secondary"
-                  size="md"
-                  icon="none"
-                  download
-                >
-                  <Download className="w-4 h-4 mr-2 text-[#C6A15B]" />
-                  <span>Download Speaker Profile (PDF)</span>
-                </Button>
+              {/* Quick Stat Chips */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-5 border-t border-slate-200">
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">15+ Yrs</span>
+                  <span className="text-xs text-slate-500 font-medium">Leadership</span>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">3,700+</span>
+                  <span className="text-xs text-slate-500 font-medium">Deliveries</span>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">50+ Stages</span>
+                  <span className="text-xs text-slate-500 font-medium">Keynotes</span>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">Pan-India</span>
+                  <span className="text-xs text-slate-500 font-medium">Advisory</span>
+                </div>
               </div>
             </div>
 
+            {/* Right Column: Homepage Dheeraj Aggarwal Portrait Card */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[380px] rounded-2xl overflow-hidden border border-white/12 shadow-2xl">
-                <SafeImage
-                  src="/images/dheeraj/portrait-about.jpg"
-                  alt="Dheeraj Aggarwal - Professional Profile"
-                  width={480}
-                  height={600}
-                  priority={true}
-                  placeholderLabel="Executive Profile Portrait"
-                  aspectRatio="aspect-[4/5]"
-                  className="w-full h-auto object-cover"
+              <div className="relative w-full max-w-[380px] sm:max-w-[420px] h-[380px] sm:h-[440px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-950 group">
+                <Image
+                  src="/images/hero/ddab.png"
+                  alt="Dheeraj Aggarwal - Business Consultant & Growth Specialist"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="p-4 bg-[#0F1626] border-t border-white/08 text-center">
-                  <span className="font-editorial text-lg text-[#F5F3EE] block">
-                    Dheeraj Aggarwal
-                  </span>
-                  <span className="text-[11px] uppercase tracking-wider text-[#C6A15B] font-mono">
-                    15+ Years Commercial Experience
-                  </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
+
+                {/* Bottom Credential Card Overlay */}
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
+                  <div className="flex items-center justify-between mb-1">
+                    <h3 className="text-base sm:text-lg font-bold text-white">Dheeraj Aggarwal</h3>
+                    <span className="text-[10px] font-mono text-white bg-black/95 px-2.5 py-0.5 rounded-full font-bold border border-white/20 shadow-sm">
+                      15+ Yrs Experience
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300 font-normal">Executive Advisor & Growth Specialist</p>
                 </div>
               </div>
             </div>
@@ -165,45 +173,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. The Journey (Animated Timeline) */}
-      <section className="py-24 md:py-32 bg-[#0F1626] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
+      {/* 3. Section 2: THE JOURNEY / TIMELINE (DARK - 80px top & bottom padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
+        {/* Subtle balanced neon lime glow aura */}
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
             number="01"
             eyebrow="EVOLUTION & MILESTONES"
             title="The Journey"
-            description="From early web pioneering to executive advisory mandates and national community leadership. A track record built over 15+ years of continuous market engagement."
+            description="From early web pioneering to executive advisory mandates and national community leadership across 15+ years."
             align="center"
+            light={false}
+            className="mb-10 sm:mb-14"
           />
 
-          <Timeline />
+          <Timeline light={false} />
         </div>
       </section>
 
-      {/* 3. Professional Philosophy */}
-      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
+      {/* 4. Section 3: PROFESSIONAL PHILOSOPHY (LIGHT - 80px top & bottom padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
+        {/* Subtle balanced ambient glow */}
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
             number="02"
             eyebrow="GOVERNING PRINCIPLES"
             title="Professional Philosophy"
             description="Core tenets that guide every consulting assignment, performance audit, and institutional advisory mandate."
+            light={true}
+            className="mb-10 sm:mb-14"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
             {philosophies.map((item, idx) => (
               <div
                 key={item.title}
-                className="p-8 rounded-2xl bg-[#0F1626] border border-white/08 hover:border-[#C6A15B]/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 hover:border-black transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-black/5"
               >
                 <div>
-                  <span className="font-mono text-xs text-[#C6A15B] font-semibold px-2 py-0.5 rounded bg-[#C6A15B]/10 block w-max mb-4">
+                  <span className="font-mono text-xs text-white font-bold px-3 py-1 rounded-full bg-black border border-black block w-max mb-3.5 shadow-sm">
                     Principle 0{idx + 1}
                   </span>
-                  <h3 className="font-editorial text-2xl font-medium text-[#F5F3EE] mb-3 leading-snug group-hover:text-[#E2C98F] transition-colors">
+                  <h3 className="font-sans text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-black transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[#A9B0BE] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
@@ -213,10 +233,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. Key Capabilities & Personal Values */}
-      <section className="py-24 md:py-32 bg-[#0F1626] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      {/* 5. Section 4: KEY CAPABILITIES & CORE VALUES (DARK - 80px top & bottom padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
+        {/* Subtle balanced neon lime glow aura */}
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/3 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left: Key Capabilities */}
             <div className="lg:col-span-5">
               <SectionHeading
@@ -224,19 +248,20 @@ export default function AboutPage() {
                 eyebrow="CORE SKILLS"
                 title="Key Capabilities"
                 description="Cross-functional expertise refined across hundreds of client engagements."
-                className="mb-8"
+                className="mb-6 sm:mb-8"
+                light={false}
               />
 
               <div className="space-y-3">
                 {capabilities.map((cap) => (
                   <div
                     key={cap}
-                    className="p-3.5 rounded-xl bg-[#151D30]/60 border border-white/06 flex items-center gap-3"
+                    className="p-3 sm:p-3.5 rounded-xl bg-[#0A0D14]/90 border border-white/10 flex items-center gap-3 hover:border-[#CFFF04]/40 transition-colors"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#C6A15B]/10 border border-[#C6A15B]/30 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-[#C6A15B]" />
+                    <div className="w-5 h-5 rounded-full bg-[#CFFF04]/10 border border-[#CFFF04]/40 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-[#CFFF04]" />
                     </div>
-                    <span className="text-sm text-[#F5F3EE] font-medium">{cap}</span>
+                    <span className="text-xs sm:text-sm text-white font-medium">{cap}</span>
                   </div>
                 ))}
               </div>
@@ -249,24 +274,25 @@ export default function AboutPage() {
                 eyebrow="ETHICAL FOUNDATION"
                 title="Personal Values"
                 description="The internal compass that dictates how we work, advise, and partner."
-                className="mb-8"
+                className="mb-6 sm:mb-8"
+                light={false}
               />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 {values.map((v) => {
                   const Icon = v.icon;
                   return (
                     <div
                       key={v.title}
-                      className="p-6 rounded-2xl bg-[#151D30]/40 border border-white/08 hover:border-[#C6A15B]/40 transition-colors"
+                      className="p-5 sm:p-6 rounded-2xl bg-[#0A0D14]/90 border border-white/10 hover:border-[#CFFF04]/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(207,255,4,0.12)] group"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-[#C6A15B]/10 border border-[#C6A15B]/30 flex items-center justify-center text-[#C6A15B] mb-4">
-                        <Icon className="w-5 h-5" strokeWidth={1.5} />
+                      <div className="w-9 h-9 rounded-xl bg-[#CFFF04]/10 border border-[#CFFF04]/40 flex items-center justify-center text-[#CFFF04] mb-3 shadow-[0_0_12px_rgba(207,255,4,0.2)] group-hover:scale-105 transition-transform">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
                       </div>
-                      <h4 className="font-editorial text-xl font-medium text-[#F5F3EE] mb-2">
+                      <h4 className="font-sans text-sm sm:text-base font-bold text-white group-hover:text-[#CFFF04] transition-colors mb-1.5">
                         {v.title}
                       </h4>
-                      <p className="text-xs text-[#A9B0BE] leading-relaxed">
+                      <p className="text-xs text-slate-300 leading-relaxed font-light">
                         {v.desc}
                       </p>
                     </div>
@@ -278,7 +304,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Page Closing CTA */}
+      {/* 6. Page Closing CTA (LIGHT - with homepage subtle glow) */}
       <PageCTA
         title="Looking for a Strategic Advisory Partner?"
         description="Share your current business priorities, conversion challenges, or expansion plans for a confidential diagnostic session."
@@ -290,8 +316,8 @@ export default function AboutPage() {
           label: "View Consulting Mandates",
           href: "/consulting",
         }}
+        light={true}
       />
     </>
   );
 }
-

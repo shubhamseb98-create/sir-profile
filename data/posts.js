@@ -24,7 +24,7 @@ export const posts = [
     pillar: "Business Growth",
     publishedDate: "2026-08-15",
     readTime: "6 min read",
-    author: "Dheeraj Aggarwal",
+    author: "Dheeraj Aggarwal", 
     excerpt:
       "Pouring advertising budget into a disorganized operational foundation only accelerates customer dissatisfaction. Here is why systems must precede marketing scale.",
     question: "Should a growing company invest in marketing campaigns or operational systems first?",

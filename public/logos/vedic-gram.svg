@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <!-- Herbal Sun Emblem -->
+  <g transform="translate(6, 6)">
+    <rect width="36" height="36" rx="8" fill="#14532D"/>
+    <circle cx="18" cy="18" r="8" fill="#FACC15" opacity="0.3"/>
+    <path d="M18 10C18 10 14 16 14 20C14 22.5 16 24 18 24C20 24 22 22.5 22 20C22 16 18 10 18 10Z" fill="#FACC15"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="52" y="21" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#0F172A" letter-spacing="0.5">VEDIC GRAM</text>
+  <text x="52" y="34" font-family="'Inter', sans-serif" font-weight="600" font-size="7.5" fill="#15803D" letter-spacing="1.2">AYURVEDA HOSPITAL</text>
+</svg>

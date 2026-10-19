@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, ExternalLink, TrendingUp, Sparkles } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import RollingText from "@/components/ui/RollingText";
 
 const OUTCOMES_CARDS = [
   {
@@ -19,7 +20,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/roas-analytics-real.jpg",
     tags: ["Media Spend Audit", "Conversion CRO", "Sales Velocity"],
     href: "/consulting#roas-conversion",
-    color: "#38BDF8",
+    color: "#CFFF04",
   },
   {
     id: "brand-positioning",
@@ -32,7 +33,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/brand-strategy-real.jpg",
     tags: ["Positioning", "Value Proposition", "Commercial Moat"],
     href: "/consulting#brand-positioning",
-    color: "#60A5FA",
+    color: "#A3E635",
   },
   {
     id: "digital-visibility",
@@ -45,7 +46,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/digital-growth-real.jpg",
     tags: ["Full-Funnel Strategy", "SEO Dominance", "Lead Routing"],
     href: "/digital-growth",
-    color: "#818CF8",
+    color: "#84CC16",
   },
   {
     id: "crm-systems",
@@ -151,27 +152,41 @@ export default function Outcomes() {
 
   // Mouse & Touch Pointer Drag Handlers (Grab and Scroll)
   const handlePointerDown = (e) => {
+    // Only drag with primary mouse button or touch
+    if (e.pointerType === "mouse" && e.button !== 0) return;
     setIsDragging(true);
     setIsPaused(true);
     dragStartX.current = e.clientX;
     dragDistance.current = 0;
     hasDragged.current = false;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // ignore
+    }
   };
 
   const handlePointerMove = (e) => {
     if (!isDragging) return;
     const diff = e.clientX - dragStartX.current;
     dragDistance.current = diff;
-    if (Math.abs(diff) > 8) {
+    if (Math.abs(diff) > 6) {
       hasDragged.current = true;
     }
   };
 
-  const handlePointerUp = () => {
+  const handlePointerUp = (e) => {
     if (!isDragging) return;
-    if (dragDistance.current > 40) {
+    try {
+      if (e?.currentTarget?.hasPointerCapture?.(e.pointerId)) {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      }
+    } catch {
+      // ignore
+    }
+    if (dragDistance.current > 35) {
       prevSlide();
-    } else if (dragDistance.current < -40) {
+    } else if (dragDistance.current < -35) {
       nextSlide();
     }
     setIsDragging(false);
@@ -199,7 +214,7 @@ export default function Outcomes() {
     <section
       id="achieve-section"
       style={{ overflow: "clip" }}
-      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#0A0F1A] text-white relative font-sans border-b border-slate-800/60"
+      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#000000] text-white relative font-sans border-b border-white/10"
     >
       {/* ── Background Lining Texture & Subtle Glow ── */}
       <DarkSectionLining glowPosition="center" showTopBeam={true} showBottomBeam={true} />
@@ -207,20 +222,18 @@ export default function Outcomes() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full">
         {/* Section Header */}
         <ScrollReveal distance={30} delay={0.1} className="text-center max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/05 backdrop-blur-md mb-2 sm:mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#38BDF8] font-bold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#CFFF04]/30 bg-[#CFFF04]/10 backdrop-blur-md mb-2 sm:mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-[#CFFF04]" />
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#CFFF04] font-bold">
               STRATEGIC VALUE CREATION
             </span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-2">
-            What I Help Businesses Achieve
+            <RollingText text="What I Help Businesses Achieve" />
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-xl mx-auto px-2">
-            Transforming strategic intent into predictable operational reality. Explore seven core growth dimensions designed for promoter-led enterprises.
-          </p>
+        
         </ScrollReveal>
 
         {/* 3D Infinite Perspective Carousel Stage (Grab & Scroll, Loop, Autoplay) */}
@@ -230,6 +243,7 @@ export default function Outcomes() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerUp}
+          onDragStart={(e) => e.preventDefault()}
           onWheel={handleWheel}
           onClickCapture={handleClickCapture}
           onMouseEnter={() => setIsPaused(true)}
@@ -262,7 +276,12 @@ export default function Outcomes() {
             return (
               <div
                 key={card.id}
-                onClick={() => setActiveIndex(idx)}
+                onDragStart={(e) => e.preventDefault()}
+                onClick={() => {
+                  if (!hasDragged.current) {
+                    setActiveIndex(idx);
+                  }
+                }}
                 style={{
                   position: "absolute",
                   top: "50%",
@@ -275,10 +294,10 @@ export default function Outcomes() {
                   maxWidth: "360px",
                   height: isMobile ? "330px" : "390px",
                 }}
-                className={`rounded-[22px] sm:rounded-[28px] border transition-all duration-500 ease-out cursor-pointer flex flex-col justify-end overflow-hidden select-none group ${
+                className={`rounded-[22px] sm:rounded-[28px] border transition-all duration-500 ease-out cursor-grab active:cursor-grabbing flex flex-col justify-end overflow-hidden select-none group ${
                   isCenter
-                    ? "border-2 border-white shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_25px_rgba(255,255,255,0.2)]"
-                    : "border border-white/20 hover:border-white/40 shadow-xl opacity-75 hover:opacity-90"
+                    ? "border-2 border-[#CFFF04] shadow-[0_20px_50px_rgba(0,0,0,0.95),0_0_30px_rgba(207,255,4,0.35)]"
+                    : "border border-white/20 hover:border-[#CFFF04]/50 shadow-xl opacity-75 hover:opacity-90"
                 }`}
               >
                 {/* 1. Full-Bleed Background Image covering the entire card */}
@@ -288,7 +307,9 @@ export default function Outcomes() {
                   fill
                   sizes="420px"
                   priority={isCenter}
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out select-none pointer-events-none"
                 />
 
                 {/* 2. Dark Bottom Gradient for High-Contrast Text Legibility */}
@@ -297,6 +318,8 @@ export default function Outcomes() {
                 {/* 3. Top-Right Floating Circular External Link Button */}
                 <Link
                   href={card.href}
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
                   onClick={(e) => {
                     if (!isCenter) {
                       e.preventDefault();
@@ -317,24 +340,29 @@ export default function Outcomes() {
                       {card.title}
                     </h3>
 
-                    {/* Subtitle with Pin Icon */}
+                    {/* Subtitle */}
                     <div className="flex items-center gap-1.5 text-[11px] sm:text-xs md:text-sm text-stone-200 font-medium mt-1 drop-shadow">
-                      <span className="text-amber-400 text-xs sm:text-sm leading-none shrink-0">ðŸ“</span>
-                      <span className="truncate">{card.metric} â€¢ {card.tag}</span>
+                      <span className="truncate">{card.metric} • {card.tag}</span>
                     </div>
                   </div>
 
-                  {/* 5. Pure White Rounded Pill Button */}
+                  {/* 5. Rounded Pill Button */}
                   <div className="pt-0.5 sm:pt-2">
                     <Link
                       href={card.href}
+                      draggable={false}
+                      onDragStart={(e) => e.preventDefault()}
                       onClick={(e) => {
                         if (!isCenter) {
                           e.preventDefault();
                           setActiveIndex(idx);
                         }
                       }}
-                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 sm:py-3.5 px-4 sm:px-5 rounded-full bg-white hover:bg-stone-100 text-stone-950 font-bold text-xs sm:text-sm tracking-normal transition-all shadow-xl whitespace-nowrap group/btn active:scale-95"
+                      className={`inline-flex items-center justify-center gap-2 w-full py-2.5 sm:py-3.5 px-4 sm:px-5 rounded-full font-bold text-xs sm:text-sm tracking-normal transition-all shadow-xl whitespace-nowrap group/btn active:scale-95 ${
+                        isCenter
+                          ? "bg-[#CFFF04] hover:bg-[#b8e600] text-black shadow-[0_0_25px_rgba(207,255,4,0.4)]"
+                          : "bg-white hover:bg-stone-100 text-stone-950"
+                      }`}
                     >
                       <span>{isCenter ? "Explore Advisory Scope" : "Select Capability"}</span>
                       <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover/btn:translate-x-1 text-stone-950 shrink-0" />
@@ -355,7 +383,7 @@ export default function Outcomes() {
               setTimeout(() => setIsPaused(false), 3000);
             }}
             aria-label="Previous Capability"
-            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:bg-white hover:text-black transition-all duration-200 active:scale-95 shadow-sm"
+            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#CFFF04] hover:text-[#CFFF04] transition-all duration-200 active:scale-95 shadow-sm"
           >
             Prev
           </button>
@@ -372,7 +400,7 @@ export default function Outcomes() {
                 }}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeIndex === i ? "w-6 bg-[#38BDF8]" : "w-1.5 bg-white/30 hover:bg-white/60"
+                  activeIndex === i ? "w-6 bg-[#CFFF04] shadow-[0_0_10px_rgba(207,255,4,0.8)]" : "w-1.5 bg-white/30 hover:bg-white/60"
                 }`}
               />
             ))}
@@ -385,7 +413,7 @@ export default function Outcomes() {
               setTimeout(() => setIsPaused(false), 3000);
             }}
             aria-label="Next Capability"
-            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:bg-white hover:text-black transition-all duration-200 active:scale-95 shadow-sm"
+            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#CFFF04] hover:text-[#CFFF04] transition-all duration-200 active:scale-95 shadow-sm"
           >
             Next
           </button>

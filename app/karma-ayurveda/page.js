@@ -2,6 +2,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import PageCTA from "@/components/sections/PageCTA";
 import SafeImage from "@/components/ui/SafeImage";
+import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
 import {
   Activity,
   Layers,
@@ -33,9 +34,6 @@ export default function KarmaAyurvedaPage() {
         "Brand positioning and clinical target-audience communication frameworks",
         "High-intent Google search optimization and content architecture",
         "Inquiry volume scaling while elevating patient qualification quality",
-        "Ad budget allocation across Google, Meta, and regional channels",
-        "Lead-to-consultation and consultation-to-conversion analytics",
-        "Healthcare influencer outreach, expert podcasts, and video collaborations",
       ],
     },
     {
@@ -48,9 +46,6 @@ export default function KarmaAyurvedaPage() {
         "Lead capture standardization across phone lines, web funnels, and social ads",
         "Dynamic source tracking with automated UTM parameter capture",
         "Intelligent routing by clinic location, counselor availability, and patient language",
-        "Standardized disposition taxonomy preventing ambiguous statuses",
-        "Conversion ratios, counselor productivity, and pipeline velocity reporting",
-        "Advance payment, pending collections, and treatment invoicing modules",
         "Official WhatsApp Business API integration for instant patient confirmation",
       ],
     },
@@ -64,10 +59,7 @@ export default function KarmaAyurvedaPage() {
         "Patient inquiry intake and consultative counseling playbooks",
         "Multi-touch follow-up protocols for chronic patient consultations",
         "Clinic check-in, doctor handoff, and patient onboarding SOPs",
-        "Escalation matrices and emergency patient communication protocols",
-        "Standardized daily counselor reporting and weekly manager review cadences",
         "Franchise operational documentation and quality audit checklists",
-        "Team role clarity definitions and performance accountability rubrics",
       ],
     },
     {
@@ -80,10 +72,7 @@ export default function KarmaAyurvedaPage() {
         "Franchise model evaluation (FOFO, FOCO, Joint Venture formats)",
         "Unit economics, setup Capex modeling, and investor payback projections",
         "Investor-facing Franchise Information Memorandum and proposal decks",
-        "Centralized lead generation support frameworks for franchise territories",
-        "Clinical staffing guidelines and Ayurvedic doctor deployment protocols",
         "Brand governance guidelines, periodic audit systems, and partner SLAs",
-        "Coordination with healthcare franchise partners and commercial negotiators",
       ],
     },
     {
@@ -96,8 +85,6 @@ export default function KarmaAyurvedaPage() {
         "Hospital collaboration frameworks for integrative healthcare delivery",
         "Space utilization, clinical infrastructure, and therapy room guidelines",
         "In-house patient privileges, cross-referral pathways, and benefit schemes",
-        "Mutual marketing, community awareness programs, and physician roundtables",
-        "Commercial revenue-sharing structures and joint billing reconciliations",
         "Senior relationship management with hospital boards and medical directors",
       ],
     },
@@ -110,9 +97,7 @@ export default function KarmaAyurvedaPage() {
       deliverables: [
         "Branch-by-branch financial productivity and conversion bench-marking",
         "Ayurvedic treatment package restructuring and duration modeling",
-        "Ad spend efficiency vs patient lifetime value (LTV) correlation",
         "Diagnostic identification of drop-off points between consultation and treatment",
-        "Branch revenue target planning and weekly governance tracking",
         "Executive leadership action memos and commercial priority roadmaps",
       ],
     },
@@ -164,79 +149,32 @@ export default function KarmaAyurvedaPage() {
 
   return (
     <>
-      {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-8">
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium">
-                  EXECUTIVE CONSULTING MANDATE
-                </span>
-                <span className="text-white/20">â€¢</span>
-                <span className="text-xs text-[#A9B0BE] font-mono">Healthcare Enterprise</span>
-              </div>
+      {/* 1. Sleek Breadcrumb Header (DARK - matching About page) */}
+      <BreadcrumbHero
+        eyebrow="EXECUTIVE CONSULTING MANDATE"
+        title="Karma Ayurveda Strategic Advisory"
+        description="As Executive Consultant, Dheeraj supports Karma Ayurveda's leadership in growth strategy, digital performance, CRM and systems, sales processes, franchise planning, strategic partnerships and business expansion."
+        breadcrumbs={[
+          { label: "Ventures", href: "/leadership-ventures" },
+          { label: "Karma Ayurveda" },
+        ]}
+        imageSrc="/images/hero/hero-corporate-skyline.jpg"
+      />
 
-              <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-medium text-[#F5F3EE] leading-[1.1] mb-6">
-                Karma Ayurveda Strategic Advisory
-              </h1>
+      {/* 2. Six Visual Capability Pillars (LIGHT - 80px padding) */}
+      <section id="pillars" className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
+        {/* Homepage style balanced ambient glow */}
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
 
-              <p className="text-base sm:text-lg text-[#A9B0BE] leading-relaxed mb-8">
-                As Executive Consultant, Dheeraj supports Karma Ayurveda&apos;s leadership in growth
-                strategy, digital performance, CRM and systems, sales processes, franchise planning,
-                strategic partnerships and business expansion.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <Button href="/contact?type=crm-systems" variant="primary" size="lg">
-                  Explore Healthcare Advisory
-                </Button>
-                <Button href="#pillars" variant="secondary" size="lg" icon="right">
-                  View Capability Pillars
-                </Button>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="w-full max-w-[340px] p-6 rounded-2xl bg-[#0F1626] border border-white/12 shadow-2xl">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#C6A15B] block mb-2">
-                  Mandate Scope
-                </span>
-                <h3 className="font-editorial text-2xl text-[#F5F3EE] mb-4">
-                  Karma Ayurveda
-                </h3>
-                <div className="space-y-3 text-xs text-[#A9B0BE] border-t border-white/06 pt-4">
-                  <div className="flex justify-between">
-                    <span>Role:</span>
-                    <strong className="text-[#F5F3EE]">Executive Consultant</strong>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Focus:</span>
-                    <strong className="text-[#F5F3EE]">Growth, CRM & Systems</strong>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sector:</span>
-                    <strong className="text-[#F5F3EE]">Ayurvedic Healthcare</strong>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Scale:</span>
-                    <strong className="text-[#F5F3EE]">Pan-India Clinics</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Six Visual Capability Pillars */}
-      <section id="pillars" className="py-24 md:py-32 bg-[#0F1626] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
             number="01"
             eyebrow="SIX STRATEGIC PILLARS"
             title="Advisory Capability Pillars"
             description="A comprehensive, multi-disciplinary advisory engagement touching every aspect of commercial growth, technology, and operational rigor."
+            light={true}
+            className="mb-10 sm:mb-14"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -245,38 +183,38 @@ export default function KarmaAyurvedaPage() {
               return (
                 <div
                   key={p.id}
-                  className="p-8 rounded-2xl bg-[#151D30]/60 border border-white/08 hover:border-[#C6A15B]/40 transition-all duration-300 flex flex-col justify-between group shadow-lg"
+                  className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-black transition-all duration-300 flex flex-col justify-between group shadow-md hover:shadow-xl hover:-translate-y-1"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-[#C6A15B]/10 border border-[#C6A15B]/25 flex items-center justify-center text-[#C6A15B] group-hover:scale-105 transition-transform">
-                        <Icon className="w-6 h-6" strokeWidth={1.5} />
+                      <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 group-hover:border-black group-hover:bg-black group-hover:text-white flex items-center justify-center text-slate-900 group-hover:scale-110 transition-all font-bold">
+                        <Icon className="w-6 h-6" strokeWidth={1.75} />
                       </div>
-                      <span className="font-mono text-xs text-[#A9B0BE]/50">
+                      <span className="font-mono text-xs text-slate-500 font-bold">
                         0{idx + 1}
                       </span>
                     </div>
 
-                    <h3 className="font-editorial text-2xl font-medium text-[#F5F3EE] mb-3 leading-snug group-hover:text-[#E2C98F] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-black transition-colors">
                       {p.title}
                     </h3>
 
-                    <p className="text-xs text-[#A9B0BE] leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 font-normal">
                       {p.summary}
                     </p>
 
-                    <div className="space-y-2 pt-4 border-t border-white/06">
+                    <div className="space-y-2 pt-4 border-t border-slate-100">
                       {p.deliverables.slice(0, 4).map((d) => (
-                        <div key={d} className="flex items-start gap-2 text-[11px] text-[#A9B0BE]">
-                          <Check className="w-3.5 h-3.5 text-[#C6A15B] shrink-0 mt-0.5" />
+                        <div key={d} className="flex items-start gap-2 text-xs text-slate-700">
+                          <Check className="w-3.5 h-3.5 text-black font-bold shrink-0 mt-0.5" />
                           <span className="leading-snug">{d}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-white/06">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#C6A15B]">
+                  <div className="mt-8 pt-4 border-t border-slate-100">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-900 font-bold">
                       Active Advisory Pillar
                     </span>
                   </div>
@@ -287,47 +225,53 @@ export default function KarmaAyurvedaPage() {
         </div>
       </section>
 
-      {/* 3. Two Short Transformation Stories */}
-      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
+      {/* 3. Two Short Transformation Stories (DARK - 80px padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
+        {/* Subtle balanced neon lime glow aura */}
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
             number="02"
             eyebrow="FIELD IMPACT"
             title="Transformation Snapshots"
             description="Real-world case perspectives detailing how systematic interventions solved operational barriers."
+            light={false}
+            className="mb-10 sm:mb-14"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {transformationStories.map((story) => (
               <div
                 key={story.title}
-                className="p-8 sm:p-10 rounded-2xl bg-[#0F1626] border border-white/08 shadow-xl flex flex-col justify-between"
+                className="p-8 sm:p-10 rounded-2xl bg-[#0A0D14] border border-white/10 shadow-xl flex flex-col justify-between hover:border-white/20 transition-colors"
               >
                 <div>
-                  <h3 className="font-editorial text-2xl sm:text-3xl font-medium text-[#F5F3EE] mb-6 leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 leading-snug">
                     {story.title}
                   </h3>
 
                   <div className="space-y-4 text-xs leading-relaxed">
-                    <div className="p-4 rounded-xl bg-[#0A0F1A]/70 border border-white/04">
-                      <span className="text-[#C6A15B] font-mono uppercase tracking-widest block mb-1">
+                    <div className="p-4 rounded-xl bg-black/60 border border-white/06">
+                      <span className="text-[#CFFF04] font-mono uppercase tracking-widest block mb-1 font-bold">
                         Operational Challenge
                       </span>
-                      <p className="text-[#A9B0BE]">{story.challenge}</p>
+                      <p className="text-slate-300 font-light">{story.challenge}</p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-[#0A0F1A]/70 border border-white/04">
-                      <span className="text-[#C6A15B] font-mono uppercase tracking-widest block mb-1">
+                    <div className="p-4 rounded-xl bg-black/60 border border-white/06">
+                      <span className="text-[#CFFF04] font-mono uppercase tracking-widest block mb-1 font-bold">
                         Strategic Intervention
                       </span>
-                      <p className="text-[#A9B0BE]">{story.intervention}</p>
+                      <p className="text-slate-300 font-light">{story.intervention}</p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-[#151D30] border border-[#C6A15B]/30">
-                      <span className="text-[#E2C98F] font-mono uppercase tracking-widest block mb-1">
+                    <div className="p-4 rounded-xl bg-black/80 border border-[#CFFF04]/30">
+                      <span className="text-[#CFFF04] font-mono uppercase tracking-widest block mb-1 font-bold">
                         Business Impact
                       </span>
-                      <p className="text-[#F5F3EE] font-medium">{story.impact}</p>
+                      <p className="text-white font-medium">{story.impact}</p>
                     </div>
                   </div>
                 </div>
@@ -337,35 +281,41 @@ export default function KarmaAyurvedaPage() {
         </div>
       </section>
 
-      {/* 4. Timeline of Major Initiatives */}
-      <section className="py-24 md:py-32 bg-[#0F1626] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
+      {/* 4. Timeline of Major Initiatives (LIGHT - 80px padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
+        {/* Homepage style balanced ambient glow */}
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
             number="03"
             eyebrow="EXECUTION ROADMAP"
             title="Key Advisory Initiatives"
             description="A disciplined execution cadence aligning technology, people, and commercial expansion."
             align="center"
+            light={true}
+            className="mb-10 sm:mb-14"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             {initiativesTimeline.map((item) => (
               <div
                 key={item.phase}
-                className="p-6 rounded-2xl bg-[#151D30]/50 border border-white/06 relative"
+                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-black relative transition-all"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs font-bold text-[#C6A15B] px-2.5 py-0.5 rounded bg-[#C6A15B]/10">
+                  <span className="font-mono text-xs font-bold text-white px-3 py-1 rounded-full bg-black border border-black shadow-sm">
                     {item.phase}
                   </span>
-                  <Calendar className="w-4 h-4 text-[#A9B0BE]/40" />
+                  <Calendar className="w-4 h-4 text-slate-400" />
                 </div>
 
-                <h4 className="font-editorial text-xl font-medium text-[#F5F3EE] mb-2 leading-snug">
+                <h4 className="text-lg font-bold text-slate-900 mb-2 leading-snug">
                   {item.title}
                 </h4>
 
-                <p className="text-xs text-[#A9B0BE] leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </div>
@@ -374,29 +324,7 @@ export default function KarmaAyurvedaPage() {
         </div>
       </section>
 
-      {/* 5. Closing Statement on Business Impact */}
-      <section className="py-20 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[980px] mx-auto px-6 sm:px-8 text-center">
-          <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono block mb-4">
-            BUSINESS IMPACT SUMMARY
-          </span>
-          <p className="font-editorial text-2xl sm:text-3xl md:text-4xl text-[#F5F3EE] leading-snug italic">
-            &ldquo;Healthcare organizations scale sustainably when clinical excellence is matched with
-            uncompromising CRM discipline, rapid patient response times, and predictable operating
-            procedures.&rdquo;
-          </p>
-          <div className="mt-6">
-            <span className="font-semibold text-sm text-[#F5F3EE] block">
-              Dheeraj Aggarwal
-            </span>
-            <span className="text-xs text-[#C6A15B] font-mono">
-              Executive Consultant, Karma Ayurveda
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Page Closing CTA */}
+      {/* 5. Page Closing CTA (DARK - 100vh) */}
       <PageCTA
         title="Need Specialized Healthcare or Multi-Unit Advisory?"
         description="Let us diagnose your patient acquisition funnels, CRM disposition architecture, and branch operating procedures."
@@ -408,6 +336,7 @@ export default function KarmaAyurvedaPage() {
           label: "View All Case Studies",
           href: "/case-studies",
         }}
+        light={true}
       />
     </>
   );

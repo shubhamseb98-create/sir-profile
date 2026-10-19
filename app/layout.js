@@ -8,6 +8,7 @@ import Preloader from "@/components/layout/Preloader";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import GSAPSectionRevealer from "@/components/layout/GSAPSectionRevealer";
+import PopupLeadForm from "@/components/ui/PopupLeadForm";
 import { siteConfig } from "@/data/site";
 
 const poppins = Poppins({
@@ -50,6 +51,15 @@ export const metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.positioningLine,
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   robots: {
     index: true,
@@ -119,7 +129,7 @@ export default function RootLayout({ children }) {
         </a>
 
         {/* Global UX Layers */}
-        <ScrollProgress />
+        <PopupLeadForm />
         <GSAPSectionRevealer />
         <Preloader />
         <CustomCursor />

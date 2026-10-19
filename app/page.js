@@ -7,6 +7,7 @@ import TrustBar from "@/components/sections/TrustBar";
 import TransformationsStack from "@/components/sections/TransformationsStack";
 import WhyWorkWithMe from "@/components/sections/WhyWorkWithMe";
 import VideoSection from "@/components/sections/VideoSection";
+import BrandTicker from "@/components/sections/BrandTicker";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import PageCTA from "@/components/sections/PageCTA";
 
@@ -46,7 +47,10 @@ export default function HomePage() {
       {/* 9. Direct Founder Video Conversations (Dedicated Cinema Showcase) */}
       <VideoSection />
 
-      {/* 10. Written Executive Endorsements & Quotes */}
+      {/* 10. Strategic Ventures & Brand Logos Ribbon (Light Contrast Break) */}
+      <BrandTicker />
+
+      {/* 11. Written Executive Endorsements & Quotes */}
       <TestimonialsSection />
 
       {/* 10. Final Conversion PageCTA */}

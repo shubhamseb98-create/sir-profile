@@ -1,8 +1,9 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
-import PageCTA from "@/components/sections/PageCTA";
 import CaseStudyCard from "@/components/sections/CaseStudyCard";
-import { caseStudies } from "@/data/caseStudies";
+import PageCTA from "@/components/sections/PageCTA";
+import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
+import { digitalCaseStudies } from "@/data/caseStudies";
 import {
   Globe,
   ShoppingCart,
@@ -13,7 +14,6 @@ import {
   BarChart3,
   Server,
   Check,
-  ArrowRight,
 } from "lucide-react";
 
 export const metadata = {
@@ -77,107 +77,41 @@ export default function DigitalGrowthPage() {
   ];
 
   const industriesServed = [
-    "Healthcare & Clinical Wellness",
-    "Hospitality, Resorts & Dining",
-    "Industrial Manufacturing & B2B",
-    "Higher Education & EdTech",
-    "Luxury Real Estate & Infrastructure",
-    "Consumer D2C & Lifestyle E-Commerce",
-    "Travel, Tourism & Destination Services",
-    "Professional Advisory & Legal Services",
+    "Ayurvedic & Healthcare Chains",
+    "Luxury Hotels & Fine Dining",
+    "Manufacturing & Heavy Engineering",
+    "Real Estate Developers & Infra",
+    "Higher Education & Institutes",
+    "D2C Consumer Brands & Apparel",
+    "B2B Logistics & Supply Chain",
+    "Financial & Wealth Advisory",
   ];
-
-  // Filter digital growth case studies
-  const digitalCaseStudies = caseStudies.filter((c) =>
-    ["Website & Google Visibility", "ROAS & Conversion Improvement", "Digital Growth & Lead Generation"].includes(
-      c.category
-    )
-  );
 
   return (
     <>
-      {/* 1. Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-xs uppercase tracking-[0.24em] text-[#C6A15B] font-mono font-medium">
-                FOUNDER & DIGITAL LEADER
-              </span>
-              <span className="text-white/20">â€¢</span>
-              <span className="text-xs text-[#A9B0BE] font-mono">15+ Years Agency Heritage</span>
-            </div>
+      {/* 1. Sleek Breadcrumb Header (DARK - matching About page) */}
+      <BreadcrumbHero
+        eyebrow="DIGITAL GROWTH & AGENCY ECOSYSTEM"
+        title="Web Tycoons: Engineered For Digital Market Dominance."
+        description="For 15+ years, Web Tycoons has served as the digital engineering engine for high-growth enterprises—delivering 3,700+ websites, top Google rankings, and performance campaigns across India."
+        breadcrumbs={[{ label: "Digital Growth" }]}
+        imageSrc="/images/hero/hero-digital-network.jpg"
+      />
 
-            <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-medium text-[#F5F3EE] leading-[1.1] mb-6">
-              Web Tycoons & Digital Growth Architecture
-            </h1>
+      {/* 2. Digital Agency Services (LIGHT - 80px padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
+        {/* Homepage style balanced ambient glow */}
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
 
-            <p className="text-base sm:text-lg text-[#A9B0BE] leading-relaxed mb-8">
-              Founded by Dheeraj Aggarwal, Web Tycoons is a 15+ year digital marketing and web
-              development agency that has delivered more than 3,700 websites and supported
-              businesses across industries and geographies.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <Button href="/contact?type=digital-growth" variant="primary" size="lg">
-                Get a Digital Growth Audit
-              </Button>
-              <Button href="/contact?type=website" variant="secondary" size="lg">
-                Discuss Your Website
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Proof & Key Agency Metrics */}
-      <section className="py-12 bg-[#0F1626] border-b border-white/08">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-[#151D30]/60 border border-white/06">
-              <span className="font-editorial text-4xl font-semibold text-[#F5F3EE] block mb-1">
-                15+
-              </span>
-              <span className="text-xs uppercase tracking-wider text-[#C6A15B] font-mono">
-                Years in Digital Business
-              </span>
-            </div>
-            <div className="p-6 rounded-2xl bg-[#151D30]/60 border border-white/06">
-              <span className="font-editorial text-4xl font-semibold text-[#F5F3EE] block mb-1">
-                3,700+
-              </span>
-              <span className="text-xs uppercase tracking-wider text-[#C6A15B] font-mono">
-                Websites Delivered
-              </span>
-            </div>
-            <div className="p-6 rounded-2xl bg-[#151D30]/60 border border-white/06">
-              <span className="font-editorial text-4xl font-semibold text-[#F5F3EE] block mb-1">
-                15+
-              </span>
-              <span className="text-xs uppercase tracking-wider text-[#C6A15B] font-mono">
-                Industry Verticals Served
-              </span>
-            </div>
-            <div className="p-6 rounded-2xl bg-[#151D30]/60 border border-white/06">
-              <span className="font-editorial text-4xl font-semibold text-[#F5F3EE] block mb-1">
-                Top 3
-              </span>
-              <span className="text-xs uppercase tracking-wider text-[#C6A15B] font-mono">
-                Google Rankings Focus
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Digital Agency Services */}
-      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
             number="01"
             eyebrow="AGENCY CAPABILITIES"
             title="Comprehensive Digital Solutions"
             description="Full-lifecycle digital services engineered to drive discoverability, conversion velocity, and repeat customer retention."
+            light={true}
+            className="mb-10 sm:mb-14"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -186,18 +120,18 @@ export default function DigitalGrowthPage() {
               return (
                 <div
                   key={service.title}
-                  className="p-6 rounded-2xl bg-[#0F1626] border border-white/08 hover:border-[#C6A15B]/40 transition-all duration-300 flex flex-col justify-between group"
+                  className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-black transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 shadow-md hover:shadow-xl"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-xl bg-[#C6A15B]/10 border border-[#C6A15B]/25 flex items-center justify-center text-[#C6A15B] mb-4 group-hover:scale-105 transition-transform">
-                      <Icon className="w-5 h-5" strokeWidth={1.5} />
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 group-hover:border-black group-hover:bg-black group-hover:text-white flex items-center justify-center text-slate-900 mb-4 group-hover:scale-105 transition-all font-bold">
+                      <Icon className="w-5 h-5" strokeWidth={1.75} />
                     </div>
 
-                    <h3 className="font-editorial text-xl font-medium text-[#F5F3EE] mb-2 leading-snug group-hover:text-[#E2C98F] transition-colors">
+                    <h3 className="font-sans text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-black transition-colors">
                       {service.title}
                     </h3>
 
-                    <p className="text-xs text-[#A9B0BE] leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
                       {service.desc}
                     </p>
                   </div>
@@ -208,30 +142,35 @@ export default function DigitalGrowthPage() {
         </div>
       </section>
 
-      {/* 4. Dheeraj's Role & Industries Served */}
-      <section className="py-24 md:py-32 bg-[#0F1626] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      {/* 3. Dheeraj's Role & Industries Served (DARK - 80px padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
+        {/* Subtle balanced neon lime glow aura */}
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left: Dheeraj's Executive Involvement */}
             <div className="lg:col-span-7">
               <SectionHeading
                 number="02"
                 eyebrow="EXECUTIVE GOVERNANCE"
-                title="Dheeraj&apos;s Direct Role at Web Tycoons"
+                title="Dheeraj's Direct Role at Web Tycoons"
                 description="Unlike traditional passive founders, Dheeraj directly architects client solutions and guides strategy for key accounts."
                 className="mb-8"
+                light={false}
               />
 
               <div className="space-y-3">
                 {dheerajResponsibilities.map((resp) => (
                   <div
                     key={resp}
-                    className="p-4 rounded-xl bg-[#151D30]/60 border border-white/06 flex items-start gap-3"
+                    className="p-4 rounded-xl bg-[#0A0D14]/80 border border-white/10 flex items-start gap-3 hover:border-[#CFFF04]/40 transition-colors"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#C6A15B]/10 border border-[#C6A15B]/30 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-[#C6A15B]" />
+                    <div className="w-5 h-5 rounded-full bg-[#CFFF04]/10 border border-[#CFFF04]/40 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-[#CFFF04]" />
                     </div>
-                    <span className="text-sm text-[#F5F3EE] font-medium leading-relaxed">{resp}</span>
+                    <span className="text-sm text-white font-medium leading-relaxed font-light">{resp}</span>
                   </div>
                 ))}
               </div>
@@ -245,16 +184,17 @@ export default function DigitalGrowthPage() {
                 title="Industries Served"
                 description="Deep sector fluency cultivated across 3,700+ assignments."
                 className="mb-8"
+                light={false}
               />
 
               <div className="grid grid-cols-1 gap-2.5">
                 {industriesServed.map((ind) => (
                   <div
                     key={ind}
-                    className="p-3.5 rounded-xl bg-[#0A0F1A]/60 border border-white/06 flex items-center justify-between text-xs text-[#A9B0BE]"
+                    className="p-3.5 rounded-xl bg-[#0A0D14]/80 border border-white/10 flex items-center justify-between text-xs text-slate-300 hover:border-[#CFFF04]/30 transition-colors"
                   >
-                    <span className="text-[#F5F3EE] font-medium">{ind}</span>
-                    <span className="text-[#C6A15B] font-mono text-[10px] uppercase">
+                    <span className="text-white font-medium">{ind}</span>
+                    <span className="text-[#CFFF04] font-mono text-[10px] uppercase font-bold">
                       Delivered
                     </span>
                   </div>
@@ -265,14 +205,20 @@ export default function DigitalGrowthPage() {
         </div>
       </section>
 
-      {/* 5. Featured Digital Case Studies */}
-      <section className="py-24 md:py-32 bg-[#0A0F1A] border-b border-white/08 relative">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-8">
+      {/* 4. Featured Digital Case Studies (LIGHT - 80px padding) */}
+      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
+        {/* Homepage style balanced ambient glow */}
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+
+        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
             number="04"
             eyebrow="DIGITAL PERFORMANCE"
             title="Featured Digital Case Studies"
             description="Explore how technical web engineering and high-intent Google search strategies created measurable business outcomes."
+            light={true}
+            className="mb-10 sm:mb-14"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -283,7 +229,7 @@ export default function DigitalGrowthPage() {
         </div>
       </section>
 
-      {/* Page Closing CTA */}
+      {/* 5. Page Closing CTA (LIGHT - 80px padding) */}
       <PageCTA
         title="Ready to Improve Your Google Visibility & ROAS?"
         description="Request a complimentary 20-minute digital diagnostic to review your current website speed, Google ranking whitespace, and ad spend efficiency."
@@ -295,8 +241,8 @@ export default function DigitalGrowthPage() {
           label: "Discuss Your Website",
           href: "/contact?type=website",
         }}
+        light={true}
       />
     </>
   );
 }
-

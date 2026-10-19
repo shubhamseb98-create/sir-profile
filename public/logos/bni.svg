@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 48" fill="none">
+  <!-- BNI Crimson Badge -->
+  <g transform="translate(6, 6)">
+    <rect width="44" height="36" rx="6" fill="#C8102E"/>
+    <text x="7" y="25" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" letter-spacing="1">BNI</text>
+  </g>
+  <!-- Wordmark -->
+  <text x="60" y="21" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#0F172A" letter-spacing="0.5">REGIONAL CHAPTER</text>
+  <text x="60" y="34" font-family="'Inter', sans-serif" font-weight="600" font-size="7.5" fill="#64748B" letter-spacing="1.2">BUSINESS REFERRAL ECOSYSTEM</text>
+</svg>

@@ -12,7 +12,7 @@ export default function HeroThreeScene() {
 
     // Scene, Camera, Renderer
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0a0f1a, 0.0012);
+    scene.fog = new THREE.FogExp2(0x000000, 0.0012);
 
     let width = container.clientWidth || window.innerWidth;
     let height = container.clientHeight || window.innerHeight;
@@ -37,22 +37,22 @@ export default function HeroThreeScene() {
     mouseLight.position.set(0, 50, 220);
     scene.add(mouseLight);
 
-    const blueLight = new THREE.PointLight(0x2563eb, 3.0, 800, 1.2);
-    blueLight.position.set(-280, -100, 150);
-    scene.add(blueLight);
+    const limeLight = new THREE.PointLight(0xCFFF04, 2.5, 800, 1.2);
+    limeLight.position.set(-280, -100, 150);
+    scene.add(limeLight);
 
-    const cyanLight = new THREE.PointLight(0x06b6d4, 3.0, 800, 1.2);
-    cyanLight.position.set(280, 120, 150);
-    scene.add(cyanLight);
+    const neonLight = new THREE.PointLight(0x84CC16, 2.5, 800, 1.2);
+    neonLight.position.set(280, 120, 150);
+    scene.add(neonLight);
 
     // ── 3D FLOATING GEOMETRIES GROUP ──
     const shapesGroup = new THREE.Group();
     scene.add(shapesGroup);
 
-    // 1. Sleek Central Orbiting Torus Knot (Wireframe Cyan)
+    // 1. Sleek Central Orbiting Torus Knot (Wireframe Neon Lime)
     const torusKnotGeo = new THREE.TorusKnotGeometry(55, 14, 120, 20);
     const torusMat = new THREE.MeshStandardMaterial({
-      color: 0x38bdf8,
+      color: 0xCFFF04,
       wireframe: true,
       transparent: true,
       opacity: 0.45,
@@ -66,7 +66,7 @@ export default function HeroThreeScene() {
     // 2. Futuristic Cyber Rings
     const ringGeo1 = new THREE.RingGeometry(110, 112, 64);
     const ringMat1 = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
+      color: 0xCFFF04,
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 0.35,
@@ -77,7 +77,7 @@ export default function HeroThreeScene() {
 
     const ringGeo2 = new THREE.RingGeometry(140, 142, 64);
     const ringMat2 = new THREE.MeshBasicMaterial({
-      color: 0x818cf8,
+      color: 0x84CC16,
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 0.25,
@@ -90,7 +90,7 @@ export default function HeroThreeScene() {
     // 3. Orbiting 3D Faceted Icosahedrons (Gems)
     const gemGeo = new THREE.IcosahedronGeometry(24, 0);
     const gemMat = new THREE.MeshStandardMaterial({
-      color: 0x38bdf8,
+      color: 0xCFFF04,
       wireframe: true,
       transparent: true,
       opacity: 0.55,
@@ -114,117 +114,56 @@ export default function HeroThreeScene() {
       gems.push(gem);
     });
 
-    // ── 4. GLOWING 3D PARTICLE FIELD ──
-    const particleCount = 1400;
-    const particleGeo = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    const initPositions = [];
-
-    for (let i = 0; i < particleCount; i++) {
-      const x = (Math.random() - 0.5) * 1400;
-      const y = (Math.random() - 0.5) * 900;
-      const z = (Math.random() - 0.5) * 800 - 50;
-
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
-
-      initPositions.push({ x, y, z });
-    }
-
-    particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-    // Crisp circular glow particle texture
-    const canvas = document.createElement("canvas");
-    canvas.width = 64;
-    canvas.height = 64;
-    const ctx = canvas.getContext("2d");
-    const radGrad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    radGrad.addColorStop(0, "rgba(255, 255, 255, 1)");
-    radGrad.addColorStop(0.25, "rgba(56, 189, 248, 0.95)");
-    radGrad.addColorStop(0.65, "rgba(14, 116, 144, 0.35)");
-    radGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
-    ctx.fillStyle = radGrad;
-    ctx.fillRect(0, 0, 64, 64);
-
-    const particleTexture = new THREE.CanvasTexture(canvas);
-
-    const particleMat = new THREE.PointsMaterial({
-      size: 8,
-      map: particleTexture,
-      transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-
-    const particles = new THREE.Points(particleGeo, particleMat);
-    scene.add(particles);
-
     // ── 5. PERSPECTIVE GRID FLOOR ──
-    const gridHelper = new THREE.GridHelper(1600, 36, 0x1e3a5f, 0x0c1e36);
+    const gridHelper = new THREE.GridHelper(1600, 36, 0x334400, 0x182005);
     gridHelper.position.y = -220;
     scene.add(gridHelper);
 
-    // ── MOUSE PARALLAX & ANIMATION LOOP ──
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
-
-    const onMouseMove = (e) => {
-      const halfW = window.innerWidth / 2;
-      const halfH = window.innerHeight / 2;
-      targetX = (e.clientX - halfW) * 0.45;
-      targetY = (e.clientY - halfH) * 0.45;
-    };
-
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    // ── FIXED CINEMATIC CAMERA & ANIMATION LOOP ──
+    camera.position.set(0, 15, 420);
+    camera.lookAt(0, 0, 0);
 
     const clock = new THREE.Clock();
     let animId;
 
+    let isVisible = true;
     const animate = () => {
+      if (!isVisible) {
+        animId = null;
+        return;
+      }
       animId = requestAnimationFrame(animate);
       const time = clock.getElapsedTime();
 
-      // Smooth camera parallax
-      currentX += (targetX - currentX) * 0.05;
-      currentY += (targetY - currentY) * 0.05;
+      // Rotate torus knot & rings smoothly in place
+      torusKnot.rotation.x = time * 0.18;
+      torusKnot.rotation.y = time * 0.25;
+      ring1.rotation.z = time * 0.10;
+      ring2.rotation.x = -time * 0.12;
 
-      camera.position.x = currentX * 0.55;
-      camera.position.y = 15 - currentY * 0.35;
-      camera.lookAt(0, 0, 0);
-
-      // Light tracking
-      mouseLight.position.x = currentX * 1.4;
-      mouseLight.position.y = -currentY * 1.4;
-
-      // Rotate torus knot & rings
-      torusKnot.rotation.x = time * 0.22;
-      torusKnot.rotation.y = time * 0.32;
-      ring1.rotation.z = time * 0.12;
-      ring2.rotation.x = -time * 0.16;
-
-      // Animate floating gems
+      // Animate floating gems smoothly in place
       gems.forEach((gem, idx) => {
         gem.rotation.x += gem.userData.speed;
         gem.rotation.y += gem.userData.speed * 1.2;
         gem.position.y = gem.userData.baseY + Math.sin(time * 1.6 + idx * 1.2) * 18;
       });
 
-      // Wave ripple on particles
-      const posAttr = particleGeo.attributes.position;
-      for (let i = 0; i < particleCount; i++) {
-        const init = initPositions[i];
-        const wave = Math.sin(time * 1.3 + init.x * 0.008 + init.z * 0.008) * 14;
-        posAttr.setY(i, init.y + wave);
-      }
-      posAttr.needsUpdate = true;
-      particles.rotation.y = time * 0.018;
-
       renderer.render(scene, camera);
     };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const nowVisible = entry.isIntersecting;
+        if (nowVisible && !isVisible) {
+          isVisible = true;
+          if (!animId) animate();
+        } else {
+          isVisible = nowVisible;
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
 
     animate();
 
@@ -240,8 +179,8 @@ export default function HeroThreeScene() {
     window.addEventListener("resize", onResize);
 
     return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("mousemove", onMouseMove);
+      if (animId) cancelAnimationFrame(animId);
+      observer.disconnect();
       window.removeEventListener("resize", onResize);
       if (container && renderer.domElement) {
         container.removeChild(renderer.domElement);
@@ -254,9 +193,6 @@ export default function HeroThreeScene() {
       ringMat2.dispose();
       gemGeo.dispose();
       gemMat.dispose();
-      particleGeo.dispose();
-      particleMat.dispose();
-      particleTexture.dispose();
       renderer.dispose();
     };
   }, []);

@@ -7,17 +7,18 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center pt-28 pb-20 px-6 sm:px-8 text-center bg-[#0A0F1A]">
-      <div className="max-w-xl mx-auto">
-        <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#C6A15B] block mb-3 font-semibold">
-          Error 404 â€¢ Resource Relocated
+    <div className="min-h-screen flex flex-col justify-center items-center pt-28 pb-20 px-6 sm:px-8 text-center bg-[#000000] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_40%,rgba(207,255,4,0.08),rgba(0,0,0,0))] pointer-events-none" />
+      <div className="max-w-xl mx-auto relative z-10">
+        <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#CFFF04] block mb-3 font-semibold">
+          Error 404 • Resource Relocated
         </span>
 
-        <h1 className="font-editorial text-5xl sm:text-6xl md:text-7xl font-medium text-[#F5F3EE] mb-4">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight">
           Page Not Found
         </h1>
 
-        <p className="text-base text-[#A9B0BE] leading-relaxed mb-8">
+        <p className="text-base text-slate-300 leading-relaxed mb-8">
           The requested strategic resource or document could not be located. It may have been
           archived or restructured.
         </p>
@@ -34,4 +35,3 @@ export default function NotFound() {
     </div>
   );
 }
-

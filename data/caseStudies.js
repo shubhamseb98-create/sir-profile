@@ -272,3 +272,5 @@ export const caseStudies = [
     image: "/images/supporting/franchise-case.jpg",
   },
 ];
+
+export const digitalCaseStudies = caseStudies.slice(0, 3);

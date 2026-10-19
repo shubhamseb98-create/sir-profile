@@ -3,7 +3,7 @@
  */
 
 export const leadershipRoles = [
-  {
+  { 
     id: "web-tycoons",
     name: "Web Tycoons",
     title: "Founder",

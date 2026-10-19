@@ -6,6 +6,7 @@ import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { useMotionValue, motion } from "framer-motion";
+import RollingText from "@/components/ui/RollingText";
 
 const DOMAIN_IMAGES = {
   consulting: "/images/cards/leadership-governance-real.jpg",
@@ -34,46 +35,54 @@ export default function ExpertiseCards() {
   const x = useMotionValue(0);
   const progressScale = useMotionValue(0.1);
 
-  // Rock-solid scroll listener: computes exact pinned progress 0.0 -> 1.0 across any browser
+  // High-performance scroll listener: cached dimensions & RAF throttled to eliminate layout thrashing
   useEffect(() => {
-    const onScroll = () => {
-      if (!sectionRef.current) return;
-
-      const r = sectionRef.current.getBoundingClientRect();
-      const range = r.height - window.innerHeight;
-      if (range > 0) {
-        // p goes cleanly from 0.0 (pinned top) to 1.0 (pinned end)
-        const p = Math.max(0, Math.min(1, -r.top / range));
-
-        // Total horizontal distance the track needs to travel
-        const totalTravel = trackRef.current
-          ? Math.max(trackRef.current.scrollWidth - window.innerWidth, 0)
-          : (total * 700 - window.innerWidth);
-
-        // Update card track transform directly
-        x.set(-p * totalTravel);
-
-        // Update top progress bar
-        progressScale.set(0.1 + p * 0.9);
-
-        // Update active index only when changed to avoid re-renders
-        const idx = Math.min(Math.floor(p * total), total - 1);
-        if (idx !== currentIdxRef.current) {
-          currentIdxRef.current = idx;
-          setActiveIdx(idx);
-        }
+    let travelDistance = total * 700 - window.innerWidth;
+    const measure = () => {
+      if (trackRef.current) {
+        travelDistance = Math.max(trackRef.current.scrollWidth - window.innerWidth, 0);
       }
+    };
+    measure();
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (!sectionRef.current) return;
+
+        const r = sectionRef.current.getBoundingClientRect();
+        const range = r.height - window.innerHeight;
+        if (range > 0) {
+          const p = Math.max(0, Math.min(1, -r.top / range));
+          x.set(-p * travelDistance);
+          progressScale.set(0.1 + p * 0.9);
+
+          const idx = Math.min(Math.floor(p * total), total - 1);
+          if (idx !== currentIdxRef.current) {
+            currentIdxRef.current = idx;
+            setActiveIdx(idx);
+          }
+        }
+      });
+    };
+
+    const handleResize = () => {
+      measure();
+      onScroll();
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
     onScroll();
-    const t1 = setTimeout(onScroll, 100);
-    const t2 = setTimeout(onScroll, 500);
+    const t1 = setTimeout(handleResize, 150);
+    const t2 = setTimeout(handleResize, 500);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", handleResize);
       clearTimeout(t1);
       clearTimeout(t2);
     };
@@ -106,26 +115,31 @@ export default function ExpertiseCards() {
       ref={sectionRef}
       id="core-expertise"
       suppressHydrationWarning
-      className="relative h-[480vh] bg-[#F1F5FB] text-[#0F172A] border-y border-slate-200 select-none"
+      className="relative h-[480vh] bg-[#FFFFFF] text-[#0F172A] border-y border-slate-200 select-none"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden z-10">
-        {/* Subtle side-edge glow */}
-        <div className="absolute top-1/3 -left-48 w-96 h-96 bg-cyan-400/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/3 -right-48 w-96 h-96 bg-sky-400/12 rounded-full blur-[130px] pointer-events-none" />
+        {/* Subtle balanced neon lime ambient glow aura */}
+        <div className="absolute top-1/3 -left-28 sm:-left-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#CFFF04]/14 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/3 -right-28 sm:-right-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#CFFF04]/14 rounded-full blur-[130px] pointer-events-none" />
 
         {/* Header */}
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pt-3 sm:pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[#334155] text-[9px] sm:text-[11px] font-mono font-bold tracking-widest uppercase mb-1 sm:mb-1.5">
-                <Sparkles className="w-3 h-3 text-[#38BDF8]" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-[#334155] text-[9px] sm:text-[11px] font-mono font-bold tracking-widest uppercase mb-1 sm:mb-1.5">
+                <Sparkles className="w-3 h-3 text-slate-800" />
                 <span>STRATEGIC ARSENAL &amp; DOMAINS</span>
               </div>
               <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#0F172A] tracking-tight">
-                Core Expertise &amp; Strategic Playbooks
+                <RollingText text="Core Expertise & Strategic Playbooks" />
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-0.5 font-normal">
-                Scroll down to glide horizontally through 10 specialized execution practices.
+                <RollingText
+                  text="Scroll down to glide horizontally through 10 specialized execution practices."
+                  delay={0.2}
+                  duration={1.2}
+                  stagger={0.04}
+                />
               </p>
             </div>
             <div className="flex items-center gap-3.5 self-start md:self-end">
@@ -140,7 +154,7 @@ export default function ExpertiseCards() {
               <div className="w-20 sm:w-32 h-1.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300 shadow-inner">
                 <motion.div
                   suppressHydrationWarning
-                  className="h-full bg-gradient-to-r from-[#334155] to-[#38BDF8] rounded-full"
+                  className="h-full bg-gradient-to-r from-[#84CC16] to-[#CFFF04] rounded-full"
                   style={{ scaleX: progressScale, transformOrigin: "left" }}
                 />
               </div>
@@ -169,14 +183,14 @@ export default function ExpertiseCards() {
                   key={item.id}
                   className={`w-[85vw] sm:w-[540px] md:w-[620px] lg:w-[680px] rounded-2xl sm:rounded-3xl bg-white p-3.5 sm:p-5 md:p-6 border shrink-0 transition-all duration-300 flex flex-col justify-between shadow-lg relative overflow-hidden group ${
                     isCurrent
-                      ? "border-[#334155] ring-1 ring-[#334155]/30 shadow-[0_8px_40px_rgba(37,99,235,0.18)]"
+                      ? "border-[#334155] ring-1 ring-[#334155]/30 shadow-[0_8px_40px_rgba(0,0,0,0.15)]"
                       : "border-slate-200 hover:border-slate-300 opacity-80 hover:opacity-100"
                   }`}
                 >
                   <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-[#334155]/30 to-transparent" />
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                     <div className="flex items-center gap-2">
-                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-[#334155] px-2 py-0.5 rounded-full border border-blue-200">
+                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-[#0F172A] px-2 py-0.5 rounded-full border border-slate-200">
                         Practice {String(idx + 1).padStart(2, "0")}
                       </span>
                       <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-slate-500">
@@ -220,7 +234,7 @@ export default function ExpertiseCards() {
                       </div>
                       <Link
                         href={`/consulting#${item.id}`}
-                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#334155] hover:text-[#0A0F1A] transition-colors group/btn"
+                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#334155] hover:text-black transition-colors group/btn"
                       >
                         <span>Explore Domain Framework</span>
                         <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover/btn:translate-x-1" />
@@ -241,7 +255,7 @@ export default function ExpertiseCards() {
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pb-3 sm:pb-6 md:pb-8">
           <div className="flex items-center justify-between border-t border-slate-200 pt-2.5 sm:pt-3 text-xs text-slate-500">
             <div className="flex items-center gap-2 sm:gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#334155] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
               <span className="font-mono text-[10px] sm:text-[11px]">
                 Showing {activeIdx + 1} of {total} Strategic Practices
               </span>
@@ -251,7 +265,7 @@ export default function ExpertiseCards() {
               </div>
             </div>
             {activeIdx >= total - 1 ? (
-              <a href="#roles-ecosystems" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#334155] hover:bg-[#0A0F1A] border border-[#0A0F1A] text-white text-[10px] sm:text-[11px] font-semibold transition-all group">
+              <a href="#roles-ecosystems" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black hover:bg-neutral-800 border border-black text-white text-[10px] sm:text-[11px] font-semibold transition-all group">
                 <span>Continue to Showcase</span>
                 <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
               </a>

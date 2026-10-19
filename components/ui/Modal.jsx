@@ -39,27 +39,27 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = "ma
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-[#0A0F1A]/85 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
+        className="fixed inset-0 bg-black/85 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
       />
 
       {/* Dialog Content */}
       <div
         ref={modalRef}
         className={cn(
-          "relative w-full z-10 bg-[#151D30] border border-white/12 rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300",
+          "relative w-full z-10 bg-[#0A0D14] border border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300",
           maxWidth
         )}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/08 bg-[#0F1626]/60">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-black/40">
           {title ? (
-            <h3 className="font-editorial text-xl font-medium text-[#F5F3EE]">{title}</h3>
+            <h3 className="text-lg sm:text-xl font-bold text-white">{title}</h3>
           ) : (
             <span />
           )}
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="p-1.5 rounded-full text-[#A9B0BE] hover:text-[#F5F3EE] hover:bg-white/08 transition-colors"
+            className="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" strokeWidth={1.75} />
           </button>
@@ -70,4 +70,3 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = "ma
     </div>
   );
 }
-

@@ -24,7 +24,8 @@ async function main() {
     ws.send(JSON.stringify({ id: curId, method, params }));
   });
 
-  ws.addEventListener('open', async () => {
+  ws.addEventListener('open', asyn
+    c () => {
     const viewports = [
       { name: 'iPhone SE (375px)', width: 375, height: 667, mobile: true },
       { name: 'iPhone 14 (390px)', width: 390, height: 844, mobile: true },

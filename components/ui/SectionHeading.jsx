@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import RollingText from "@/components/ui/RollingText";
 
 export default function SectionHeading({
   number,
@@ -38,7 +39,7 @@ export default function SectionHeading({
               "text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border",
               light
                 ? "text-[#334155] border-[#334155]/20 bg-[#334155]/05"
-                : "text-[#38BDF8] border-[#38BDF8]/30 bg-[#38BDF8]/10"
+                : "text-[#CFFF04] border-[#CFFF04]/40 bg-[#CFFF04]/10"
             )}
           >
             {number}
@@ -49,7 +50,7 @@ export default function SectionHeading({
           <span
             className={cn(
               "text-xs uppercase font-semibold tracking-[0.2em]",
-              light ? "text-[#334155]" : "text-[#38BDF8]"
+              light ? "text-[#334155]" : "text-[#CFFF04]"
             )}
           >
             {eyebrow}
@@ -63,17 +64,21 @@ export default function SectionHeading({
           light ? "text-[#1E293B]" : "text-white"
         )}
       >
-        {title}
+        {typeof title === "string" ? <RollingText text={title} /> : title}
       </h2>
 
       {description && (
         <p
           className={cn(
             "mt-4 text-base sm:text-lg leading-relaxed font-normal",
-            light ? "text-[#475569]" : "text-[#38BDF8]"
+            light ? "text-[#475569]" : "text-slate-300"
           )}
         >
-          {description}
+          {typeof description === "string" ? (
+            <RollingText text={description} delay={0.25} duration={1.3} stagger={0.03} />
+          ) : (
+            description
+          )}
         </p>
       )}
 
@@ -82,8 +87,8 @@ export default function SectionHeading({
         className={cn(
           "mt-6 w-16 h-[3px] rounded-full",
           light
-            ? "bg-gradient-to-r from-[#334155] to-[#38BDF8]"
-            : "bg-gradient-to-r from-[#38BDF8] to-[#334155]",
+            ? "bg-gradient-to-r from-slate-300 to-[#CFFF04]"
+            : "bg-gradient-to-r from-[#CFFF04] to-neutral-700",
           isCenter && "mx-auto"
         )}
       />

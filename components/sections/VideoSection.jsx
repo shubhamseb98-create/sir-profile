@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import RollingText from "@/components/ui/RollingText";
 
 // Inline Instagram SVG icon
 function InstagramIcon({ className = "w-4 h-4" }) {
@@ -135,7 +136,7 @@ function InstagramReelCard({ reel }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleCardClick}
-      className="group relative w-full max-w-[290px] sm:max-w-[310px] lg:max-w-[325px] mx-auto h-[450px] sm:h-[475px] lg:h-[495px] aspect-[9/16] rounded-[24px] overflow-hidden bg-[#0A0F1A] border border-white/10 hover:border-[#38BDF8] shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 hover:-translate-y-2 cursor-pointer select-none flex flex-col justify-between"
+      className="group relative w-full max-w-[290px] sm:max-w-[310px] lg:max-w-[325px] mx-auto h-[450px] sm:h-[475px] lg:h-[495px] aspect-[9/16] rounded-[24px] overflow-hidden bg-black border border-white/10 hover:border-[#CFFF04] shadow-[0_20px_50px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-2 cursor-pointer select-none flex flex-col justify-between"
     >
       {/* ── 1. Video Element ── */}
       <video
@@ -157,7 +158,7 @@ function InstagramReelCard({ reel }) {
 
       {/* ── 3. Top Instagram Header Bar ── */}
       <div className="relative z-10 p-3.5 pt-3.5 flex items-center justify-between text-white">
-        {/* Creator Info (links to profile) - NO RED */}
+        {/* Creator Info (links to profile) */}
         <div
           onClick={(e) => {
             e.stopPropagation();
@@ -165,9 +166,9 @@ function InstagramReelCard({ reel }) {
           }}
           className="flex items-center gap-2 cursor-pointer group/author"
         >
-          {/* Avatar ring in cyan / blue theme */}
-          <div className="relative w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-[#38BDF8] to-[#0284c7] group-hover/author:scale-105 transition-transform shadow-[0_0_12px_rgba(56,189,248,0.35)]">
-            <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-900">
+          {/* Avatar ring in neon lime theme */}
+          <div className="relative w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-[#CFFF04] to-[#84CC16] group-hover/author:scale-105 transition-transform shadow-[0_0_12px_rgba(207,255,4,0.4)]">
+            <div className="relative w-full h-full rounded-full overflow-hidden bg-black">
               <Image
                 src="/images/hero/dd.png"
                 alt="Dheeraj Aggarwal"
@@ -178,13 +179,13 @@ function InstagramReelCard({ reel }) {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-1">
-              <span className="text-xs font-bold text-white tracking-tight group-hover/author:text-[#38BDF8] transition-colors">
+              <span className="text-xs font-bold text-white tracking-tight group-hover/author:text-[#CFFF04] transition-colors">
                 indiandheeraj
               </span>
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#38BDF8] fill-[#38BDF8]/20" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#CFFF04] fill-[#CFFF04]/20" />
             </div>
             <div className="flex items-center gap-1 text-[9px] text-slate-300 font-mono">
-              <Music2 className="w-2.5 h-2.5 text-[#38BDF8]" />
+              <Music2 className="w-2.5 h-2.5 text-[#CFFF04]" />
               <span className="truncate max-w-[110px]">Original audio</span>
             </div>
           </div>
@@ -194,9 +195,9 @@ function InstagramReelCard({ reel }) {
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-          className="w-8 h-8 rounded-full bg-black/60 hover:bg-[#38BDF8] hover:text-[#0A0F1A] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-colors"
+          className="w-8 h-8 rounded-full bg-black/60 hover:bg-[#CFFF04] hover:text-black border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-colors"
         >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#38BDF8]" />}
+          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#CFFF04]" />}
         </button>
       </div>
 
@@ -212,7 +213,7 @@ function InstagramReelCard({ reel }) {
         </div>
       )}
 
-      {/* ── 5. Right Action Rail (Instagram Style) - Anchored Near Bottom (NO RED) ── */}
+      {/* ── 5. Right Action Rail (Instagram Style) ── */}
       <div className="absolute right-3 bottom-5 z-20 flex flex-col items-center gap-3 text-white">
         {/* Like */}
         <button
@@ -222,8 +223,8 @@ function InstagramReelCard({ reel }) {
           }}
           className="flex flex-col items-center gap-0.5 group/btn"
         >
-          <div className={`w-8 h-8 rounded-full bg-black/50 border border-white/10 flex items-center justify-center backdrop-blur-md transition-transform group-hover/btn:scale-110 ${isLiked ? "text-[#38BDF8] border-[#38BDF8]/40" : "text-white"}`}>
-            <Heart className={`w-4 h-4 ${isLiked ? "fill-[#38BDF8] text-[#38BDF8]" : ""}`} />
+          <div className={`w-8 h-8 rounded-full bg-black/50 border border-white/10 flex items-center justify-center backdrop-blur-md transition-transform group-hover/btn:scale-110 ${isLiked ? "text-[#CFFF04] border-[#CFFF04]/50" : "text-white"}`}>
+            <Heart className={`w-4 h-4 ${isLiked ? "fill-[#CFFF04] text-[#CFFF04]" : ""}`} />
           </div>
           <span className="text-[8px] font-mono font-bold">{isLiked ? "18.5K" : reel.likes}</span>
         </button>
@@ -244,8 +245,8 @@ function InstagramReelCard({ reel }) {
           <span className="text-[8px] font-mono font-bold">{reel.shares}</span>
         </div>
 
-        {/* Instagram Direct Link Icon (Theme Cyan/Dark) */}
-        <div className="w-8 h-8 rounded-full bg-[#0F172A]/90 border border-[#38BDF8]/40 flex items-center justify-center backdrop-blur-md text-[#38BDF8] group-hover:scale-110 transition-transform shadow-[0_0_12px_rgba(56,189,248,0.25)]">
+        {/* Instagram Direct Link Icon */}
+        <div className="w-8 h-8 rounded-full bg-black/90 border border-[#CFFF04]/50 flex items-center justify-center backdrop-blur-md text-[#CFFF04] group-hover:scale-110 transition-transform shadow-[0_0_12px_rgba(207,255,4,0.3)]">
           <InstagramIcon className="w-3.5 h-3.5" />
         </div>
       </div>
@@ -254,14 +255,14 @@ function InstagramReelCard({ reel }) {
       <div className="mt-auto relative z-10 w-full pointer-events-none">
         <div className="p-3.5 pr-14 text-white pb-2.5 pointer-events-auto">
           {/* Key Impact Metric Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-[#0F172A]/90 border border-[#38BDF8]/50 px-2.5 py-0.5 rounded-full mb-1.5 backdrop-blur-md shadow-md">
-            <TrendingUp className="w-3 h-3 text-[#38BDF8]" />
-            <span className="text-[9px] font-mono font-bold text-[#38BDF8]">{reel.metric}</span>
+          <div className="inline-flex items-center gap-1.5 bg-black/90 border border-[#CFFF04]/50 px-2.5 py-0.5 rounded-full mb-1.5 backdrop-blur-md shadow-md">
+            <TrendingUp className="w-3 h-3 text-[#CFFF04]" />
+            <span className="text-[9px] font-mono font-bold text-[#CFFF04]">{reel.metric}</span>
           </div>
 
           {/* Founder Tag */}
           <div className="text-[11px] text-slate-200 font-semibold mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-            {reel.founder} &bull; <span className="text-[#38BDF8] font-bold">{reel.role}</span>
+            {reel.founder} &bull; <span className="text-[#CFFF04] font-bold">{reel.role}</span>
           </div>
 
           {/* Reel Title/Caption */}
@@ -282,7 +283,7 @@ function InstagramReelCard({ reel }) {
         {/* ── 7. Scrubbing Bottom Progress Bar ── */}
         <div className="relative z-20 w-full h-[2px] bg-white/20 overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#38BDF8] to-[#0284c7] transition-all duration-100 ease-linear"
+            className="h-full bg-gradient-to-r from-[#A3E635] via-[#CFFF04] to-[#BEF264] transition-all duration-100 ease-linear"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -291,35 +292,44 @@ function InstagramReelCard({ reel }) {
   );
 }
 
-export default function VideoSection() {
+export default function VideoSection({
+  id = "founder-conversations",
+  number = "01",
+  eyebrow = "Instagram Reels • @indiandheeraj",
+  title = "Short-Form Founder Perspectives.",
+  description = "Hover over any reel to auto-play instant insights on fixing bottlenecks, deal ecosystems, and B2B growth. Click any card to watch directly on Instagram.",
+  className = "",
+}) {
   return (
     <section
-      id="founder-conversations"
-      className="relative min-h-screen py-12 sm:py-16 lg:py-20 bg-[#0A0F1A] border-b border-slate-800/50 font-sans overflow-hidden flex flex-col justify-center"
+      id={id}
+      className={`relative min-h-screen py-[80px] bg-[#000000] border-b border-white/10 font-sans overflow-hidden flex flex-col justify-center ${className}`}
     >
       {/* ── Background Lining Texture & Subtle Glow ── */}
       <DarkSectionLining glowPosition="center" showTopBeam={true} showBottomBeam={false} />
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center my-auto">
         {/* ── Section Header (Compact for 100vh) ── */}
-        <ScrollReveal distance={28} delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4 sm:mb-5">
+        <ScrollReveal distance={28} delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-8 sm:mb-10">
           <div>
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#0F172A] border border-[#38BDF8]/40 rounded-full px-3 py-0.5 mb-1.5 shadow-[0_0_20px_rgba(56,189,248,0.15)]">
-              <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-ping" />
-              <span className="text-[9.5px] font-mono uppercase tracking-[0.22em] font-bold text-[#38BDF8]">
-                Instagram Reels &bull; @indiandheeraj
+            <div className="inline-flex items-center gap-2 bg-[#000000] border border-[#CFFF04]/40 rounded-full px-3 py-0.5 mb-2 shadow-[0_0_20px_rgba(207,255,4,0.2)]">
+              <span className="w-2 h-2 rounded-full bg-[#CFFF04] animate-ping" />
+              <span className="text-[9.5px] font-mono uppercase tracking-[0.22em] font-bold text-[#CFFF04]">
+                {eyebrow}
               </span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-3.5xl font-extrabold text-white tracking-tight leading-tight">
-              Short-Form{" "}
-              <span className="bg-gradient-to-r from-[#38BDF8] via-[#7dd3fc] to-[#38BDF8] bg-clip-text text-transparent">
-                Founder Perspectives.
-              </span>
+              <RollingText text={title} />
             </h2>
-            <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mt-1 leading-relaxed">
-              Hover over any reel to auto-play instant insights on fixing bottlenecks, deal ecosystems, and B2B growth. Click any card to watch directly on Instagram.
+            <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mt-1.5 leading-relaxed font-light">
+              <RollingText
+                text={description}
+                delay={0.2}
+                duration={1.3}
+                stagger={0.03}
+              />
             </p>
           </div>
 
@@ -328,11 +338,11 @@ export default function VideoSection() {
             href="https://www.instagram.com/indiandheeraj/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#0F172A]/90 border border-[#38BDF8]/40 hover:border-[#38BDF8] text-white hover:text-[#38BDF8] transition-all text-xs font-semibold backdrop-blur-md group self-start md:self-auto shadow-lg hover:shadow-[0_0_20px_rgba(56,189,248,0.2)] shrink-0"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-black/90 border border-[#CFFF04]/40 hover:border-[#CFFF04] text-white hover:text-[#CFFF04] transition-all text-xs font-semibold backdrop-blur-md group self-start md:self-auto shadow-lg hover:shadow-[0_0_20px_rgba(207,255,4,0.25)] shrink-0"
           >
-            <InstagramIcon className="w-3.5 h-3.5 text-[#38BDF8] group-hover:scale-110 transition-transform" />
+            <InstagramIcon className="w-3.5 h-3.5 text-[#CFFF04] group-hover:scale-110 transition-transform" />
             <span>Watch More @indiandheeraj</span>
-            <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#38BDF8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#CFFF04] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </ScrollReveal>
 
