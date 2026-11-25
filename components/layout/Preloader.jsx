@@ -117,8 +117,8 @@ export default function Preloader() {
         if (sctx) {
           const grad = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
           grad.addColorStop(0, "rgba(255,255,255,1)");
-          grad.addColorStop(0.28, "rgba(200,255,0,0.85)");
-          grad.addColorStop(1, "rgba(200,255,0,0)");
+          grad.addColorStop(0.28, "rgba(212,175,55,0.85)");
+          grad.addColorStop(1, "rgba(212,175,55,0)");
           sctx.fillStyle = grad;
           sctx.fillRect(0, 0, 64, 64);
         }
@@ -136,7 +136,7 @@ export default function Preloader() {
         ambientMat = new THREE.PointsMaterial({
           size: 0.15,
           map: spriteTex,
-          color: 0xc8ff00,
+          color: 0xd4af37,
           transparent: true,
           opacity: 0.4,
           depthWrite: false,
@@ -158,7 +158,7 @@ export default function Preloader() {
         sparkMat = new THREE.PointsMaterial({
           size: 0.24,
           map: spriteTex,
-          color: 0xc8ff00,
+          color: 0xd4af37,
           transparent: true,
           opacity: 0.92,
           depthWrite: false,
@@ -385,12 +385,12 @@ export default function Preloader() {
       >
         <div className="relative flex flex-col items-center justify-center">
           {/* Subtle Ambient Glow Behind Writing Area */}
-          <div className="absolute w-72 sm:w-[460px] h-32 sm:h-44 rounded-full bg-[#C8FF00]/12 blur-[90px] pointer-events-none" />
+          <div className="absolute w-72 sm:w-[460px] h-32 sm:h-44 rounded-full bg-[#D4AF37]/12 blur-[90px] pointer-events-none" />
 
           {/* Exact Vector-Masked Calligraphic Signature */}
           <div
             ref={svgWrapRef}
-            className="relative w-72 sm:w-[420px] md:w-[500px] aspect-[864/289]"
+            className="relative w-72 sm:w-[420px] md:w-[500px] aspect-[942/320]"
           >
             <svg
               viewBox={SIGNATURE_VIEWBOX}
@@ -417,7 +417,7 @@ export default function Preloader() {
                       d={d}
                       fill="none"
                       stroke="white"
-                      strokeWidth="13"
+                      strokeWidth="15"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       style={{
@@ -429,27 +429,21 @@ export default function Preloader() {
                 </mask>
 
                 <filter id="daSignatureGlow" x="-15%" y="-25%" width="130%" height="150%">
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"
-                    result="pureWhite"
-                  />
                   <feDropShadow
-                    in="pureWhite"
                     dx="0"
                     dy="0"
                     stdDeviation="4.5"
-                    floodColor="#C8FF00"
-                    floodOpacity="0.65"
+                    floodColor="#D4AF37"
+                    floodOpacity="0.45"
                   />
                 </filter>
               </defs>
 
-              {/* High-res signature PNG revealed ONLY along actively drawn calligraphy paths */}
+              {/* High-res 3D metallic gold signature revealed along active calligraphy paths */}
               <g filter="url(#daSignatureGlow)">
                 <image
                   ref={sigImageRef}
-                  href="/cl-logo/pr-logo.png"
+                  href="/cl-logo/dheeraj-gold-logo.png"
                   x="0"
                   y="0"
                   width={SIGNATURE_WIDTH}
@@ -459,7 +453,7 @@ export default function Preloader() {
                 />
               </g>
 
-              {/* Luminous Crisp Ink Core Following Pen Tip */}
+              {/* Luminous Champagne Gold Core Following Pen Tip */}
               <g>
                 {SIGNATURE_STROKES.map((d, idx) => (
                   <path
@@ -469,7 +463,7 @@ export default function Preloader() {
                     }}
                     d={d}
                     fill="none"
-                    stroke="#FFFFFF"
+                    stroke="#E5C665"
                     strokeOpacity="0.55"
                     strokeWidth="2.2"
                     strokeLinecap="round"
@@ -488,7 +482,7 @@ export default function Preloader() {
                 cx="0"
                 cy="0"
                 r="14"
-                fill="#C8FF00"
+                fill="#D4AF37"
                 opacity="0"
                 style={{ filter: "blur(6px)" }}
               />
@@ -497,7 +491,7 @@ export default function Preloader() {
                 cx="0"
                 cy="0"
                 r="4.2"
-                fill="#C8FF00"
+                fill="#D4AF37"
                 opacity="0"
               />
             </svg>
@@ -507,7 +501,7 @@ export default function Preloader() {
           <div className="mt-5 w-44 sm:w-56 h-[1.5px] bg-white/10 rounded-full overflow-hidden">
             <div
               ref={progressBarRef}
-              className="h-full w-full bg-gradient-to-r from-[#C8FF00]/40 via-[#C8FF00] to-white origin-left"
+              className="h-full w-full bg-gradient-to-r from-[#D4AF37]/40 via-[#D4AF37] to-white origin-left"
               style={{ transform: "scaleX(0)" }}
             />
           </div>

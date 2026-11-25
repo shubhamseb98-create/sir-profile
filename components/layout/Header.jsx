@@ -10,10 +10,11 @@ import MobileMenu from "./MobileMenu";
 import { trackStrategyCallClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
-const getChildIcon = (href) => {
-  if (href.includes("karma")) return Building2;
-  if (href.includes("hhc")) return Users;
-  if (href.includes("digital-growth")) return Globe;
+const getChildIcon = (label = "") => {
+  const l = label.toLowerCase();
+  if (l.includes("karma")) return Building2;
+  if (l.includes("hhc") || l.includes("hospitality")) return Users;
+  if (l.includes("web tycoons")) return Globe;
   return Briefcase;
 };
 
@@ -76,11 +77,12 @@ export default function Header() {
             aria-label="Dheeraj Aggarwal - Home"
           >
             <Image
-              src="/cl-logo/pr-logo.png"
+              src="/cl-logo/dheeraj-gold-logo.png"
               alt="Dheeraj Aggarwal"
               width={240}
-              height={68}
-              className="h-11 sm:h-13 md:h-14 lg:h-[58px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]"
+              height={82}
+              unoptimized
+              className="h-11 sm:h-13 md:h-14 lg:h-[58px] w-auto object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.42)] transition-transform duration-200 group-hover:scale-[1.03]"
               priority
             />
           </Link>
@@ -88,11 +90,11 @@ export default function Header() {
           {/* Desktop Navigation - Clean White Theme */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 shrink-0">
             {siteConfig.navLinks.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = pathname === "/" && item.href === "/#top";
               const displayLabel = item.label === "Leadership & Ventures" ? "Ventures" : item.label;
 
               if (item.children) {
-                const isChildActive = item.children.some((c) => pathname === c.href);
+                const isChildActive = false;
                 return (
                   <div
                     key={item.label}
@@ -116,7 +118,7 @@ export default function Header() {
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200",
                           dropdownOpen
-                            ? "rotate-180 text-[#C8FF00]"
+                            ? "rotate-180 text-[#D4AF37]"
                             : isChildActive
                             ? "text-white"
                             : "text-slate-400"
@@ -134,15 +136,15 @@ export default function Header() {
                             <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-neutral-200">
                               Ventures &amp; Leadership
                             </span>
-                            <span className="text-[10px] font-mono font-bold text-[#C8FF00]">
+                            <span className="text-[10px] font-mono font-bold text-[#D4AF37]">
                               4 Mandates
                             </span>
                           </div>
 
                           <div className="space-y-1">
                             {item.children.map((child) => {
-                              const isChildCurrent = pathname === child.href;
-                              const Icon = getChildIcon(child.href);
+                              const isChildCurrent = false;
+                              const Icon = getChildIcon(child.label);
 
                               return (
                                 <Link
@@ -159,16 +161,16 @@ export default function Header() {
                                   {/* Subtle top specular glass reflection on hover */}
                                   <div className="absolute inset-x-3 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
 
-                                  {/* Left neon lime accent bar on hover */}
-                                  <div className="absolute left-0 top-2 bottom-2 w-1 bg-[#C8FF00] rounded-r shadow-[0_0_10px_rgba(200,255,0,0.65)] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                                  {/* Left metallic gold bar on hover */}
+                                  <div className="absolute left-0 top-2 bottom-2 w-1 bg-gold-metallic rounded-r opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
                                   {/* Icon Badge */}
                                   <div
                                     className={cn(
                                       "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 mt-0.5",
                                       isChildCurrent
-                                        ? "bg-[#C8FF00] text-black shadow-xs"
-                                        : "bg-white/10 text-neutral-200 group-hover:bg-[#C8FF00]/15 group-hover:text-[#C8FF00] group-hover:shadow-[inset_0_1px_0_rgba(200,255,0,0.3)] group-hover:scale-105"
+                                        ? "bg-[#D4AF37] text-black shadow-xs"
+                                        : "bg-white/10 text-neutral-200 group-hover:bg-[#D4AF37]/15 group-hover:text-[#D4AF37] group-hover:shadow-[inset_0_1px_0_rgba(212,175,55,0.3)] group-hover:scale-105"
                                     )}
                                   >
                                     <Icon className="w-4 h-4" />
@@ -181,7 +183,7 @@ export default function Header() {
                                         className={cn(
                                           "text-xs font-bold leading-tight transition-colors duration-200",
                                           isChildCurrent
-                                            ? "text-[#C8FF00]"
+                                            ? "text-[#D4AF37]"
                                             : "text-white group-hover:text-white"
                                         )}
                                       >
@@ -191,8 +193,8 @@ export default function Header() {
                                         className={cn(
                                           "w-3.5 h-3.5 shrink-0 transition-all duration-200",
                                           isChildCurrent
-                                            ? "text-[#C8FF00] opacity-100"
-                                            : "text-neutral-300 opacity-0 group-hover:opacity-100 group-hover:text-[#C8FF00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                            ? "text-[#D4AF37] opacity-100"
+                                            : "text-neutral-300 opacity-0 group-hover:opacity-100 group-hover:text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                         )}
                                       />
                                     </div>

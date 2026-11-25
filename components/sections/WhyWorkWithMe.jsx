@@ -5,11 +5,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function WhyWorkWithMe() {
   return (
-    <section className="min-h-screen py-6 sm:py-8 flex flex-col justify-center bg-[#FFFFFF] text-[#1E293B] relative overflow-hidden font-sans border-b border-slate-200">
-      {/* Subtle balanced neon lime ambient glow aura */}
-      <div className="absolute top-1/4 -left-28 sm:-left-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#C8FF00]/13 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#C8FF00]/13 rounded-full blur-[120px] pointer-events-none" />
-
+    <section id="why-work-with-me" className="min-h-screen py-6 sm:py-8 flex flex-col justify-center bg-[#FFFFFF] text-[#1E293B] relative overflow-hidden font-sans border-b border-slate-200">
       {/* Decorative architectural background watermark */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[18rem] text-[#334155]/[0.03] select-none pointer-events-none font-bold font-sans">
         DA
@@ -29,7 +25,7 @@ export default function WhyWorkWithMe() {
 
           <ScrollReveal delay={0.2} distance={20} className="shrink-0 pb-1">
             <Button
-              href="/contact?type=consulting"
+              href="/contact?type=strategy-call"
               variant="light-primary"
               size="sm"
             >

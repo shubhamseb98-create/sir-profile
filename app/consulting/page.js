@@ -26,8 +26,8 @@ export default function ConsultingPage() {
       {/* 2. Interactive Consulting Practices with Sticky Index (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -153,8 +153,8 @@ export default function ConsultingPage() {
       {/* 3. Engagement Models Comparison Row (DARK - 80px padding) */}
       <section id="models" className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -174,25 +174,25 @@ export default function ConsultingPage() {
                 className={cn(
                   "p-8 rounded-2xl flex flex-col justify-between transition-all duration-300 relative group",
                   model.featured
-                    ? "bg-[#0A0D14] border-2 border-[#C8FF00] shadow-[0_0_35px_rgba(200,255,0,0.2)] -translate-y-1"
-                    : "bg-[#0A0D14]/80 border border-white/10 hover:border-[#C8FF00]/40 shadow-xl"
+                    ? "bg-[#0A0D14] border-2 border-[#D4AF37] shadow-[0_0_35px_rgba(212,175,55,0.2)] -translate-y-1"
+                    : "bg-[#0A0D14]/80 border border-white/10 hover:border-[#D4AF37]/40 shadow-xl"
                 )}
               >
                 {model.featured && (
-                  <span className="absolute -top-3 left-8 text-[10px] font-mono uppercase tracking-widest font-bold bg-[#C8FF00] text-black px-3.5 py-1 rounded-full shadow-[0_0_12px_rgba(200,255,0,0.4)]">
+                  <span className="absolute -top-3 left-8 text-[10px] font-mono uppercase tracking-widest font-bold bg-[#D4AF37] text-black px-3.5 py-1 rounded-full shadow-[0_0_12px_rgba(212,175,55,0.4)]">
                     Most Selected Mandate
                   </span>
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#C8FF00] font-bold">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] font-bold">
                       {model.duration}
                     </span>
                     <Clock className="w-4 h-4 text-slate-400" />
                   </div>
 
-                  <h3 className="font-sans text-2xl font-bold text-white group-hover:text-[#C8FF00] transition-colors mb-3">
+                  <h3 className="font-sans text-2xl font-bold text-white group-hover:text-[#D4AF37] transition-colors mb-3">
                     {model.title}
                   </h3>
 
@@ -202,7 +202,7 @@ export default function ConsultingPage() {
 
                   <div className="space-y-3 pt-4 border-t border-white/10 text-xs">
                     <div>
-                      <span className="text-[#C8FF00] font-mono font-semibold block mb-1">
+                      <span className="text-[#D4AF37] font-mono font-semibold block mb-1">
                         Primary Deliverable:
                       </span>
                       <p className="text-white leading-snug">{model.deliverable}</p>

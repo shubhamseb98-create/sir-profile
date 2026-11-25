@@ -181,6 +181,7 @@ export default function Hero() {
 
   return (
     <section
+      id="top"
       ref={sectionRef}
       className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden bg-[#000000] font-sans pt-24 sm:pt-28 select-none"
     >
@@ -204,21 +205,15 @@ export default function Hero() {
         }}
       />
 
-      {/* Studio Spotlight & Ambient Edge Depth */}
-      <div
-        aria-hidden="true"
-        className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] sm:w-[780px] h-[460px] sm:h-[580px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05)_0%,rgba(200,255,0,0.06)_36%,rgba(0,0,0,0)_72%)] blur-2xl pointer-events-none z-[1]"
-      />
-
       {/* ── 2. GIANT EDITORIAL DISPLAY NAME BEHIND PORTRAIT (2 LINES) ── */}
       <div
         aria-hidden="true"
         className="hero-editorial-name absolute bottom-[260px] sm:bottom-[clamp(225px,39vh,365px)] inset-x-0 flex justify-center items-center pointer-events-none select-none z-[2] px-4 sm:px-8"
       >
         <div
-          className="flex flex-col items-center justify-center font-display font-semibold uppercase tracking-[0.06em] leading-[0.94] whitespace-nowrap drop-shadow-[0_14px_45px_rgba(0,0,0,0.95)]"
+          className="flex flex-col items-center justify-center font-sans font-semibold uppercase tracking-[-0.02em] leading-[0.94] whitespace-nowrap drop-shadow-[0_14px_45px_rgba(0,0,0,0.95)]"
           style={{
-            fontSize: "clamp(38px, 10vw, 148px)",
+            fontSize: "clamp(34px, 9.2vw, 134px)",
           }}
         >
           {DISPLAY_LINES.map((line, lineIdx) => (
@@ -226,7 +221,11 @@ export default function Hero() {
               {line.map((letter, idx) => (
                 <span
                   key={`${lineIdx}-${letter}-${idx}`}
-                  className="hero-intro-letter inline-block pt-[0.06em] pb-[0.26em] -mb-[0.26em] pr-[0.08em] -mr-[0.08em] opacity-0 bg-gradient-to-b from-[#C8FF00] via-[#B4E800] to-[#6B8E00] bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(155deg, #FFF6C4 0%, #E7BE44 28%, #D4AF37 54%, #8F5E06 82%, #F7DF84 100%)",
+                  }}
+                  className="hero-intro-letter inline-block pt-[0.04em] pb-[0.14em] -mb-[0.14em] pr-[0.06em] -mr-[0.06em] opacity-0 bg-clip-text text-transparent"
                 >
                   {letter}
                 </span>
@@ -269,16 +268,17 @@ export default function Hero() {
               <span className="hero-intro-left block text-white opacity-0">BRANDS.</span>
               <span className="hero-intro-left block text-white opacity-0">SYSTEMS.</span>
               <span className="hero-intro-left block text-white opacity-0">GROWTH.</span>
-              <span className="hero-intro-left block text-[#C8FF00] opacity-0">IMPACT.</span>
+              <span className="hero-intro-left block text-gold-metallic opacity-0">IMPACT.</span>
             </div>
 
             <div className="hero-intro-left mt-2.5 sm:mt-3 opacity-0">
               <Image
-                src="/cl-logo/pr-logo.png"
+                src="/cl-logo/dheeraj-gold-logo.png"
                 alt="Dheeraj Aggarwal Signature"
-                width={130}
-                height={36}
-                className="h-6 sm:h-7 w-auto object-contain brightness-0 invert opacity-85"
+                width={150}
+                height={51}
+                unoptimized
+                className="h-7 sm:h-9 w-auto object-contain drop-shadow-[0_2px_10px_rgba(212,175,55,0.3)]"
               />
             </div>
           </div>
@@ -291,7 +291,7 @@ export default function Hero() {
                 variant="primary"
                 size="md"
                 icon="right"
-                className="!rounded-md px-4 sm:px-5 py-2 sm:py-2.5 h-auto text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.14em] shadow-[0_0_24px_rgba(200,255,0,0.28)]"
+                className="!rounded-md px-4 sm:px-5 py-2 sm:py-2.5 h-auto text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.14em]"
               >
                 LET&apos;S TALK
               </Button>
@@ -301,7 +301,7 @@ export default function Hero() {
               <p className="hero-intro-right text-[11px] sm:text-sm font-semibold text-white/95 leading-snug opacity-0">
                 15+ Years of Experience
               </p>
-              <p className="hero-intro-right text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.14em] text-[#C8FF00] mt-0.5 opacity-0">
+              <p className="hero-intro-right text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.14em] text-gold-metallic mt-0.5 opacity-0">
                 BUSINESS CONSULTANT
               </p>
             </div>

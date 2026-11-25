@@ -21,8 +21,8 @@ export default function PrivacyPolicyPage() {
       {/* 2. Policy Articles (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[860px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
               <p className="font-normal text-slate-600">
                 For inquiries regarding data privacy or to request the deletion of your consultation
                 records, contact Dheeraj Aggarwal&apos;s executive desk at{" "}
-                <a href="mailto:contact@dheerajaggarwal.com" className="text-black font-bold underline hover:text-[#84CC16]">
+                <a href="mailto:contact@dheerajaggarwal.com" className="text-black font-bold underline hover:text-[#9E7E1E]">
                   contact@dheerajaggarwal.com
                 </a>
                 .

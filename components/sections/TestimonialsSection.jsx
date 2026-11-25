@@ -93,9 +93,9 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 sm:py-24 bg-[#000000] border-b border-white/10 relative font-sans overflow-hidden">
-      {/* Background lining texture and subtle glow */}
-      <DarkSectionLining glowPosition="top" showTopBeam={true} showBottomBeam={true} />
+    <section id="testimonials" className="py-20 sm:py-24 bg-[#000000] border-b border-white/10 relative font-sans overflow-hidden">
+      {/* Background lining texture */}
+      <DarkSectionLining showTopBeam={true} showBottomBeam={true} />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
@@ -113,18 +113,18 @@ export default function TestimonialsSection() {
               type="button"
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-11 h-11 rounded-full border border-white/15 hover:border-[#C8FF00] bg-white/[0.03] text-slate-300 hover:text-[#C8FF00] hover:shadow-[0_0_18px_rgba(200,255,0,0.25)] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full border border-white/15 hover:border-[#D4AF37] bg-white/[0.03] text-slate-300 hover:text-[#D4AF37] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <span className="text-xs font-mono text-[#C8FF00] px-2 font-semibold tabular-nums select-none">
+            <span className="text-xs font-mono text-gold-metallic px-2 font-semibold tabular-nums select-none">
               0{activeIndex + 1} / 0{TOTAL}
             </span>
             <button
               type="button"
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-11 h-11 rounded-full border border-white/15 hover:border-[#C8FF00] bg-white/[0.03] text-slate-300 hover:text-[#C8FF00] hover:shadow-[0_0_18px_rgba(200,255,0,0.25)] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full border border-white/15 hover:border-[#D4AF37] bg-white/[0.03] text-slate-300 hover:text-[#D4AF37] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -162,21 +162,15 @@ export default function TestimonialsSection() {
                     key={`${item.id}-${idx}`}
                     className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-2.5"
                   >
-                    <article className="group h-full relative rounded-2xl bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-[#050505] border border-white/10 hover:border-[#C8FF00]/45 p-5 sm:p-6 flex flex-col justify-between overflow-hidden transition-all duration-500 shadow-[0_14px_35px_rgba(0,0,0,0.85)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.95),0_0_24px_rgba(200,255,0,0.12)]">
+                    <article className="group h-full relative rounded-2xl bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-[#050505] border border-white/10 hover:border-[#D4AF37]/45 p-5 sm:p-6 flex flex-col justify-between overflow-hidden transition-all duration-500 shadow-[0_14px_35px_rgba(0,0,0,0.85)]">
                       {/* Top Hover Accent Hairline */}
-                      <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#C8FF00]/70 to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
-
-                      {/* Subtle Corner Glow */}
-                      <div
-                        aria-hidden="true"
-                        className="pointer-events-none absolute -top-20 -right-20 w-40 h-40 rounded-full bg-[#C8FF00]/[0.06] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      />
+                      <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-[linear-gradient(90deg,transparent_0%,#9A6B0C_25%,#FCF6BA_50%,#D4AF37_75%,transparent_100%)] opacity-35 group-hover:opacity-100 transition-opacity duration-500" />
 
                       {/* Top Meta + Compact Quote */}
                       <div className="relative z-10">
                         <div className="flex items-center justify-between gap-2 mb-4">
                           <div className="flex items-center gap-2 min-w-0">
-                            <span className="text-[10px] font-mono font-bold text-[#C8FF00] tracking-widest shrink-0">
+                            <span className="text-[10px] font-mono font-bold text-gold-metallic tracking-widest shrink-0">
                               0{displayNumber}
                             </span>
                             <span className="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-300 px-2.5 py-0.5 rounded-full bg-white/[0.05] border border-white/10 truncate">
@@ -191,10 +185,10 @@ export default function TestimonialsSection() {
                           </div>
                         </div>
 
-                        {/* Compact Editorial Serif Quote Mark */}
+                        {/* Compact Quote Mark */}
                         <span
                           aria-hidden="true"
-                          className="block font-display text-4xl leading-[0.6] text-[#C8FF00]/35 group-hover:text-[#C8FF00]/70 transition-colors duration-300 mb-2"
+                          className="block font-sans font-light text-4xl leading-[0.65] text-[#D4AF37]/35 group-hover:text-[#D4AF37]/70 transition-colors duration-300 mb-2"
                         >
                           &ldquo;
                         </span>
@@ -207,7 +201,7 @@ export default function TestimonialsSection() {
                       {/* Bottom Author & Verified Result Block */}
                       <div className="relative z-10 mt-5 pt-4 border-t border-white/10">
                         <div className="flex items-start justify-between gap-3">
-                          <div className="border-l-2 border-[#C8FF00]/70 pl-3 min-w-0">
+                          <div className="border-l-2 border-[#D4AF37]/70 pl-3 min-w-0">
                             <h3 className="text-sm sm:text-[15px] font-bold text-white leading-snug truncate">
                               {item.author}
                             </h3>
@@ -218,7 +212,7 @@ export default function TestimonialsSection() {
                               </span>
                             </p>
                           </div>
-                          <Quote className="w-4 h-4 text-white/10 group-hover:text-[#C8FF00]/30 transition-colors shrink-0 mt-0.5" />
+                          <Quote className="w-4 h-4 text-white/10 group-hover:text-[#D4AF37]/30 transition-colors shrink-0 mt-0.5" />
                         </div>
                       </div>
                     </article>
@@ -241,7 +235,7 @@ export default function TestimonialsSection() {
                   aria-current={isActive ? "true" : undefined}
                   className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? "w-8 bg-[#C8FF00] shadow-[0_0_12px_rgba(200,255,0,0.6)]"
+                      ? "w-8 bg-gold-metallic"
                       : "w-2 bg-white/20 hover:bg-white/40"
                   }`}
                 />

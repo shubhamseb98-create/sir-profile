@@ -49,10 +49,6 @@ export default function BrandTicker() {
 
   return (
     <section id="brand-ticker" className="py-16 sm:py-20 md:py-24 bg-[#FFFFFF] border-y border-slate-200 relative font-sans overflow-hidden select-none">
-      {/* Subtle Ambient Light Glows */}
-      <div className="absolute top-1/2 -left-32 -translate-y-1/2 w-[420px] h-[420px] bg-[#C8FF00]/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/2 -right-32 -translate-y-1/2 w-[420px] h-[420px] bg-[#C8FF00]/15 rounded-full blur-[140px] pointer-events-none" />
-
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center mb-8 sm:mb-12 relative z-10">
         <ScrollReveal distance={20} delay={0.1}>
           <SectionHeading

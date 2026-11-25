@@ -1,4 +1,4 @@
-import { Poppins, Cormorant_Garamond } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -11,17 +11,10 @@ import GSAPSectionRevealer from "@/components/layout/GSAPSectionRevealer";
 import PopupLeadForm from "@/components/ui/PopupLeadForm";
 import { siteConfig } from "@/data/site";
 
-const poppins = Poppins({
+// Variable font: omits weight array so all weights (300–700+) load cleanly in Turbopack
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-poppins",
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["600", "700"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -119,7 +112,7 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={`${poppins.variable} ${cormorant.variable}`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

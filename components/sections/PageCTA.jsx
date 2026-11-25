@@ -1,7 +1,6 @@
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
 import { MessageCircle, Mail } from "lucide-react";
-import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -14,8 +13,8 @@ export default function PageCTA({
     href: "/contact?type=strategy-call",
   },
   secondaryAction = {
-    label: "Discuss a Collaboration",
-    href: "/contact?type=collaboration",
+    label: "Explore Core Expertise",
+    href: "#core-expertise",
   },
   showAlternatives = true,
   className = "",
@@ -23,17 +22,13 @@ export default function PageCTA({
 }) {
   return (
     <section
+      id="contact-cta"
       className={`min-h-screen py-[80px] flex flex-col justify-center relative overflow-hidden font-sans ${
         light
           ? "bg-white border-t border-slate-200 text-slate-900"
           : "bg-black border-t border-white/10 text-white"
       } ${className}`}
     >
-      {/* Subtle balanced ambient glow aura */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[600px] h-[500px] sm:h-[600px] rounded-full blur-[140px] pointer-events-none bg-[#C8FF00]/14"
-      />
-
       <ScrollReveal
         distance={35}
         delay={0.1}
@@ -80,17 +75,6 @@ export default function PageCTA({
                 : "border-white/10 text-slate-400"
             }`}
           >
-            <Link
-              href="/speaking"
-              className={`transition-colors flex items-center gap-1.5 font-medium ${
-                light ? "hover:text-black" : "hover:text-[#C8FF00]"
-              }`}
-            >
-              <span>Invite Me to Speak</span>
-            </Link>
-
-            <span className={light ? "text-slate-300" : "text-white/20"}>•</span>
-
             <a
               href={siteConfig.whatsappUrl}
               target="_blank"
@@ -106,7 +90,7 @@ export default function PageCTA({
             <a
               href={`mailto:${siteConfig.contactEmail}`}
               className={`transition-colors flex items-center gap-1.5 font-medium ${
-                light ? "hover:text-black" : "hover:text-[#C8FF00]"
+                light ? "hover:text-black" : "hover:text-[#D4AF37]"
               }`}
             >
               <Mail className="w-3.5 h-3.5 text-slate-500" />

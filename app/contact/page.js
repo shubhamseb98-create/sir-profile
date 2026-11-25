@@ -26,8 +26,8 @@ export default function ContactPage() {
       {/* 2. Main Form & Direct Channels (LIGHT - Compact Viewport Fit) */}
       <section className="py-6 sm:py-8 md:py-10 bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden font-sans">
         {/* Ambient glow */}
-        <div className="absolute top-1/4 -left-28 w-[380px] h-[380px] bg-[#C8FF00]/10 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 w-[380px] h-[380px] bg-[#C8FF00]/10 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 w-[380px] h-[380px] bg-[#D4AF37]/10 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 w-[380px] h-[380px] bg-[#D4AF37]/10 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeading
@@ -52,7 +52,7 @@ export default function ContactPage() {
               {/* Direct Priority Channels Card */}
               <div className="p-6 sm:p-7 rounded-3xl bg-white border border-neutral-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.04)] space-y-4.5 relative overflow-hidden">
                 {/* Top hairline accent */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-neutral-900 via-[#C8FF00] to-neutral-900" />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-neutral-900 via-[#D4AF37] to-neutral-900" />
 
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2.5">
@@ -81,12 +81,12 @@ export default function ContactPage() {
                     className="w-full py-3.5 px-4 rounded-xl bg-black hover:bg-neutral-900 text-white transition-all flex items-center justify-between font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
                   >
                     <span className="flex items-center gap-2.5">
-                      <div className="w-6 h-6 rounded-lg bg-neutral-800 flex items-center justify-center text-[#C8FF00]">
+                      <div className="w-6 h-6 rounded-lg bg-neutral-800 flex items-center justify-center text-[#D4AF37]">
                         <Calendar className="w-3.5 h-3.5" />
                       </div>
                       <span>Book 30-Min Diagnostic</span>
                     </span>
-                    <span className="text-[10px] font-mono text-[#C8FF00] group-hover:translate-x-0.5 transition-transform">
+                    <span className="text-[10px] font-mono text-[#D4AF37] group-hover:translate-x-0.5 transition-transform">
                       Calendar ↗
                     </span>
                   </a>

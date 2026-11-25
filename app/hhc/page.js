@@ -112,8 +112,8 @@ export default function HHCPage() {
       {/* 2. Dheeraj's Strategic Role (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -148,8 +148,8 @@ export default function HHCPage() {
       {/* 3. Community Platforms & Events (DARK - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Homepage style ambient glow */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -167,14 +167,14 @@ export default function HHCPage() {
               return (
                 <div
                   key={p.title}
-                  className="p-8 rounded-2xl bg-[#0A0D14] border border-white/10 hover:border-[#C8FF00]/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:shadow-[0_0_25px_rgba(200,255,0,0.1)] hover:-translate-y-1"
+                  className="p-8 rounded-2xl bg-[#0A0D14] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.1)] hover:-translate-y-1"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#C8FF00]/10 border border-[#C8FF00]/25 flex items-center justify-center text-[#C8FF00] mb-6 group-hover:scale-110 transition-transform font-bold">
+                    <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/25 flex items-center justify-center text-[#D4AF37] mb-6 group-hover:scale-110 transition-transform font-bold">
                       <Icon className="w-6 h-6" strokeWidth={1.5} />
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug group-hover:text-[#C8FF00] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug group-hover:text-[#D4AF37] transition-colors">
                       {p.title}
                     </h3>
 
@@ -192,8 +192,8 @@ export default function HHCPage() {
       {/* 4. Vendor Ecosystem & Membership Tiers (LIGHT - 80px padding) */}
       <section id="vendor-ecosystem" className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading

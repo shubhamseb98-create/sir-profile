@@ -54,8 +54,8 @@ export default async function CaseStudyDetailPage({ params }) {
       {/* 2. Structured Narrative Body: Challenge & Strategy (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1040px] w-full mx-auto px-6 sm:px-8 space-y-10 my-auto relative z-10">
           {/* Challenge & Diagnosis (2-Col) */}
@@ -117,28 +117,28 @@ export default async function CaseStudyDetailPage({ params }) {
       {/* 3. Transformation Outcomes & Results Matrix (DARK - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Homepage style ambient glow */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1040px] w-full mx-auto px-6 sm:px-8 space-y-10 my-auto relative z-10">
           {/* Results Matrix */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#0A0D14] to-black border border-[#C8FF00]/30 shadow-2xl shadow-[0_0_35px_rgba(200,255,0,0.08)]">
+          <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#0A0D14] to-black border border-[#D4AF37]/30 shadow-2xl shadow-[0_0_35px_rgba(212,175,55,0.08)]">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-[#C8FF00] block mb-1 font-bold">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] block mb-1 font-bold">
                   04 • Verified Outcomes
                 </span>
                 <h2 className="text-3xl font-bold text-white">
                   Transformation Results
                 </h2>
               </div>
-              <Award className="w-8 h-8 text-[#C8FF00]" />
+              <Award className="w-8 h-8 text-[#D4AF37]" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/10">
               {study.results.map((res) => (
                 <div key={res.metric} className="p-4 rounded-xl bg-black/70 border border-white/10">
-                  <span className="text-[11px] uppercase tracking-wider text-[#C8FF00] font-mono block mb-1 font-bold">
+                  <span className="text-[11px] uppercase tracking-wider text-[#D4AF37] font-mono block mb-1 font-bold">
                     {res.metric}
                   </span>
                   <p className="text-sm font-semibold text-white leading-snug">
@@ -152,7 +152,7 @@ export default async function CaseStudyDetailPage({ params }) {
           {/* Business Learning & Client Quote */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-6 p-8 rounded-2xl bg-[#0A0D14] border border-white/10">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#C8FF00] block mb-2 font-bold">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] block mb-2 font-bold">
                 05 • Executive Learning
               </span>
               <h3 className="text-2xl font-bold text-white mb-3">
@@ -164,8 +164,8 @@ export default async function CaseStudyDetailPage({ params }) {
             </div>
 
             <div className="md:col-span-6 p-8 rounded-2xl bg-[#0A0D14] border border-white/10 relative overflow-hidden">
-              <Quote className="w-16 h-16 text-[#C8FF00]/10 absolute -bottom-2 right-2 pointer-events-none" />
-              <span className="text-xs font-mono uppercase tracking-wider text-[#C8FF00] block mb-2 font-bold">
+              <Quote className="w-16 h-16 text-[#D4AF37]/10 absolute -bottom-2 right-2 pointer-events-none" />
+              <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] block mb-2 font-bold">
                 Client Reflection
               </span>
               <p className="text-lg sm:text-xl text-white italic leading-snug mb-4">

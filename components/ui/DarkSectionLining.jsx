@@ -6,20 +6,19 @@ export default function DarkSectionLining({
   className = "",
   showTopBeam = true,
   showBottomBeam = true,
-  glowPosition = "center", // "center" | "split" | "top"
 }) {
   return (
     <div
       aria-hidden="true"
       className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
     >
-      {/* ── 1. Architectural Pinstripe Grid Lines Texture (Subtle Neon #C8FF00 Tint) ── */}
+      {/* ── 1. Architectural Pinstripe Grid Lines Texture ── */}
       <div
-        className="absolute inset-0 opacity-[0.55]"
+        className="absolute inset-0 opacity-[0.45]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(200, 255, 0, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(200, 255, 0, 0.08) 1px, transparent 1px)
+            linear-gradient(to right, rgba(212,175,55, 0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(212,175,55, 0.06) 1px, transparent 1px)
           `,
           backgroundSize: "40px 40px",
           maskImage:
@@ -29,17 +28,17 @@ export default function DarkSectionLining({
         }}
       />
 
-      {/* ── 2. Subtle Angled Linear Tech Accent Pinstripes ── */}
+      {/* ── 2. Subtle Angled Linear Pinstripes ── */}
       <div
-        className="absolute inset-0 opacity-[0.25]"
+        className="absolute inset-0 opacity-[0.2]"
         style={{
           backgroundImage: `
             repeating-linear-gradient(
               -45deg,
               transparent,
               transparent 40px,
-              rgba(200, 255, 0, 0.04) 40px,
-              rgba(200, 255, 0, 0.04) 41px
+              rgba(212,175,55, 0.035) 40px,
+              rgba(212,175,55, 0.035) 41px
             )
           `,
           maskImage:
@@ -49,52 +48,13 @@ export default function DarkSectionLining({
         }}
       />
 
-      {/* ── 3. High-Impact Electric Neon Glow Halos (#C8FF00) ── */}
-      {glowPosition === "center" && (
-        <>
-          {/* Main Central Electric Neon Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[520px] bg-gradient-to-b from-[#C8FF00]/16 via-[#A3E635]/10 to-transparent rounded-full blur-[140px]" />
-          {/* Top Left Floating Neon Highlight */}
-          <div className="absolute top-5 left-1/5 w-[500px] h-[400px] bg-[#C8FF00]/14 rounded-full blur-[120px]" />
-          {/* Bottom Right Deep Neon Accent */}
-          <div className="absolute bottom-5 right-1/5 w-[550px] h-[450px] bg-[#84CC16]/12 rounded-full blur-[130px]" />
-          {/* Core Spotlight Behind Content */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[300px] bg-[#C8FF00]/15 rounded-full blur-[90px]" />
-        </>
-      )}
-
-      {glowPosition === "split" && (
-        <>
-          {/* Left Side Vibrant Neon Cloud */}
-          <div className="absolute top-1/3 -left-28 w-[700px] h-[600px] bg-gradient-to-br from-[#C8FF00]/18 via-[#84CC16]/10 to-transparent rounded-full blur-[140px]" />
-          {/* Right Side Radiant Neon Cloud */}
-          <div className="absolute bottom-1/4 -right-28 w-[700px] h-[600px] bg-gradient-to-tl from-[#C8FF00]/16 via-[#A3E635]/10 to-transparent rounded-full blur-[140px]" />
-          {/* Center Stage Floating Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[380px] bg-[#C8FF00]/10 rounded-full blur-[110px]" />
-          {/* Top Center Crest Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#C8FF00]/14 rounded-full blur-[90px]" />
-        </>
-      )}
-
-      {glowPosition === "top" && (
-        <>
-          {/* Top Vibrant Neon Aura */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-[#C8FF00]/18 via-[#84CC16]/10 to-transparent rounded-full blur-[130px]" />
-          {/* Bottom Right Accent Glow */}
-          <div className="absolute bottom-5 right-10 w-[600px] h-[450px] bg-[#C8FF00]/12 rounded-full blur-[130px]" />
-          {/* Bottom Left Subtle Accent */}
-          <div className="absolute bottom-10 left-10 w-[450px] h-[350px] bg-[#C8FF00]/12 rounded-full blur-[120px]" />
-        </>
-      )}
-
-      {/* ── 4. Top Luminous Beam Line with Electric Neon Glow (#C8FF00) ── */}
+      {/* ── 3. Crisp Metallic Gold Hairline Dividers (No Glow Blur) ── */}
       {showTopBeam && (
-        <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#C8FF00]/70 to-transparent shadow-[0_0_20px_rgba(200,255,0,0.65)]" />
+        <div className="absolute top-0 inset-x-0 h-[1px] bg-[linear-gradient(90deg,transparent_0%,#9A6B0C_25%,#D4AF37_50%,#9A6B0C_75%,transparent_100%)] opacity-45" />
       )}
 
-      {/* ── 5. Bottom Luminous Beam Line with Electric Neon Glow (#C8FF00) ── */}
       {showBottomBeam && (
-        <div className="absolute bottom-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#C8FF00]/50 to-transparent shadow-[0_0_16px_rgba(200,255,0,0.45)]" />
+        <div className="absolute bottom-0 inset-x-0 h-[1px] bg-[linear-gradient(90deg,transparent_0%,#9A6B0C_25%,#D4AF37_50%,#9A6B0C_75%,transparent_100%)] opacity-35" />
       )}
     </div>
   );

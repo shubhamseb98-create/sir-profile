@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { Award, Briefcase } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import RollingText from "@/components/ui/RollingText";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -10,9 +9,6 @@ import SectionHeading from "@/components/ui/SectionHeading";
 export default function AboutSection() {
   return (
     <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200 overflow-hidden">
-      {/* Subtle balanced neon lime ambient glow aura */}
-      <div className="absolute top-1/4 -left-28 sm:-left-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#C8FF00]/13 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#C8FF00]/13 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
@@ -57,12 +53,12 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Actions */}
+            {/* Actions (Smooth Scroll & Strategy Call Modal — No Inner Page URLs) */}
             <div className="flex flex-wrap items-center gap-3">
-              <Button href="/about" variant="light-primary" size="sm">
-                Read Full Biography
+              <Button href="/contact?type=strategy-call" variant="light-primary" size="sm">
+                Book a Strategy Call
               </Button>
-              <Button href="/consulting" variant="light-secondary" size="sm" icon="right">
+              <Button href="#core-expertise" variant="light-secondary" size="sm" icon="right">
                 Explore Advisory Frameworks
               </Button>
             </div>

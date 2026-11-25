@@ -47,7 +47,7 @@ export default function CustomCursor() {
     <>
       {/* Precision Core Dot */}
       <div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-[#C8FF00] transition-opacity duration-200"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-[#D4AF37] transition-opacity duration-200"
         style={{
           width: isCaseStudy ? "0px" : "6px",
           height: isCaseStudy ? "0px" : "6px",
@@ -58,16 +58,16 @@ export default function CustomCursor() {
 
       {/* Follower Ring / View Label */}
       <div
-        className="pointer-events-none fixed top-0 left-0 z-[9998] rounded-full border border-[#C8FF00]/50 transition-all duration-150 ease-out flex items-center justify-center backdrop-blur-[1px]"
+        className="pointer-events-none fixed top-0 left-0 z-[9998] rounded-full border border-[#D4AF37]/50 transition-all duration-150 ease-out flex items-center justify-center backdrop-blur-[1px]"
         style={{
           width: isCaseStudy ? "72px" : isHovered ? "48px" : "28px",
           height: isCaseStudy ? "72px" : isHovered ? "48px" : "28px",
           backgroundColor: isCaseStudy
-            ? "#C8FF00"
+            ? "#D4AF37"
             : isHovered
-            ? "rgba(200, 255, 0, 0.15)"
+            ? "rgba(212,175,55, 0.15)"
             : "transparent",
-          borderColor: isCaseStudy ? "#C8FF00" : isHovered ? "#E2FF6E" : "rgba(200, 255, 0, 0.4)",
+          borderColor: isCaseStudy ? "#D4AF37" : isHovered ? "#F5E2A3" : "rgba(212,175,55, 0.4)",
           transform: `translate3d(${pos.x - (isCaseStudy ? 36 : isHovered ? 24 : 14)}px, ${
             pos.y - (isCaseStudy ? 36 : isHovered ? 24 : 14)
           }px, 0)`,

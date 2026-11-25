@@ -63,8 +63,8 @@ export default function HomePage() {
           href: "/contact?type=strategy-call",
         }}
         secondaryAction={{
-          label: "Explore Advisory Mandates",
-          href: "/consulting",
+          label: "Explore Core Expertise",
+          href: "#core-expertise",
         }}
       />
     </>

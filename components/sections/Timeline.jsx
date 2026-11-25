@@ -102,7 +102,7 @@ export default function Timeline({ light = false }) {
             className={`timeline-node relative flex flex-col justify-between p-5 sm:p-6 lg:p-7 rounded-2xl transition-all duration-300 group hover:-translate-y-1.5 ${
               light
                 ? "bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-black"
-                : "bg-[#0A0D14]/90 backdrop-blur-xl border border-white/10 hover:border-[#C8FF00]/50 shadow-lg hover:shadow-[0_0_25px_rgba(200,255,0,0.14)]"
+                : "bg-[#0A0D14]/90 backdrop-blur-xl border border-white/10 hover:border-[#D4AF37]/50 shadow-lg hover:shadow-[0_0_25px_rgba(212,175,55,0.14)]"
             }`}
           >
             {/* Top Node & Milestone Badge */}
@@ -112,7 +112,7 @@ export default function Timeline({ light = false }) {
                   className={`font-mono text-xs font-bold px-2.5 py-0.5 rounded-full ${
                     light
                       ? "text-white bg-black border border-black shadow-sm"
-                      : "text-black bg-[#C8FF00] border border-[#C8FF00] font-extrabold"
+                      : "text-black bg-[#D4AF37] border border-[#D4AF37] font-extrabold"
                   }`}
                 >
                   Step {m.step}
@@ -131,7 +131,7 @@ export default function Timeline({ light = false }) {
                 className={`font-sans text-sm sm:text-base font-bold mb-2 leading-snug transition-colors line-clamp-2 ${
                   light
                     ? "text-slate-900 group-hover:text-black"
-                    : "text-white group-hover:text-[#C8FF00]"
+                    : "text-white group-hover:text-[#D4AF37]"
                 }`}
               >
                 {m.title}
@@ -149,7 +149,7 @@ export default function Timeline({ light = false }) {
 
             {/* Bottom Glow Indicator */}
             <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#C8FF00] shadow-[0_0_6px_#C8FF00]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shadow-[0_0_6px_#D4AF37]" />
               <span
                 className={`text-[10px] uppercase tracking-wider font-mono ${
                   light ? "text-slate-400" : "text-slate-500"

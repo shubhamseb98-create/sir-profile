@@ -226,7 +226,7 @@ export default function MediaPage() {
                     className="p-4 sm:p-5 rounded-2xl bg-white border-2 border-black flex flex-col justify-between relative shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all duration-300 group overflow-hidden min-h-[220px]"
                   >
                     {/* Top hover accent bar */}
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C8FF00] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                     {/* Subtle watermark quote icon */}
                     <Quote className="absolute top-3 right-4 w-12 h-12 text-black/[0.04] pointer-events-none group-hover:text-black/[0.08] transition-colors" />
@@ -249,7 +249,7 @@ export default function MediaPage() {
                         </div>
 
                         <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-white bg-black px-2.5 py-0.5 rounded-full shadow-xs shrink-0">
-                          <ShieldCheck className="w-3 h-3 text-[#C8FF00]" />
+                          <ShieldCheck className="w-3 h-3 text-[#D4AF37]" />
                           Verified Mandate
                         </span>
                       </div>
@@ -274,7 +274,7 @@ export default function MediaPage() {
                     {/* Footer Row: Monogram Avatar, Author Info & Engagement Type */}
                     <div className="pt-3 mt-3 border-t border-neutral-200 flex items-center justify-between gap-3 relative z-10">
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="w-8 h-8 rounded-lg bg-black text-[#C8FF00] flex items-center justify-center font-mono font-black text-xs shrink-0 shadow-xs border border-black">
+                        <div className="w-8 h-8 rounded-lg bg-black text-[#D4AF37] flex items-center justify-center font-mono font-black text-xs shrink-0 shadow-xs border border-black">
                           {monogram}
                         </div>
                         <div className="min-w-0">
@@ -319,8 +319,8 @@ export default function MediaPage() {
       {/* 4. Media Gallery (DARK THEME - PURE IMAGES ONLY) */}
       <section className="py-8 sm:py-10 md:py-12 bg-[#000000] border-b border-white/10 relative overflow-hidden font-sans">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/10 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/10 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/10 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/10 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeading
@@ -338,7 +338,7 @@ export default function MediaPage() {
               <div
                 key={m.id}
                 onClick={() => setLightboxIndex(idx)}
-                className="group relative aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden border border-white/15 hover:border-[#C8FF00] transition-all duration-300 cursor-pointer shadow-xl hover:shadow-[0_0_25px_rgba(200,255,0,0.18)] hover:-translate-y-1 bg-[#0A0D14]"
+                className="group relative aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden border border-white/15 hover:border-[#D4AF37] transition-all duration-300 cursor-pointer shadow-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.18)] hover:-translate-y-1 bg-[#0A0D14]"
               >
                 <SafeImage
                   src={m.image}
@@ -350,7 +350,7 @@ export default function MediaPage() {
 
                 {/* Subtle dark gradient overlay on hover with title */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 sm:p-4 pointer-events-none">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#C8FF00] font-bold block mb-0.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold block mb-0.5">
                     {m.category}
                   </span>
                   <h4 className="text-xs sm:text-sm font-bold text-white leading-tight line-clamp-1">
@@ -360,7 +360,7 @@ export default function MediaPage() {
 
                 {/* Hover zoom icon badge */}
                 <div className="absolute top-3 right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:scale-100 scale-90 transition-all duration-300 pointer-events-none">
-                  <Maximize2 className="w-3.5 h-3.5 text-[#C8FF00]" />
+                  <Maximize2 className="w-3.5 h-3.5 text-[#D4AF37]" />
                 </div>
               </div>
             ))}
@@ -437,7 +437,7 @@ export default function MediaPage() {
           {/* Top Bar */}
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto z-20">
             <div className="flex items-center gap-2.5 sm:gap-3">
-              <span className="px-3 py-1 rounded-full bg-[#C8FF00] text-black font-mono font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-sm">
+              <span className="px-3 py-1 rounded-full bg-[#D4AF37] text-black font-mono font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-sm">
                 {mediaGallery[lightboxIndex].category}
               </span>
               <h3 className="text-white font-bold text-sm sm:text-base md:text-lg truncate max-w-[200px] sm:max-w-md">
@@ -469,7 +469,7 @@ export default function MediaPage() {
                 setLightboxIndex((prev) => (prev - 1 + mediaGallery.length) % mediaGallery.length)
               }
               aria-label="Previous image"
-              className="absolute left-2 sm:-left-6 md:-left-12 lg:-left-16 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#C8FF00] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all shadow-2xl cursor-pointer hover:scale-110"
+              className="absolute left-2 sm:-left-6 md:-left-12 lg:-left-16 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#D4AF37] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all shadow-2xl cursor-pointer hover:scale-110"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -491,7 +491,7 @@ export default function MediaPage() {
               type="button"
               onClick={() => setLightboxIndex((prev) => (prev + 1) % mediaGallery.length)}
               aria-label="Next image"
-              className="absolute right-2 sm:-right-6 md:-right-12 lg:-right-16 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#C8FF00] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all shadow-2xl cursor-pointer hover:scale-110"
+              className="absolute right-2 sm:-right-6 md:-right-12 lg:-right-16 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#D4AF37] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all shadow-2xl cursor-pointer hover:scale-110"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -511,7 +511,7 @@ export default function MediaPage() {
                   onClick={() => setLightboxIndex(idx)}
                   className={`relative w-14 h-9 sm:w-16 sm:h-10 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shrink-0 ${
                     lightboxIndex === idx
-                      ? "border-[#C8FF00] scale-105 shadow-md shadow-[#C8FF00]/25"
+                      ? "border-[#D4AF37] scale-105 shadow-md shadow-[#D4AF37]/25"
                       : "border-white/20 opacity-40 hover:opacity-100"
                   }`}
                 >

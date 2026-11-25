@@ -35,11 +35,12 @@ export default function MobileMenu({ isOpen, onClose }) {
           aria-label="Dheeraj Aggarwal - Home"
         >
           <Image
-            src="/cl-logo/pr-logo.png"
+            src="/cl-logo/dheeraj-gold-logo.png"
             alt="Dheeraj Aggarwal"
             width={200}
-            height={60}
-            className="h-11 sm:h-12 w-auto object-contain brightness-0 invert"
+            height={68}
+            unoptimized
+            className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(212,175,55,0.28)]"
             priority
           />
         </Link>
@@ -60,26 +61,26 @@ export default function MobileMenu({ isOpen, onClose }) {
               <Link
                 href={item.href}
                 onClick={onClose}
-                className="group flex items-center justify-between text-2xl sm:text-3xl font-bold text-white hover:text-[#C8FF00] transition-colors"
+                className="group flex items-center justify-between text-2xl sm:text-3xl font-bold text-white hover:text-[#D4AF37] transition-colors"
               >
                 <span>{item.label}</span>
-                <span className="text-xs font-mono text-slate-500 group-hover:text-[#C8FF00]">
+                <span className="text-xs font-mono text-slate-500 group-hover:text-[#D4AF37]">
                   0{idx + 1}
                 </span>
               </Link>
 
               {/* Sub-links if available */}
               {item.children && (
-                <div className="ml-4 mt-2.5 pl-3 border-l border-[#C8FF00]/30 flex flex-col gap-2">
+                <div className="ml-4 mt-2.5 pl-3 border-l border-[#D4AF37]/30 flex flex-col gap-2">
                   {item.children.slice(1).map((child) => (
                     <Link
                       key={child.label}
                       href={child.href}
                       onClick={onClose}
-                      className="text-sm font-sans text-slate-300 hover:text-[#C8FF00] transition-colors flex items-center gap-1.5"
+                      className="text-sm font-sans text-slate-300 hover:text-[#D4AF37] transition-colors flex items-center gap-1.5"
                     >
                       <span>{child.label}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-[#C8FF00]" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#D4AF37]" />
                     </Link>
                   ))}
                 </div>
@@ -100,7 +101,7 @@ export default function MobileMenu({ isOpen, onClose }) {
               window.dispatchEvent(new CustomEvent("open-lead-modal"));
             }
           }}
-          className="w-full text-center bg-[#C8FF00] text-black font-bold py-3.5 px-6 rounded-full text-sm hover:bg-[#E2FF6E] shadow-lg shadow-[0_0_20px_rgba(200,255,0,0.25)] transition-all cursor-pointer"
+          className="w-full text-center bg-gold-metallic text-black font-bold py-3.5 px-6 rounded-full text-sm shadow-lg transition-all cursor-pointer"
         >
           Book a Strategy Call
         </button>

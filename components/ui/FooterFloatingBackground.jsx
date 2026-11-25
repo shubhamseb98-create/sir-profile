@@ -53,13 +53,13 @@ export default function FooterFloatingBackground() {
         // Base horizontal baseline for the aurora ribbons (anchored near bottom, below text)
         const baseH = height * 0.84;
 
-        // ── Ribbon 1: Soft Neon Lime Fluid Wave ──
+        // ── Ribbon 1: Subtle Gold Wave ──
         ctx.save();
         const grad1 = ctx.createLinearGradient(0, height * 0.5, width, height);
-        grad1.addColorStop(0, "rgba(200, 255, 0, 0.0)");
-        grad1.addColorStop(0.3, "rgba(200, 255, 0, 0.035)");
-        grad1.addColorStop(0.7, "rgba(132, 204, 22, 0.03)");
-        grad1.addColorStop(1, "rgba(200, 255, 0, 0.0)");
+        grad1.addColorStop(0, "rgba(212,175,55, 0.0)");
+        grad1.addColorStop(0.3, "rgba(212,175,55, 0.03)");
+        grad1.addColorStop(0.7, "rgba(154, 107, 12, 0.025)");
+        grad1.addColorStop(1, "rgba(212,175,55, 0.0)");
 
         ctx.fillStyle = grad1;
         ctx.beginPath();
@@ -79,13 +79,13 @@ export default function FooterFloatingBackground() {
         ctx.fill();
         ctx.restore();
 
-        // ── Ribbon 2: Electric Neon Soft Luminous Ribbon ──
+        // ── Ribbon 2: Secondary Gold Ribbon ──
         ctx.save();
         const grad2 = ctx.createLinearGradient(0, height * 0.55, width, height);
-        grad2.addColorStop(0, "rgba(200, 255, 0, 0.0)");
-        grad2.addColorStop(0.25, "rgba(200, 255, 0, 0.05)");
-        grad2.addColorStop(0.65, "rgba(163, 230, 53, 0.04)");
-        grad2.addColorStop(1, "rgba(200, 255, 0, 0.0)");
+        grad2.addColorStop(0, "rgba(212,175,55, 0.0)");
+        grad2.addColorStop(0.25, "rgba(212,175,55, 0.04)");
+        grad2.addColorStop(0.65, "rgba(252, 246, 186, 0.03)");
+        grad2.addColorStop(1, "rgba(212,175,55, 0.0)");
 
         ctx.fillStyle = grad2;
         ctx.beginPath();
@@ -108,11 +108,9 @@ export default function FooterFloatingBackground() {
         ctx.fill();
         ctx.restore();
 
-        // ── Ribbon 3: Whisper-Soft Glowing Crest Laser Line ──
+        // ── Ribbon 3: Crisp Metallic Crest Line (no blur glow) ──
         ctx.save();
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = "rgba(200, 255, 0, 0.3)";
-        ctx.strokeStyle = "rgba(200, 255, 0, 0.2)";
+        ctx.strokeStyle = "rgba(212,175,55, 0.16)";
         ctx.lineWidth = 1;
 
         ctx.beginPath();
@@ -163,9 +161,9 @@ export default function FooterFloatingBackground() {
       aria-hidden="true"
       className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0"
     >
-      {/* ── Soft whisper-subtle atmospheric glow (#C8FF00 neon tint) ── */}
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[180px] bg-[#C8FF00]/[0.06] blur-[110px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[450px] h-[180px] bg-[#84CC16]/[0.05] blur-[120px] rounded-full pointer-events-none" />
+      {/* ── Soft whisper-subtle atmospheric glow (#D4AF37 neon tint) ── */}
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[180px] bg-[#D4AF37]/[0.06] blur-[110px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[450px] h-[180px] bg-[#9E7E1E]/[0.05] blur-[120px] rounded-full pointer-events-none" />
 
       {/* ── Fluid Aurora Canvas Wave (Soft & Gentle) ── */}
       <canvas
@@ -173,8 +171,8 @@ export default function FooterFloatingBackground() {
         className="absolute inset-0 w-full h-full pointer-events-none block opacity-75"
       />
 
-      {/* ── Top Border Divider Luminous Beam (#C8FF00 Neon) ── */}
-      <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#C8FF00]/50 to-transparent shadow-[0_0_15px_rgba(200,255,0,0.45)] pointer-events-none" />
+      {/* ── Top Border Divider Luminous Beam (#D4AF37 Neon) ── */}
+      <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent shadow-[0_0_15px_rgba(212,175,55,0.45)] pointer-events-none" />
     </div>
   );
 }

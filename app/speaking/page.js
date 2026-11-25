@@ -27,8 +27,8 @@ export default function SpeakingPage() {
       {/* 2. Signature Keynote Topics (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -83,8 +83,8 @@ export default function SpeakingPage() {
       {/* 3. Session Formats (DARK - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -101,11 +101,11 @@ export default function SpeakingPage() {
             {speakingData.formats.map((fmt) => (
               <div
                 key={fmt.name}
-                className="p-8 rounded-2xl bg-[#0A0D14]/90 border border-white/10 hover:border-[#C8FF00]/40 flex flex-col justify-between shadow-xl transition-all"
+                className="p-8 rounded-2xl bg-[#0A0D14]/90 border border-white/10 hover:border-[#D4AF37]/40 flex flex-col justify-between shadow-xl transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#C8FF00] font-bold">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] font-bold">
                       {fmt.duration}
                     </span>
                     <Clock className="w-4 h-4 text-slate-400" />
@@ -117,14 +117,14 @@ export default function SpeakingPage() {
 
                   <div className="space-y-3 text-xs leading-relaxed">
                     <div>
-                      <span className="text-[#C8FF00] font-mono font-semibold block mb-1">
+                      <span className="text-[#D4AF37] font-mono font-semibold block mb-1">
                         Audience Setting:
                       </span>
                       <p className="text-slate-300">{fmt.audience}</p>
                     </div>
 
                     <div className="pt-2">
-                      <span className="text-[#C8FF00] font-mono font-semibold block mb-1">
+                      <span className="text-[#D4AF37] font-mono font-semibold block mb-1">
                         Format Focus:
                       </span>
                       <p className="text-white">{fmt.focus}</p>
@@ -151,8 +151,8 @@ export default function SpeakingPage() {
       {/* 4. Ideal Audiences & Past Sessions (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

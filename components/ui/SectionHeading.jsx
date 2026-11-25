@@ -32,14 +32,14 @@ export default function SectionHeading({
               "inline-flex items-center gap-2 px-3 py-1 rounded-full border max-w-full",
               light
                 ? "bg-slate-100/90 border-slate-200 text-[#0F172A] shadow-xs"
-                : "bg-[#C8FF00]/10 border-[#C8FF00]/30 text-[#C8FF00] backdrop-blur-md shadow-[0_0_16px_rgba(200,255,0,0.12)]"
+                : "bg-gradient-to-r from-[#D4AF37]/12 via-[#FCF6BA]/8 to-[#9A6B0C]/12 border-[#D4AF37]/40 backdrop-blur-md"
             )}
           >
             {number ? (
               <span
                 className={cn(
                   "px-2 py-0.5 rounded-full text-[10px] font-mono font-extrabold tracking-wider leading-none shrink-0",
-                  light ? "bg-[#0F172A] text-white" : "bg-[#C8FF00] text-black"
+                  light ? "bg-[#0F172A] text-white" : "bg-gold-metallic text-black shadow-xs"
                 )}
               >
                 {number}
@@ -48,7 +48,7 @@ export default function SectionHeading({
               <span
                 className={cn(
                   "w-2 h-2 rounded-full shrink-0",
-                  light ? "bg-[#0F172A]" : "bg-[#C8FF00]"
+                  light ? "bg-[#0F172A]" : "bg-gold-metallic"
                 )}
               />
             )}
@@ -57,7 +57,7 @@ export default function SectionHeading({
               <span
                 className={cn(
                   "text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-[0.14em] sm:tracking-[0.2em] leading-tight",
-                  light ? "text-[#334155]" : "text-[#C8FF00]"
+                  light ? "text-[#334155]" : "text-gold-metallic"
                 )}
               >
                 {eyebrow}
@@ -92,14 +92,14 @@ export default function SectionHeading({
         </p>
       )}
 
-      {/* Modern Accent Bar */}
+      {/* Modern Metallic Accent Bar */}
       <div
         className={cn(
           "w-16 h-[3px] rounded-full",
           compact ? "mt-2.5 sm:mt-3" : "mt-5",
           light
-            ? "bg-gradient-to-r from-[#0F172A] to-[#C8FF00]"
-            : "bg-gradient-to-r from-[#C8FF00] to-neutral-700",
+            ? "bg-gradient-to-r from-[#0F172A] via-[#9A6B0C] to-[#FCF6BA]"
+            : "bg-[linear-gradient(90deg,#9A6B0C_0%,#FCF6BA_42%,#D4AF37_75%,#F7DF84_100%)]",
           isCenter && "mx-auto"
         )}
       />

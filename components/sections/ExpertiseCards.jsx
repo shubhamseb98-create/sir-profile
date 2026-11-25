@@ -2,9 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { siteConfig } from "@/data/site";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { useMotionValue, motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -118,10 +117,6 @@ export default function ExpertiseCards() {
       className="relative h-[480vh] bg-[#FFFFFF] text-[#0F172A] border-y border-slate-200 select-none"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden z-10">
-        {/* Subtle balanced neon lime ambient glow aura */}
-        <div className="absolute top-1/3 -left-28 sm:-left-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#C8FF00]/14 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/3 -right-28 sm:-right-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#C8FF00]/14 rounded-full blur-[130px] pointer-events-none" />
-
         {/* Header */}
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pt-3 sm:pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-4">
@@ -147,7 +142,7 @@ export default function ExpertiseCards() {
               <div className="w-20 sm:w-32 h-1.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300 shadow-inner">
                 <motion.div
                   suppressHydrationWarning
-                  className="h-full bg-gradient-to-r from-[#84CC16] to-[#C8FF00] rounded-full"
+                  className="h-full bg-gradient-to-r from-[#9E7E1E] to-[#D4AF37] rounded-full"
                   style={{ scaleX: progressScale, transformOrigin: "left" }}
                 />
               </div>
@@ -225,13 +220,6 @@ export default function ExpertiseCards() {
                           ))}
                         </div>
                       </div>
-                      <Link
-                        href={`/consulting#${item.id}`}
-                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#334155] hover:text-black transition-colors group/btn"
-                      >
-                        <span>Explore Domain Framework</span>
-                        <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
                     </div>
                   </div>
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[9px] sm:text-[11px] text-slate-400">

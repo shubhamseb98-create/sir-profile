@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -20,7 +18,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/roas-analytics-real.jpg",
     tags: ["Media Spend Audit", "Conversion CRO", "Sales Velocity"],
     href: "/consulting#roas-conversion",
-    color: "#C8FF00",
+    color: "#D4AF37",
   },
   {
     id: "brand-positioning",
@@ -33,7 +31,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/brand-strategy-real.jpg",
     tags: ["Positioning", "Value Proposition", "Commercial Moat"],
     href: "/consulting#brand-positioning",
-    color: "#A3E635",
+    color: "#DFBE54",
   },
   {
     id: "digital-visibility",
@@ -46,7 +44,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/digital-growth-real.jpg",
     tags: ["Full-Funnel Strategy", "SEO Dominance", "Lead Routing"],
     href: "/digital-growth",
-    color: "#84CC16",
+    color: "#9E7E1E",
   },
   {
     id: "crm-systems",
@@ -294,8 +292,8 @@ export default function Outcomes() {
                 }}
                 className={`rounded-[22px] sm:rounded-[28px] border transition-all duration-500 ease-out cursor-grab active:cursor-grabbing flex flex-col justify-end overflow-hidden select-none group ${
                   isCenter
-                    ? "border-2 border-[#C8FF00] shadow-[0_20px_50px_rgba(0,0,0,0.95),0_0_30px_rgba(200,255,0,0.35)]"
-                    : "border border-white/20 hover:border-[#C8FF00]/50 shadow-xl opacity-75 hover:opacity-90"
+                    ? "border-2 border-[#D4AF37] shadow-[0_20px_50px_rgba(0,0,0,0.95)]"
+                    : "border border-white/20 hover:border-[#D4AF37]/50 shadow-xl opacity-75 hover:opacity-90"
                 }`}
               >
                 {/* 1. Full-Bleed Background Image covering the entire card */}
@@ -313,25 +311,13 @@ export default function Outcomes() {
                 {/* 2. Dark Bottom Gradient for High-Contrast Text Legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 via-50% to-black/10 pointer-events-none" />
 
-                {/* 3. Top-Right Floating Circular External Link Button */}
-                <Link
-                  href={card.href}
-                  draggable={false}
-                  onDragStart={(e) => e.preventDefault()}
-                  onClick={(e) => {
-                    if (!isCenter) {
-                      e.preventDefault();
-                      setActiveIndex(idx);
-                    }
-                  }}
-                  aria-label={`Open ${card.title}`}
-                  className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/45 hover:bg-black/75 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-105"
-                >
-                  <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </Link>
+                {/* 3. Top-Left Number Tag (No Inner Page Link) */}
+                <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20 px-2.5 py-1 rounded-full bg-black/70 border border-white/15 text-[10px] font-mono font-bold text-[#D4AF37] tracking-widest">
+                  {card.num}
+                </span>
 
                 {/* 4. Bottom Content Area */}
-                <div className="relative z-10 p-4 sm:p-5 md:p-6 flex flex-col gap-2.5 sm:gap-3">
+                <div className="relative z-10 p-4 sm:p-5 md:p-6 flex flex-col gap-2">
                   <div>
                     {/* Bold Headline */}
                     <h3 className="text-base sm:text-lg md:text-2xl font-bold text-white leading-snug drop-shadow-md line-clamp-2">
@@ -344,28 +330,10 @@ export default function Outcomes() {
                     </div>
                   </div>
 
-                  {/* 5. Rounded Pill Button */}
-                  <div className="pt-0.5 sm:pt-2">
-                    <Link
-                      href={card.href}
-                      draggable={false}
-                      onDragStart={(e) => e.preventDefault()}
-                      onClick={(e) => {
-                        if (!isCenter) {
-                          e.preventDefault();
-                          setActiveIndex(idx);
-                        }
-                      }}
-                      className={`inline-flex items-center justify-center gap-2 w-full py-2.5 sm:py-3.5 px-4 sm:px-5 rounded-full font-bold text-xs sm:text-sm tracking-normal transition-all shadow-xl whitespace-nowrap group/btn active:scale-95 ${
-                        isCenter
-                          ? "bg-[#C8FF00] hover:bg-[#b8e600] text-black shadow-[0_0_25px_rgba(200,255,0,0.4)]"
-                          : "bg-white hover:bg-stone-100 text-stone-950"
-                      }`}
-                    >
-                      <span>{isCenter ? "Explore Advisory Scope" : "Select Capability"}</span>
-                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover/btn:translate-x-1 text-stone-950 shrink-0" />
-                    </Link>
-                  </div>
+                  {/* Description snippet */}
+                  <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed line-clamp-2">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             );
@@ -381,7 +349,7 @@ export default function Outcomes() {
               setTimeout(() => setIsPaused(false), 3000);
             }}
             aria-label="Previous Capability"
-            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#C8FF00] hover:text-[#C8FF00] transition-all duration-200 active:scale-95 shadow-sm"
+            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-200 active:scale-95 shadow-sm"
           >
             Prev
           </button>
@@ -398,7 +366,7 @@ export default function Outcomes() {
                 }}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeIndex === i ? "w-6 bg-[#C8FF00] shadow-[0_0_10px_rgba(200,255,0,0.8)]" : "w-1.5 bg-white/30 hover:bg-white/60"
+                  activeIndex === i ? "w-6 bg-gold-metallic" : "w-1.5 bg-white/30 hover:bg-white/60"
                 }`}
               />
             ))}
@@ -411,7 +379,7 @@ export default function Outcomes() {
               setTimeout(() => setIsPaused(false), 3000);
             }}
             aria-label="Next Capability"
-            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#C8FF00] hover:text-[#C8FF00] transition-all duration-200 active:scale-95 shadow-sm"
+            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-200 active:scale-95 shadow-sm"
           >
             Next
           </button>

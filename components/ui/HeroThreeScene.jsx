@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 /**
  * Interactive Three.js studio backdrop for the Hero section:
- * - Undulating 3D luminous particle-wave floor (#C8FF00 + soft white crests)
+ * - Undulating 3D luminous particle-wave floor (#D4AF37 + soft white crests)
  * - Soft radial-glow atmospheric bokeh motes
  * - Smooth mouse-tracked camera & studio light parallax
  */
@@ -46,14 +46,14 @@ export default function HeroThreeScene() {
     camera.position.set(0, 42, 430);
 
     // ── STUDIO LIGHTS ──
-    const ambientLight = new THREE.AmbientLight(0x1f2812, 2.0);
+    const ambientLight = new THREE.AmbientLight(0x241f0b, 2.0);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.PointLight(0xc8ff00, 5.0, 950, 1.1);
+    const keyLight = new THREE.PointLight(0xd4af37, 5.0, 950, 1.1);
     keyLight.position.set(0, 110, 260);
     scene.add(keyLight);
 
-    const rimLeft = new THREE.PointLight(0xc8ff00, 3.4, 750, 1.25);
+    const rimLeft = new THREE.PointLight(0xd4af37, 3.4, 750, 1.25);
     rimLeft.position.set(-360, 40, 140);
     scene.add(rimLeft);
 
@@ -86,9 +86,9 @@ export default function HeroThreeScene() {
     const wavePositions = new Float32Array(waveCount * 3);
     const waveColors = new Float32Array(waveCount * 3);
 
-    const neonCol = new THREE.Color(0xc8ff00);
-    const dimCol = new THREE.Color(0x557000);
-    const whiteCol = new THREE.Color(0xe6efd8);
+    const neonCol = new THREE.Color(0xd4af37);
+    const dimCol = new THREE.Color(0x8f5e06);
+    const whiteCol = new THREE.Color(0xfcf6ba);
 
     let ptr = 0;
     for (let ix = 0; ix < cols; ix++) {
@@ -100,8 +100,9 @@ export default function HeroThreeScene() {
         wavePositions[ptr * 3 + 2] = z;
 
         const distNorm = Math.min(1, Math.hypot(x, z + 105) / 760);
-        const c = (ix + iz) % 7 === 0 ? whiteCol : neonCol;
-        const mixed = c.clone().lerp(dimCol, distNorm * 0.7);
+        const sheen = 0.5 + 0.5 * Math.sin(ix * 0.14 + iz * 0.18);
+        const c = (ix + iz) % 7 === 0 ? whiteCol : dimCol.clone().lerp(neonCol, 0.35 + sheen * 0.65);
+        const mixed = c.clone().lerp(dimCol, distNorm * 0.65);
         waveColors[ptr * 3] = mixed.r;
         waveColors[ptr * 3 + 1] = mixed.g;
         waveColors[ptr * 3 + 2] = mixed.b;
