@@ -10,7 +10,10 @@ const HeroThreeScene = dynamic(() => import("@/components/ui/HeroThreeScene"), {
   ssr: false,
 });
 
-const DISPLAY_LETTERS = ["D", "H", "E", "E", "R", "A", "J"];
+const DISPLAY_LINES = [
+  ["D", "H", "E", "E", "R", "A", "J"],
+  ["A", "G", "G", "A", "R", "W", "A", "L"],
+];
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -59,7 +62,7 @@ export default function Hero() {
             0
           );
 
-          // 2. First: DHEERAJ text behind the portrait sweeps up slowly bottom-to-top
+          // 2. First: DHEERAJ AGGARWAL text behind the portrait sweeps up slowly bottom-to-top
           introTl.fromTo(
             ".hero-intro-letter",
             { y: 110, opacity: 0 },
@@ -67,7 +70,7 @@ export default function Hero() {
               y: 0,
               opacity: 1,
               duration: 1.25,
-              stagger: 0.08,
+              stagger: 0.048,
             },
             0.15
           );
@@ -207,24 +210,28 @@ export default function Hero() {
         className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] sm:w-[780px] h-[460px] sm:h-[580px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05)_0%,rgba(200,255,0,0.06)_36%,rgba(0,0,0,0)_72%)] blur-2xl pointer-events-none z-[1]"
       />
 
-      {/* ── 2. GIANT EDITORIAL DISPLAY NAME BEHIND PORTRAIT ── */}
+      {/* ── 2. GIANT EDITORIAL DISPLAY NAME BEHIND PORTRAIT (2 LINES) ── */}
       <div
         aria-hidden="true"
-        className="hero-editorial-name absolute bottom-[300px] sm:bottom-[clamp(270px,49vh,415px)] inset-x-0 flex justify-center items-center pointer-events-none select-none z-[2] px-4 sm:px-8"
+        className="hero-editorial-name absolute bottom-[260px] sm:bottom-[clamp(225px,39vh,365px)] inset-x-0 flex justify-center items-center pointer-events-none select-none z-[2] px-4 sm:px-8"
       >
         <div
-          className="inline-flex items-baseline justify-center font-display font-semibold uppercase tracking-[0.06em] leading-[1.08] whitespace-nowrap drop-shadow-[0_14px_45px_rgba(0,0,0,0.95)]"
+          className="flex flex-col items-center justify-center font-display font-semibold uppercase tracking-[0.06em] leading-[0.94] whitespace-nowrap drop-shadow-[0_14px_45px_rgba(0,0,0,0.95)]"
           style={{
-            fontSize: "clamp(48px, 12.8vw, 192px)",
+            fontSize: "clamp(38px, 10vw, 148px)",
           }}
         >
-          {DISPLAY_LETTERS.map((letter, idx) => (
-            <span
-              key={`${letter}-${idx}`}
-              className="hero-intro-letter inline-block pt-[0.08em] pb-[0.28em] -mb-[0.28em] pr-[0.08em] -mr-[0.08em] opacity-0 bg-gradient-to-b from-[#C8FF00] via-[#B4E800] to-[#6B8E00] bg-clip-text text-transparent"
-            >
-              {letter}
-            </span>
+          {DISPLAY_LINES.map((line, lineIdx) => (
+            <div key={lineIdx} className="inline-flex items-baseline justify-center">
+              {line.map((letter, idx) => (
+                <span
+                  key={`${lineIdx}-${letter}-${idx}`}
+                  className="hero-intro-letter inline-block pt-[0.06em] pb-[0.26em] -mb-[0.26em] pr-[0.08em] -mr-[0.08em] opacity-0 bg-gradient-to-b from-[#C8FF00] via-[#B4E800] to-[#6B8E00] bg-clip-text text-transparent"
+                >
+                  {letter}
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>
