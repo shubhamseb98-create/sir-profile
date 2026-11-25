@@ -30,8 +30,8 @@ export default function LeadershipVenturesPage() {
       {/* 3. Future Ventures & Initiatives (DARK - 80px padding) */}
       <section id="future" className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -47,23 +47,23 @@ export default function LeadershipVenturesPage() {
             {futureVentures.map((v) => (
               <div
                 key={v.title}
-                className="p-8 rounded-2xl bg-[#0A0D14] border border-white/10 hover:border-[#CFFF04]/50 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-[0_0_30px_rgba(207,255,4,0.12)] hover:-translate-y-1 relative overflow-hidden"
+                className="p-8 rounded-2xl bg-[#0A0D14] border border-white/10 hover:border-[#C8FF00]/50 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.12)] hover:-translate-y-1 relative overflow-hidden"
               >
                 {/* Top glow beam */}
-                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#CFFF04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C8FF00] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#CFFF04] font-semibold">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#C8FF00] font-semibold">
                       {v.category}
                     </span>
                     <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-slate-300 font-mono">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#CFFF04] animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF00] animate-pulse" />
                       <span>{v.status}</span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug group-hover:text-[#CFFF04] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug group-hover:text-[#C8FF00] transition-colors">
                     {v.title}
                   </h3>
 
@@ -75,7 +75,7 @@ export default function LeadershipVenturesPage() {
                 <div className="mt-8 pt-4 border-t border-white/10">
                   <Link
                     href="/contact?type=future-venture"
-                    className="text-xs uppercase tracking-wider text-[#CFFF04] font-mono font-bold flex items-center justify-between group-hover:text-[#E2FF6E] transition-colors"
+                    className="text-xs uppercase tracking-wider text-[#C8FF00] font-mono font-bold flex items-center justify-between group-hover:text-[#E2FF6E] transition-colors"
                   >
                     <span>Express Collaborative Interest</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

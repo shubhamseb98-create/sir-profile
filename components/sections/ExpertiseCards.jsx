@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useMotionValue, motion } from "framer-motion";
-import RollingText from "@/components/ui/RollingText";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const DOMAIN_IMAGES = {
   consulting: "/images/cards/leadership-governance-real.jpg",
@@ -119,29 +119,22 @@ export default function ExpertiseCards() {
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden z-10">
         {/* Subtle balanced neon lime ambient glow aura */}
-        <div className="absolute top-1/3 -left-28 sm:-left-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#CFFF04]/14 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/3 -right-28 sm:-right-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#CFFF04]/14 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-28 sm:-left-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#C8FF00]/14 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/3 -right-28 sm:-right-40 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-[#C8FF00]/14 rounded-full blur-[130px] pointer-events-none" />
 
         {/* Header */}
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pt-3 sm:pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-4">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-[#334155] text-[9px] sm:text-[11px] font-mono font-bold tracking-widest uppercase mb-1 sm:mb-1.5">
-                <Sparkles className="w-3 h-3 text-slate-800" />
-                <span>STRATEGIC ARSENAL &amp; DOMAINS</span>
-              </div>
-              <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#0F172A] tracking-tight">
-                <RollingText text="Core Expertise & Strategic Playbooks" />
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-500 mt-0.5 font-normal">
-                <RollingText
-                  text="Scroll down to glide horizontally through 10 specialized execution practices."
-                  delay={0.2}
-                  duration={1.2}
-                  stagger={0.04}
-                />
-              </p>
-            </div>
+            <SectionHeading
+              number="03"
+              eyebrow="STRATEGIC ARSENAL & DOMAINS"
+              title="Core Expertise & Strategic Playbooks"
+              description="Scroll down to glide horizontally through 10 specialized execution practices."
+              light={true}
+              compact={true}
+              animate={false}
+              className="!mb-0 max-w-2xl"
+            />
             <div className="flex items-center gap-3.5 self-start md:self-end">
               <div className="text-left md:text-right">
                 <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#334155] block">
@@ -154,7 +147,7 @@ export default function ExpertiseCards() {
               <div className="w-20 sm:w-32 h-1.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300 shadow-inner">
                 <motion.div
                   suppressHydrationWarning
-                  className="h-full bg-gradient-to-r from-[#84CC16] to-[#CFFF04] rounded-full"
+                  className="h-full bg-gradient-to-r from-[#84CC16] to-[#C8FF00] rounded-full"
                   style={{ scaleX: progressScale, transformOrigin: "left" }}
                 />
               </div>

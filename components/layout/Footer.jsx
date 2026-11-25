@@ -29,61 +29,52 @@ export default function Footer() {
                 className="h-12 sm:h-14 md:h-16 w-auto object-contain brightness-0 invert group-hover:opacity-90 transition-opacity"
               />
             </Link>
-            <p className="text-xs uppercase tracking-[0.22em] text-[#CFFF04] font-mono font-semibold mt-1 mb-4">
+            <p className="text-xs uppercase tracking-[0.22em] text-[#C8FF00] font-mono font-semibold mt-1 mb-4">
               {siteConfig.designation}
             </p>
             <p className="text-sm leading-relaxed text-slate-200 max-w-sm">
               {siteConfig.positioningLine}
             </p>
-
-            <div className="mt-6 p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#CFFF04]/50 max-w-sm backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.9),0_0_20px_rgba(207,255,4,0.12)] transition-all">
-              <span className="text-[11px] uppercase tracking-wider text-[#CFFF04] font-mono font-bold block mb-1">
-                Executive Creed
-              </span>
-              <p className="text-sm sm:text-base text-white font-medium">
-                &ldquo;{siteConfig.closingLine}&rdquo;
-              </p>
-            </div>
           </div>
 
           {/* Col 3: Navigation */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#CFFF04] mb-4">
+            <h4 className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#C8FF00] mb-4">
               Navigation
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm">
               <li>
-                <Link href="/about" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/about" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   About Dheeraj
                 </Link>
               </li>
               <li>
-                <Link href="/consulting" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/consulting" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Consulting Services
                 </Link>
               </li>
               <li>
-                <Link href="/digital-growth" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/digital-growth" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Digital Growth & Agency
                 </Link>
               </li>
               <li>
-                <Link href="/speaking" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/speaking" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Speaking & Workshops
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/case-studies" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link href="/insights" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/insights" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Executive Insights
                 </Link>
               </li>
               <li>
-                <Link href="/media" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/media" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Media & Testimonials
                 </Link>
               </li>
@@ -92,32 +83,32 @@ export default function Footer() {
 
           {/* Col 4: Ventures & Ecosystems */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#CFFF04] mb-4">
+            <h4 className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#C8FF00] mb-4">
               Ventures
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm">
               <li>
-                <Link href="/digital-growth" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/digital-growth" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Web Tycoons
                 </Link>
               </li>
               <li>
-                <Link href="/karma-ayurveda" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/karma-ayurveda" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Karma Ayurveda Advisory
                 </Link>
               </li>
               <li>
-                <Link href="/hhc" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/hhc" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Happy Hospitality Club
                 </Link>
               </li>
               <li>
-                <Link href="/leadership-ventures" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/leadership-ventures" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   BNI Chapter Leadership
                 </Link>
               </li>
               <li>
-                <Link href="/leadership-ventures#future" className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block">
+                <Link href="/leadership-ventures#future" className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block">
                   Future Ventures
                 </Link>
               </li>
@@ -126,12 +117,12 @@ export default function Footer() {
 
           {/* Col 5: Connect & Engage */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#CFFF04] mb-4">
+            <h4 className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#C8FF00] mb-4">
               Direct Inquiries
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm">
               <li>
-                <Link href="/contact" className="hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-block font-semibold text-white">
+                <Link href="/contact" className="hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-block font-semibold text-white">
                   Book a Strategy Call
                 </Link>
               </li>
@@ -140,7 +131,7 @@ export default function Footer() {
                   href={siteConfig.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all inline-flex items-center gap-1.5"
+                  className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all inline-flex items-center gap-1.5"
                 >
                   <span>WhatsApp Direct</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#25D366]" />
@@ -149,13 +140,13 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.contactEmail}`}
-                  className="text-white hover:text-[#CFFF04] hover:translate-x-0.5 transition-all truncate block"
+                  className="text-white hover:text-[#C8FF00] hover:translate-x-0.5 transition-all truncate block"
                 >
                   {siteConfig.contactEmail}
                 </a>
               </li>
               <li className="pt-2">
-                <span className="text-[11px] uppercase tracking-wider text-[#CFFF04] font-mono font-bold block mb-2">
+                <span className="text-[11px] uppercase tracking-wider text-[#C8FF00] font-mono font-bold block mb-2">
                   Social Channels
                 </span>
                 <div className="flex items-center gap-2.5">
@@ -163,7 +154,7 @@ export default function Footer() {
                     href={siteConfig.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs px-3 py-1.5 rounded-lg bg-black hover:bg-neutral-900 hover:text-[#CFFF04] text-white border border-neutral-800 transition-colors shadow-sm"
+                    className="text-xs px-3 py-1.5 rounded-lg bg-black hover:bg-neutral-900 hover:text-[#C8FF00] text-white border border-neutral-800 transition-colors shadow-sm"
                   >
                     LinkedIn
                   </a>
@@ -171,7 +162,7 @@ export default function Footer() {
                     href={siteConfig.socials.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs px-3 py-1.5 rounded-lg bg-black hover:bg-neutral-900 hover:text-[#CFFF04] text-white border border-neutral-800 transition-colors shadow-sm"
+                    className="text-xs px-3 py-1.5 rounded-lg bg-black hover:bg-neutral-900 hover:text-[#C8FF00] text-white border border-neutral-800 transition-colors shadow-sm"
                   >
                     YouTube
                   </a>
@@ -179,7 +170,7 @@ export default function Footer() {
                     href={siteConfig.socials.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs px-3 py-1.5 rounded-lg bg-black hover:bg-neutral-900 hover:text-[#CFFF04] text-white border border-neutral-800 transition-colors shadow-sm"
+                    className="text-xs px-3 py-1.5 rounded-lg bg-black hover:bg-neutral-900 hover:text-[#C8FF00] text-white border border-neutral-800 transition-colors shadow-sm"
                   >
                     X
                   </a>

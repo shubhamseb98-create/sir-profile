@@ -5,30 +5,28 @@ import Button from "@/components/ui/Button";
 import { Award, Briefcase } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import RollingText from "@/components/ui/RollingText";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function AboutSection() {
   return (
     <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200 overflow-hidden">
       {/* Subtle balanced neon lime ambient glow aura */}
-      <div className="absolute top-1/4 -left-28 sm:-left-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#CFFF04]/13 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#CFFF04]/13 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-28 sm:-left-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#C8FF00]/13 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[360px] sm:w-[440px] h-[360px] sm:h-[440px] bg-[#C8FF00]/13 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
-          {/* Left Column: Clean Narrative & Core Philosophy */}
-          <ScrollReveal direction="up" distance={30} delay={0.1} className="lg:col-span-7 flex flex-col justify-center">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#334155]" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#334155] font-bold">
-                ABOUT DHEERAJ AGGARWAL
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-extrabold text-[#0F172A] leading-tight tracking-tight mb-2 sm:mb-3">
-              <RollingText text="Architecting Strategic Growth, Scalable Systems & High-Value Alliances." />
-            </h2>
+          {/* Left Column: Slides in smoothly from the left side */}
+          <ScrollReveal direction="right" distance={80} duration={1.05} delay={0.08} className="lg:col-span-7 flex flex-col justify-center">
+            <SectionHeading
+              number="01"
+              eyebrow="ABOUT DHEERAJ AGGARWAL"
+              title="Architecting Strategic Growth, Scalable Systems & High-Value Alliances."
+              light={true}
+              compact={true}
+              animate={false}
+              className="!mb-3 sm:!mb-4 max-w-none"
+            />
 
             {/* Narrative Body */}
             <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-2">
@@ -70,8 +68,8 @@ export default function AboutSection() {
             </div>
           </ScrollReveal>
 
-          {/* Right Column: Executive Image with Floating Glassmorphic Badges */}
-          <ScrollReveal direction="up" distance={35} delay={0.25} scale={0.97} className="lg:col-span-5 relative">
+          {/* Right Column: Slides in smoothly from the right side */}
+          <ScrollReveal direction="left" distance={80} duration={1.05} delay={0.18} scale={0.97} className="lg:col-span-5 relative">
             <div className="relative h-[300px] sm:h-[360px] md:h-[400px] lg:h-[420px] w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-950 group">
               <Image
                 src="/images/hero/ddab.png"

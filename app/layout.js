@@ -1,4 +1,4 @@
-import { Poppins } from "next/font/google";
+import { Poppins, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -15,6 +15,13 @@ const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -112,14 +119,17 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${poppins.variable} ${cormorant.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#0F172A] text-[#F8FAFC] font-sans min-h-screen selection:bg-[#334155] selection:text-white antialiased w-full">
+      <body
+        suppressHydrationWarning
+        className="bg-[#0F172A] text-[#F8FAFC] font-sans min-h-screen selection:bg-[#334155] selection:text-white antialiased w-full"
+      >
         {/* Skip to Main Content Accessibility Link */}
         <a
           href="#main-content"

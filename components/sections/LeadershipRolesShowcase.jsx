@@ -34,8 +34,8 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
   return (
     <section className="min-h-screen py-6 sm:py-8 lg:py-10 flex flex-col justify-center bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
       {/* Homepage style balanced ambient glow */}
-      <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 lg:px-8 my-auto relative z-10 flex flex-col justify-center">
         {/* Compact Section Heading */}
@@ -67,7 +67,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                 >
                   <span
                     className={`w-1.5 h-1.5 rounded-full ${
-                      isActive ? "bg-[#CFFF04]" : "bg-slate-400"
+                      isActive ? "bg-[#C8FF00]" : "bg-slate-400"
                     }`}
                   />
                   <span>{role.name}</span>
@@ -90,7 +90,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
               type="button"
               onClick={handlePrev}
               aria-label="Previous Venture"
-              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-black hover:text-[#CFFF04] text-slate-800 border border-slate-200 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
+              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-black hover:text-[#C8FF00] text-slate-800 border border-slate-200 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -98,7 +98,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
               type="button"
               onClick={handleNext}
               aria-label="Next Venture"
-              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-black hover:text-[#CFFF04] text-slate-800 border border-slate-200 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
+              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-black hover:text-[#C8FF00] text-slate-800 border border-slate-200 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -111,7 +111,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
           className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-[0_8px_30px_rgba(15,23,42,0.08)] hover:border-slate-900 transition-all duration-300 relative overflow-hidden flex flex-col md:grid md:grid-cols-12 md:h-[430px] lg:h-[420px]"
         >
           {/* Top Edge Accent Beam on Hover */}
-          <div className="absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#CFFF04] to-transparent z-20 pointer-events-none" />
+          <div className="absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#C8FF00] to-transparent z-20 pointer-events-none" />
 
           {/* Left Media Column (5 Cols) */}
           <div className="relative w-full h-52 sm:h-60 md:h-full md:col-span-5 overflow-hidden bg-slate-950 shrink-0">
@@ -128,18 +128,18 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
 
             {/* Floating Top Badges */}
             <div className="absolute inset-x-0 top-0 p-3.5 sm:p-4 flex items-center justify-between gap-2 z-10">
-              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-black/85 backdrop-blur-md text-[#CFFF04] px-3 py-1 rounded-full border border-[#CFFF04]/30 shadow-sm truncate max-w-[210px] sm:max-w-none">
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-black/85 backdrop-blur-md text-[#C8FF00] px-3 py-1 rounded-full border border-[#C8FF00]/30 shadow-sm truncate max-w-[210px] sm:max-w-none">
                 {currentRole.badge}
               </span>
               <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono font-medium bg-black/85 backdrop-blur-md text-white/90 px-2.5 py-1 rounded-full border border-white/15 shadow-sm shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#CFFF04] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF00] animate-pulse" />
                 <span>{currentRole.period}</span>
               </div>
             </div>
 
             {/* Title & Role overlay on bottom of media */}
             <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-10">
-              <span className="inline-block text-[10px] uppercase tracking-widest font-mono font-bold text-[#CFFF04] mb-0.5 drop-shadow-sm">
+              <span className="inline-block text-[10px] uppercase tracking-widest font-mono font-bold text-[#C8FF00] mb-0.5 drop-shadow-sm">
                 {currentRole.title}
               </span>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight drop-shadow-md leading-tight">
@@ -173,7 +173,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                       key={f}
                       className="flex items-center gap-2 p-1.5 sm:p-2 rounded-lg bg-slate-50 border border-slate-100 hover:border-slate-300 hover:bg-slate-100/70 transition-all text-[11px] text-slate-700"
                     >
-                      <span className="w-3.5 h-3.5 rounded-full bg-black text-[#CFFF04] flex items-center justify-center shrink-0 shadow-sm">
+                      <span className="w-3.5 h-3.5 rounded-full bg-black text-[#C8FF00] flex items-center justify-center shrink-0 shadow-sm">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
                       <span className="font-medium leading-tight truncate">{f}</span>
@@ -184,7 +184,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
 
               {/* Compact Demonstrated Scale Box */}
               <div className="p-2.5 sm:p-3 rounded-xl bg-gradient-to-r from-slate-50 via-slate-100/60 to-white border border-slate-200/80 flex items-center gap-3">
-                <div className="w-7 h-7 rounded-lg bg-black text-[#CFFF04] flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-7 h-7 rounded-lg bg-black text-[#C8FF00] flex items-center justify-center shrink-0 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -219,7 +219,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
 
               <Link
                 href={currentRole.href}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black hover:bg-[#CFFF04] text-white hover:text-black text-xs uppercase tracking-wider font-bold transition-all duration-300 shadow-sm hover:shadow-md group/btn shrink-0"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black hover:bg-[#C8FF00] text-white hover:text-black text-xs uppercase tracking-wider font-bold transition-all duration-300 shadow-sm hover:shadow-md group/btn shrink-0"
               >
                 <span>View Role</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />

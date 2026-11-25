@@ -85,8 +85,8 @@ export default async function InsightDetailPage({ params }) {
       {/* 2. Article Body (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[840px] w-full mx-auto px-6 sm:px-8 space-y-10 my-auto relative z-10">
           {/* Executive Quick Answer Box */}
@@ -138,8 +138,8 @@ export default async function InsightDetailPage({ params }) {
       {/* 3. Strategic Author Box (DARK - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Homepage style ambient glow */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[840px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -152,11 +152,11 @@ export default async function InsightDetailPage({ params }) {
           />
 
           <div className="p-8 sm:p-10 rounded-2xl bg-[#0A0D14] border border-white/10 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
-            <div className="w-16 h-16 rounded-full border border-[#CFFF04]/40 bg-[#CFFF04]/10 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(207,255,4,0.15)]">
-              <span className="text-2xl text-[#CFFF04] font-bold font-mono">DA</span>
+            <div className="w-16 h-16 rounded-full border border-[#C8FF00]/40 bg-[#C8FF00]/10 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(200,255,0,0.15)]">
+              <span className="text-2xl text-[#C8FF00] font-bold font-mono">DA</span>
             </div>
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#CFFF04] font-mono font-semibold block mb-1">
+              <span className="text-xs uppercase tracking-widest text-[#C8FF00] font-mono font-semibold block mb-1">
                 Executive Profile
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">

@@ -109,12 +109,12 @@ export default function ContactForm({ light = false }) {
       }`}
     >
       {/* Top accent hairline glow */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-neutral-900 via-[#CFFF04] to-neutral-900" />
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-neutral-900 via-[#C8FF00] to-neutral-900" />
 
       {/* Form Card Header Plaque */}
       <div className="flex items-center justify-between pb-4 mb-5 border-b border-neutral-100">
         <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#CFFF04] ring-4 ring-[#CFFF04]/25 animate-pulse" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#C8FF00] ring-4 ring-[#C8FF00]/25 animate-pulse" />
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-900">
             Executive Briefing Desk
           </span>
@@ -323,7 +323,7 @@ export default function ContactForm({ light = false }) {
             ) : (
               <>
                 <span>Submit Strategic Inquiry</span>
-                <div className="w-5 h-5 rounded-full bg-[#CFFF04] text-black flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+                <div className="w-5 h-5 rounded-full bg-[#C8FF00] text-black flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
                   <ArrowRight className="w-3 h-3 stroke-[2.5]" />
                 </div>
               </>

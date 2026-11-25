@@ -53,13 +53,21 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans",
-          isVisible ? "translate-y-0" : "-translate-y-full",
-          isScrolled
-            ? "py-2 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md shadow-slate-900/5"
-            : "py-2.5 sm:py-3 bg-white border-b border-slate-200/90 shadow-sm"
+          "fixed left-0 right-0 z-50 transition-[top,padding] duration-300 font-sans",
+          isVisible ? "top-0" : "-top-32 pointer-events-none",
+          isScrolled ? "py-2" : "py-2.5 sm:py-3"
         )}
       >
+        {/* Separate background layer so <header> does not create a Backdrop Root blocking dropdown blur */}
+        <div
+          aria-hidden="true"
+          className={cn(
+            "absolute inset-0 -z-10 transition-all duration-300",
+            isScrolled
+              ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md shadow-slate-900/5"
+              : "bg-white border-b border-slate-200/90 shadow-sm"
+          )}
+        />
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Permanent Brand Signature Logo */}
           <Link
@@ -94,11 +102,12 @@ export default function Header() {
                   >
                     <button
                       type="button"
+                      onClick={() => setDropdownOpen((prev) => !prev)}
                       aria-expanded={dropdownOpen}
                       className={cn(
                         "flex items-center gap-1.5 px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap cursor-pointer",
                         dropdownOpen || isChildActive
-                          ? "bg-black text-white font-semibold shadow-xs"
+                          ? "bg-black/90 backdrop-blur-md text-white font-semibold shadow-xs"
                           : "text-slate-700 hover:text-black hover:bg-slate-100"
                       )}
                     >
@@ -107,7 +116,7 @@ export default function Header() {
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200",
                           dropdownOpen
-                            ? "rotate-180 text-[#CFFF04]"
+                            ? "rotate-180 text-[#C8FF00]"
                             : isChildActive
                             ? "text-white"
                             : "text-slate-400"
@@ -118,14 +127,14 @@ export default function Header() {
 
                     {/* Dropdown Menu */}
                     {dropdownOpen && (
-                      <div className="absolute top-full left-0 w-[350px] pt-2.5 -mt-1 z-50">
-                        <div className="bg-white border-2 border-black rounded-2xl p-2 shadow-[0_20px_50px_rgba(0,0,0,0.18)] backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="absolute top-full left-0 w-[356px] pt-2.5 -mt-1 z-50">
+                        <div className="relative overflow-hidden bg-black/55 backdrop-blur-2xl backdrop-saturate-150 rounded-2xl p-2 shadow-[0_24px_60px_-12px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.2)] animate-in fade-in slide-in-from-top-2 duration-200">
                           {/* Mini header tag */}
-                          <div className="px-3 py-1.5 mb-1 border-b border-neutral-100 flex items-center justify-between">
-                            <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-neutral-500">
-                              Ventures & Leadership
+                          <div className="px-3 py-1.5 mb-1.5 border-b border-white/10 flex items-center justify-between">
+                            <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-neutral-200">
+                              Ventures &amp; Leadership
                             </span>
-                            <span className="text-[10px] font-mono font-bold text-neutral-400">
+                            <span className="text-[10px] font-mono font-bold text-[#C8FF00]">
                               4 Mandates
                             </span>
                           </div>
@@ -143,20 +152,23 @@ export default function Header() {
                                   className={cn(
                                     "group relative flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 cursor-pointer overflow-hidden",
                                     isChildCurrent
-                                      ? "bg-neutral-100 border border-neutral-200"
-                                      : "hover:bg-black hover:shadow-lg hover:translate-x-0.5"
+                                      ? "bg-white/15 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
+                                      : "hover:bg-white/[0.12] hover:backdrop-blur-md hover:shadow-[0_8px_24px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.22)] hover:translate-x-0.5"
                                   )}
                                 >
+                                  {/* Subtle top specular glass reflection on hover */}
+                                  <div className="absolute inset-x-3 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+
                                   {/* Left neon lime accent bar on hover */}
-                                  <div className="absolute left-0 top-1.5 bottom-1.5 w-1 bg-[#CFFF04] rounded-r opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                                  <div className="absolute left-0 top-2 bottom-2 w-1 bg-[#C8FF00] rounded-r shadow-[0_0_10px_rgba(200,255,0,0.65)] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
                                   {/* Icon Badge */}
                                   <div
                                     className={cn(
                                       "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 mt-0.5",
                                       isChildCurrent
-                                        ? "bg-black text-[#CFFF04]"
-                                        : "bg-neutral-100 text-neutral-700 group-hover:bg-neutral-900 group-hover:text-[#CFFF04] group-hover:scale-105"
+                                        ? "bg-[#C8FF00] text-black shadow-xs"
+                                        : "bg-white/10 text-neutral-200 group-hover:bg-[#C8FF00]/15 group-hover:text-[#C8FF00] group-hover:shadow-[inset_0_1px_0_rgba(200,255,0,0.3)] group-hover:scale-105"
                                     )}
                                   >
                                     <Icon className="w-4 h-4" />
@@ -169,8 +181,8 @@ export default function Header() {
                                         className={cn(
                                           "text-xs font-bold leading-tight transition-colors duration-200",
                                           isChildCurrent
-                                            ? "text-black"
-                                            : "text-neutral-900 group-hover:text-white"
+                                            ? "text-[#C8FF00]"
+                                            : "text-white group-hover:text-white"
                                         )}
                                       >
                                         {child.label}
@@ -179,8 +191,8 @@ export default function Header() {
                                         className={cn(
                                           "w-3.5 h-3.5 shrink-0 transition-all duration-200",
                                           isChildCurrent
-                                            ? "text-black opacity-100"
-                                            : "text-neutral-400 opacity-0 group-hover:opacity-100 group-hover:text-[#CFFF04] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                            ? "text-[#C8FF00] opacity-100"
+                                            : "text-neutral-300 opacity-0 group-hover:opacity-100 group-hover:text-[#C8FF00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                         )}
                                       />
                                     </div>
@@ -188,8 +200,8 @@ export default function Header() {
                                       className={cn(
                                         "text-[11px] leading-snug mt-1 transition-colors duration-200",
                                         isChildCurrent
-                                          ? "text-neutral-600 font-normal"
-                                          : "text-neutral-500 group-hover:text-neutral-300"
+                                          ? "text-neutral-100 font-normal"
+                                          : "text-neutral-200/85 group-hover:text-neutral-100"
                                       )}
                                     >
                                       {child.desc}

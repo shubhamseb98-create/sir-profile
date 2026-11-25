@@ -45,7 +45,7 @@ export default function HomePage() {
       <WhyWorkWithMe />
 
       {/* 9. Direct Founder Video Conversations (Dedicated Cinema Showcase) */}
-      <VideoSection />
+      <VideoSection number="07" />
 
       {/* 10. Strategic Ventures & Brand Logos Ribbon (Light Contrast Break) */}
       <BrandTicker />

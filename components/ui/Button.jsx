@@ -30,17 +30,17 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#CFFF04] text-black font-bold hover:bg-[#bef264] shadow-[0_4px_20px_rgba(207,255,4,0.3)] hover:shadow-[0_6px_28px_rgba(207,255,4,0.5)] hover:-translate-y-0.5",
+      "bg-[#C8FF00] text-black font-bold hover:bg-[#bef264] shadow-[0_4px_20px_rgba(200,255,0,0.3)] hover:shadow-[0_6px_28px_rgba(200,255,0,0.5)] hover:-translate-y-0.5",
     secondary:
-      "bg-transparent text-white border border-white/20 hover:border-[#CFFF04] hover:text-[#CFFF04] hover:bg-white/[0.04]",
+      "bg-transparent text-white border border-white/20 hover:border-[#C8FF00] hover:text-[#C8FF00] hover:bg-white/[0.04]",
     outline:
-      "bg-transparent text-[#CFFF04] border border-[#CFFF04]/40 hover:border-[#CFFF04] hover:bg-[#CFFF04]/10",
+      "bg-transparent text-[#C8FF00] border border-[#C8FF00]/40 hover:border-[#C8FF00] hover:bg-[#C8FF00]/10",
     "light-primary":
       "bg-black text-white font-semibold hover:bg-neutral-900 border border-black shadow-md hover:-translate-y-0.5",
     "light-secondary":
       "bg-white text-[#1E293B] border border-slate-300 hover:border-black hover:text-black shadow-sm hover:shadow hover:-translate-y-0.5",
     ghost:
-      "bg-transparent text-[#CFFF04] hover:text-white hover:bg-white/[0.05]",
+      "bg-transparent text-[#C8FF00] hover:text-white hover:bg-white/[0.05]",
   };
 
   const iconElement =

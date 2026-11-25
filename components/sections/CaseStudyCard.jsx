@@ -21,7 +21,7 @@ export default function CaseStudyCard({ study, className = "" }) {
     <article
       data-cursor="view"
       className={cn(
-        "rounded-2xl bg-black border border-neutral-800 hover:border-[#CFFF04]/60 p-3.5 sm:p-4 shadow-lg hover:shadow-2xl hover:shadow-[0_0_30px_rgba(207,255,4,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group font-sans",
+        "rounded-2xl bg-black border border-neutral-800 hover:border-[#C8FF00]/60 p-3.5 sm:p-4 shadow-lg hover:shadow-2xl hover:shadow-[0_0_30px_rgba(200,255,0,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group font-sans",
         className
       )}
     >
@@ -36,7 +36,7 @@ export default function CaseStudyCard({ study, className = "" }) {
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-          <span className="absolute top-2.5 left-2.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-black/85 text-[#CFFF04] px-2.5 py-0.5 rounded-full border border-[#CFFF04]/30 backdrop-blur-md">
+          <span className="absolute top-2.5 left-2.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-black/85 text-[#C8FF00] px-2.5 py-0.5 rounded-full border border-[#C8FF00]/30 backdrop-blur-md">
             {study.category}
           </span>
           <span className="absolute bottom-2 right-2.5 text-[10px] font-mono text-slate-300 bg-black/85 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">
@@ -46,13 +46,13 @@ export default function CaseStudyCard({ study, className = "" }) {
 
         {/* 2. Title + Circular Action Button Row */}
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-base font-bold text-white group-hover:text-[#CFFF04] transition-colors leading-snug line-clamp-2">
+          <h3 className="text-base font-bold text-white group-hover:text-[#C8FF00] transition-colors leading-snug line-clamp-2">
             <Link href={`/case-studies/${study.slug}`}>{study.title}</Link>
           </h3>
           <Link
             href={`/case-studies/${study.slug}`}
             aria-label={study.title}
-            className="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 hover:border-[#CFFF04] flex items-center justify-center text-white shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-105 mt-0.5"
+            className="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 hover:border-[#C8FF00] flex items-center justify-center text-white shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-105 mt-0.5"
           >
             <ArrowUpRight className="w-4 h-4" />
           </Link>
@@ -65,7 +65,7 @@ export default function CaseStudyCard({ study, className = "" }) {
 
         {/* 4. Key Outcome Metric Pill */}
         <div className="mt-3.5 p-2.5 rounded-xl bg-neutral-950 border border-neutral-800">
-          <span className="text-[10px] uppercase tracking-wider text-[#CFFF04] font-mono font-bold block mb-0.5">
+          <span className="text-[10px] uppercase tracking-wider text-[#C8FF00] font-mono font-bold block mb-0.5">
             Key Outcome
           </span>
           <p className="text-xs text-white font-medium line-clamp-1">

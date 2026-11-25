@@ -11,57 +11,66 @@ export default function SectionHeading({
   description,
   align = "left",
   light = false,
+  compact = false,
+  animate = true,
   className = "",
 }) {
   const isCenter = align === "center";
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-      className={cn(
-        "mb-12 md:mb-16 font-sans",
-        isCenter ? "text-center max-w-3xl mx-auto" : "max-w-3xl",
-        className
-      )}
-    >
-      <div
-        className={cn(
-          "flex items-center gap-2.5 mb-3.5",
-          isCenter && "justify-center"
-        )}
-      >
-        {number && (
-          <span
+  const content = (
+    <>
+      {(number || eyebrow) && (
+        <div
+          className={cn(
+            "flex",
+            isCenter && "justify-center",
+            compact ? "mb-2" : "mb-3.5"
+          )}
+        >
+          <div
             className={cn(
-              "text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border",
+              "inline-flex items-center gap-2 px-3 py-1 rounded-full border max-w-full",
               light
-                ? "text-[#334155] border-[#334155]/20 bg-[#334155]/05"
-                : "text-[#CFFF04] border-[#CFFF04]/40 bg-[#CFFF04]/10"
+                ? "bg-slate-100/90 border-slate-200 text-[#0F172A] shadow-xs"
+                : "bg-[#C8FF00]/10 border-[#C8FF00]/30 text-[#C8FF00] backdrop-blur-md shadow-[0_0_16px_rgba(200,255,0,0.12)]"
             )}
           >
-            {number}
-          </span>
-        )}
+            {number ? (
+              <span
+                className={cn(
+                  "px-2 py-0.5 rounded-full text-[10px] font-mono font-extrabold tracking-wider leading-none shrink-0",
+                  light ? "bg-[#0F172A] text-white" : "bg-[#C8FF00] text-black"
+                )}
+              >
+                {number}
+              </span>
+            ) : (
+              <span
+                className={cn(
+                  "w-2 h-2 rounded-full shrink-0",
+                  light ? "bg-[#0F172A]" : "bg-[#C8FF00]"
+                )}
+              />
+            )}
 
-        {eyebrow && (
-          <span
-            className={cn(
-              "text-xs uppercase font-semibold tracking-[0.2em]",
-              light ? "text-[#334155]" : "text-[#CFFF04]"
+            {eyebrow && (
+              <span
+                className={cn(
+                  "text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-[0.14em] sm:tracking-[0.2em] leading-tight",
+                  light ? "text-[#334155]" : "text-[#C8FF00]"
+                )}
+              >
+                {eyebrow}
+              </span>
             )}
-          >
-            {eyebrow}
-          </span>
-        )}
-      </div>
+          </div>
+        </div>
+      )}
 
       <h2
         className={cn(
-          "text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.18] tracking-tight",
-          light ? "text-[#1E293B]" : "text-white"
+          "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.18] tracking-tight",
+          light ? "text-[#0F172A]" : "text-white"
         )}
       >
         {typeof title === "string" ? <RollingText text={title} /> : title}
@@ -70,8 +79,9 @@ export default function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-4 text-base sm:text-lg leading-relaxed font-normal",
-            light ? "text-[#475569]" : "text-slate-300"
+            "leading-relaxed font-normal",
+            compact ? "mt-1.5 text-xs sm:text-sm" : "mt-3 text-sm sm:text-base",
+            light ? "text-slate-600" : "text-slate-300"
           )}
         >
           {typeof description === "string" ? (
@@ -85,13 +95,36 @@ export default function SectionHeading({
       {/* Modern Accent Bar */}
       <div
         className={cn(
-          "mt-6 w-16 h-[3px] rounded-full",
+          "w-16 h-[3px] rounded-full",
+          compact ? "mt-2.5 sm:mt-3" : "mt-5",
           light
-            ? "bg-gradient-to-r from-slate-300 to-[#CFFF04]"
-            : "bg-gradient-to-r from-[#CFFF04] to-neutral-700",
+            ? "bg-gradient-to-r from-[#0F172A] to-[#C8FF00]"
+            : "bg-gradient-to-r from-[#C8FF00] to-neutral-700",
           isCenter && "mx-auto"
         )}
       />
+    </>
+  );
+
+  const wrapperClassName = cn(
+    compact ? "mb-6 md:mb-8 font-sans" : "mb-10 md:mb-12 font-sans",
+    isCenter ? "text-center max-w-3xl mx-auto" : "max-w-3xl",
+    className
+  );
+
+  if (!animate) {
+    return <div className={wrapperClassName}>{content}</div>;
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      className={wrapperClassName}
+    >
+      {content}
     </motion.div>
   );
 }

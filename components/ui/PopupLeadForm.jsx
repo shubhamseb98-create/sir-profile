@@ -164,8 +164,8 @@ export default function PopupLeadForm() {
         className="fixed bottom-6 left-6 z-[90] hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/90 hover:bg-black border border-white/25 hover:border-white text-white text-xs font-medium tracking-wide shadow-[0_10px_30px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all duration-200 hover:scale-105 group"
       >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CFFF04] opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#CFFF04]" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8FF00] opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8FF00]" />
         </span>
         <span className="group-hover:text-white transition-colors">Book Strategy Call</span>
       </button>
@@ -189,10 +189,10 @@ export default function PopupLeadForm() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 14 }}
               transition={{ duration: 0.24, ease: "easeOut" }}
-              className="relative w-full max-w-3xl lg:max-w-[780px] bg-[#0c0d10] rounded-2xl border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_30px_rgba(207,255,4,0.06)] overflow-hidden my-auto z-10 font-sans grid grid-cols-1 md:grid-cols-12 max-h-[92vh]"
+              className="relative w-full max-w-3xl lg:max-w-[780px] bg-[#0c0d10] rounded-2xl border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_30px_rgba(200,255,0,0.06)] overflow-hidden my-auto z-10 font-sans grid grid-cols-1 md:grid-cols-12 max-h-[92vh]"
             >
               {/* Subtle Top Accent Glow Line */}
-              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#CFFF04]/50 to-transparent z-30" />
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C8FF00]/50 to-transparent z-30" />
 
               {/* Close Button (Top Right) */}
               <button
@@ -233,7 +233,7 @@ export default function PopupLeadForm() {
                     <div className="grid grid-cols-2 gap-2 mt-2 pt-2 border-t border-white/10">
                       <div>
                         <div className="text-[8.5px] font-mono text-slate-400 uppercase">Scale</div>
-                        <div className="text-[11px] font-extrabold text-[#CFFF04]">₹50 Cr+</div>
+                        <div className="text-[11px] font-extrabold text-[#C8FF00]">₹50 Cr+</div>
                       </div>
                       <div>
                         <div className="text-[8.5px] font-mono text-slate-400 uppercase">Track</div>
@@ -249,7 +249,7 @@ export default function PopupLeadForm() {
                 {isSubmitted ? (
                   /* ── Success State ── */
                   <div className="text-center py-6 flex flex-col items-center my-auto">
-                    <div className="w-13 h-13 rounded-full bg-[#CFFF04]/15 border border-[#CFFF04]/40 flex items-center justify-center text-[#CFFF04] mb-3 shadow-[0_0_20px_rgba(207,255,4,0.2)]">
+                    <div className="w-13 h-13 rounded-full bg-[#C8FF00]/15 border border-[#C8FF00]/40 flex items-center justify-center text-[#C8FF00] mb-3 shadow-[0_0_20px_rgba(200,255,0,0.2)]">
                       <CheckCircle2 className="w-7 h-7" />
                     </div>
 
@@ -285,7 +285,7 @@ export default function PopupLeadForm() {
                   <>
                     {/* Header */}
                     <div className="mb-3.5 pr-6">
-                      <div className="inline-flex items-center gap-1 text-[9.5px] font-mono font-semibold tracking-wider text-[#CFFF04] uppercase mb-1">
+                      <div className="inline-flex items-center gap-1 text-[9.5px] font-mono font-semibold tracking-wider text-[#C8FF00] uppercase mb-1">
                         <Sparkles className="w-2.5 h-2.5" />
                         <span>Direct Advisory</span>
                       </div>
@@ -311,7 +311,7 @@ export default function PopupLeadForm() {
                               onClick={() => setSelectedPractice(practice)}
                               className={`text-[9.5px] sm:text-[10px] px-2.5 py-1 rounded-lg border transition-all duration-150 ${
                                 selectedPractice === practice
-                                  ? "bg-[#CFFF04] text-black font-bold border-[#CFFF04] shadow-sm"
+                                  ? "bg-[#C8FF00] text-black font-bold border-[#C8FF00] shadow-sm"
                                   : "bg-white/[0.03] text-slate-300 border-white/10 hover:border-white/25 hover:text-white"
                               }`}
                             >
@@ -324,7 +324,7 @@ export default function PopupLeadForm() {
                       {/* Your Name */}
                       <div>
                         <label className="block text-[10px] font-medium text-slate-300 mb-0.5">
-                          Your Name <span className="text-[#CFFF04]">*</span>
+                          Your Name <span className="text-[#C8FF00]">*</span>
                         </label>
                         <div className="relative">
                           <User className="w-3.5 h-3.5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -335,7 +335,7 @@ export default function PopupLeadForm() {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Rahul Sharma"
-                            className="w-full pl-8.5 pr-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#CFFF04] focus:ring-1 focus:ring-[#CFFF04]/50 transition-colors"
+                            className="w-full pl-8.5 pr-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/50 transition-colors"
                           />
                         </div>
                       </div>
@@ -344,7 +344,7 @@ export default function PopupLeadForm() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <div>
                           <label className="block text-[10px] font-medium text-slate-300 mb-0.5">
-                            Phone / WhatsApp <span className="text-[#CFFF04]">*</span>
+                            Phone / WhatsApp <span className="text-[#C8FF00]">*</span>
                           </label>
                           <div className="relative">
                             <Phone className="w-3.5 h-3.5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -355,7 +355,7 @@ export default function PopupLeadForm() {
                               value={formData.phone}
                               onChange={handleChange}
                               placeholder="+91 98765 43210"
-                              className="w-full pl-8.5 pr-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#CFFF04] focus:ring-1 focus:ring-[#CFFF04]/50 transition-colors"
+                              className="w-full pl-8.5 pr-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/50 transition-colors"
                             />
                           </div>
                         </div>
@@ -372,7 +372,7 @@ export default function PopupLeadForm() {
                               value={formData.email}
                               onChange={handleChange}
                               placeholder="name@company.com"
-                              className="w-full pl-8.5 pr-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#CFFF04] focus:ring-1 focus:ring-[#CFFF04]/50 transition-colors"
+                              className="w-full pl-8.5 pr-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/50 transition-colors"
                             />
                           </div>
                         </div>
@@ -389,7 +389,7 @@ export default function PopupLeadForm() {
                           value={formData.note}
                           onChange={handleChange}
                           placeholder="e.g. Scaling franchise, CAC reduction, CRM setup"
-                          className="w-full px-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#CFFF04] focus:ring-1 focus:ring-[#CFFF04]/50 transition-colors"
+                          className="w-full px-3 py-1.5 text-xs rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/50 transition-colors"
                         />
                       </div>
 
@@ -404,7 +404,7 @@ export default function PopupLeadForm() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full mt-1.5 py-2.5 px-4 rounded-xl bg-[#CFFF04] hover:bg-[#bef264] text-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(207,255,4,0.25)] hover:shadow-[0_0_25px_rgba(207,255,4,0.35)] transition-all duration-150 active:scale-98 disabled:opacity-50 cursor-pointer"
+                        className="w-full mt-1.5 py-2.5 px-4 rounded-xl bg-[#C8FF00] hover:bg-[#bef264] text-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(200,255,0,0.25)] hover:shadow-[0_0_25px_rgba(200,255,0,0.35)] transition-all duration-150 active:scale-98 disabled:opacity-50 cursor-pointer"
                       >
                         {isSubmitting ? (
                           <span>Submitting...</span>

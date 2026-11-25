@@ -101,8 +101,8 @@ export default function DigitalGrowthPage() {
       {/* 2. Digital Agency Services (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -145,8 +145,8 @@ export default function DigitalGrowthPage() {
       {/* 3. Dheeraj's Role & Industries Served (DARK - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -165,10 +165,10 @@ export default function DigitalGrowthPage() {
                 {dheerajResponsibilities.map((resp) => (
                   <div
                     key={resp}
-                    className="p-4 rounded-xl bg-[#0A0D14]/80 border border-white/10 flex items-start gap-3 hover:border-[#CFFF04]/40 transition-colors"
+                    className="p-4 rounded-xl bg-[#0A0D14]/80 border border-white/10 flex items-start gap-3 hover:border-[#C8FF00]/40 transition-colors"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#CFFF04]/10 border border-[#CFFF04]/40 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-[#CFFF04]" />
+                    <div className="w-5 h-5 rounded-full bg-[#C8FF00]/10 border border-[#C8FF00]/40 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-[#C8FF00]" />
                     </div>
                     <span className="text-sm text-white font-medium leading-relaxed font-light">{resp}</span>
                   </div>
@@ -191,10 +191,10 @@ export default function DigitalGrowthPage() {
                 {industriesServed.map((ind) => (
                   <div
                     key={ind}
-                    className="p-3.5 rounded-xl bg-[#0A0D14]/80 border border-white/10 flex items-center justify-between text-xs text-slate-300 hover:border-[#CFFF04]/30 transition-colors"
+                    className="p-3.5 rounded-xl bg-[#0A0D14]/80 border border-white/10 flex items-center justify-between text-xs text-slate-300 hover:border-[#C8FF00]/30 transition-colors"
                   >
                     <span className="text-white font-medium">{ind}</span>
-                    <span className="text-[#CFFF04] font-mono text-[10px] uppercase font-bold">
+                    <span className="text-[#C8FF00] font-mono text-[10px] uppercase font-bold">
                       Delivered
                     </span>
                   </div>
@@ -208,8 +208,8 @@ export default function DigitalGrowthPage() {
       {/* 4. Featured Digital Case Studies (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading

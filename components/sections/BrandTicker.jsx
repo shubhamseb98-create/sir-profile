@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Marquee from "@/components/ui/Marquee";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import RollingText from "@/components/ui/RollingText";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function BrandTicker() {
   const brandLogos = [
@@ -50,29 +50,21 @@ export default function BrandTicker() {
   return (
     <section id="brand-ticker" className="py-16 sm:py-20 md:py-24 bg-[#FFFFFF] border-y border-slate-200 relative font-sans overflow-hidden select-none">
       {/* Subtle Ambient Light Glows */}
-      <div className="absolute top-1/2 -left-32 -translate-y-1/2 w-[420px] h-[420px] bg-[#CFFF04]/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/2 -right-32 -translate-y-1/2 w-[420px] h-[420px] bg-[#CFFF04]/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 -left-32 -translate-y-1/2 w-[420px] h-[420px] bg-[#C8FF00]/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 -right-32 -translate-y-1/2 w-[420px] h-[420px] bg-[#C8FF00]/15 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center mb-8 sm:mb-12 relative z-10">
         <ScrollReveal distance={20} delay={0.1}>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/90 mb-3.5 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-            <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.2em] text-slate-700 uppercase">
-              STRATEGIC VENTURES &amp; LEADERSHIP ALLIANCES
-            </span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            <RollingText text="Trusted Ecosystems & Enterprise Networks" />
-          </h2>
-          <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto mt-2.5 leading-relaxed">
-            <RollingText
-              text="Leading organizations, corporate alliances, and national business forums spearheaded or advised by Dheeraj Aggarwal."
-              delay={0.2}
-              duration={1.3}
-              stagger={0.035}
-            />
-          </p>
+          <SectionHeading
+            number="08"
+            eyebrow="STRATEGIC VENTURES & LEADERSHIP ALLIANCES"
+            title="Trusted Ecosystems & Enterprise Networks"
+            description="Leading organizations, corporate alliances, and national business forums spearheaded or advised by Dheeraj Aggarwal."
+            align="center"
+            light={true}
+            animate={false}
+            className="!mb-0"
+          />
         </ScrollReveal>
       </div>
 

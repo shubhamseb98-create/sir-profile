@@ -30,7 +30,7 @@ export default function BreadcrumbHero({
         />
         {/* Layered cinematic gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(207,255,4,0.12),rgba(0,0,0,0))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(200,255,0,0.12),rgba(0,0,0,0))]" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-transparent to-black/85" />
       </div>
 
@@ -43,7 +43,7 @@ export default function BreadcrumbHero({
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 hover:text-[#CFFF04] transition-colors"
+            className="inline-flex items-center gap-1.5 hover:text-[#C8FF00] transition-colors"
           >
             <Home className="w-3.5 h-3.5" />
             <span>Home</span>
@@ -57,12 +57,12 @@ export default function BreadcrumbHero({
                 {crumb.href && !isLast ? (
                   <Link
                     href={crumb.href}
-                    className="hover:text-[#CFFF04] transition-colors truncate max-w-[150px] sm:max-w-none"
+                    className="hover:text-[#C8FF00] transition-colors truncate max-w-[150px] sm:max-w-none"
                   >
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className="text-[#CFFF04] font-semibold truncate max-w-[200px] sm:max-w-none">
+                  <span className="text-[#C8FF00] font-semibold truncate max-w-[200px] sm:max-w-none">
                     {crumb.label}
                   </span>
                 )}
@@ -74,14 +74,17 @@ export default function BreadcrumbHero({
         {/* Content Box */}
         <div className="max-w-3xl">
           {/* Eyebrow & Badge row */}
-          <div className="flex flex-wrap items-center gap-3 mb-3">
+          <div className="flex flex-wrap items-center gap-3 mb-3.5">
             {eyebrow && (
-              <span className="text-[11px] uppercase tracking-[0.24em] text-[#CFFF04] font-mono font-bold block">
-                {eyebrow}
-              </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#C8FF00]/30 bg-[#C8FF00]/10 backdrop-blur-md shadow-[0_0_16px_rgba(200,255,0,0.12)] max-w-full">
+                <span className="w-2 h-2 rounded-full bg-[#C8FF00] shrink-0" />
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-[#C8FF00] font-mono font-bold leading-tight">
+                  {eyebrow}
+                </span>
+              </div>
             )}
             {badge && (
-              <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-black bg-[#CFFF04] px-2.5 py-0.5 rounded-full shadow-[0_0_12px_rgba(207,255,4,0.3)]">
+              <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-black bg-[#C8FF00] px-2.5 py-0.5 rounded-full shadow-[0_0_12px_rgba(200,255,0,0.3)]">
                 {badge}
               </span>
             )}

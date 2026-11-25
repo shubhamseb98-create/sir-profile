@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Menu } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import RollingText from "@/components/ui/RollingText";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const SHOWCASE_VENTURES = [
   {
@@ -163,17 +163,15 @@ export default function RolesScroller() {
       <div className="w-full mx-auto relative z-10">
         {/* Top Left Title: Exact GSAP Showcase Typography with Eyebrow */}
         <ScrollReveal distance={28} delay={0.1} className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-16 mb-3 sm:mb-4 md:mb-6">
-          <div className="flex items-center gap-2.5 mb-2">
-            <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full tracking-wider border text-[#CFFF04] border-[#CFFF04]/30 bg-[#CFFF04]/10">
-              03
-            </span>
-            <span className="text-xs uppercase font-semibold tracking-[0.2em] text-[#CFFF04]">
-              ACTIVE VENTURES &amp; LEADERSHIP
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-sans">
-            <RollingText text="Showcase" />
-          </h2>
+          <SectionHeading
+            number="04"
+            eyebrow="ACTIVE VENTURES & LEADERSHIP"
+            title="Showcase"
+            light={false}
+            compact={true}
+            animate={false}
+            className="!mb-0"
+          />
         </ScrollReveal>
 
         {/* The Horizontal Viewport Slider Stage (Grab & Scroll, Loop, Autoplay) */}
@@ -209,7 +207,7 @@ export default function RolesScroller() {
                   onClick={() => setCurrentIndex(idx)}
                   className={`relative shrink-0 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out group ${
                     isCenter
-                      ? "w-[88vw] sm:w-[80vw] md:w-[72vw] lg:w-[60vw] max-w-[940px] h-[220px] sm:h-[290px] md:h-[350px] shadow-[0_20px_60px_rgba(0,0,0,0.95),0_0_35px_rgba(207,255,4,0.22)] ring-1 ring-[#CFFF04]/50 border border-[#CFFF04]/30 z-20 opacity-100"
+                      ? "w-[88vw] sm:w-[80vw] md:w-[72vw] lg:w-[60vw] max-w-[940px] h-[220px] sm:h-[290px] md:h-[350px] shadow-[0_20px_60px_rgba(0,0,0,0.95),0_0_35px_rgba(200,255,0,0.22)] ring-1 ring-[#C8FF00]/50 border border-[#C8FF00]/30 z-20 opacity-100"
                       : "w-[45vw] sm:w-[35vw] md:w-[28vw] lg:w-[24vw] max-w-[420px] h-[200px] sm:h-[260px] md:h-[310px] opacity-35 hover:opacity-75 z-10 hidden sm:block border border-neutral-800"
                   }`}
                 >
@@ -228,7 +226,7 @@ export default function RolesScroller() {
 
                   {/* Top Header Row of Card */}
                   <div className="absolute top-3.5 sm:top-6 left-3.5 sm:left-6 right-3.5 sm:right-6 flex items-center justify-between z-10">
-                    <span className="text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-black/80 text-[#CFFF04] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-[#CFFF04]/30 backdrop-blur-md">
+                    <span className="text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-black/80 text-[#C8FF00] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-[#C8FF00]/30 backdrop-blur-md">
                       {item.role}
                     </span>
 
@@ -241,7 +239,7 @@ export default function RolesScroller() {
                   {/* Center Branding Watermark (Only visible when center) */}
                   {isCenter && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-6 pointer-events-none z-10">
-                      <span className="text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#CFFF04] font-bold mb-1.5 sm:mb-2 drop-shadow-md">
+                      <span className="text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#C8FF00] font-bold mb-1.5 sm:mb-2 drop-shadow-md">
                         {item.badge}
                       </span>
                       <h3 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg max-w-xl">
@@ -282,7 +280,7 @@ export default function RolesScroller() {
 
             <Link
               href={activeVenture.href}
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#CFFF04]/40 bg-black/80 text-white hover:border-[#CFFF04] hover:text-[#CFFF04] hover:shadow-[0_0_20px_rgba(207,255,4,0.25)] text-xs font-semibold tracking-wide transition-all duration-200 active:scale-95 shadow-md backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#C8FF00]/40 bg-black/80 text-white hover:border-[#C8FF00] hover:text-[#C8FF00] hover:shadow-[0_0_20px_rgba(200,255,0,0.25)] text-xs font-semibold tracking-wide transition-all duration-200 active:scale-95 shadow-md backdrop-blur-md"
             >
               <span>Explore All Showcases</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -298,7 +296,7 @@ export default function RolesScroller() {
                 setTimeout(() => setIsPaused(false), 3000);
               }}
               aria-label="Previous Showcase"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-800 bg-black/80 text-white hover:border-[#CFFF04] hover:text-[#CFFF04] hover:shadow-[0_0_16px_rgba(207,255,4,0.25)] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-800 bg-black/80 text-white hover:border-[#C8FF00] hover:text-[#C8FF00] hover:shadow-[0_0_16px_rgba(200,255,0,0.25)] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.75} />
             </button>
@@ -310,7 +308,7 @@ export default function RolesScroller() {
                 setTimeout(() => setIsPaused(false), 3000);
               }}
               aria-label="Next Showcase"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-800 bg-black/80 text-white hover:border-[#CFFF04] hover:text-[#CFFF04] hover:shadow-[0_0_16px_rgba(207,255,4,0.25)] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-800 bg-black/80 text-white hover:border-[#C8FF00] hover:text-[#C8FF00] hover:shadow-[0_0_16px_rgba(200,255,0,0.25)] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
             >
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.75} />
             </button>

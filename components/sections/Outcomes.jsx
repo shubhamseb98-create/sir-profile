@@ -3,10 +3,10 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, ExternalLink, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import RollingText from "@/components/ui/RollingText";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const OUTCOMES_CARDS = [
   {
@@ -20,7 +20,7 @@ const OUTCOMES_CARDS = [
     image: "/images/cards/roas-analytics-real.jpg",
     tags: ["Media Spend Audit", "Conversion CRO", "Sales Velocity"],
     href: "/consulting#roas-conversion",
-    color: "#CFFF04",
+    color: "#C8FF00",
   },
   {
     id: "brand-positioning",
@@ -222,18 +222,16 @@ export default function Outcomes() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full">
         {/* Section Header */}
         <ScrollReveal distance={30} delay={0.1} className="text-center max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#CFFF04]/30 bg-[#CFFF04]/10 backdrop-blur-md mb-2 sm:mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#CFFF04]" />
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#CFFF04] font-bold">
-              STRATEGIC VALUE CREATION
-            </span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-2">
-            <RollingText text="What I Help Businesses Achieve" />
-          </h2>
-
-        
+          <SectionHeading
+            number="02"
+            eyebrow="STRATEGIC VALUE CREATION"
+            title="What I Help Businesses Achieve"
+            align="center"
+            light={false}
+            compact={true}
+            animate={false}
+            className="!mb-0"
+          />
         </ScrollReveal>
 
         {/* 3D Infinite Perspective Carousel Stage (Grab & Scroll, Loop, Autoplay) */}
@@ -296,8 +294,8 @@ export default function Outcomes() {
                 }}
                 className={`rounded-[22px] sm:rounded-[28px] border transition-all duration-500 ease-out cursor-grab active:cursor-grabbing flex flex-col justify-end overflow-hidden select-none group ${
                   isCenter
-                    ? "border-2 border-[#CFFF04] shadow-[0_20px_50px_rgba(0,0,0,0.95),0_0_30px_rgba(207,255,4,0.35)]"
-                    : "border border-white/20 hover:border-[#CFFF04]/50 shadow-xl opacity-75 hover:opacity-90"
+                    ? "border-2 border-[#C8FF00] shadow-[0_20px_50px_rgba(0,0,0,0.95),0_0_30px_rgba(200,255,0,0.35)]"
+                    : "border border-white/20 hover:border-[#C8FF00]/50 shadow-xl opacity-75 hover:opacity-90"
                 }`}
               >
                 {/* 1. Full-Bleed Background Image covering the entire card */}
@@ -360,7 +358,7 @@ export default function Outcomes() {
                       }}
                       className={`inline-flex items-center justify-center gap-2 w-full py-2.5 sm:py-3.5 px-4 sm:px-5 rounded-full font-bold text-xs sm:text-sm tracking-normal transition-all shadow-xl whitespace-nowrap group/btn active:scale-95 ${
                         isCenter
-                          ? "bg-[#CFFF04] hover:bg-[#b8e600] text-black shadow-[0_0_25px_rgba(207,255,4,0.4)]"
+                          ? "bg-[#C8FF00] hover:bg-[#b8e600] text-black shadow-[0_0_25px_rgba(200,255,0,0.4)]"
                           : "bg-white hover:bg-stone-100 text-stone-950"
                       }`}
                     >
@@ -383,7 +381,7 @@ export default function Outcomes() {
               setTimeout(() => setIsPaused(false), 3000);
             }}
             aria-label="Previous Capability"
-            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#CFFF04] hover:text-[#CFFF04] transition-all duration-200 active:scale-95 shadow-sm"
+            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#C8FF00] hover:text-[#C8FF00] transition-all duration-200 active:scale-95 shadow-sm"
           >
             Prev
           </button>
@@ -400,7 +398,7 @@ export default function Outcomes() {
                 }}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeIndex === i ? "w-6 bg-[#CFFF04] shadow-[0_0_10px_rgba(207,255,4,0.8)]" : "w-1.5 bg-white/30 hover:bg-white/60"
+                  activeIndex === i ? "w-6 bg-[#C8FF00] shadow-[0_0_10px_rgba(200,255,0,0.8)]" : "w-1.5 bg-white/30 hover:bg-white/60"
                 }`}
               />
             ))}
@@ -413,7 +411,7 @@ export default function Outcomes() {
               setTimeout(() => setIsPaused(false), 3000);
             }}
             aria-label="Next Capability"
-            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#CFFF04] hover:text-[#CFFF04] transition-all duration-200 active:scale-95 shadow-sm"
+            className="px-5 py-1.5 rounded-full border border-white/20 bg-white/05 text-xs sm:text-sm font-semibold text-white hover:border-[#C8FF00] hover:text-[#C8FF00] transition-all duration-200 active:scale-95 shadow-sm"
           >
             Next
           </button>

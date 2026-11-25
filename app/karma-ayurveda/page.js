@@ -164,8 +164,8 @@ export default function KarmaAyurvedaPage() {
       {/* 2. Six Visual Capability Pillars (LIGHT - 80px padding) */}
       <section id="pillars" className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -228,8 +228,8 @@ export default function KarmaAyurvedaPage() {
       {/* 3. Two Short Transformation Stories (DARK - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
@@ -254,21 +254,21 @@ export default function KarmaAyurvedaPage() {
 
                   <div className="space-y-4 text-xs leading-relaxed">
                     <div className="p-4 rounded-xl bg-black/60 border border-white/06">
-                      <span className="text-[#CFFF04] font-mono uppercase tracking-widest block mb-1 font-bold">
+                      <span className="text-[#C8FF00] font-mono uppercase tracking-widest block mb-1 font-bold">
                         Operational Challenge
                       </span>
                       <p className="text-slate-300 font-light">{story.challenge}</p>
                     </div>
 
                     <div className="p-4 rounded-xl bg-black/60 border border-white/06">
-                      <span className="text-[#CFFF04] font-mono uppercase tracking-widest block mb-1 font-bold">
+                      <span className="text-[#C8FF00] font-mono uppercase tracking-widest block mb-1 font-bold">
                         Strategic Intervention
                       </span>
                       <p className="text-slate-300 font-light">{story.intervention}</p>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-black/80 border border-[#CFFF04]/30">
-                      <span className="text-[#CFFF04] font-mono uppercase tracking-widest block mb-1 font-bold">
+                    <div className="p-4 rounded-xl bg-black/80 border border-[#C8FF00]/30">
+                      <span className="text-[#C8FF00] font-mono uppercase tracking-widest block mb-1 font-bold">
                         Business Impact
                       </span>
                       <p className="text-white font-medium">{story.impact}</p>
@@ -284,8 +284,8 @@ export default function KarmaAyurvedaPage() {
       {/* 4. Timeline of Major Initiatives (LIGHT - 80px padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading

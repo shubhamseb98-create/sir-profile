@@ -97,23 +97,20 @@ export default function AboutPage() {
       {/* 2. Section 1: ABOUT US & EXECUTIVE BIO (LIGHT - 80px top & bottom padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Column: Story & Executive Overview */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0F172A]" />
-                <span className="text-xs uppercase tracking-[0.2em] text-[#0F172A] font-bold">
-                  ABOUT DHEERAJ AGGARWAL
-                </span>
-              </div>
-
-              <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] leading-tight tracking-tight mb-4 sm:mb-5">
-                Bridging Strategic Vision & Disciplined Execution.
-              </h2>
+              <SectionHeading
+                number="01"
+                eyebrow="ABOUT DHEERAJ AGGARWAL"
+                title="Bridging Strategic Vision & Disciplined Execution."
+                light={true}
+                className="!mb-4 sm:!mb-5 max-w-none"
+              />
 
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
                 Dheeraj Aggarwal is an entrepreneur, business consultant, digital strategist, and keynote speaker with over 15 years of ground-level experience helping businesses establish, market, systemise, and scale profitably.
@@ -176,12 +173,12 @@ export default function AboutPage() {
       {/* 3. Section 2: THE JOURNEY / TIMELINE (DARK - 80px top & bottom padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
-            number="01"
+            number="02"
             eyebrow="EVOLUTION & MILESTONES"
             title="The Journey"
             description="From early web pioneering to executive advisory mandates and national community leadership across 15+ years."
@@ -197,12 +194,12 @@ export default function AboutPage() {
       {/* 4. Section 3: PROFESSIONAL PHILOSOPHY (LIGHT - 80px top & bottom padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
         {/* Subtle balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#CFFF04]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#C8FF00]/12 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <SectionHeading
-            number="02"
+            number="03"
             eyebrow="GOVERNING PRINCIPLES"
             title="Professional Philosophy"
             description="Core tenets that guide every consulting assignment, performance audit, and institutional advisory mandate."
@@ -236,15 +233,15 @@ export default function AboutPage() {
       {/* 5. Section 4: KEY CAPABILITIES & CORE VALUES (DARK - 80px top & bottom padding) */}
       <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
         {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/3 -right-32 w-[440px] h-[440px] bg-[#CFFF04]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/3 -right-32 w-[440px] h-[440px] bg-[#C8FF00]/12 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left: Key Capabilities */}
             <div className="lg:col-span-5">
               <SectionHeading
-                number="03"
+                number="04"
                 eyebrow="CORE SKILLS"
                 title="Key Capabilities"
                 description="Cross-functional expertise refined across hundreds of client engagements."
@@ -256,10 +253,10 @@ export default function AboutPage() {
                 {capabilities.map((cap) => (
                   <div
                     key={cap}
-                    className="p-3 sm:p-3.5 rounded-xl bg-[#0A0D14]/90 border border-white/10 flex items-center gap-3 hover:border-[#CFFF04]/40 transition-colors"
+                    className="p-3 sm:p-3.5 rounded-xl bg-[#0A0D14]/90 border border-white/10 flex items-center gap-3 hover:border-[#C8FF00]/40 transition-colors"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#CFFF04]/10 border border-[#CFFF04]/40 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-[#CFFF04]" />
+                    <div className="w-5 h-5 rounded-full bg-[#C8FF00]/10 border border-[#C8FF00]/40 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-[#C8FF00]" />
                     </div>
                     <span className="text-xs sm:text-sm text-white font-medium">{cap}</span>
                   </div>
@@ -270,7 +267,7 @@ export default function AboutPage() {
             {/* Right: Personal Values */}
             <div className="lg:col-span-7">
               <SectionHeading
-                number="04"
+                number="05"
                 eyebrow="ETHICAL FOUNDATION"
                 title="Personal Values"
                 description="The internal compass that dictates how we work, advise, and partner."
@@ -284,12 +281,12 @@ export default function AboutPage() {
                   return (
                     <div
                       key={v.title}
-                      className="p-5 sm:p-6 rounded-2xl bg-[#0A0D14]/90 border border-white/10 hover:border-[#CFFF04]/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(207,255,4,0.12)] group"
+                      className="p-5 sm:p-6 rounded-2xl bg-[#0A0D14]/90 border border-white/10 hover:border-[#C8FF00]/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(200,255,0,0.12)] group"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-[#CFFF04]/10 border border-[#CFFF04]/40 flex items-center justify-center text-[#CFFF04] mb-3 shadow-[0_0_12px_rgba(207,255,4,0.2)] group-hover:scale-105 transition-transform">
+                      <div className="w-9 h-9 rounded-xl bg-[#C8FF00]/10 border border-[#C8FF00]/40 flex items-center justify-center text-[#C8FF00] mb-3 shadow-[0_0_12px_rgba(200,255,0,0.2)] group-hover:scale-105 transition-transform">
                         <Icon className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
                       </div>
-                      <h4 className="font-sans text-sm sm:text-base font-bold text-white group-hover:text-[#CFFF04] transition-colors mb-1.5">
+                      <h4 className="font-sans text-sm sm:text-base font-bold text-white group-hover:text-[#C8FF00] transition-colors mb-1.5">
                         {v.title}
                       </h4>
                       <p className="text-xs text-slate-300 leading-relaxed font-light">

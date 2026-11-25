@@ -25,15 +25,16 @@
 
   --font-sans: var(--font-poppins), 'Poppins', system-ui, -apple-system, sans-serif;
   --font-poppins: var(--font-poppins), 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display), 'Cormorant Garamond', Georgia, serif;
 }
 
 :root {
   --navbar-bg: #000000;
   --hero-from: #000000;
   --hero-to: #000000;
-  --btn-primary: #CFFF04;
+  --btn-primary: #C8FF00;
   --btn-hover: #bef264;
-  --highlight: #CFFF04;
+  --highlight: #C8FF00;
   --section-light: #FFFFFF;
   --section-ice: #F8FAFC;
   --section-dark: #000000;
@@ -90,7 +91,7 @@ html.lenis body {
 }
 
 ::selection {
-  background-color: #CFFF04;
+  background-color: #C8FF00;
   color: #000000;
 }
 
@@ -108,7 +109,7 @@ html.lenis body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #CFFF04;
+  background: #C8FF00;
 }
 
 .modern-card {
@@ -154,7 +155,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #CFFF04;
+  outline: 2px solid #C8FF00;
   outline-offset: 2px;
 }
 
