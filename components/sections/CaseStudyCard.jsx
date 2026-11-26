@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 
 // Map study slugs to representative image cards
 const caseStudyImages = {
-  "karma-ayurveda-systems-expansion": "/images/cards/crm-systems.jpg",
-  "web-tycoons-agency-scale": "/images/cards/digital-visibility.jpg",
-  "happy-hospitality-club-community": "/images/cards/hhc-hospitality.svg",
+  "karma-ayurveda-systems-expansion": "/images/transformations/karma-clinic-ops.jpg",
+  "web-tycoons-agency-scale": "/images/transformations/webtycoons-studio.jpg",
+  "happy-hospitality-club-community": "/images/transformations/hhc-hospitality-roundtable.jpg",
   "ad-spend-roas-optimization": "/images/cards/roas-conversion.jpg",
   "multi-location-franchise-model": "/images/cards/franchise-expansion.jpg",
   "brand-repositioning-enterprise": "/images/cards/brand-positioning.jpg",
@@ -15,7 +15,8 @@ const caseStudyImages = {
 
 export default function CaseStudyCard({ study, className = "" }) {
   const isAnonymised = study.anonymised;
-  const imageSrc = caseStudyImages[study.slug] || "/images/cards/crm-systems.jpg";
+  const imageSrc =
+    caseStudyImages[study.slug] || "/images/transformations/karma-clinic-ops.jpg";
 
   return (
     <article

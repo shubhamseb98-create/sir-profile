@@ -9,11 +9,11 @@ import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-// Representative imagery for the 3 featured transformation cases
+// Representative real-world photography for the 3 featured transformation cases
 const CASE_IMAGES = {
-  "karma-ayurveda-systems-expansion": "/images/cards/crm-systems.jpg",
-  "web-tycoons-agency-scale": "/images/cards/digital-visibility.jpg",
-  "happy-hospitality-club-community": "/images/cards/hhc-hospitality.jpg",
+  "karma-ayurveda-systems-expansion": "/images/transformations/karma-clinic-ops.jpg",
+  "web-tycoons-agency-scale": "/images/transformations/webtycoons-studio.jpg",
+  "happy-hospitality-club-community": "/images/transformations/hhc-hospitality-roundtable.jpg",
 };
 
 export default function TransformationsStack() {
@@ -148,7 +148,8 @@ export default function TransformationsStack() {
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10 mt-4 sm:mt-5 lg:mt-6 flex items-center justify-center">
           <div className="relative w-full max-w-[1100px] h-[400px] xs:h-[390px] sm:h-[390px] md:h-[410px]">
           {featuredCases.map((study, idx) => {
-            const imageSrc = CASE_IMAGES[study.slug] || "/images/cards/crm-systems.jpg";
+            const imageSrc =
+              CASE_IMAGES[study.slug] || "/images/transformations/karma-clinic-ops.jpg";
             const cardNum = String(idx + 1).padStart(2, "0");
 
             return (
