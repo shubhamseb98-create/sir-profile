@@ -3,7 +3,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Timeline from "@/components/sections/Timeline";
 import PageCTA from "@/components/sections/PageCTA";
 import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
-import { Check, Shield, Lightbulb, Target, BookOpen, Users, HeartHandshake } from "lucide-react";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import { Check } from "lucide-react";
 
 export const metadata = {
   title: "About Dheeraj Aggarwal | Business Consultant, Digital Expert & Growth Specialist",
@@ -53,174 +54,153 @@ export default function AboutPage() {
   const values = [
     {
       title: "Integrity",
-      icon: Shield,
+      tag: "Transparency",
       desc: "Absolute transparency with clients and partners. We never recommend campaigns a business does not genuinely need.",
     },
     {
       title: "Innovation",
-      icon: Lightbulb,
+      tag: "Advantage",
       desc: "Staying ahead of algorithmic and consumer shifts to uncover unfair commercial advantages for our clients.",
     },
     {
       title: "Impact",
-      icon: Target,
+      tag: "Bottom Line",
       desc: "Evaluating success by bottom-line results: reduced inquiry lag, improved ROAS, and increased profitability.",
     },
     {
       title: "Continuous Learning",
-      icon: BookOpen,
+      tag: "Sector Mastery",
       desc: "Refining execution across varied sectors — from ayurvedic healthcare to luxury hospitality and manufacturing.",
     },
     {
       title: "Relationship Building",
-      icon: Users,
+      tag: "Trust Equity",
       desc: "Nurturing deep commercial bonds grounded in mutual respect, ethical conduct, and reciprocal value creation.",
     },
     {
       title: "Giving Back",
-      icon: HeartHandshake,
+      tag: "Mentorship",
       desc: "Mentoring emerging MSME entrepreneurs, sharing practical operational playbooks, and cultivating business leaders.",
     },
   ];
 
+  const statStrip = [
+    { value: "15+ Yrs", label: "Entrepreneurial Leadership" },
+    { value: "3,700+", label: "Digital Platforms Delivered" },
+    { value: "50+ Stages", label: "Keynotes & Roundtables" },
+    { value: "Pan-India", label: "Enterprise Advisory Reach" },
+  ];
+
   return (
     <>
-      {/* 1. Sleek Compact Breadcrumb Header (DARK) */}
+      {/* 1. Architectural Midnight Navy Masthead */}
       <BreadcrumbHero
         eyebrow="EXECUTIVE PROFILE"
         title="About Dheeraj Aggarwal"
         description="Business Consultant, Founder of Web Tycoons, and Strategic Growth Specialist advising leadership teams across India."
         breadcrumbs={[{ label: "About Dheeraj" }]}
-        imageSrc="/images/hero/hero-corporate-skyline.jpg"
       />
 
-      {/* 2. Section 1: ABOUT US & EXECUTIVE BIO (LIGHT - 80px top & bottom padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
-        {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-
-        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
+      {/* 2. Executive Bio & Clean Portrait Split (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#FFFFFF] text-[#0F172A] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Column: Story & Executive Overview */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <SectionHeading
-                number="01"
                 eyebrow="ABOUT DHEERAJ AGGARWAL"
                 title="Bridging Strategic Vision & Disciplined Execution."
                 light={true}
-                className="!mb-4 sm:!mb-5 max-w-none"
+                compact={true}
+                animate={false}
+                className="!mb-5 max-w-none"
               />
 
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
                 Dheeraj Aggarwal is an entrepreneur, business consultant, digital strategist, and keynote speaker with over 15 years of ground-level experience helping businesses establish, market, systemise, and scale profitably.
               </p>
 
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-8">
                 From delivering 3,700+ digital platforms at Web Tycoons and driving executive growth at Karma Ayurveda, to uniting hospitality leaders through Happy Hospitality Club, his approach centers on unit economics, automated workflows, and building enterprise value.
               </p>
 
-              {/* Quick Stat Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-5 border-t border-slate-200">
-                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">15+ Yrs</span>
-                  <span className="text-xs text-slate-500 font-medium">Leadership</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">3,700+</span>
-                  <span className="text-xs text-slate-500 font-medium">Deliveries</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">50+ Stages</span>
-                  <span className="text-xs text-slate-500 font-medium">Keynotes</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-                  <span className="text-xl sm:text-2xl font-bold text-[#0F172A] font-mono block">Pan-India</span>
-                  <span className="text-xs text-slate-500 font-medium">Advisory</span>
-                </div>
+              {/* Editorial Architectural Metric Ledger */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 border-y border-slate-200 divide-y sm:divide-y-0 sm:divide-x divide-slate-200">
+                {statStrip.map((stat) => (
+                  <div key={stat.label} className="py-4 sm:px-4 first:sm:pl-0 last:sm:pr-0">
+                    <span className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight block">
+                      {stat.value}
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.1em] font-medium text-slate-500 mt-1 block">
+                      {stat.label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right Column: Homepage Dheeraj Aggarwal Portrait Card */}
+            {/* Clean Uncluttered Editorial Portrait Frame */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[380px] sm:max-w-[420px] h-[380px] sm:h-[440px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-950 group">
+              <div className="relative w-full max-w-[400px] h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-slate-200 bg-[#060D1A] shadow-[0_12px_36px_rgba(15,23,42,0.08)]">
                 <Image
                   src="/images/hero/ddab.png"
                   alt="Dheeraj Aggarwal - Business Consultant & Growth Specialist"
                   fill
                   priority
-                  sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
-
-                {/* Bottom Credential Card Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-base sm:text-lg font-bold text-white">Dheeraj Aggarwal</h3>
-                    <span className="text-[10px] font-mono text-white bg-black/95 px-2.5 py-0.5 rounded-full font-bold border border-white/20 shadow-sm">
-                      15+ Yrs Experience
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-300 font-normal">Executive Advisor & Growth Specialist</p>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Section 2: THE JOURNEY / TIMELINE (DARK - 80px top & bottom padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
-        {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
+      {/* 3. Chronological Leadership Journey (DARK MIDNIGHT NAVY - 60px padding) */}
+      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining />
 
-        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
-            number="02"
             eyebrow="EVOLUTION & MILESTONES"
             title="The Journey"
             description="From early web pioneering to executive advisory mandates and national community leadership across 15+ years."
-            align="center"
             light={false}
-            className="mb-10 sm:mb-14"
+            compact={true}
+            animate={false}
+            className="!mb-8 sm:!mb-10"
           />
 
           <Timeline light={false} />
         </div>
       </section>
 
-      {/* 4. Section 3: PROFESSIONAL PHILOSOPHY (LIGHT - 80px top & bottom padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
-        {/* Subtle balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-
-        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
+      {/* 4. Professional Philosophy Ledger (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
           <SectionHeading
-            number="03"
             eyebrow="GOVERNING PRINCIPLES"
             title="Professional Philosophy"
             description="Core tenets that guide every consulting assignment, performance audit, and institutional advisory mandate."
             light={true}
-            className="mb-10 sm:mb-14"
+            compact={true}
+            animate={false}
+            className="!mb-8 sm:!mb-10"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 border-t border-slate-200">
             {philosophies.map((item, idx) => (
               <div
                 key={item.title}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 hover:border-black transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-black/5"
+                className="group py-6 border-b border-slate-200 flex items-start gap-5 transition-colors"
               >
+                <span className="text-lg font-extrabold text-[#9A6B0C] tabular-nums shrink-0 pt-0.5">
+                  0{idx + 1}
+                </span>
                 <div>
-                  <span className="font-mono text-xs text-white font-bold px-3 py-1 rounded-full bg-black border border-black block w-max mb-3.5 shadow-sm">
-                    Principle 0{idx + 1}
-                  </span>
-                  <h3 className="font-sans text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-black transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 group-hover:text-[#9A6B0C] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -230,78 +210,78 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. Section 4: KEY CAPABILITIES & CORE VALUES (DARK - 80px top & bottom padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
-        {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/3 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
+      {/* 5. Key Capabilities & Core Values (DARK MIDNIGHT NAVY - 60px padding) */}
+      <section
+        id="bni-leadership"
+        className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans"
+      >
+        <DarkSectionLining />
 
-        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left: Key Capabilities */}
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left: Key Capabilities Directory */}
             <div className="lg:col-span-5">
               <SectionHeading
-                number="04"
                 eyebrow="CORE SKILLS"
                 title="Key Capabilities"
                 description="Cross-functional expertise refined across hundreds of client engagements."
-                className="mb-6 sm:mb-8"
                 light={false}
+                compact={true}
+                animate={false}
+                className="!mb-6"
               />
 
-              <div className="space-y-3">
+              <ul className="border-t border-white/12 divide-y divide-white/10">
                 {capabilities.map((cap) => (
-                  <div
-                    key={cap}
-                    className="p-3 sm:p-3.5 rounded-xl bg-[#0A0D14]/90 border border-white/10 flex items-center gap-3 hover:border-[#D4AF37]/40 transition-colors"
-                  >
-                    <div className="w-5 h-5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/40 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-[#D4AF37]" />
-                    </div>
-                    <span className="text-xs sm:text-sm text-white font-medium">{cap}</span>
-                  </div>
+                  <li key={cap} className="py-3.5 flex items-center gap-3 text-sm text-slate-100 font-medium">
+                    <Check className="w-4 h-4 text-[#D4AF37] shrink-0" strokeWidth={2.2} />
+                    <span>{cap}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            {/* Right: Personal Values */}
+            {/* Right: Personal Values Editorial Grid */}
             <div className="lg:col-span-7">
               <SectionHeading
-                number="05"
                 eyebrow="ETHICAL FOUNDATION"
                 title="Personal Values"
                 description="The internal compass that dictates how we work, advise, and partner."
-                className="mb-6 sm:mb-8"
                 light={false}
+                compact={true}
+                animate={false}
+                className="!mb-6"
               />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                {values.map((v) => {
-                  const Icon = v.icon;
-                  return (
-                    <div
-                      key={v.title}
-                      className="p-5 sm:p-6 rounded-2xl bg-[#0A0D14]/90 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.12)] group"
-                    >
-                      <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/40 flex items-center justify-center text-[#D4AF37] mb-3 shadow-[0_0_12px_rgba(212,175,55,0.2)] group-hover:scale-105 transition-transform">
-                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
-                      </div>
-                      <h4 className="font-sans text-sm sm:text-base font-bold text-white group-hover:text-[#D4AF37] transition-colors mb-1.5">
-                        {v.title}
-                      </h4>
-                      <p className="text-xs text-slate-300 leading-relaxed font-light">
-                        {v.desc}
-                      </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {values.map((v, idx) => (
+                  <div
+                    key={v.title}
+                    className="p-5 sm:p-6 rounded-2xl bg-[#0B1528] border border-white/10 hover:border-[#D4AF37]/50 transition-colors"
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-2.5">
+                      <span className="text-[11px] uppercase tracking-[0.16em] font-semibold text-[#D4AF37]">
+                        {v.tag}
+                      </span>
+                      <span className="text-xs font-bold text-slate-500 tabular-nums">
+                        0{idx + 1}
+                      </span>
                     </div>
-                  );
-                })}
+                    <h4 className="text-base sm:text-lg font-bold text-white mb-1.5">
+                      {v.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {v.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. Page Closing CTA (LIGHT - with homepage subtle glow) */}
+      {/* 6. Page Closing CTA (LIGHT - 60px padding) */}
       <PageCTA
         title="Looking for a Strategic Advisory Partner?"
         description="Share your current business priorities, conversion challenges, or expansion plans for a confidential diagnostic session."

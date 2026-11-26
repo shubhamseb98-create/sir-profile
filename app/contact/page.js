@@ -3,7 +3,7 @@ import ContactForm from "@/components/contact/ContactForm";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
 import { siteConfig } from "@/data/site";
-import { MessageCircle, Mail, Calendar, Linkedin, Download, ShieldCheck } from "lucide-react";
+import { MessageCircle, Calendar, ArrowUpRight, ShieldCheck } from "lucide-react";
 
 export const metadata = {
   title: "Contact & Book a Strategy Call | Dheeraj Aggarwal",
@@ -14,126 +14,106 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* 1. Sleek Breadcrumb Header (DARK - matching About page) */}
       <BreadcrumbHero
         eyebrow="INITIATE CONVERSATION"
         title="Book a Strategy Consultation"
         description="Whether you need a growth roadmap, stronger digital performance, business systems, a strategic partnership or an impactful speaker, share your objective and let's explore the right way forward."
         breadcrumbs={[{ label: "Contact & Book Call" }]}
-        imageSrc="/images/hero/hero-corporate-boardroom-clean.jpg"
+        imageSrc="/images/transformations/hhc-hospitality-roundtable.jpg"
       />
 
-      {/* 2. Main Form & Direct Channels (LIGHT - Compact Viewport Fit) */}
-      <section className="py-6 sm:py-8 md:py-10 bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden font-sans">
-        {/* Ambient glow */}
-        <div className="absolute top-1/4 -left-28 w-[380px] h-[380px] bg-[#D4AF37]/10 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 w-[380px] h-[380px] bg-[#D4AF37]/10 rounded-full blur-[130px] pointer-events-none" />
-
-        <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Main Executive Inquiry Desk (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
           <SectionHeading
-            number="01"
             eyebrow="DIRECT ACCESS"
             title="Executive Inquiry Desk"
             description="Complete the brief below or connect directly for immediate calendar scheduling."
             light={true}
-            className="mb-5 sm:mb-6"
+            compact={true}
+            animate={false}
+            className="!mb-8"
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Main Form (7 Cols) */}
             <div className="lg:col-span-7">
-              <Suspense fallback={<div className="p-6 text-slate-500">Loading contact interface...</div>}>
+              <Suspense
+                fallback={
+                  <div className="p-8 rounded-2xl border border-slate-200 text-sm text-slate-500">
+                    Loading consultation desk...
+                  </div>
+                }
+              >
                 <ContactForm light={true} />
               </Suspense>
             </div>
 
-            {/* Direct Channels & Trust Sidebar (5 Cols) */}
-            <div className="lg:col-span-5 space-y-4">
-              {/* Direct Priority Channels Card */}
-              <div className="p-6 sm:p-7 rounded-3xl bg-white border border-neutral-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.04)] space-y-4.5 relative overflow-hidden">
-                {/* Top hairline accent */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-neutral-900 via-[#D4AF37] to-neutral-900" />
-
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-neutral-500 bg-neutral-100 px-2.5 py-0.5 rounded-full border border-neutral-200">
-                      Priority Access
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      Live Slots Open
-                    </span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-neutral-900">
-                    Direct Corporate Channels
+            {/* Priority Channels Sidebar (5 Cols) */}
+            <div className="lg:col-span-5 space-y-5">
+              <div className="p-6 sm:p-7 rounded-2xl bg-[#FAF9F6] border border-slate-200 space-y-5">
+                <div className="pb-4 border-b border-slate-200">
+                  <span className="text-[11px] uppercase font-bold tracking-[0.16em] text-[#9A6B0C] block mb-1">
+                    Priority Channels
+                  </span>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Direct Corporate Access
                   </h3>
-                  <p className="text-xs text-neutral-600 leading-relaxed mt-1">
-                    Prefer direct engagement? Connect immediately via confirmed executive calendar booking or WhatsApp desk.
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1">
+                    Prefer direct scheduling? Connect via executive calendar booking or WhatsApp desk.
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-1">
-                  {/* Calendar Booking */}
+                <div className="space-y-3">
                   <a
                     href={siteConfig.calendlyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3.5 px-4 rounded-xl bg-black hover:bg-neutral-900 text-white transition-all flex items-center justify-between font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                    className="w-full py-3.5 px-4 rounded-xl bg-[#060D1A] hover:bg-[#0F1E3A] text-white transition-colors flex items-center justify-between text-xs font-bold uppercase tracking-[0.1em]"
                   >
-                    <span className="flex items-center gap-2.5">
-                      <div className="w-6 h-6 rounded-lg bg-neutral-800 flex items-center justify-center text-[#D4AF37]">
-                        <Calendar className="w-3.5 h-3.5" />
-                      </div>
+                    <span className="flex items-center gap-3">
+                      <Calendar className="w-4 h-4 text-[#D4AF37]" />
                       <span>Book 30-Min Diagnostic</span>
                     </span>
-                    <span className="text-[10px] font-mono text-[#D4AF37] group-hover:translate-x-0.5 transition-transform">
-                      Calendar ↗
-                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-[#D4AF37]" />
                   </a>
 
-                  {/* WhatsApp Connect */}
                   <a
                     href={siteConfig.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3.5 px-4 rounded-xl border border-neutral-200 hover:border-black bg-neutral-50/80 hover:bg-white text-neutral-900 transition-all flex items-center justify-between font-bold text-xs uppercase tracking-wider shadow-xs hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                    className="w-full py-3.5 px-4 rounded-xl border border-slate-300 hover:border-[#060D1A] bg-white text-slate-900 transition-colors flex items-center justify-between text-xs font-bold uppercase tracking-[0.1em]"
                   >
-                    <span className="flex items-center gap-2.5">
-                      <div className="w-6 h-6 rounded-lg bg-[#25D366]/10 text-[#25D366] flex items-center justify-center border border-[#25D366]/30">
-                        <MessageCircle className="w-3.5 h-3.5" />
-                      </div>
+                    <span className="flex items-center gap-3">
+                      <MessageCircle className="w-4 h-4 text-[#9A6B0C]" />
                       <span>Chat on WhatsApp</span>
                     </span>
-                    <span className="text-[10px] font-mono text-neutral-500 group-hover:text-black group-hover:translate-x-0.5 transition-transform">
-                      Instant ↗
-                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-slate-500" />
                   </a>
                 </div>
 
-                {/* Direct Email */}
-                <div className="pt-3.5 border-t border-neutral-100 flex items-center justify-between gap-2">
+                <div className="pt-4 border-t border-slate-200 flex items-center justify-between gap-2">
                   <div className="min-w-0">
-                    <span className="text-[10px] font-mono uppercase font-bold text-neutral-400 block mb-0.5">
-                      Executive Direct Inbox
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-semibold text-slate-500 block mb-0.5">
+                      Executive Inbox
                     </span>
                     <a
                       href={`mailto:${siteConfig.contactEmail}`}
-                      className="text-xs font-bold text-neutral-900 hover:text-black hover:underline transition-colors truncate block"
+                      className="text-sm font-semibold text-slate-900 hover:text-[#9A6B0C] transition-colors truncate block"
                     >
                       {siteConfig.contactEmail}
                     </a>
                   </div>
-                  <span className="text-[10px] font-mono font-semibold text-neutral-600 bg-neutral-100 px-2 py-0.5 rounded-full border border-neutral-200 shrink-0">
+                  <span className="text-[11px] font-medium text-slate-600 bg-white px-2.5 py-1 rounded-full border border-slate-200 shrink-0">
                     Within 24h
                   </span>
                 </div>
               </div>
 
-              {/* Confidentiality & Mutual NDA */}
-              <div className="p-4.5 sm:p-5 rounded-2xl bg-neutral-50 border border-neutral-200/80 flex items-start gap-3">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                  <strong className="text-neutral-900 font-bold">Executive Confidentiality:</strong> All commercial diagnostics, pipeline metrics, and disclosures remain strictly protected under mutual NDA guidelines.
+              <div className="p-5 rounded-2xl bg-white border border-slate-200 flex items-start gap-3">
+                <ShieldCheck className="w-4 h-4 text-[#9A6B0C] shrink-0 mt-0.5" />
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                  <strong className="text-slate-900 font-semibold">Executive Confidentiality:</strong> All commercial diagnostics, pipeline metrics, and disclosures remain strictly protected under mutual NDA guidelines.
                 </p>
               </div>
             </div>
@@ -143,4 +123,3 @@ export default function ContactPage() {
     </>
   );
 }
-

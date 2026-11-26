@@ -3,78 +3,146 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Map study slugs to representative image cards
+// Map all case study slugs accurately to real photography
 const caseStudyImages = {
   "karma-ayurveda-systems-expansion": "/images/transformations/karma-clinic-ops.jpg",
   "web-tycoons-agency-scale": "/images/transformations/webtycoons-studio.jpg",
   "happy-hospitality-club-community": "/images/transformations/hhc-hospitality-roundtable.jpg",
-  "ad-spend-roas-optimization": "/images/cards/roas-conversion.jpg",
-  "multi-location-franchise-model": "/images/cards/franchise-expansion.jpg",
-  "brand-repositioning-enterprise": "/images/cards/brand-positioning.jpg",
+  "high-growth-d2c-roas-optimization": "/images/cards/roas-analytics-real.jpg",
+  "national-manufacturing-google-visibility": "/images/cards/digital-growth-real.jpg",
+  "wellness-franchise-expansion-blueprint": "/images/cards/franchise-expansion-real.jpg",
 };
 
-export default function CaseStudyCard({ study, className = "" }) {
+export default function CaseStudyCard({ study, className = "", dark = false }) {
   const isAnonymised = study.anonymised;
   const imageSrc =
     caseStudyImages[study.slug] || "/images/transformations/karma-clinic-ops.jpg";
 
   return (
     <article
-      data-cursor="view"
       className={cn(
-        "rounded-2xl bg-black border border-neutral-800 hover:border-[#D4AF37]/60 p-3.5 sm:p-4 shadow-lg hover:shadow-2xl hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group font-sans",
+        "group relative rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between font-sans",
+        dark
+          ? "bg-[#0B1528] border-white/12 hover:border-[#D4AF37]/60 shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
+          : "bg-white border-slate-200/90 hover:border-[#D4AF37]/70 shadow-[0_4px_20px_rgba(15,23,42,0.04)] hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]",
         className
       )}
     >
       <div>
-        {/* 1. Inset Image with rounded corners and exactly 300px height */}
-        <div className="relative h-[300px] w-full overflow-hidden rounded-xl bg-neutral-950 mb-3.5">
+        {/* Crisp Editorial Thumbnail Frame */}
+        <div
+          className={cn(
+            "relative h-52 sm:h-56 w-full overflow-hidden border-b",
+            dark ? "bg-[#060D1A] border-white/10" : "bg-slate-100 border-slate-200"
+          )}
+        >
           <Image
             src={imageSrc}
             alt={study.title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-          <span className="absolute top-2.5 left-2.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-black/85 text-[#D4AF37] px-2.5 py-0.5 rounded-full border border-[#D4AF37]/30 backdrop-blur-md">
-            {study.category}
-          </span>
-          <span className="absolute bottom-2 right-2.5 text-[10px] font-mono text-slate-300 bg-black/85 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">
-            {isAnonymised ? "Confidential" : study.sector}
-          </span>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/70 via-transparent to-transparent pointer-events-none" />
+
+          {/* Clean Sector Metadata */}
+          <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between gap-2 text-xs text-white">
+            <span className="font-semibold tracking-wide truncate">
+              {isAnonymised ? "Confidential Mandate" : study.clientName}
+            </span>
+            <span className="text-[11px] text-slate-200 truncate">
+              {study.sector}
+            </span>
+          </div>
         </div>
 
-        {/* 2. Title + Circular Action Button Row */}
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="text-base font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-snug line-clamp-2">
-            <Link href={`/case-studies/${study.slug}`}>{study.title}</Link>
-          </h3>
-          <Link
-            href={`/case-studies/${study.slug}`}
-            aria-label={study.title}
-            className="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 hover:border-[#D4AF37] flex items-center justify-center text-white shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-105 mt-0.5"
-          >
-            <ArrowUpRight className="w-4 h-4" />
+        {/* Body Content */}
+        <div className="p-6">
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <span
+              className={cn(
+                "text-[10px] uppercase font-bold tracking-[0.16em]",
+                dark ? "text-[#F5E2A3]" : "text-[#9A6B0C]"
+              )}
+            >
+              {study.category}
+            </span>
+            <span
+              className={cn(
+                "text-[11px]",
+                dark ? "text-slate-400" : "text-slate-500"
+              )}
+            >
+              {study.clientScale}
+            </span>
+          </div>
+
+          <Link href={`/case-studies/${study.slug}`} className="block group/title">
+            <h3
+              className={cn(
+                "text-lg sm:text-xl font-bold leading-snug mb-2.5 transition-colors line-clamp-2",
+                dark
+                  ? "text-white group-hover/title:text-[#F5E2A3]"
+                  : "text-slate-900 group-hover/title:text-[#9A6B0C]"
+              )}
+            >
+              {study.title}
+            </h3>
           </Link>
-        </div>
 
-        {/* 3. Subtitle / Summary */}
-        <p className="text-xs text-slate-300 leading-relaxed mt-2.5 line-clamp-2">
-          {study.summary || study.challenge}
-        </p>
-
-        {/* 4. Key Outcome Metric Pill */}
-        <div className="mt-3.5 p-2.5 rounded-xl bg-neutral-950 border border-neutral-800">
-          <span className="text-[10px] uppercase tracking-wider text-[#D4AF37] font-mono font-bold block mb-0.5">
-            Key Outcome
-          </span>
-          <p className="text-xs text-white font-medium line-clamp-1">
-            {study.results[0]?.outcome || study.impactHighlight}
+          <p
+            className={cn(
+              "text-sm leading-relaxed mb-5 line-clamp-2",
+              dark ? "text-slate-300" : "text-slate-600"
+            )}
+          >
+            {study.summary}
           </p>
+
+          {/* Structured Key Outcome Callout */}
+          <div
+            className={cn(
+              "pt-4 border-t",
+              dark ? "border-white/10" : "border-slate-200/80"
+            )}
+          >
+            <span
+              className={cn(
+                "text-[11px] uppercase tracking-[0.14em] font-semibold block mb-1",
+                dark ? "text-[#D4AF37]" : "text-[#9A6B0C]"
+              )}
+            >
+              {study.results?.[0]?.metric || "Measured Outcome"}
+            </span>
+            <p
+              className={cn(
+                "text-xs sm:text-[13px] font-medium line-clamp-2",
+                dark ? "text-slate-100" : "text-slate-800"
+              )}
+            >
+              {study.results?.[0]?.outcome || "Structured operational impact delivered"}
+            </p>
+          </div>
         </div>
+      </div>
+
+      {/* Footer Read Dossier Link */}
+      <div
+        className={cn(
+          "px-6 py-3.5 border-t flex items-center justify-between text-xs font-semibold",
+          dark
+            ? "border-white/10 bg-[#081020] text-slate-300 group-hover:text-[#F5E2A3]"
+            : "border-slate-200/80 bg-[#FAF9F6] text-slate-700 group-hover:text-[#9A6B0C]"
+        )}
+      >
+        <Link
+          href={`/case-studies/${study.slug}`}
+          className="inline-flex items-center justify-between w-full transition-colors"
+        >
+          <span>Read Transformation Dossier</span>
+          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </Link>
       </div>
     </article>
   );
 }
-

@@ -1,19 +1,9 @@
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 import PageCTA from "@/components/sections/PageCTA";
-import SafeImage from "@/components/ui/SafeImage";
 import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
-import {
-  Activity,
-  Layers,
-  FileText,
-  Building2,
-  Handshake,
-  TrendingUp,
-  Check,
-  Calendar,
-  ArrowRight,
-} from "lucide-react";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import { Check } from "lucide-react";
 
 export const metadata = {
   title: "Karma Ayurveda Advisory | Dheeraj Aggarwal",
@@ -26,7 +16,6 @@ export default function KarmaAyurvedaPage() {
     {
       id: "digital-leadership",
       title: "Digital Leadership & Performance",
-      icon: Activity,
       summary:
         "Providing strategic direction to digital teams, structuring organic patient education content, optimizing performance ad spend, and monitoring full-funnel ROAS.",
       deliverables: [
@@ -39,7 +28,6 @@ export default function KarmaAyurvedaPage() {
     {
       id: "crm-architecture",
       title: "Enterprise CRM Strategy & Implementation",
-      icon: Layers,
       summary:
         "Architecting unified patient relationship management infrastructure to ensure zero lead leakage, automated follow-up cadences, and multi-branch tracking.",
       deliverables: [
@@ -52,7 +40,6 @@ export default function KarmaAyurvedaPage() {
     {
       id: "sops-processes",
       title: "Clinical & Sales SOPs",
-      icon: FileText,
       summary:
         "Codifying front-desk, counseling desk, and clinic operations into standard operating procedures to eliminate founder dependency and ensure clinical consistency.",
       deliverables: [
@@ -65,7 +52,6 @@ export default function KarmaAyurvedaPage() {
     {
       id: "franchise-expansion",
       title: "Franchise & Regional Expansion",
-      icon: Building2,
       summary:
         "Structuring commercial franchise frameworks, operational playbooks, and localized marketing support to scale clinic presence into Tier-1 and Tier-2 Indian cities.",
       deliverables: [
@@ -78,7 +64,6 @@ export default function KarmaAyurvedaPage() {
     {
       id: "hospital-tieups",
       title: "Hospital Partnerships & Panchakarma Centers",
-      icon: Handshake,
       summary:
         "Developing institutional partnerships with established hospitals to embed specialized Panchakarma and Ayurvedic wellness therapy wings.",
       deliverables: [
@@ -91,7 +76,6 @@ export default function KarmaAyurvedaPage() {
     {
       id: "revenue-consulting",
       title: "Revenue & Growth Consulting",
-      icon: TrendingUp,
       summary:
         "Analyzing clinic-level economics, treatment package profitability, and conversion bottlenecks to unlock immediate margin improvements.",
       deliverables: [
@@ -126,22 +110,22 @@ export default function KarmaAyurvedaPage() {
 
   const initiativesTimeline = [
     {
-      phase: "Phase 1",
+      phase: "Phase 01",
       title: "Operational Diagnostic & Systems Blueprint",
       desc: "Audited existing inquiry workflows, digital ad spend allocations, and counselor follow-up habits across branches.",
     },
     {
-      phase: "Phase 2",
+      phase: "Phase 02",
       title: "Enterprise CRM & WhatsApp Automation Rollout",
       desc: "Configured centralized lead capture, automated allocation trees, and executive management dashboards.",
     },
     {
-      phase: "Phase 3",
+      phase: "Phase 03",
       title: "Counseling & Clinical SOP Implementation",
       desc: "Trained branch teams on consultative communication scripts, patient intake protocols, and escalation guidelines.",
     },
     {
-      phase: "Phase 4",
+      phase: "Phase 04",
       title: "Franchise Modeling & Hospital Strategic Alliances",
       desc: "Designed investor disclosure decks, territory unit economics, and integrative hospital partnership models.",
     },
@@ -149,191 +133,195 @@ export default function KarmaAyurvedaPage() {
 
   return (
     <>
-      {/* 1. Sleek Breadcrumb Header (DARK - matching About page) */}
+      {/* 1. Architectural Midnight Navy Masthead */}
       <BreadcrumbHero
         eyebrow="EXECUTIVE CONSULTING MANDATE"
         title="Karma Ayurveda Strategic Advisory"
-        description="As Executive Consultant, Dheeraj supports Karma Ayurveda's leadership in growth strategy, digital performance, CRM and systems, sales processes, franchise planning, strategic partnerships and business expansion."
+        description="Modernizing digital acquisition, enterprise CRM protocols, multi-city clinic SOPs, and national franchise expansion across India."
         breadcrumbs={[
           { label: "Ventures", href: "/leadership-ventures" },
           { label: "Karma Ayurveda" },
         ]}
-        imageSrc="/images/hero/hero-corporate-skyline.jpg"
+        imageSrc="/images/transformations/karma-clinic-ops.jpg"
       />
 
-      {/* 2. Six Visual Capability Pillars (LIGHT - 80px padding) */}
-      <section id="pillars" className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
-        {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-
-        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
-          <SectionHeading
-            number="01"
-            eyebrow="SIX STRATEGIC PILLARS"
-            title="Advisory Capability Pillars"
-            description="A comprehensive, multi-disciplinary advisory engagement touching every aspect of commercial growth, technology, and operational rigor."
-            light={true}
-            className="mb-10 sm:mb-14"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {capabilityPillars.map((p, idx) => {
-              const Icon = p.icon;
-              return (
-                <div
-                  key={p.id}
-                  className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-black transition-all duration-300 flex flex-col justify-between group shadow-md hover:shadow-xl hover:-translate-y-1"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 group-hover:border-black group-hover:bg-black group-hover:text-white flex items-center justify-center text-slate-900 group-hover:scale-110 transition-all font-bold">
-                        <Icon className="w-6 h-6" strokeWidth={1.75} />
-                      </div>
-                      <span className="font-mono text-xs text-slate-500 font-bold">
-                        0{idx + 1}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-black transition-colors">
-                      {p.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 font-normal">
-                      {p.summary}
-                    </p>
-
-                    <div className="space-y-2 pt-4 border-t border-slate-100">
-                      {p.deliverables.slice(0, 4).map((d) => (
-                        <div key={d} className="flex items-start gap-2 text-xs text-slate-700">
-                          <Check className="w-3.5 h-3.5 text-black font-bold shrink-0 mt-0.5" />
-                          <span className="leading-snug">{d}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-slate-100">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-900 font-bold">
-                      Active Advisory Pillar
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+      {/* 2. Advisory Mandate Overview + Structured Capability Pillars (LIGHT - 60px padding) */}
+      <section id="pillars" className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
+          {/* Editorial Clinical Mandate Visual Strip */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pb-10 mb-10 border-b border-slate-200">
+            <div className="lg:col-span-7">
+              <SectionHeading
+                eyebrow="HEALTHCARE TRANSFORMATION"
+                title="Institutionalizing Clinical Scale & Patient Trust"
+                description="Six core strategic pillars powering pan-India patient inquiries, CRM governance, and standardized branch replication."
+                light={true}
+                compact={true}
+                animate={false}
+                className="!mb-0 max-w-none"
+              />
+            </div>
+            <div className="lg:col-span-5">
+              <div className="relative h-56 sm:h-64 w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
+                <Image
+                  src="/images/transformations/karma-clinic-ops.jpg"
+                  alt="Karma Ayurveda Clinic Operations Hub"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 480px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* 3. Two Short Transformation Stories (DARK - 80px padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
-        {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
-
-        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
-          <SectionHeading
-            number="02"
-            eyebrow="FIELD IMPACT"
-            title="Transformation Snapshots"
-            description="Real-world case perspectives detailing how systematic interventions solved operational barriers."
-            light={false}
-            className="mb-10 sm:mb-14"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {transformationStories.map((story) => (
-              <div
-                key={story.title}
-                className="p-8 sm:p-10 rounded-2xl bg-[#0A0D14] border border-white/10 shadow-xl flex flex-col justify-between hover:border-white/20 transition-colors"
+          {/* 3x2 Structured Architectural Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {capabilityPillars.map((pillar, idx) => (
+              <article
+                key={pillar.id}
+                id={pillar.id}
+                className="p-6 sm:p-7 rounded-2xl bg-[#FAF9F6] border border-slate-200/90 hover:border-[#D4AF37]/70 transition-colors flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 leading-snug">
-                    {story.title}
+                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200">
+                    <span className="text-[11px] uppercase tracking-[0.16em] font-bold text-[#9A6B0C]">
+                      Pillar 0{idx + 1}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                    {pillar.title}
                   </h3>
 
-                  <div className="space-y-4 text-xs leading-relaxed">
-                    <div className="p-4 rounded-xl bg-black/60 border border-white/06">
-                      <span className="text-[#D4AF37] font-mono uppercase tracking-widest block mb-1 font-bold">
-                        Operational Challenge
-                      </span>
-                      <p className="text-slate-300 font-light">{story.challenge}</p>
-                    </div>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    {pillar.summary}
+                  </p>
 
-                    <div className="p-4 rounded-xl bg-black/60 border border-white/06">
-                      <span className="text-[#D4AF37] font-mono uppercase tracking-widest block mb-1 font-bold">
-                        Strategic Intervention
-                      </span>
-                      <p className="text-slate-300 font-light">{story.intervention}</p>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-black/80 border border-[#D4AF37]/30">
-                      <span className="text-[#D4AF37] font-mono uppercase tracking-widest block mb-1 font-bold">
-                        Business Impact
-                      </span>
-                      <p className="text-white font-medium">{story.impact}</p>
-                    </div>
-                  </div>
+                  <ul className="space-y-2 pt-4 border-t border-slate-200/80">
+                    {pillar.deliverables.map((del) => (
+                      <li key={del} className="flex items-start gap-2 text-xs text-slate-700">
+                        <Check className="w-3.5 h-3.5 text-[#9A6B0C] shrink-0 mt-0.5" strokeWidth={2.2} />
+                        <span>{del}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Timeline of Major Initiatives (LIGHT - 80px padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
-        {/* Homepage style balanced ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
+      {/* 3. Transformation Case Snapshots (DARK MIDNIGHT NAVY - 60px padding) */}
+      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining />
 
-        <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 my-auto relative z-10">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
-            number="03"
-            eyebrow="EXECUTION ROADMAP"
-            title="Key Advisory Initiatives"
-            description="A disciplined execution cadence aligning technology, people, and commercial expansion."
-            align="center"
-            light={true}
-            className="mb-10 sm:mb-14"
+            eyebrow="OPERATIONAL INTERVENTIONS"
+            title="Verified Pipeline & Process Transformations"
+            description="Detailed breakdown of systemic bottlenecks diagnosed and resolved during advisory execution."
+            light={false}
+            compact={true}
+            animate={false}
+            className="!mb-8 sm:!mb-10"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+          <div className="space-y-6">
+            {transformationStories.map((story, idx) => (
+              <article
+                key={story.title}
+                className="p-6 sm:p-8 rounded-2xl bg-[#0B1528] border border-white/12"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2 pb-4 mb-5 border-b border-white/10">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    {story.title}
+                  </h3>
+                  <span className="text-xs font-bold text-[#D4AF37] tabular-nums">
+                    Case Snapshot 0{idx + 1}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <div className="lg:pr-4 lg:border-r lg:border-white/10">
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-slate-400 block mb-1.5">
+                      System Bottleneck
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {story.challenge}
+                    </p>
+                  </div>
+
+                  <div className="lg:px-2 lg:border-r lg:border-white/10">
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-[#F5E2A3] block mb-1.5">
+                      Strategic Intervention
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                      {story.intervention}
+                    </p>
+                  </div>
+
+                  <div>
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-[#D4AF37] block mb-1.5">
+                      Measured Impact
+                    </span>
+                    <p className="text-xs sm:text-sm text-white font-medium leading-relaxed">
+                      {story.impact}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Engagement Rollout Phases (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
+          <SectionHeading
+            eyebrow="EXECUTION SEQUENCE"
+            title="Phased Systems Deployment"
+            description="Structured rollout ensuring zero disruption to daily clinic consultations while institutionalizing new SOPs."
+            light={true}
+            compact={true}
+            animate={false}
+            className="!mb-8 sm:!mb-10"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-slate-200">
             {initiativesTimeline.map((item) => (
               <div
                 key={item.phase}
-                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-black relative transition-all"
+                className="p-6 border-r border-b border-slate-200 bg-white flex flex-col justify-between"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs font-bold text-white px-3 py-1 rounded-full bg-black border border-black shadow-sm">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#9A6B0C] block mb-2">
                     {item.phase}
                   </span>
-                  <Calendar className="w-4 h-4 text-slate-400" />
+                  <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
-
-                <h4 className="text-lg font-bold text-slate-900 mb-2 leading-snug">
-                  {item.title}
-                </h4>
-
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  {item.desc}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Page Closing CTA (DARK - 100vh) */}
+      {/* 5. Page Closing CTA (LIGHT - 60px padding) */}
       <PageCTA
-        title="Need Specialized Healthcare or Multi-Unit Advisory?"
-        description="Let us diagnose your patient acquisition funnels, CRM disposition architecture, and branch operating procedures."
+        title="Scaling a Multi-Location Healthcare or Service Network?"
+        description="Connect directly to discuss enterprise CRM routing, standardized branch SOPs, and national franchise readiness."
         primaryAction={{
-          label: "Book Strategy Call",
+          label: "Schedule Healthcare Consultation",
           href: "/contact?type=healthcare-advisory",
         }}
         secondaryAction={{
-          label: "View All Case Studies",
+          label: "Explore Case Studies",
           href: "/case-studies",
         }}
         light={true}
@@ -341,4 +329,3 @@ export default function KarmaAyurvedaPage() {
     </>
   );
 }
-

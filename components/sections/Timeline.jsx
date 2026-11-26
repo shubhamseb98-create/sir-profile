@@ -1,162 +1,149 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { initGSAP, gsap } from "@/lib/gsap";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useReducedMotion } from "framer-motion";
+import { gsap, initGSAP } from "@/lib/gsap";
+
+const milestones = [
+  {
+    step: "01",
+    period: "Foundational Phase",
+    title: "Web Technology Pioneering",
+    description:
+      "Entered the digital industry at its inflection point, designing and building foundational websites for emerging Indian SMEs.",
+  },
+  {
+    step: "02",
+    period: "Entrepreneurial Anchor",
+    title: "Launched Web Tycoons",
+    description:
+      "Founded a full-service web engineering and digital strategy firm built around delivery discipline and measurable commercial ROI.",
+  },
+  {
+    step: "03",
+    period: "15+ Year Benchmark",
+    title: "3,700+ Digital Platforms Delivered",
+    description:
+      "Built sustained execution teams serving healthcare clinics, hospitality groups, real estate, B2B manufacturers, and retail enterprises.",
+  },
+  {
+    step: "04",
+    period: "Strategic Expansion",
+    title: "Consulting & Business Systems",
+    description:
+      "Evolved beyond execution into executive consulting: redesigning funnel velocity, enterprise CRM routing, and branch SOP playbooks.",
+  },
+  {
+    step: "05",
+    period: "Healthcare Leadership",
+    title: "Karma Ayurveda Advisory Mandate",
+    description:
+      "Partnered with leadership to modernize patient acquisition, clinical counseling SOPs, pan-India branch operations, and franchise expansion.",
+  },
+  {
+    step: "06",
+    period: "Ecosystem Co-Founder",
+    title: "Happy Hospitality Club (HHC)",
+    description:
+      "Co-directed a curated hospitality platform uniting hoteliers, restaurateurs, and vetted Star Vendors around high-trust deal flow.",
+  },
+  {
+    step: "07",
+    period: "Network Governance",
+    title: "BNI Chapter Leadership",
+    description:
+      "Served as Chapter President, coaching promoters on accountability, ethical leadership, and high-value referral engines.",
+  },
+  {
+    step: "08",
+    period: "Thought Leadership",
+    title: "National Keynotes & Mentorship",
+    description:
+      "Invited across 50+ industry summits and MSME forums to unpack Google search dominance, ROAS optimization, and founder independence.",
+  },
+];
 
 export default function Timeline({ light = false }) {
   const containerRef = useRef(null);
-  const prefersReducedMotion = useReducedMotion();
-
-  const milestones = [
-    {
-      step: "01",
-      title: "Early Entrepreneurial & Digital Inception",
-      period: "Foundational Phase",
-      description:
-        "Entering the emerging internet ecosystem with focused web engineering, search algorithms, and commercial digital solutions.",
-    },
-    {
-      step: "02",
-      title: "Foundation & Scale of Web Tycoons",
-      period: "Agency Inception",
-      description:
-        "Establishing Web Tycoons as a full-service agency, deploying structured sprint workflows and ROI-focused digital architectures.",
-    },
-    {
-      step: "03",
-      title: "Delivering 3,700+ Digital Ecosystems",
-      period: "Multi-Sector Delivery",
-      description:
-        "Expanding client delivery across 15+ industry verticals—including manufacturing, healthcare, hospitality, and consumer enterprises.",
-    },
-    {
-      step: "04",
-      title: "Transition to Business Consulting",
-      period: "Advisory Mandates",
-      description:
-        "Evolving into executive consulting: diagnosing business models, optimizing sales funnels, and restructuring team accountability.",
-    },
-    {
-      step: "05",
-      title: "Executive Advisory with Karma Ayurveda",
-      period: "Healthcare Leadership",
-      description:
-        "Directing growth strategy, custom CRM architecture, sales counseling SOPs, and hospital partnership frameworks across India.",
-    },
-    {
-      step: "06",
-      title: "Hospitality Leadership via HHC",
-      period: "Community Building",
-      description:
-        "Co-directing Happy Hospitality Club, architecting structured vendor monetization models, and curating executive roundtables.",
-    },
-    {
-      step: "07",
-      title: "BNI Chapter Leadership & Governance",
-      period: "Networking Governance",
-      description:
-        "Serving as Chapter President and mentor within BNI, driving high-accountability referral culture and scalable enterprise growth.",
-    },
-    {
-      step: "08",
-      title: "National Speaking & MSME Mentoring",
-      period: "Current Horizon",
-      description:
-        "Delivering masterclasses at industry conclaves on digital strategy, ROAS optimization, and system-driven founder freedom.",
-    },
-  ];
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    const { ScrollTrigger } = initGSAP();
+    if (shouldReduceMotion || !containerRef.current) return;
+    initGSAP();
 
     const ctx = gsap.context(() => {
-      gsap.utils.toArray(".timeline-node").forEach((node, i) => {
-        gsap.from(node, {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          delay: (i % 4) * 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        });
+      gsap.from(".timeline-node", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 82%",
+          once: true,
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.55,
+        stagger: 0.06,
+        ease: "power2.out",
       });
     }, containerRef);
 
     return () => ctx.revert();
-  }, [prefersReducedMotion]);
+  }, [shouldReduceMotion]);
 
   return (
-    <div ref={containerRef} className="w-full">
-      {/* Desktop & Tablet: Spacious 4x2 Milestone Grid with generous breathing room */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+    <div ref={containerRef} className="w-full relative font-sans">
+      {/* Architectural Vertical Timeline Ledger on Desktop / Clean Stacked Timeline on Mobile */}
+      <div
+        className={`relative border-t border-b divide-y ${
+          light
+            ? "border-slate-200 divide-slate-200"
+            : "border-white/12 divide-white/10"
+        }`}
+      >
         {milestones.map((m) => (
           <div
             key={m.step}
-            className={`timeline-node relative flex flex-col justify-between p-5 sm:p-6 lg:p-7 rounded-2xl transition-all duration-300 group hover:-translate-y-1.5 ${
-              light
-                ? "bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-black"
-                : "bg-[#0A0D14]/90 backdrop-blur-xl border border-white/10 hover:border-[#D4AF37]/50 shadow-lg hover:shadow-[0_0_25px_rgba(212,175,55,0.14)]"
-            }`}
+            className="timeline-node group py-6 sm:py-7 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start transition-colors"
           >
-            {/* Top Node & Milestone Badge */}
-            <div>
-              <div className="flex items-center justify-between gap-2 mb-3.5">
+            {/* Left Index & Phase Marker (4 cols) */}
+            <div className="md:col-span-4 flex items-baseline gap-4">
+              <span
+                className={`text-2xl sm:text-3xl font-extrabold tracking-tight tabular-nums shrink-0 ${
+                  light ? "text-[#9A6B0C]" : "text-[#D4AF37]"
+                }`}
+              >
+                {m.step}
+              </span>
+              <div className="min-w-0">
                 <span
-                  className={`font-mono text-xs font-bold px-2.5 py-0.5 rounded-full ${
-                    light
-                      ? "text-white bg-black border border-black shadow-sm"
-                      : "text-black bg-[#D4AF37] border border-[#D4AF37] font-extrabold"
-                  }`}
-                >
-                  Step {m.step}
-                </span>
-                <span
-                  className={`text-[11px] font-mono ${
+                  className={`text-[11px] uppercase tracking-[0.16em] font-semibold block ${
                     light ? "text-slate-500" : "text-slate-400"
                   }`}
                 >
                   {m.period}
                 </span>
               </div>
-
-              {/* Title */}
-              <h3
-                className={`font-sans text-sm sm:text-base font-bold mb-2 leading-snug transition-colors line-clamp-2 ${
-                  light
-                    ? "text-slate-900 group-hover:text-black"
-                    : "text-white group-hover:text-[#D4AF37]"
-                }`}
-              >
-                {m.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className={`text-xs sm:text-[13px] leading-relaxed line-clamp-3 font-normal ${
-                  light ? "text-slate-600" : "text-slate-300"
-                }`}
-              >
-                {m.description}
-              </p>
             </div>
 
-            {/* Bottom Glow Indicator */}
-            <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shadow-[0_0_6px_#D4AF37]" />
-              <span
-                className={`text-[10px] uppercase tracking-wider font-mono ${
-                  light ? "text-slate-400" : "text-slate-500"
-                }`}
-              >
-                Milestone 0{m.step}
-              </span>
+            {/* Right Title & Narrative (8 cols) */}
+            <div className="md:col-span-8 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-8">
+              <div className="max-w-2xl">
+                <h3
+                  className={`text-lg sm:text-xl font-bold mb-1.5 transition-colors ${
+                    light
+                      ? "text-slate-900 group-hover:text-[#9A6B0C]"
+                      : "text-white group-hover:text-[#F5E2A3]"
+                  }`}
+                >
+                  {m.title}
+                </h3>
+                <p
+                  className={`text-sm leading-relaxed ${
+                    light ? "text-slate-600" : "text-slate-300"
+                  }`}
+                >
+                  {m.description}
+                </p>
+              </div>
             </div>
           </div>
         ))}

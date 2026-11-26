@@ -4,46 +4,49 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 import RollingText from "@/components/ui/RollingText";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 
 export default function BreadcrumbHero({
   eyebrow = "EXECUTIVE ADVISORY",
   title,
   description,
   breadcrumbs = [{ label: "Home", href: "/" }],
-  imageSrc = "/images/hero/hero-corporate-skyline.jpg",
+  imageSrc,
   badge,
   className = "",
 }) {
   return (
     <section
-      className={`relative bg-[#060D1A] text-white overflow-hidden pt-32 pb-14 md:pt-36 md:pb-16 min-h-[360px] md:min-h-[400px] flex flex-col justify-center border-b border-white/10 ${className}`}
+      className={`relative bg-[#060D1A] text-white overflow-hidden pt-28 pb-12 md:pt-36 md:pb-14 border-b border-white/10 font-sans ${className}`}
     >
-      {/* 1. Cinematic Background Image with Parallax-grade presentation */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={imageSrc}
-          alt={typeof title === "string" ? title : "Header Banner"}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center brightness-[0.35] contrast-125 scale-105"
-        />
-        {/* Layered cinematic navy gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A] via-[#060D1A]/85 to-[#060D1A]/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(212,175,55,0.12),rgba(6,13,26,0))]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060D1A]/85 via-transparent to-[#060D1A]/85" />
-      </div>
+      {/* Unified Midnight Navy Architectural Grid & Side Depth */}
+      <DarkSectionLining showTopBeam={false} showBottomBeam={true} />
 
-      {/* 2. Hero Content Container */}
-      <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-8 relative z-10 my-auto">
-        {/* Breadcrumb Trail */}
+      {/* Optional subtle monochrome architectural backdrop — kept restrained for clean legibility */}
+      {imageSrc && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src={imageSrc}
+            alt={typeof title === "string" ? title : "Header Banner"}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-[0.14] grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060D1A] via-[#060D1A]/85 to-[#060D1A]/75" />
+        </div>
+      )}
+
+      {/* Hero Content Container */}
+      <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+        {/* Clean Architectural Breadcrumb Trail */}
         <nav
           aria-label="Breadcrumb"
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs font-mono text-slate-300 mb-5 shadow-lg"
+          className="inline-flex items-center gap-2 text-xs text-slate-400 mb-5 pb-3 border-b border-white/10"
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 hover:text-[#D4AF37] transition-colors"
+            className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#F5E2A3] transition-colors"
           >
             <Home className="w-3.5 h-3.5" />
             <span>Home</span>
@@ -53,16 +56,16 @@ export default function BreadcrumbHero({
             const isLast = idx === breadcrumbs.length - 1;
             return (
               <span key={crumb.label || idx} className="inline-flex items-center gap-2">
-                <ChevronRight className="w-3 h-3 text-slate-500 shrink-0" />
+                <ChevronRight className="w-3 h-3 text-slate-600 shrink-0" />
                 {crumb.href && !isLast ? (
                   <Link
                     href={crumb.href}
-                    className="hover:text-[#D4AF37] transition-colors truncate max-w-[150px] sm:max-w-none"
+                    className="text-slate-300 hover:text-[#F5E2A3] transition-colors truncate max-w-[160px] sm:max-w-none"
                   >
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className="text-[#D4AF37] font-semibold truncate max-w-[200px] sm:max-w-none">
+                  <span className="text-[#E5C665] font-medium truncate max-w-[220px] sm:max-w-none">
                     {crumb.label}
                   </span>
                 )}
@@ -73,33 +76,38 @@ export default function BreadcrumbHero({
 
         {/* Content Box */}
         <div className="max-w-3xl">
-          {/* Eyebrow & Badge row */}
           <div className="flex flex-wrap items-center gap-3 mb-3.5">
             {eyebrow && (
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/35 bg-gradient-to-r from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-md max-w-full">
-                <span className="w-1.5 h-1.5 rotate-45 bg-gold-metallic shrink-0" />
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-[#F5E2A3] font-semibold leading-none">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#0B172C] text-[#F6E3A8]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0" />
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-bold leading-none">
                   {eyebrow}
                 </span>
               </div>
             )}
             {badge && (
-              <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-black bg-gold-metallic px-3 py-1 rounded-full">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#060D1A] bg-gold-metallic px-3 py-1 rounded-full">
                 {badge}
               </span>
             )}
           </div>
 
-          {/* Page Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.15] mb-4">
-            {typeof title === "string" ? <RollingText text={title} /> : title}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.14] mb-4">
+            {typeof title === "string" ? (
+              <RollingText
+                text={title}
+                highlightCount={2}
+                highlightClassName="text-[#F5D57A] font-extrabold"
+              />
+            ) : (
+              title
+            )}
           </h1>
 
-          {/* Description */}
           {description && (
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl font-light">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
               {typeof description === "string" ? (
-                <RollingText text={description} delay={0.15} duration={1.1} stagger={0.015} />
+                <RollingText text={description} delay={0.12} duration={1.0} stagger={0.012} />
               ) : (
                 description
               )}
@@ -107,9 +115,6 @@ export default function BreadcrumbHero({
           )}
         </div>
       </div>
-
-      {/* Ambient bottom transition glow */}
-      <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-black to-transparent pointer-events-none" />
     </section>
   );
 }

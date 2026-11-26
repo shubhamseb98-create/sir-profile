@@ -1,11 +1,18 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 import PageCTA from "@/components/sections/PageCTA";
 import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import { caseStudies } from "@/data/caseStudies";
-import { ArrowLeft, Check, Quote, ShieldAlert, Award } from "lucide-react";
+import { Check } from "lucide-react";
+
+const CASE_HERO_IMAGES = {
+  "karma-ayurveda-systems-expansion": "/images/transformations/karma-clinic-ops.jpg",
+  "web-tycoons-agency-scale": "/images/transformations/webtycoons-studio.jpg",
+  "happy-hospitality-club-community": "/images/transformations/hhc-hospitality-roundtable.jpg",
+  "high-growth-d2c-roas-optimization": "/images/cards/roas-analytics-real.jpg",
+  "national-manufacturing-google-visibility": "/images/cards/digital-growth-real.jpg",
+  "wellness-franchise-expansion-blueprint": "/images/cards/franchise-expansion-real.jpg",
+};
 
 export async function generateStaticParams() {
   return caseStudies.map((study) => ({
@@ -35,77 +42,73 @@ export default async function CaseStudyDetailPage({ params }) {
     notFound();
   }
 
-  const isAnonymised = study.anonymised;
+  const heroImage =
+    CASE_HERO_IMAGES[study.slug] || "/images/transformations/karma-clinic-ops.jpg";
 
   return (
     <>
-      {/* 1. Sleek Breadcrumb Header (DARK - matching About page) */}
       <BreadcrumbHero
-        eyebrow="CASE STUDY & TRANSFORMATION"
+        eyebrow={study.category || "CASE STUDY & TRANSFORMATION"}
         title={study.title}
         description={study.summary}
         breadcrumbs={[
           { label: "Case Studies", href: "/case-studies" },
           { label: study.category },
         ]}
-        imageSrc="/images/hero/hero-corporate-boardroom-clean.jpg"
+        imageSrc={heroImage}
       />
 
-      {/* 2. Structured Narrative Body: Challenge & Strategy (LIGHT - 80px padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#FFFFFF] border-b border-slate-200 relative overflow-hidden">
-        {/* Homepage style ambient glow */}
-        <div className="absolute top-1/4 -left-28 sm:-left-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-28 sm:-right-40 w-[380px] sm:w-[460px] h-[380px] sm:h-[460px] bg-[#D4AF37]/12 rounded-full blur-[130px] pointer-events-none" />
-
-        <div className="max-w-[1040px] w-full mx-auto px-6 sm:px-8 space-y-10 my-auto relative z-10">
-          {/* Challenge & Diagnosis (2-Col) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-black transition-all">
-              <span className="text-xs font-mono uppercase tracking-wider text-white font-bold bg-black px-2.5 py-0.5 rounded-full inline-block mb-3 shadow-sm">
+      {/* Executive Case Monograph: Challenge, Diagnosis & Intervention (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+        <div className="max-w-[1040px] w-full mx-auto px-4 sm:px-6 md:px-8 space-y-10">
+          {/* Challenge & Diagnosis Split */}
+          <div className="grid grid-cols-1 md:grid-cols-2 border border-slate-200 rounded-2xl overflow-hidden divide-y md:divide-y-0 md:divide-x divide-slate-200">
+            <div className="p-7 sm:p-8 bg-white">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-[#9A6B0C] font-bold block mb-2">
                 01 • Challenge
               </span>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">
-                Operational Friction & Constraints
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                Operational Friction &amp; Constraints
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 {study.challenge}
               </p>
             </div>
 
-            <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-black transition-all">
-              <span className="text-xs font-mono uppercase tracking-wider text-white font-bold bg-black px-2.5 py-0.5 rounded-full inline-block mb-3 shadow-sm">
+            <div className="p-7 sm:p-8 bg-[#FAF9F6]">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-[#9A6B0C] font-bold block mb-2">
                 02 • Strategic Diagnosis
               </span>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
                 Root Cause Identification
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 {study.diagnosis}
               </p>
             </div>
           </div>
 
           {/* Strategy & Interventions */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200 shadow-sm">
-            <span className="text-xs font-mono uppercase tracking-wider text-white font-bold bg-black px-2.5 py-0.5 rounded-full inline-block mb-3 shadow-sm">
+          <div className="p-7 sm:p-9 rounded-2xl bg-white border border-slate-200">
+            <span className="text-[11px] uppercase tracking-[0.16em] text-[#9A6B0C] font-bold block mb-2">
               03 • Strategic Architecture
             </span>
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
               Intervention Strategy
             </h2>
-            <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
               {study.strategy}
             </p>
 
-            <div className="pt-6 border-t border-slate-100">
-              <h3 className="text-xs uppercase tracking-wider text-slate-900 font-mono font-bold mb-4">
-                Key Actions Executed:
+            <div className="pt-6 border-t border-slate-200">
+              <h3 className="text-xs uppercase tracking-[0.14em] text-slate-500 font-bold mb-4">
+                Key Actions Executed
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {study.actionsTaken.map((act) => (
-                  <div key={act} className="flex items-start gap-2.5 text-xs text-slate-700">
-                    <Check className="w-4 h-4 text-black font-bold shrink-0 mt-0.5" />
-                    <span className="leading-snug font-medium">{act}</span>
+                  <div key={act} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                    <Check className="w-4 h-4 text-[#9A6B0C] shrink-0 mt-0.5" strokeWidth={2.2} />
+                    <span className="leading-snug">{act}</span>
                   </div>
                 ))}
               </div>
@@ -114,34 +117,29 @@ export default async function CaseStudyDetailPage({ params }) {
         </div>
       </section>
 
-      {/* 3. Transformation Outcomes & Results Matrix (DARK - 80px padding) */}
-      <section className="min-h-screen flex flex-col justify-center py-[80px] bg-[#000000] border-b border-white/10 relative overflow-hidden">
-        {/* Homepage style ambient glow */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/12 rounded-full blur-[150px] pointer-events-none" />
+      {/* Outcomes Matrix & Executive Reflection (DARK MIDNIGHT NAVY - 60px padding) */}
+      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining />
 
-        <div className="max-w-[1040px] w-full mx-auto px-6 sm:px-8 space-y-10 my-auto relative z-10">
-          {/* Results Matrix */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#0A0D14] to-black border border-[#D4AF37]/30 shadow-2xl shadow-[0_0_35px_rgba(212,175,55,0.08)]">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] block mb-1 font-bold">
-                  04 • Verified Outcomes
-                </span>
-                <h2 className="text-3xl font-bold text-white">
-                  Transformation Results
-                </h2>
-              </div>
-              <Award className="w-8 h-8 text-[#D4AF37]" />
+        <div className="max-w-[1040px] w-full mx-auto px-4 sm:px-6 md:px-8 space-y-8 relative z-10">
+          {/* Verified Outcomes Matrix */}
+          <div className="p-7 sm:p-9 rounded-2xl bg-[#0B1528] border border-white/12">
+            <div className="pb-5 mb-6 border-b border-white/10">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-[#D4AF37] font-bold block mb-1">
+                04 • Verified Outcomes
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                Transformation Results
+              </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/10">
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
               {study.results.map((res) => (
-                <div key={res.metric} className="p-4 rounded-xl bg-black/70 border border-white/10">
-                  <span className="text-[11px] uppercase tracking-wider text-[#D4AF37] font-mono block mb-1 font-bold">
+                <div key={res.metric} className="py-4 md:py-0 md:px-6 first:pt-0 first:md:pl-0 last:pb-0 last:md:pr-0">
+                  <span className="text-[11px] uppercase tracking-[0.14em] text-[#F5E2A3] font-bold block mb-1.5">
                     {res.metric}
                   </span>
-                  <p className="text-sm font-semibold text-white leading-snug">
+                  <p className="text-sm font-medium text-white leading-snug">
                     {res.outcome}
                   </p>
                 </div>
@@ -149,29 +147,30 @@ export default async function CaseStudyDetailPage({ params }) {
             </div>
           </div>
 
-          {/* Business Learning & Client Quote */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-6 p-8 rounded-2xl bg-[#0A0D14] border border-white/10">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] block mb-2 font-bold">
+          {/* Strategic Takeaway & Client Endorsement */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            <div className="md:col-span-6 p-7 rounded-2xl bg-[#0B1528] border border-white/12">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-[#D4AF37] font-bold block mb-2">
                 05 • Executive Learning
               </span>
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <h3 className="text-xl font-bold text-white mb-3">
                 Strategic Takeaway
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed font-light">
+              <p className="text-sm text-slate-300 leading-relaxed">
                 {study.learning}
               </p>
             </div>
 
-            <div className="md:col-span-6 p-8 rounded-2xl bg-[#0A0D14] border border-white/10 relative overflow-hidden">
-              <Quote className="w-16 h-16 text-[#D4AF37]/10 absolute -bottom-2 right-2 pointer-events-none" />
-              <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37] block mb-2 font-bold">
-                Client Reflection
-              </span>
-              <p className="text-lg sm:text-xl text-white italic leading-snug mb-4">
-                &ldquo;{study.clientQuote.text}&rdquo;
-              </p>
+            <div className="md:col-span-6 p-7 rounded-2xl bg-[#0B1528] border-l-2 border-l-[#D4AF37] border border-white/12 flex flex-col justify-between">
               <div>
+                <span className="text-[11px] uppercase tracking-[0.16em] text-[#D4AF37] font-bold block mb-3">
+                  Client Reflection
+                </span>
+                <p className="text-base sm:text-lg text-white leading-relaxed mb-5">
+                  &ldquo;{study.clientQuote.text}&rdquo;
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/10">
                 <strong className="text-sm text-white block">
                   {study.clientQuote.author}
                 </strong>
@@ -184,7 +183,6 @@ export default async function CaseStudyDetailPage({ params }) {
         </div>
       </section>
 
-      {/* 4. Page Closing CTA (LIGHT - 80px padding) */}
       <PageCTA
         light={true}
         title="Explore How This Applies to Your Business"

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Button from "@/components/ui/Button";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 
 export const metadata = {
   title: "Page Not Found | Dheeraj Aggarwal",
@@ -7,20 +7,20 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center pt-28 pb-20 px-6 sm:px-8 text-center bg-[#000000] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_40%,rgba(212,175,55,0.08),rgba(0,0,0,0))] pointer-events-none" />
+    <section className="min-h-[75vh] flex flex-col justify-center items-center py-[60px] px-4 sm:px-6 text-center bg-[#060D1A] relative overflow-hidden font-sans">
+      <DarkSectionLining />
+
       <div className="max-w-xl mx-auto relative z-10">
-        <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#D4AF37] block mb-3 font-semibold">
-          Error 404 • Resource Relocated
+        <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] block mb-3 font-semibold">
+          Error 404 • Resource Unavailable
         </span>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
           Page Not Found
         </h1>
 
-        <p className="text-base text-slate-300 leading-relaxed mb-8">
-          The requested strategic resource or document could not be located. It may have been
-          archived or restructured.
+        <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8">
+          The requested strategic resource or page could not be located. Please return to the overview or contact our executive desk directly.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -32,6 +32,6 @@ export default function NotFound() {
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

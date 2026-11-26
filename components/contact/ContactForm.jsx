@@ -1,66 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
-import {
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
-  ArrowRight,
-  User,
-  Building2,
-  Phone,
-  Mail,
-  Briefcase,
-  BadgeCheck,
-  MessageSquare,
-  ShieldCheck,
-  ChevronDown,
-  Sparkles,
-} from "lucide-react";
+import { Check, Loader2, AlertCircle, ShieldCheck } from "lucide-react";
 import { trackFormSubmission } from "@/lib/analytics";
+import { cn } from "@/lib/utils";
 
 const enquiryCategories = [
   "Business Consulting",
   "Digital Growth / Web Tycoons",
   "CRM & SOPs",
   "Franchise & Expansion",
-  "Invite Dheeraj to Speak",
   "Strategic Partnership",
   "HHC / Hospitality Collaboration",
-  "Media / Podcast",
+  "Invite Dheeraj to Speak",
+  "General Inquiry",
 ];
 
 export default function ContactForm({ light = false }) {
   const searchParams = useSearchParams();
-  const typeParam = searchParams.get("type");
-
-  const initialCategory = (() => {
-    if (!typeParam) return "Business Consulting";
-    if (typeParam.includes("speak")) return "Invite Dheeraj to Speak";
-    if (typeParam.includes("crm") || typeParam.includes("sop")) return "CRM & SOPs";
-    if (typeParam.includes("franchise")) return "Franchise & Expansion";
-    if (typeParam.includes("digital") || typeParam.includes("web")) return "Digital Growth / Web Tycoons";
-    if (typeParam.includes("collab") || typeParam.includes("partner")) return "Strategic Partnership";
-    if (typeParam.includes("hhc") || typeParam.includes("hospitality")) return "HHC / Hospitality Collaboration";
-    return "Business Consulting";
-  })();
-
+  const initialType = searchParams.get("type") || "";
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  const getInitialCategory = (typeStr) => {
+    const t = typeStr.toLowerCase();
+    if (t.includes("speak")) return "Invite Dheeraj to Speak";
+    if (t.includes("crm") || t.includes("sop")) return "CRM & SOPs";
+    if (t.includes("franchise")) return "Franchise & Expansion";
+    if (t.includes("digital") || t.includes("web")) return "Digital Growth / Web Tycoons";
+    if (t.includes("collab") || t.includes("partner")) return "Strategic Partnership";
+    if (t.includes("hhc") || t.includes("hospitality")) return "HHC / Hospitality Collaboration";
+    return "Business Consulting";
+  };
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      enquiryCategory: initialCategory,
+      enquiryCategory: getInitialCategory(initialType),
       preferredContactMethod: "WhatsApp / Phone",
     },
   });
+
+  useEffect(() => {
+    if (initialType) {
+      setValue("enquiryCategory", getInitialCategory(initialType));
+    }
+  }, [initialType, setValue]);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -77,263 +69,248 @@ export default function ContactForm({ light = false }) {
 
       if (response.ok && result.success) {
         setSubmitStatus({
-          success: true,
+          type: "success",
           message:
             result.message ||
-            "Thank you. Your objective has been received. Dheeraj's office will review and respond promptly.",
+            "Your brief has been logged. Our executive team will respond within 24 business hours.",
         });
         trackFormSubmission(data.enquiryCategory);
         reset();
       } else {
         setSubmitStatus({
-          success: false,
-          message: result.error || "Unable to send your inquiry. Please try again or reach out on WhatsApp.",
+          type: "error",
+          message: result.message || "Unable to submit request cleanly. Please try again.",
         });
       }
     } catch {
       setSubmitStatus({
-        success: false,
-        message: "Network error. Please connect directly via WhatsApp or email.",
+        type: "error",
+        message: "A network error occurred. Please check your connection or use the WhatsApp desk.",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const labelClass = cn(
+    "text-xs font-semibold block",
+    light ? "text-slate-700" : "text-slate-200"
+  );
+
+  const inputClass = cn(
+    "w-full rounded-xl px-4 py-2.5 text-sm border focus:outline-none transition-colors",
+    light
+      ? "bg-[#FAF9F6] border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-[#060D1A] focus:bg-white"
+      : "bg-[#060D1A] border-white/15 text-white placeholder:text-slate-500 focus:border-[#D4AF37]"
+  );
+
   return (
     <div
-      className={`rounded-3xl p-6 sm:p-8 md:p-9 transition-all relative overflow-hidden font-sans ${
+      className={cn(
+        "rounded-2xl p-6 sm:p-8 font-sans transition-all",
         light
-          ? "bg-white border border-neutral-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.04)]"
-          : "bg-[#0A0D14] border border-white/10 shadow-2xl"
-      }`}
+          ? "bg-white border border-slate-200/90 shadow-[0_8px_30px_rgba(15,23,42,0.05)]"
+          : "bg-[#0B1528] border border-white/12 shadow-[0_18px_45px_rgba(0,0,0,0.45)]"
+      )}
     >
-      {/* Top accent hairline glow */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-neutral-900 via-[#D4AF37] to-neutral-900" />
-
-      {/* Form Card Header Plaque */}
-      <div className="flex items-center justify-between pb-4 mb-5 border-b border-neutral-100">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] ring-4 ring-[#D4AF37]/25 animate-pulse" />
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-900">
-            Executive Briefing Desk
+      {/* Form Header */}
+      <div
+        className={cn(
+          "pb-4 mb-6 border-b flex items-center justify-between gap-4",
+          light ? "border-slate-200" : "border-white/10"
+        )}
+      >
+        <div>
+          <span
+            className={cn(
+              "text-[11px] font-bold uppercase tracking-[0.16em] block mb-0.5",
+              light ? "text-[#9A6B0C]" : "text-[#D4AF37]"
+            )}
+          >
+            Confidential Consultation Brief
           </span>
+          <h3 className={cn("text-lg font-bold", light ? "text-slate-900" : "text-white")}>
+            Submit Inquiry Parameters
+          </h3>
         </div>
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100/80 border border-neutral-200/80 text-[10px] font-mono font-semibold text-neutral-600">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-          Direct Partner Review
-        </div>
+        <span
+          className={cn(
+            "text-[11px] font-medium inline-flex items-center gap-1.5 px-3 py-1 rounded-full border",
+            light
+              ? "bg-slate-50 border-slate-200 text-slate-600"
+              : "bg-white/5 border-white/15 text-slate-300"
+          )}
+        >
+          <ShieldCheck className={cn("w-3.5 h-3.5", light ? "text-[#9A6B0C]" : "text-[#D4AF37]")} />
+          24h Partner Review
+        </span>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
-        {/* Hidden Honeypot Field */}
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-1.5">
+            <label htmlFor="name" className={labelClass}>
+              Full Name <span className="text-[#B4821E]">*</span>
+            </label>
+            <input
+              id="name"
+              type="text"
+              placeholder="e.g., Rajesh Sharma"
+              {...register("name", { required: "Full name is required" })}
+              className={cn(inputClass, errors.name && "!border-red-500")}
+            />
+            {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
+          </div>
+
+          <div className="space-y-1.5">
+            <label htmlFor="organisation" className={labelClass}>
+              Company / Organisation
+            </label>
+            <input
+              id="organisation"
+              type="text"
+              placeholder="e.g., Horizon Hospitality"
+              {...register("organisation")}
+              className={inputClass}
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label htmlFor="phone" className={labelClass}>
+              Phone / WhatsApp <span className="text-[#B4821E]">*</span>
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="+91 98XXX XXXXX"
+              {...register("phone", { required: "Phone number is required" })}
+              className={cn(inputClass, errors.phone && "!border-red-500")}
+            />
+            {errors.phone && <p className="text-xs text-red-500">{errors.phone.message}</p>}
+          </div>
+
+          <div className="space-y-1.5">
+            <label htmlFor="email" className={labelClass}>
+              Business Email <span className="text-[#B4821E]">*</span>
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="name@company.com"
+              {...register("email", {
+                required: "Email address is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
+              })}
+              className={cn(inputClass, errors.email && "!border-red-500")}
+            />
+            {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
+          </div>
+
+          <div className="space-y-1.5">
+            <label htmlFor="enquiryCategory" className={labelClass}>
+              Advisory Focus Area <span className="text-[#B4821E]">*</span>
+            </label>
+            <select
+              id="enquiryCategory"
+              {...register("enquiryCategory", { required: "Please select an inquiry type" })}
+              className={cn(inputClass, "appearance-none cursor-pointer")}
+            >
+              {enquiryCategories.map((c) => (
+                <option key={c} value={c} className={light ? "bg-white text-slate-900" : "bg-[#060D1A] text-white"}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="space-y-1.5">
+            <label htmlFor="designation" className={labelClass}>
+              Role / Designation
+            </label>
+            <input
+              id="designation"
+              type="text"
+              placeholder="Founder / MD / Director"
+              {...register("designation")}
+              className={inputClass}
+            />
+          </div>
+        </div>
+
+        <div className="space-y-1.5">
+          <label htmlFor="businessChallenge" className={labelClass}>
+            Primary Growth Bottleneck / Objective <span className="text-[#B4821E]">*</span>
+          </label>
+          <textarea
+            id="businessChallenge"
+            rows={4}
+            placeholder="Outline your priority operational objective, timeline, or desired consulting scope..."
+            {...register("businessChallenge", {
+              required: "Please briefly describe your primary objective",
+            })}
+            className={cn(inputClass, "resize-none leading-relaxed", errors.businessChallenge && "!border-red-500")}
+          />
+          {errors.businessChallenge && (
+            <p className="text-xs text-red-500">{errors.businessChallenge.message}</p>
+          )}
+        </div>
+
         <input
           type="text"
           {...register("hp_field")}
-          style={{ display: "none" }}
+          className="hidden"
           tabIndex={-1}
           autoComplete="off"
         />
 
-        {/* 2-Column Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-          {/* Full Name */}
-          <div>
-            <label className="text-[11px] uppercase tracking-wider font-mono block mb-1.5 font-bold text-neutral-700">
-              Full Name <span className="text-red-500">*</span>
-            </label>
-            <div className="relative group">
-              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-black transition-colors pointer-events-none">
-                <User className="w-4 h-4" />
-              </div>
-              <input
-                type="text"
-                placeholder="e.g. Rahul Verma"
-                {...register("name", { required: "Name is required" })}
-                className="w-full pl-10 pr-4 py-3 sm:py-3.5 rounded-xl bg-neutral-50/80 hover:bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition-all duration-200 font-medium"
-              />
-            </div>
-            {errors.name && (
-              <span className="text-[10px] text-red-500 mt-1 block">{errors.name.message}</span>
-            )}
-          </div>
-
-          {/* Enterprise / Brand */}
-          <div>
-            <label className="text-[11px] uppercase tracking-wider font-mono block mb-1.5 font-bold text-neutral-700">
-              Enterprise / Brand
-            </label>
-            <div className="relative group">
-              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-black transition-colors pointer-events-none">
-                <Building2 className="w-4 h-4" />
-              </div>
-              <input
-                type="text"
-                placeholder="e.g. Apex Health Ventures"
-                {...register("organisation")}
-                className="w-full pl-10 pr-4 py-3 sm:py-3.5 rounded-xl bg-neutral-50/80 hover:bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition-all duration-200 font-medium"
-              />
-            </div>
-          </div>
-
-          {/* Direct Phone / WhatsApp */}
-          <div>
-            <label className="text-[11px] uppercase tracking-wider font-mono block mb-1.5 font-bold text-neutral-700">
-              Phone / WhatsApp <span className="text-red-500">*</span>
-            </label>
-            <div className="relative group">
-              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-black transition-colors pointer-events-none">
-                <Phone className="w-4 h-4" />
-              </div>
-              <input
-                type="tel"
-                placeholder="+91 98000 00000"
-                {...register("phone", { required: "Phone number is required" })}
-                className="w-full pl-10 pr-4 py-3 sm:py-3.5 rounded-xl bg-neutral-50/80 hover:bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition-all duration-200 font-medium"
-              />
-            </div>
-            {errors.phone && (
-              <span className="text-[10px] text-red-500 mt-1 block">{errors.phone.message}</span>
-            )}
-          </div>
-
-          {/* Work Email */}
-          <div>
-            <label className="text-[11px] uppercase tracking-wider font-mono block mb-1.5 font-bold text-neutral-700">
-              Work Email <span className="text-red-500">*</span>
-            </label>
-            <div className="relative group">
-              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-black transition-colors pointer-events-none">
-                <Mail className="w-4 h-4" />
-              </div>
-              <input
-                type="email"
-                placeholder="rahul@company.com"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email" },
-                })}
-                className="w-full pl-10 pr-4 py-3 sm:py-3.5 rounded-xl bg-neutral-50/80 hover:bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition-all duration-200 font-medium"
-              />
-            </div>
-            {errors.email && (
-              <span className="text-[10px] text-red-500 mt-1 block">{errors.email.message}</span>
-            )}
-          </div>
-
-          {/* Engagement Category Dropdown */}
-          <div>
-            <label className="text-[11px] uppercase tracking-wider font-mono block mb-1.5 font-bold text-neutral-700">
-              Engagement Focus
-            </label>
-            <div className="relative group">
-              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-black transition-colors pointer-events-none">
-                <Briefcase className="w-4 h-4" />
-              </div>
-              <select
-                {...register("enquiryCategory")}
-                className="appearance-none w-full pl-10 pr-10 py-3 sm:py-3.5 rounded-xl bg-neutral-50/80 hover:bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 text-xs sm:text-sm text-neutral-900 outline-none transition-all duration-200 font-medium cursor-pointer"
-              >
-                {enquiryCategories.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute right-3.5 top-1/2 -translate-y-1/2 text-neutral-400 pointer-events-none">
-                <ChevronDown className="w-4 h-4" />
-              </div>
-            </div>
-          </div>
-
-          {/* Role / Designation */}
-          <div>
-            <label className="text-[11px] uppercase tracking-wider font-mono block mb-1.5 font-bold text-neutral-700">
-              Role / Designation
-            </label>
-            <div className="relative group">
-              <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-black transition-colors pointer-events-none">
-                <BadgeCheck className="w-4 h-4" />
-              </div>
-              <input
-                type="text"
-                placeholder="e.g. Founder, CEO, Director"
-                {...register("designation")}
-                className="w-full pl-10 pr-4 py-3 sm:py-3.5 rounded-xl bg-neutral-50/80 hover:bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition-all duration-200 font-medium"
-              />
-            </div>
-          </div>
-
-          {/* Strategic Objective or Bottleneck (Increased Height Textarea) */}
-          <div className="sm:col-span-2">
-            <label className="text-[11px] uppercase tracking-wider font-mono block mb-1.5 font-bold text-neutral-700">
-              Strategic Objective / Bottleneck <span className="text-red-500">*</span>
-            </label>
-            <div className="relative group">
-              <div className="absolute left-3.5 top-3.5 text-neutral-400 group-focus-within:text-black transition-colors pointer-events-none">
-                <MessageSquare className="w-4 h-4" />
-              </div>
-              <textarea
-                rows={4}
-                placeholder="Briefly describe your commercial bottleneck, expansion targets, CRM system requirements, or keynote topic..."
-                {...register("businessChallenge", {
-                  required: "Please briefly describe your objective",
-                })}
-                className="w-full pl-10 pr-4 py-3 sm:py-3.5 min-h-[115px] rounded-xl bg-neutral-50/80 hover:bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-black focus:ring-2 focus:ring-black/5 text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition-all duration-200 font-medium resize-none leading-relaxed"
-              />
-            </div>
-            {errors.businessChallenge && (
-              <span className="text-[10px] text-red-500 mt-1 block">
-                {errors.businessChallenge.message}
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* Status Message */}
         {submitStatus && (
           <div
-            className={`p-4 rounded-xl flex items-start gap-2.5 text-xs leading-relaxed ${
-              submitStatus.success
-                ? "bg-emerald-50 border border-emerald-300 text-emerald-900"
-                : "bg-red-50 border border-red-300 text-red-900"
-            }`}
+            className={cn(
+              "p-3.5 rounded-xl flex items-start gap-2.5 text-xs font-medium border",
+              submitStatus.type === "success"
+                ? light
+                  ? "bg-slate-50 border-[#D4AF37] text-slate-800"
+                  : "bg-[#060D1A] border-[#D4AF37] text-white"
+                : "bg-red-50 border-red-200 text-red-700"
+            )}
           >
-            {submitStatus.success ? (
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+            {submitStatus.type === "success" ? (
+              <Check className="w-4 h-4 text-[#9A6B0C] shrink-0 mt-0.5" />
             ) : (
               <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
             )}
-            <span>{submitStatus.message}</span>
+            <p className="leading-snug">{submitStatus.message}</p>
           </div>
         )}
 
-        {/* Submit Action Row */}
-        <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-neutral-100">
+        <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-black hover:bg-neutral-900 text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer disabled:opacity-50 group"
+            className={cn(
+              "w-full sm:w-auto px-8 py-3 rounded-full text-xs uppercase tracking-[0.14em] font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60",
+              light
+                ? "bg-[#060D1A] hover:bg-[#0F1E3A] text-white shadow-md"
+                : "bg-gold-metallic text-[#060D1A] hover:brightness-105 shadow-md"
+            )}
           >
             {isSubmitting ? (
               <>
-                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                <span>Submitting Inquiry...</span>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Submitting...</span>
               </>
             ) : (
-              <>
-                <span>Submit Strategic Inquiry</span>
-                <div className="w-5 h-5 rounded-full bg-[#D4AF37] text-black flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                  <ArrowRight className="w-3 h-3 stroke-[2.5]" />
-                </div>
-              </>
+              <span>Submit Consultation Brief</span>
             )}
           </button>
 
-          <div className="flex items-center gap-1.5 text-[11px] text-neutral-500 font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span>Strict NDA • 24h Executive Response</span>
-          </div>
+          <p className={cn("text-[11px] flex items-center gap-1.5", light ? "text-slate-500" : "text-slate-400")}>
+            <ShieldCheck className="w-3.5 h-3.5 text-[#9A6B0C]" />
+            Confidentiality NDA Respected
+          </p>
         </div>
       </form>
     </div>

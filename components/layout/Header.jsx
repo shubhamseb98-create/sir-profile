@@ -56,7 +56,7 @@ export default function Header() {
         className={cn(
           "fixed left-0 right-0 z-50 transition-[top,padding] duration-300 font-sans",
           isVisible ? "top-0" : "-top-32 pointer-events-none",
-          isScrolled ? "py-2" : "py-2.5 sm:py-3"
+          isScrolled ? "py-2" : "py-3 sm:py-3.5"
         )}
       >
         {/* Separate background layer so <header> does not create a Backdrop Root blocking dropdown blur */}
@@ -66,7 +66,7 @@ export default function Header() {
             "absolute inset-0 -z-10 transition-all duration-300",
             isScrolled
               ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md shadow-slate-900/5"
-              : "bg-white border-b border-slate-200/90 shadow-sm"
+              : "bg-transparent border-b border-transparent"
           )}
         />
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
@@ -82,12 +82,17 @@ export default function Header() {
               width={240}
               height={82}
               unoptimized
-              className="h-11 sm:h-13 md:h-14 lg:h-[58px] w-auto object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.42)] transition-transform duration-200 group-hover:scale-[1.03]"
+              className={cn(
+                "h-11 sm:h-13 md:h-14 lg:h-[58px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]",
+                isScrolled
+                  ? "drop-shadow-[0_1px_1px_rgba(0,0,0,0.42)]"
+                  : "drop-shadow-[0_2px_10px_rgba(212,175,55,0.22)]"
+              )}
               priority
             />
           </Link>
 
-          {/* Desktop Navigation - Clean White Theme */}
+          {/* Desktop Navigation - Transparent over Banner, Frosted White on Scroll */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 shrink-0">
             {siteConfig.navLinks.map((item) => {
               const isActive = pathname === "/" && item.href === "/#top";
@@ -109,8 +114,12 @@ export default function Header() {
                       className={cn(
                         "flex items-center gap-1.5 px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap cursor-pointer",
                         dropdownOpen || isChildActive
-                          ? "bg-black/90 backdrop-blur-md text-white font-semibold shadow-xs"
-                          : "text-slate-700 hover:text-black hover:bg-slate-100"
+                          ? isScrolled
+                            ? "bg-black/90 backdrop-blur-md text-white font-semibold shadow-xs"
+                            : "bg-white/15 backdrop-blur-md text-[#F5E2A3] font-semibold border border-[#D4AF37]/40"
+                          : isScrolled
+                            ? "text-slate-700 hover:text-black hover:bg-slate-100"
+                            : "text-slate-200 hover:text-white hover:bg-white/[0.08]"
                       )}
                     >
                       <span>{displayLabel}</span>
@@ -227,8 +236,12 @@ export default function Header() {
                   className={cn(
                     "px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap",
                     isActive
-                      ? "bg-slate-100 text-slate-900 font-semibold"
-                      : "text-slate-600 hover:text-[#334155] hover:bg-slate-100"
+                      ? isScrolled
+                        ? "bg-slate-100 text-slate-900 font-semibold"
+                        : "bg-white/12 text-[#F5E2A3] font-semibold border border-[#D4AF37]/30"
+                      : isScrolled
+                        ? "text-slate-600 hover:text-[#334155] hover:bg-slate-100"
+                        : "text-slate-200 hover:text-white hover:bg-white/[0.08]"
                   )}
                 >
                   {displayLabel}
@@ -247,7 +260,12 @@ export default function Header() {
                   window.dispatchEvent(new CustomEvent("open-lead-modal"));
                 }
               }}
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black hover:bg-neutral-900 text-white text-xs font-semibold tracking-wide shadow-sm hover:shadow-md hover:shadow-black/25 transition-all whitespace-nowrap cursor-pointer"
+              className={cn(
+                "hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs tracking-wide transition-all whitespace-nowrap cursor-pointer",
+                isScrolled
+                  ? "bg-black hover:bg-neutral-900 text-white font-semibold shadow-sm hover:shadow-md hover:shadow-black/25"
+                  : "bg-[linear-gradient(135deg,#B38728_0%,#FCF6BA_25%,#D4AF37_52%,#9A6B0C_78%,#F7DF84_100%)] text-[#060D1A] font-bold shadow-[0_6px_20px_rgba(212,175,55,0.28)] hover:brightness-105"
+              )}
             >
               <span>Book a Strategy Call</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -256,7 +274,12 @@ export default function Header() {
             <button
               onClick={() => setIsMobileOpen(true)}
               aria-label="Open navigation menu"
-              className="p-2 text-slate-700 hover:text-[#334155] lg:hidden rounded-lg hover:bg-slate-100 transition-colors"
+              className={cn(
+                "p-2 lg:hidden rounded-lg transition-colors",
+                isScrolled
+                  ? "text-slate-700 hover:text-[#334155] hover:bg-slate-100"
+                  : "text-white hover:text-[#F5E2A3] hover:bg-white/10"
+              )}
             >
               <Menu className="w-6 h-6" strokeWidth={2} />
             </button>

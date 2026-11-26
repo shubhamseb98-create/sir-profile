@@ -4,29 +4,22 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
-import Modal from "@/components/ui/Modal";
 import PageCTA from "@/components/sections/PageCTA";
 import SafeImage from "@/components/ui/SafeImage";
 import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
 import VideoSection from "@/components/sections/VideoSection";
-import { videoTestimonials, writtenTestimonials } from "@/data/testimonials";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
+import { writtenTestimonials } from "@/data/testimonials";
 import {
-  Play,
-  Quote,
-  Award,
   Maximize2,
   X,
   ChevronLeft,
   ChevronRight,
   Star,
-  ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
-import { trackVideoPlay } from "@/lib/analytics";
 
 export default function MediaPage() {
-  const [activeVideo, setActiveVideo] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [testimonialSlide, setTestimonialSlide] = useState(0);
 
@@ -45,42 +38,48 @@ export default function MediaPage() {
       title: "Keynote Address: MSME Growth Conclave",
       category: "Speaking & Keynotes",
       image: "/images/roles/keynote-speaker-showcase.jpg",
-      caption: "Delivering the opening address on digital systems, profitability, and scalable business operations.",
+      caption:
+        "Delivering the opening address on digital systems, profitability, and scalable business operations.",
     },
     {
       id: "media-2",
       title: "BNI Regional Leadership Forum",
       category: "Leadership & Governance",
       image: "/images/roles/bni-showcase.jpg",
-      caption: "Leading the executive roundtable on structured referral systems, regional growth, and member excellence.",
+      caption:
+        "Leading the executive roundtable on structured referral systems, regional growth, and member excellence.",
     },
     {
       id: "media-3",
       title: "Happy Hospitality Club Executive Soirée",
       category: "Hospitality Network",
-      image: "/images/roles/hhc-showcase.jpg",
-      caption: "Co-directing the monthly executive networking meet for hoteliers, restaurateurs, and Star Vendors.",
+      image: "/images/transformations/hhc-hospitality-roundtable.jpg",
+      caption:
+        "Co-directing the executive roundtable connecting hoteliers, restaurateurs, and curated Star Partners.",
     },
     {
       id: "media-4",
-      title: "Healthcare Advisory & Multi-Clinic Expansion",
+      title: "Healthcare Advisory & Multi-Clinic Operations",
       category: "Healthcare Mandate",
-      image: "/images/roles/karma-ayurveda-showcase.jpg",
-      caption: "Standardizing clinic counseling playbooks, CRM routing, and multi-branch healthcare expansion.",
+      image: "/images/transformations/karma-clinic-ops.jpg",
+      caption:
+        "Standardizing clinic counseling playbooks, CRM routing, and multi-branch healthcare expansion.",
     },
     {
       id: "media-5",
-      title: "Web Tycoons Digital Leadership Summit",
+      title: "Web Tycoons Digital Engineering Studio",
       category: "Digital Agency",
-      image: "/images/roles/web-tycoons-showcase.jpg",
-      caption: "Overseeing digital strategy, Google search dominance, and conversion architecture across 3,700+ websites.",
+      image: "/images/transformations/webtycoons-studio.jpg",
+      caption:
+        "Overseeing digital strategy, Google search dominance, and conversion architecture across 3,700+ websites.",
     },
     {
       id: "media-6",
-      title: "Promoter Advisory & Strategic Boardroom Review",
+      title: "Promoter Advisory & Governance Review",
       category: "Boardroom Advisory",
-      image: "/images/supporting/testimonial-poster-2.jpg",
-      caption: "One-on-one strategic advisory diagnostic discussing business bottlenecks, profitability, and expansion roadmaps.",
+      image: "/images/cards/leadership-governance-real.jpg",
+      caption:
+        "One-on-one strategic advisory diagnostic reviewing commercial profitability and operational KPIs.",
     },
   ];
 
@@ -135,16 +134,15 @@ export default function MediaPage() {
 
   return (
     <>
-      {/* 1. Sleek Breadcrumb Header (DARK - matching About page) */}
       <BreadcrumbHero
         eyebrow="TESTIMONIALS & RECOGNITION"
         title="Media, Proof & Industry Footprint"
         description="Visual documentation of speaking engagements, executive leadership moments, video conversations with founders, and documented client endorsements."
         breadcrumbs={[{ label: "Media & Testimonials" }]}
-        imageSrc="/images/hero/hero-corporate-skyline.jpg"
+        imageSrc="/images/roles/keynote-speaker-showcase.jpg"
       />
 
-      {/* 2. Direct Founder Video Conversations (Exact Home Page Instagram Reel Showcase - DARK) */}
+      {/* 2. Instagram Reels Showcase (Unified Homepage VideoSection - DARK MIDNIGHT NAVY) */}
       <VideoSection
         id="video-endorsements"
         eyebrow="Instagram Reels • @indiandheeraj"
@@ -152,28 +150,23 @@ export default function MediaPage() {
         description="Hover over any reel to auto-play instant insights on fixing bottlenecks, deal ecosystems, and B2B growth. Click any card to watch directly on Instagram."
       />
 
-      {/* 3. Written Client Testimonials (LIGHT THEME - Black borders, Compact 100vh fit, Luxury 2-card slider) */}
-      <section className="py-6 sm:py-8 bg-[#FFFFFF] border-b border-black/10 relative overflow-hidden font-sans">
-        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Header Row: Title, Trust Badge & Carousel Navigation */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-5 sm:mb-6 pb-4 border-b border-black/10">
+      {/* 3. Written Client Endorsements Slider (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-5 border-b border-slate-200">
             <SectionHeading
-              number="02"
               eyebrow="CLIENT TESTIMONIALS"
               title="Written Endorsements"
               description="Verified board and executive leadership feedback across advisory mandates, CRM operations, and ecosystem scaling."
               light={true}
               compact={true}
+              animate={false}
               className="!mb-0 max-w-xl"
             />
 
-            {/* Trust Chip & Carousel Navigation Buttons */}
-            <div className="flex flex-wrap items-center gap-2 shrink-0 self-start sm:self-end">
-              <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 mr-1">
-                <ShieldCheck className="w-3 h-3 text-emerald-600" /> 100% Verified Mandates
-              </span>
-              <span className="text-[11px] font-mono text-neutral-500 font-bold mr-1">
-                <span className="text-black font-extrabold">{testimonialSlide + 1}</span> / {totalTestimonialSlides}
+            <div className="flex items-center gap-2 shrink-0 self-start sm:self-end">
+              <span className="text-xs font-semibold text-slate-500 tabular-nums mr-2">
+                {testimonialSlide + 1} / {totalTestimonialSlides}
               </span>
               <button
                 type="button"
@@ -182,7 +175,7 @@ export default function MediaPage() {
                     prev === 0 ? totalTestimonialSlides - 1 : prev - 1
                   )
                 }
-                className="w-8 h-8 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all flex items-center justify-center text-black shadow-xs cursor-pointer"
+                className="w-9 h-9 rounded-full border border-slate-300 bg-white hover:border-[#060D1A] hover:bg-[#060D1A] hover:text-white transition-colors flex items-center justify-center text-slate-700 cursor-pointer"
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -192,7 +185,7 @@ export default function MediaPage() {
                 onClick={() =>
                   setTestimonialSlide((prev) => (prev + 1) % totalTestimonialSlides)
                 }
-                className="w-8 h-8 rounded-full border-2 border-black bg-black text-white hover:bg-neutral-800 transition-all flex items-center justify-center shadow-xs cursor-pointer"
+                className="w-9 h-9 rounded-full bg-[#060D1A] text-white hover:bg-[#0F1E3A] transition-colors flex items-center justify-center cursor-pointer"
                 aria-label="Next testimonials"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -200,7 +193,6 @@ export default function MediaPage() {
             </div>
           </div>
 
-          {/* Cards Grid with Framer Motion slide transition */}
           <AnimatePresence mode="wait">
             <motion.div
               key={testimonialSlide}
@@ -208,97 +200,61 @@ export default function MediaPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
-              {currentTestimonials.map((t) => {
-                const monogram =
-                  t.id === "quote-1"
-                    ? "KA"
-                    : t.id === "quote-2"
-                    ? "HHC"
-                    : t.id === "quote-3"
-                    ? "RC"
-                    : "BNI";
-
-                return (
-                  <div
-                    key={t.id}
-                    className="p-4 sm:p-5 rounded-2xl bg-white border-2 border-black flex flex-col justify-between relative shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all duration-300 group overflow-hidden min-h-[220px]"
-                  >
-                    {/* Top hover accent bar */}
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                    {/* Subtle watermark quote icon */}
-                    <Quote className="absolute top-3 right-4 w-12 h-12 text-black/[0.04] pointer-events-none group-hover:text-black/[0.08] transition-colors" />
-
-                    <div>
-                      {/* Top Row: 5 Gold Stars & Verified Mandate Badge */}
-                      <div className="flex items-center justify-between gap-2 mb-2.5 relative z-10">
-                        <div className="flex items-center gap-1.5">
-                          <div className="flex items-center gap-0.5">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className="w-3.5 h-3.5 fill-amber-400 text-amber-400"
-                              />
-                            ))}
-                          </div>
-                          <span className="text-[11px] font-mono font-bold text-neutral-900">
-                            5.0
-                          </span>
-                        </div>
-
-                        <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-white bg-black px-2.5 py-0.5 rounded-full shadow-xs shrink-0">
-                          <ShieldCheck className="w-3 h-3 text-[#D4AF37]" />
-                          Verified Mandate
-                        </span>
+              {currentTestimonials.map((t) => (
+                <article
+                  key={t.id}
+                  className="p-6 sm:p-7 rounded-2xl bg-[#FAF9F6] border border-slate-200/90 hover:border-[#D4AF37]/70 flex flex-col justify-between transition-colors"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="flex items-center gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-3.5 h-3.5 fill-[#D4AF37] text-[#D4AF37]"
+                          />
+                        ))}
                       </div>
 
-                      {/* Quote text */}
-                      <p className="text-xs sm:text-[13px] text-neutral-800 leading-relaxed font-normal relative z-10">
-                        &ldquo;{t.text}&rdquo;
-                      </p>
-
-                      {/* Result / Outcome Highlight Callout */}
-                      {t.resultHighlight && (
-                        <div className="mt-2.5 px-3 py-1.5 rounded-lg bg-neutral-50 border border-neutral-200/90 flex items-start gap-2 relative z-10">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
-                          <span className="text-[11px] font-medium text-neutral-800 leading-snug">
-                            <span className="font-bold text-black">Outcome:</span>{" "}
-                            {t.resultHighlight}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Footer Row: Monogram Avatar, Author Info & Engagement Type */}
-                    <div className="pt-3 mt-3 border-t border-neutral-200 flex items-center justify-between gap-3 relative z-10">
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="w-8 h-8 rounded-lg bg-black text-[#D4AF37] flex items-center justify-center font-mono font-black text-xs shrink-0 shadow-xs border border-black">
-                          {monogram}
-                        </div>
-                        <div className="min-w-0">
-                          <h4 className="text-xs sm:text-sm font-bold text-neutral-900 truncate">
-                            {t.author}
-                          </h4>
-                          <p className="text-[11px] text-neutral-600 truncate">
-                            {t.designation} • {t.organisation}
-                          </p>
-                        </div>
-                      </div>
-
-                      <span className="text-[10px] font-mono font-semibold text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200 shrink-0 hidden sm:inline-block">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#9A6B0C]">
                         {t.engagementType}
                       </span>
                     </div>
+
+                    <p className="text-sm sm:text-[15px] text-slate-800 leading-relaxed mb-4">
+                      &ldquo;{t.text}&rdquo;
+                    </p>
+
+                    {t.resultHighlight && (
+                      <div className="p-3.5 rounded-xl bg-white border-l-2 border-[#D4AF37] flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-[#9A6B0C] mt-0.5 shrink-0" />
+                        <span className="text-xs font-medium text-slate-700 leading-snug">
+                          <strong className="text-slate-900">Outcome:</strong>{" "}
+                          {t.resultHighlight}
+                        </span>
+                      </div>
+                    )}
                   </div>
-                );
-              })}
+
+                  <div className="pt-4 mt-5 border-t border-slate-200 flex items-center justify-between gap-3">
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900">
+                        {t.author}
+                      </h4>
+                      <p className="text-xs text-slate-500">
+                        {t.designation} • {t.organisation}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </motion.div>
           </AnimatePresence>
 
-          {/* Slide Indicator Dots */}
-          <div className="flex items-center justify-center gap-2 mt-3.5">
+          {/* Indicator Dots */}
+          <div className="flex items-center justify-center gap-2 mt-6">
             {Array.from({ length: totalTestimonialSlides }).map((_, idx) => (
               <button
                 type="button"
@@ -306,8 +262,8 @@ export default function MediaPage() {
                 onClick={() => setTestimonialSlide(idx)}
                 className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   testimonialSlide === idx
-                    ? "w-8 bg-black"
-                    : "w-2.5 bg-neutral-300 hover:bg-neutral-500"
+                    ? "w-8 bg-[#060D1A]"
+                    : "w-2 bg-slate-300 hover:bg-slate-500"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -316,50 +272,46 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* 4. Media Gallery (DARK THEME - PURE IMAGES ONLY) */}
-      <section className="py-8 sm:py-10 md:py-12 bg-[#000000] border-b border-white/10 relative overflow-hidden font-sans">
-        {/* Subtle balanced neon lime glow aura */}
-        <div className="absolute top-1/3 -left-32 w-[440px] h-[440px] bg-[#D4AF37]/10 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-[440px] h-[440px] bg-[#D4AF37]/10 rounded-full blur-[150px] pointer-events-none" />
+      {/* 4. Visual Media Gallery (DARK MIDNIGHT NAVY - 60px padding) */}
+      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining />
 
-        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
-            number="03"
             eyebrow="VISUAL RECORD"
             title="Media Gallery"
             description="Keynotes, panels, business meetings, and leadership moments captured across national stages and forums."
             light={false}
-            className="mb-5 sm:mb-6"
+            compact={true}
+            animate={false}
+            className="!mb-8"
           />
 
-          {/* Show ONLY Images (No Cards) with sleek hover zoom and lightbox */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {mediaGallery.map((m, idx) => (
               <div
                 key={m.id}
                 onClick={() => setLightboxIndex(idx)}
-                className="group relative aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden border border-white/15 hover:border-[#D4AF37] transition-all duration-300 cursor-pointer shadow-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.18)] hover:-translate-y-1 bg-[#0A0D14]"
+                className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/12 hover:border-[#D4AF37]/70 transition-all duration-300 cursor-pointer bg-[#0B1528]"
               >
                 <SafeImage
                   src={m.image}
                   alt={m.title}
                   fill={true}
                   placeholderLabel="Media Snapshot"
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
 
-                {/* Subtle dark gradient overlay on hover with title */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 sm:p-4 pointer-events-none">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold block mb-0.5">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/90 via-[#060D1A]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none">
+                  <span className="text-[10px] uppercase tracking-[0.14em] text-[#F5E2A3] font-bold block mb-0.5">
                     {m.category}
                   </span>
-                  <h4 className="text-xs sm:text-sm font-bold text-white leading-tight line-clamp-1">
+                  <h4 className="text-sm font-bold text-white leading-tight line-clamp-1">
                     {m.title}
                   </h4>
                 </div>
 
-                {/* Hover zoom icon badge */}
-                <div className="absolute top-3 right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:scale-100 scale-90 transition-all duration-300 pointer-events-none">
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#060D1A]/80 border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                   <Maximize2 className="w-3.5 h-3.5 text-[#D4AF37]" />
                 </div>
               </div>
@@ -368,76 +320,52 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* 5. Recognition & Credentials Strip (LIGHT THEME - Black borders) */}
-      <section className="py-8 sm:py-10 md:py-12 bg-[#FFFFFF] border-b border-black/10 relative overflow-hidden font-sans">
-        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* 5. Recognition & Credentials Ledger (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
           <SectionHeading
-            number="04"
             eyebrow="ENTERPRISE STANDING"
             title="Recognition & Authority"
             description="Foundational credentials verifying 15+ years of active contribution to Indian business ecosystems."
             light={true}
-            className="mb-5 sm:mb-6"
+            compact={true}
+            animate={false}
+            className="!mb-8"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {recognitionMilestones.map((rec) => (
+          <div className="border-t border-b border-slate-200 divide-y divide-slate-200">
+            {recognitionMilestones.map((rec, idx) => (
               <div
                 key={rec.title}
-                className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-black hover:shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1"
+                className="py-5 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
               >
-                <div>
-                  <div className="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center mb-3 shadow-sm font-bold">
-                    <Award className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 leading-snug">
+                <div className="md:col-span-5 flex items-baseline gap-4">
+                  <span className="text-sm font-bold text-[#9A6B0C] tabular-nums shrink-0">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900">
                     {rec.title}
                   </h3>
-                  <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                    {rec.desc}
-                  </p>
                 </div>
+                <p className="md:col-span-7 text-sm text-slate-600 leading-relaxed">
+                  {rec.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Video Modal */}
-      <Modal
-        isOpen={!!activeVideo}
-        onClose={() => setActiveVideo(null)}
-        title={activeVideo ? `${activeVideo.name} — ${activeVideo.organisation}` : ""}
-      >
-        {activeVideo && (
-          <div>
-            <div className="aspect-video w-full rounded-xl overflow-hidden bg-black mb-4">
-              <iframe
-                src={activeVideo.videoUrl}
-                title={activeVideo.topic}
-                className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <p className="text-sm text-slate-300 italic">
-              &ldquo;{activeVideo.quote}&rdquo;
-            </p>
-          </div>
-        )}
-      </Modal>
-
-      {/* Bespoke Fullscreen Luxury Lightbox */}
+      {/* Lightbox Modal */}
       {lightboxIndex !== null && mediaGallery[lightboxIndex] && (
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-4 sm:p-6 md:p-8 animate-in fade-in duration-200 select-none"
+          className="fixed inset-0 z-[100] bg-[#060D1A]/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none"
         >
-          {/* Top Bar */}
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto z-20">
-            <div className="flex items-center gap-2.5 sm:gap-3">
-              <span className="px-3 py-1 rounded-full bg-[#D4AF37] text-black font-mono font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-sm">
+            <div className="flex items-center gap-3">
+              <span className="px-3 py-1 rounded-full bg-[#D4AF37] text-[#060D1A] font-bold text-[10px] sm:text-xs uppercase tracking-wider">
                 {mediaGallery[lightboxIndex].category}
               </span>
               <h3 className="text-white font-bold text-sm sm:text-base md:text-lg truncate max-w-[200px] sm:max-w-md">
@@ -446,36 +374,33 @@ export default function MediaPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="font-mono text-xs text-slate-400 bg-white/10 px-3 py-1 rounded-full border border-white/10">
+              <span className="text-xs text-slate-300 bg-white/10 px-3 py-1 rounded-full border border-white/10 tabular-nums">
                 {lightboxIndex + 1} / {mediaGallery.length}
               </span>
               <button
                 type="button"
                 onClick={() => setLightboxIndex(null)}
                 aria-label="Close lightbox"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg hover:scale-105"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
               >
-                <X className="w-5 h-5 text-white" />
+                <X className="w-5 h-5" />
               </button>
             </div>
           </div>
 
-          {/* Center Main Stage (Edge-to-Edge 16:9 - No Letterboxing) */}
-          <div className="relative w-full max-w-5xl my-auto flex items-center justify-center">
-            {/* Previous Arrow */}
+          <div className="relative w-full max-w-5xl mx-auto my-auto flex items-center justify-center">
             <button
               type="button"
               onClick={() =>
                 setLightboxIndex((prev) => (prev - 1 + mediaGallery.length) % mediaGallery.length)
               }
               aria-label="Previous image"
-              className="absolute left-2 sm:-left-6 md:-left-12 lg:-left-16 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#D4AF37] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all shadow-2xl cursor-pointer hover:scale-110"
+              className="absolute left-2 sm:-left-6 md:-left-12 z-30 w-11 h-11 rounded-full bg-[#060D1A]/90 hover:bg-[#D4AF37] hover:text-[#060D1A] border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
 
-            {/* Photo Container */}
-            <div className="relative w-full h-[52vh] sm:h-[62vh] md:h-[68vh] rounded-2xl overflow-hidden border border-white/20 shadow-2xl shadow-black/90 bg-[#0A0D14]">
+            <div className="relative w-full h-[52vh] sm:h-[62vh] md:h-[66vh] rounded-2xl overflow-hidden border border-white/15 bg-[#0B1528]">
               <Image
                 src={mediaGallery[lightboxIndex].image}
                 alt={mediaGallery[lightboxIndex].title}
@@ -486,20 +411,18 @@ export default function MediaPage() {
               />
             </div>
 
-            {/* Next Arrow */}
             <button
               type="button"
               onClick={() => setLightboxIndex((prev) => (prev + 1) % mediaGallery.length)}
               aria-label="Next image"
-              className="absolute right-2 sm:-right-6 md:-right-12 lg:-right-16 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#D4AF37] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all shadow-2xl cursor-pointer hover:scale-110"
+              className="absolute right-2 sm:-right-6 md:-right-12 z-30 w-11 h-11 rounded-full bg-[#060D1A]/90 hover:bg-[#D4AF37] hover:text-[#060D1A] border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Bottom Bar: Caption + Interactive Thumbnails */}
           <div className="w-full max-w-4xl mx-auto flex flex-col items-center z-20 pt-2">
-            <p className="text-center text-xs sm:text-sm text-slate-300 max-w-2xl font-light leading-relaxed mb-3">
+            <p className="text-center text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed mb-3">
               {mediaGallery[lightboxIndex].caption}
             </p>
 
@@ -511,8 +434,8 @@ export default function MediaPage() {
                   onClick={() => setLightboxIndex(idx)}
                   className={`relative w-14 h-9 sm:w-16 sm:h-10 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shrink-0 ${
                     lightboxIndex === idx
-                      ? "border-[#D4AF37] scale-105 shadow-md shadow-[#D4AF37]/25"
-                      : "border-white/20 opacity-40 hover:opacity-100"
+                      ? "border-[#D4AF37] scale-105"
+                      : "border-white/20 opacity-45 hover:opacity-100"
                   }`}
                 >
                   <Image
@@ -529,7 +452,6 @@ export default function MediaPage() {
         </div>
       )}
 
-      {/* Page Closing CTA */}
       <PageCTA
         title="Schedule a Strategic Consultation"
         description="Discuss your growth barriers, team alignment, or keynote invitations directly with Dheeraj Aggarwal."
@@ -541,7 +463,7 @@ export default function MediaPage() {
           label: "View Case Studies",
           href: "/case-studies",
         }}
-        light={false}
+        light={true}
       />
     </>
   );

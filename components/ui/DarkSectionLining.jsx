@@ -10,6 +10,7 @@ export default function DarkSectionLining({
   return (
     <div
       aria-hidden="true"
+      style={{ contain: "strict", transform: "translateZ(0)" }}
       className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
     >
       {/* ── 1. Architectural Pinstripe Grid Lines Texture ── */}
@@ -54,6 +55,22 @@ export default function DarkSectionLining({
         style={{
           backgroundImage:
             "radial-gradient(ellipse 75% 65% at 50% 40%, rgba(16, 34, 68, 0.55) 0%, rgba(10, 22, 40, 0.25) 55%, transparent 85%), radial-gradient(ellipse 62% 52% at 50% 42%, rgba(212,175,55,0.06) 0%, rgba(154,107,12,0.02) 45%, transparent 78%)",
+        }}
+      />
+
+      {/* ── 3b. Visible Side-Margin Ambient Glow Orbs (Smooth GPU Gradient — No Blur Repaint Jitter) ── */}
+      <div
+        className="absolute top-[6%] -left-24 sm:-left-16 w-[380px] h-[380px] sm:w-[540px] sm:h-[540px] rounded-full transform-gpu"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(245,215,127,0.22) 0%, rgba(212,175,55,0.14) 24%, rgba(30,64,135,0.12) 48%, transparent 72%)",
+        }}
+      />
+      <div
+        className="absolute bottom-[4%] -right-24 sm:-right-16 w-[380px] h-[380px] sm:w-[540px] sm:h-[540px] rounded-full transform-gpu"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(245,215,127,0.22) 0%, rgba(212,175,55,0.14) 24%, rgba(30,64,135,0.12) 48%, transparent 72%)",
         }}
       />
 

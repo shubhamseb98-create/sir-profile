@@ -255,26 +255,28 @@ export default function Outcomes() {
             if (offset > total / 2) offset -= total;
 
             const isCenter = offset === 0;
-            // On mobile render 3 cards (-1, 0, +1); on desktop render 5 cards (-2 to +2)
             const maxOffset = isMobile ? 1 : 2;
             const isVisible = Math.abs(offset) <= maxOffset;
 
-            if (!isVisible) return null;
-
-            // 3D transform metrics based on distance from center
-            const spacing = isMobile ? 95 : 210;
+            // Keep cards OPAQUE (no ghost bleed-through!) when visible; fade out cleanly off-wing at |offset| === 3
+            const spacing = isMobile ? 88 : 235;
             const xShift = offset * spacing;
-            const scale = isCenter ? 1.0 : Math.max(0.76, 1 - Math.abs(offset) * 0.12);
+            const scale = isCenter ? 1.0 : Math.max(0.76, 1 - Math.abs(offset) * 0.11);
             const zIndex = 30 - Math.abs(offset) * 10;
-            const opacity = isCenter ? 1 : Math.max(0.25, 0.85 - Math.abs(offset) * 0.28);
-            const rotateY = offset * -14; // Angled facing inward
+            const opacity = isVisible ? 1 : 0;
+            const rotateY = offset * -12;
+            const dimOverlayClass = isCenter
+              ? "opacity-0"
+              : Math.abs(offset) === 1
+              ? "opacity-100 bg-[#060D1A]/62"
+              : "opacity-100 bg-[#060D1A]/82";
 
             return (
               <div
                 key={card.id}
                 onDragStart={(e) => e.preventDefault()}
                 onClick={() => {
-                  if (!hasDragged.current) {
+                  if (!hasDragged.current && isVisible) {
                     setActiveIndex(idx);
                   }
                 }}
@@ -286,17 +288,19 @@ export default function Outcomes() {
                   transformOrigin: "center center",
                   zIndex,
                   opacity,
+                  pointerEvents: isVisible ? "auto" : "none",
                   width: isMobile ? "min(calc(100vw - 44px), 320px)" : "min(calc(100vw - 32px), 360px)",
                   maxWidth: "360px",
                   height: isMobile ? "330px" : "390px",
+                  willChange: "transform, opacity",
                 }}
-                className={`rounded-[22px] sm:rounded-[28px] border transition-all duration-500 ease-out cursor-grab active:cursor-grabbing flex flex-col justify-end overflow-hidden select-none group ${
+                className={`rounded-[22px] sm:rounded-[28px] bg-[#0B1528] border transition-[transform,opacity,border-color,box-shadow] duration-500 ease-out cursor-grab active:cursor-grabbing flex flex-col justify-end overflow-hidden select-none group ${
                   isCenter
-                    ? "border-2 border-[#D4AF37] shadow-[0_20px_50px_rgba(0,0,0,0.95)]"
-                    : "border border-white/20 hover:border-[#D4AF37]/50 shadow-xl opacity-75 hover:opacity-90"
+                    ? "border-2 border-[#D4AF37] shadow-[0_24px_55px_rgba(0,0,0,0.92)]"
+                    : "border border-white/15 hover:border-[#D4AF37]/55 shadow-[0_14px_35px_rgba(0,0,0,0.75)]"
                 }`}
               >
-                {/* 1. Full-Bleed Background Image covering the entire card */}
+                {/* 1. Full-Bleed Solid Background Photography */}
                 <Image
                   src={card.image}
                   alt={card.title}
@@ -308,16 +312,29 @@ export default function Outcomes() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out select-none pointer-events-none"
                 />
 
-                {/* 2. Light Bottom Scrim so Full-Bleed Photography Breathes */}
+                {/* 2. Bottom Contrast Scrim on Active Card + Solid Navy Depth Veil on Side Cards (Prevents Ghost Bleed-Through) */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/85 via-[#060D1A]/25 via-40% to-transparent pointer-events-none" />
+                <div
+                  className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${dimOverlayClass}`}
+                />
 
                 {/* 3. Top-Left Number Tag */}
-                <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20 px-2.5 py-1 rounded-full bg-[#060D1A]/75 backdrop-blur-md border border-[#D4AF37]/30 text-[10px] font-mono font-bold text-[#F5E2A3] tracking-widest">
+                <span
+                  className={`absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20 px-2.5 py-1 rounded-full backdrop-blur-md border text-[10px] font-mono font-bold tracking-widest transition-opacity duration-300 ${
+                    isCenter
+                      ? "bg-[#060D1A]/80 border-[#D4AF37]/40 text-[#F5E2A3] opacity-100"
+                      : "bg-[#060D1A]/90 border-white/15 text-slate-300 opacity-85"
+                  }`}
+                >
                   {card.num}
                 </span>
 
-                {/* 4. Bottom Frosted Smoked-Glass Title Plaque */}
-                <div className="relative z-10 m-3 sm:m-3.5 p-3.5 sm:p-4 rounded-2xl bg-[#060D1A]/75 backdrop-blur-md border border-white/12 group-hover:border-[#D4AF37]/40 transition-colors flex items-center gap-3">
+                {/* 4. Bottom Frosted Smoked-Glass Title Plaque (Visible cleanly on active center card so side cards don't show chopped text) */}
+                <div
+                  className={`relative z-10 m-3 sm:m-3.5 p-3.5 sm:p-4 rounded-2xl bg-[#060D1A]/80 backdrop-blur-md border border-white/12 group-hover:border-[#D4AF37]/45 transition-all duration-300 flex items-center gap-3 ${
+                    isCenter ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+                  }`}
+                >
                   <span
                     aria-hidden="true"
                     className={`w-[3px] self-stretch rounded-full shrink-0 ${
