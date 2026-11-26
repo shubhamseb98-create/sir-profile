@@ -23,7 +23,7 @@ export default function PageCTA({
   return (
     <section
       id="contact-cta"
-      className={`min-h-screen py-[80px] flex flex-col justify-center relative overflow-hidden font-sans ${
+      className={`py-[60px] relative overflow-hidden font-sans ${
         light
           ? "bg-white border-t border-slate-200 text-slate-900"
           : "bg-black border-t border-white/10 text-white"

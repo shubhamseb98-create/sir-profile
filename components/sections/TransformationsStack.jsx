@@ -43,12 +43,13 @@ export default function TransformationsStack() {
     // 2. Timeline identical to skiper17, with 10% rest buffer at the end
     const tl = gsap.timeline({ paused: true });
 
-    // Step 1: Card 0 rotates/scales down, Card 1 glides up to center (progress 0.0 -> 0.45)
+    // Step 1: Card 0 rotates/scales down & fades cleanly behind Card 1 (no bleed-through)
     tl.to(
       cards[0],
       {
         scale: scaleTarget,
         rotation: -rotationAmount,
+        opacity: 0.15,
         duration: 0.45,
         ease: "none",
       },
@@ -64,12 +65,13 @@ export default function TransformationsStack() {
       0
     );
 
-    // Step 2: Card 1 rotates/scales down, Card 0 scales further, Card 2 glides up to center (progress 0.45 -> 0.90)
+    // Step 2: Card 1 rotates/scales down, Card 0 hides completely, Card 2 glides up to center
     tl.to(
       cards[1],
       {
         scale: scaleTarget,
         rotation: rotationAmount,
+        opacity: 0.15,
         duration: 0.45,
         ease: "none",
       },
@@ -78,8 +80,9 @@ export default function TransformationsStack() {
     tl.to(
       cards[0],
       {
-        scale: scaleTarget * 0.90,
+        scale: scaleTarget * 0.9,
         rotation: -rotationAmount * 1.35,
+        opacity: 0,
         duration: 0.45,
         ease: "none",
       },
@@ -118,10 +121,10 @@ export default function TransformationsStack() {
       ref={sectionRef}
       id="transformations"
       suppressHydrationWarning
-      className="relative h-[280vh] bg-[#000000] border-b border-white/10 font-sans select-none"
+      className="relative h-[280vh] bg-[#060D1A] border-b border-white/10 font-sans select-none"
     >
-      {/* Sticky 100vh viewport lock: zero pin-spacer artifacts, zero dead space */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-start overflow-hidden pt-7 sm:pt-9 lg:pt-11 pb-3 sm:pb-5">
+      {/* Sticky 100vh viewport lock with unified 60px top/bottom padding */}
+      <div className="sticky top-0 min-h-screen w-full flex flex-col justify-center overflow-hidden py-[60px]">
         {/* Background lining texture */}
         <DarkSectionLining showTopBeam={true} showBottomBeam={true} />
 
@@ -143,7 +146,7 @@ export default function TransformationsStack() {
 
         {/* Card Stacking Arena: Clean margin-top prevents header collision, content & image stretch to card bottom */}
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10 mt-4 sm:mt-5 lg:mt-6 flex items-center justify-center">
-          <div className="relative w-full max-w-[1100px] h-[360px] sm:h-[390px] md:h-[410px]">
+          <div className="relative w-full max-w-[1100px] h-[400px] xs:h-[390px] sm:h-[390px] md:h-[410px]">
           {featuredCases.map((study, idx) => {
             const imageSrc = CASE_IMAGES[study.slug] || "/images/cards/crm-systems.jpg";
             const cardNum = String(idx + 1).padStart(2, "0");
@@ -157,7 +160,7 @@ export default function TransformationsStack() {
                 className="absolute inset-0 w-full will-change-transform"
                 style={{ zIndex: idx + 1, transformOrigin: "center center" }}
               >
-                <article className="w-full h-full rounded-2xl sm:rounded-3xl bg-black/95 border border-neutral-800 hover:border-[#D4AF37]/60 p-4 sm:p-5 md:p-5 shadow-[0_16px_50px_rgba(0,0,0,0.95)] transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
+                <article className="w-full h-full rounded-2xl sm:rounded-3xl bg-[#0B1528] bg-gradient-to-br from-[#11203D] to-[#081020] border border-[#1E3256] hover:border-[#D4AF37]/60 p-3.5 sm:p-5 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.65)] transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
                   {/* Subtle top metallic hairline */}
                   <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-[linear-gradient(90deg,transparent_0%,#9A6B0C_25%,#D4AF37_50%,#9A6B0C_75%,transparent_100%)] opacity-60" />
 
@@ -198,9 +201,9 @@ export default function TransformationsStack() {
                   </div>
 
                   {/* Main Grid: Media Frame + Details stretched down to bottom */}
-                  <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 md:gap-5 items-stretch min-h-0">
-                    {/* Media Column (5 Cols) - Stretches fully down to card bottom */}
-                    <div className="lg:col-span-5 h-32 sm:h-full flex flex-col min-h-0">
+                  <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-4 md:gap-5 items-stretch min-h-0">
+                    {/* Media Column (5 Cols) */}
+                    <div className="lg:col-span-5 h-24 xs:h-28 sm:h-full flex flex-col min-h-0">
                       <div className="relative w-full h-full flex-1 overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-950 border border-white/10 shadow-xl group/img">
                         <Image
                           src={imageSrc}
@@ -250,7 +253,7 @@ export default function TransformationsStack() {
                         </div>
 
                         {/* Highlighted Outcome Box (Desktop/Tablet) */}
-                        <div className="hidden sm:block p-2 sm:p-2.5 rounded-xl bg-neutral-950 border border-neutral-800">
+                        <div className="hidden sm:block p-2 sm:p-2.5 rounded-xl bg-[#071020] border border-[#1E3256]">
                           <div className="flex items-center gap-1.5 mb-0.5">
                             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
                             <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#D4AF37] font-mono font-bold">

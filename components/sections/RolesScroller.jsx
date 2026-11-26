@@ -154,7 +154,7 @@ export default function RolesScroller() {
   return (
     <section
       id="roles-ecosystems"
-      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#000000] text-white relative font-sans overflow-hidden border-b border-white/10 select-none"
+      className="py-[60px] bg-[#060D1A] text-white relative font-sans overflow-hidden border-b border-white/10 select-none"
     >
       {/* ── Background Lining Texture & Subtle Glow ── */}
       <DarkSectionLining glowPosition="split" showTopBeam={true} showBottomBeam={true} />
@@ -221,7 +221,7 @@ export default function RolesScroller() {
                   />
 
                   {/* Gradient overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/90 via-[#060D1A]/25 to-[#060D1A]/35" />
 
                   {/* Top Header Row of Card */}
                   <div className="absolute top-3.5 sm:top-6 left-3.5 sm:left-6 right-3.5 sm:right-6 flex items-center justify-between z-10">

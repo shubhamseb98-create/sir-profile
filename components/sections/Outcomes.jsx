@@ -212,7 +212,7 @@ export default function Outcomes() {
     <section
       id="achieve-section"
       style={{ overflow: "clip" }}
-      className="min-h-screen py-8 sm:py-10 md:py-12 flex flex-col justify-center bg-[#000000] text-white relative font-sans border-b border-white/10"
+      className="py-[60px] bg-[#060D1A] text-white relative font-sans border-b border-white/10"
     >
       {/* ── Background Lining Texture & Subtle Glow ── */}
       <DarkSectionLining glowPosition="center" showTopBeam={true} showBottomBeam={true} />
@@ -308,32 +308,36 @@ export default function Outcomes() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out select-none pointer-events-none"
                 />
 
-                {/* 2. Dark Bottom Gradient for High-Contrast Text Legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 via-50% to-black/10 pointer-events-none" />
+                {/* 2. Light Bottom Scrim so Full-Bleed Photography Breathes */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/85 via-[#060D1A]/25 via-40% to-transparent pointer-events-none" />
 
-                {/* 3. Top-Left Number Tag (No Inner Page Link) */}
-                <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20 px-2.5 py-1 rounded-full bg-black/70 border border-white/15 text-[10px] font-mono font-bold text-[#D4AF37] tracking-widest">
+                {/* 3. Top-Left Number Tag */}
+                <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20 px-2.5 py-1 rounded-full bg-[#060D1A]/75 backdrop-blur-md border border-[#D4AF37]/30 text-[10px] font-mono font-bold text-[#F5E2A3] tracking-widest">
                   {card.num}
                 </span>
 
-                {/* 4. Bottom Content Area */}
-                <div className="relative z-10 p-4 sm:p-5 md:p-6 flex flex-col gap-2">
-                  <div>
-                    {/* Bold Headline */}
-                    <h3 className="text-base sm:text-lg md:text-2xl font-bold text-white leading-snug drop-shadow-md line-clamp-2">
-                      {card.title}
-                    </h3>
-
-                    {/* Subtitle */}
-                    <div className="flex items-center gap-1.5 text-[11px] sm:text-xs md:text-sm text-stone-200 font-medium mt-1 drop-shadow">
-                      <span className="truncate">{card.metric} • {card.tag}</span>
-                    </div>
-                  </div>
-
-                  {/* Description snippet */}
-                  <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed line-clamp-2">
-                    {card.description}
-                  </p>
+                {/* 4. Bottom Frosted Smoked-Glass Title Plaque */}
+                <div className="relative z-10 m-3 sm:m-3.5 p-3.5 sm:p-4 rounded-2xl bg-[#060D1A]/75 backdrop-blur-md border border-white/12 group-hover:border-[#D4AF37]/40 transition-colors flex items-center gap-3">
+                  <span
+                    aria-hidden="true"
+                    className={`w-[3px] self-stretch rounded-full shrink-0 ${
+                      isCenter ? "bg-gold-metallic" : "bg-white/25"
+                    }`}
+                  />
+                  <h3 className="text-[15px] sm:text-base md:text-[18px] font-semibold text-white leading-snug tracking-tight line-clamp-2">
+                    {(() => {
+                      const words = card.title.split(" ");
+                      const splitAt = Math.max(1, words.length - 2);
+                      return (
+                        <>
+                          <span>{words.slice(0, splitAt).join(" ")} </span>
+                          <span className={isCenter ? "text-gold-metallic font-bold" : "text-slate-200"}>
+                            {words.slice(splitAt).join(" ")}
+                          </span>
+                        </>
+                      );
+                    })()}
+                  </h3>
                 </div>
               </div>
             );

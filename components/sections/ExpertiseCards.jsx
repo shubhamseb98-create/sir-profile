@@ -116,9 +116,9 @@ export default function ExpertiseCards() {
       suppressHydrationWarning
       className="relative h-[480vh] bg-[#FFFFFF] text-[#0F172A] border-y border-slate-200 select-none"
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden z-10">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden py-[60px] z-10">
         {/* Header */}
-        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pt-3 sm:pt-6 md:pt-8">
+        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-4">
             <SectionHeading
               number="03"
@@ -176,18 +176,15 @@ export default function ExpertiseCards() {
                   }`}
                 >
                   <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-[#334155]/30 to-transparent" />
-                  <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                     <div className="flex items-center gap-2">
-                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-[#0F172A] px-2 py-0.5 rounded-full border border-slate-200">
+                      <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-[#0F172A] px-2.5 py-0.5 rounded-full border border-slate-200">
                         Practice {String(idx + 1).padStart(2, "0")}
                       </span>
                       <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-slate-500">
                         {item.category}
                       </span>
                     </div>
-                    <span className="text-base sm:text-xl font-mono font-extrabold text-slate-200">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 md:gap-5 my-2.5 sm:my-3.5 items-center">
                     <div className="md:col-span-5 relative h-28 sm:h-36 md:h-40 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-md">
@@ -222,9 +219,20 @@ export default function ExpertiseCards() {
                       </div>
                     </div>
                   </div>
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[9px] sm:text-[11px] text-slate-400">
-                    <span>Executive Advisory Mandate</span>
-                    <span className="text-[#334155] font-mono">Dheeraj Aggarwal</span>
+                  <div className="relative pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9A6B0C] relative z-10">
+                      Executive Advisory Mandate
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        color: "transparent",
+                        WebkitTextStroke: "1.5px rgba(15, 23, 42, 0.13)",
+                      }}
+                      className="pointer-events-none select-none font-black text-[58px] sm:text-[66px] leading-none tracking-tighter -mb-3 -mt-2"
+                    >
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
                   </div>
                 </div>
               );
@@ -233,7 +241,7 @@ export default function ExpertiseCards() {
         </div>
 
         {/* Status Bar */}
-        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0 pb-3 sm:pb-6 md:pb-8">
+        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-10 lg:px-16 z-20 shrink-0">
           <div className="flex items-center justify-between border-t border-slate-200 pt-2.5 sm:pt-3 text-xs text-slate-500">
             <div className="flex items-center gap-2 sm:gap-3">
               <span className="w-2 h-2 rounded-full bg-black animate-pulse" />

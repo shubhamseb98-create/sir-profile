@@ -40,13 +40,13 @@ export default function HeroThreeScene() {
     container.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x000000, 0.00125);
+    scene.fog = new THREE.FogExp2(0x060d1a, 0.00125);
 
     const camera = new THREE.PerspectiveCamera(50, width / height, 1, 2000);
     camera.position.set(0, 42, 430);
 
     // ── STUDIO LIGHTS ──
-    const ambientLight = new THREE.AmbientLight(0x241f0b, 2.0);
+    const ambientLight = new THREE.AmbientLight(0x162442, 2.2);
     scene.add(ambientLight);
 
     const keyLight = new THREE.PointLight(0xd4af37, 5.0, 950, 1.1);

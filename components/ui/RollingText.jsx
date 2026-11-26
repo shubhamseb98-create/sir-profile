@@ -23,6 +23,8 @@ export default function RollingText({
   duration = 1.6,
   delay = 0.05,
   once = true,
+  highlightCount = 0,
+  highlightClassName = "",
 }) {
   const containerRef = useRef(null);
 
@@ -85,26 +87,39 @@ export default function RollingText({
 
       {/* Visual animated words with aria-hidden="true" matching CodePen reference */}
       <span aria-hidden="true" className="inline">
-        {words.map((word, idx) => (
-          <span key={`word-${idx}`} className="inline">
-            <span
-              className="inline-block"
-              style={{ perspective: "500px" }}
-            >
+        {words.map((word, idx) => {
+          const effectiveHighlight =
+            highlightCount > 0
+              ? words.length === 1
+                ? 1
+                : Math.min(highlightCount, Math.max(1, words.length - 1))
+              : 0;
+          const isHighlighted =
+            effectiveHighlight > 0 && idx >= words.length - effectiveHighlight;
+          return (
+            <span key={`word-${idx}`} className="inline">
               <span
-                className="animate-word inline-block will-change-transform"
-                style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden",
-                }}
+                className="inline-block"
+                style={{ perspective: "500px" }}
               >
-                {word}
+                <span
+                  className={cn(
+                    "animate-word inline-block will-change-transform pb-[0.06em]",
+                    isHighlighted && highlightClassName
+                  )}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                  }}
+                >
+                  {word}
+                </span>
               </span>
+              {idx < words.length - 1 && " "}
             </span>
-            {idx < words.length - 1 && " "}
-          </span>
-        ))}
+          );
+        })}
       </span>
     </span>
   );

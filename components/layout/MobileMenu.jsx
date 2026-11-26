@@ -24,7 +24,7 @@ export default function MobileMenu({ isOpen, onClose }) {
   return (
     <aside
       aria-label="Mobile Navigation"
-      className="fixed inset-0 z-[100] bg-black/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-300"
+      className="fixed inset-0 z-[100] bg-[#060D1A]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-300"
     >
       {/* Header bar inside menu */}
       <div className="flex items-center justify-between border-b border-white/10 pb-5">

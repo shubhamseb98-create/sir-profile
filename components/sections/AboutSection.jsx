@@ -8,7 +8,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function AboutSection() {
   return (
-    <section id="about-us" className="min-h-screen py-6 sm:py-8 lg:py-10 flex items-center bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200 overflow-hidden">
+    <section id="about-us" className="py-[60px] bg-[#FFFFFF] text-[#0F172A] relative font-sans border-b border-slate-200 overflow-hidden">
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
@@ -43,18 +43,8 @@ export default function AboutSection() {
               />
             </p>
 
-            {/* Guiding Principle Callout */}
-            <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50 border-l-4 border-[#334155] mb-3 sm:mb-4">
-              <p className="text-xs text-slate-700 italic leading-relaxed">
-                &ldquo;Sustainable enterprise value is not created by ad-hoc marketing campaigns. It is engineered through unit economic clarity, repeatable SOPs, and ruthless operational accountability.&rdquo;
-              </p>
-              <div className="mt-1 text-[10px] font-mono font-bold text-[#334155]">
-                — Dheeraj Aggarwal, Executive Advisor
-              </div>
-            </div>
-
             {/* Actions (Smooth Scroll & Strategy Call Modal — No Inner Page URLs) */}
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="mt-4 flex flex-wrap items-center gap-3">
               <Button href="/contact?type=strategy-call" variant="light-primary" size="sm">
                 Book a Strategy Call
               </Button>
@@ -75,17 +65,6 @@ export default function AboutSection() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
-
-              {/* Bottom Credential Card Overlay */}
-              <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white shadow-2xl">
-                <div className="flex items-center justify-between mb-1">
-                  <h3 className="text-sm sm:text-lg font-bold text-white">Dheeraj Aggarwal</h3>
-                  <span className="text-[9px] sm:text-[10px] font-mono text-white bg-black/95 px-2 sm:px-2.5 py-0.5 rounded-full border border-white/20">
-                    Executive Advisor
-                  </span>
-                </div>
-              </div>
             </div>
           </ScrollReveal>
         </div>

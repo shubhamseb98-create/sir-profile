@@ -16,7 +16,7 @@ export default function BreadcrumbHero({
 }) {
   return (
     <section
-      className={`relative bg-black text-white overflow-hidden pt-32 pb-14 md:pt-36 md:pb-16 min-h-[360px] md:min-h-[400px] flex flex-col justify-center border-b border-white/10 ${className}`}
+      className={`relative bg-[#060D1A] text-white overflow-hidden pt-32 pb-14 md:pt-36 md:pb-16 min-h-[360px] md:min-h-[400px] flex flex-col justify-center border-b border-white/10 ${className}`}
     >
       {/* 1. Cinematic Background Image with Parallax-grade presentation */}
       <div className="absolute inset-0 z-0">
@@ -28,10 +28,10 @@ export default function BreadcrumbHero({
           sizes="100vw"
           className="object-cover object-center brightness-[0.35] contrast-125 scale-105"
         />
-        {/* Layered cinematic gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(212,175,55,0.12),rgba(0,0,0,0))]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-transparent to-black/85" />
+        {/* Layered cinematic navy gradients */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A] via-[#060D1A]/85 to-[#060D1A]/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-10%,rgba(212,175,55,0.12),rgba(6,13,26,0))]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060D1A]/85 via-transparent to-[#060D1A]/85" />
       </div>
 
       {/* 2. Hero Content Container */}
@@ -76,15 +76,15 @@ export default function BreadcrumbHero({
           {/* Eyebrow & Badge row */}
           <div className="flex flex-wrap items-center gap-3 mb-3.5">
             {eyebrow && (
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D4AF37]/40 bg-gradient-to-r from-[#D4AF37]/12 via-[#FCF6BA]/8 to-[#9A6B0C]/12 backdrop-blur-md shadow-[0_0_18px_rgba(212,175,55,0.16)] max-w-full">
-                <span className="w-2 h-2 rounded-full bg-gold-metallic shrink-0" />
-                <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold-metallic font-bold leading-tight">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/35 bg-gradient-to-r from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-md max-w-full">
+                <span className="w-1.5 h-1.5 rotate-45 bg-gold-metallic shrink-0" />
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-[#F5E2A3] font-semibold leading-none">
                   {eyebrow}
                 </span>
               </div>
             )}
             {badge && (
-              <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-black bg-gold-metallic px-2.5 py-0.5 rounded-full shadow-[0_0_12px_rgba(212,175,55,0.32)]">
+              <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-black bg-gold-metallic px-3 py-1 rounded-full">
                 {badge}
               </span>
             )}

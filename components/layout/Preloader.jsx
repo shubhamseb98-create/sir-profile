@@ -364,7 +364,7 @@ export default function Preloader() {
   return (
     <aside
       aria-label="Loading site presentation"
-      className={`fixed inset-0 z-[9999] select-none overflow-hidden font-sans bg-[#000000] transition-all duration-800 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+      className={`fixed inset-0 z-[9999] select-none overflow-hidden font-sans bg-[#060D1A] transition-all duration-800 ease-[cubic-bezier(0.76,0,0.24,1)] ${
         isExiting
           ? "-translate-y-full opacity-0 pointer-events-none"
           : "translate-y-0 opacity-100 pointer-events-auto"
@@ -384,9 +384,6 @@ export default function Preloader() {
         }`}
       >
         <div className="relative flex flex-col items-center justify-center">
-          {/* Subtle Ambient Glow Behind Writing Area */}
-          <div className="absolute w-72 sm:w-[460px] h-32 sm:h-44 rounded-full bg-[#D4AF37]/12 blur-[90px] pointer-events-none" />
-
           {/* Exact Vector-Masked Calligraphic Signature */}
           <div
             ref={svgWrapRef}

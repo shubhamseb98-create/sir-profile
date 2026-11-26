@@ -26,20 +26,21 @@
   --font-sans: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-hero: var(--font-outfit), var(--font-inter), 'Inter', sans-serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
 }
 
 :root {
-  --navbar-bg: #000000;
-  --hero-from: #000000;
-  --hero-to: #000000;
+  --navbar-bg: #060D1A;
+  --hero-from: #060D1A;
+  --hero-to: #0A1628;
   --btn-primary: #D4AF37;
   --btn-hover: #E5C665;
   --highlight: #D4AF37;
   --section-light: #FFFFFF;
   --section-ice: #F8FAFC;
-  --section-dark: #000000;
-  --section-dark-card: #0A0A0A;
+  --section-dark: #060D1A;
+  --section-dark-card: #0B1528;
   --text-main: #1E293B;
   --text-muted: #64748B;
   --text-dark-main: #F8FAFC;
@@ -49,7 +50,7 @@
 }
 
 html {
-  background-color: #000000;
+  background-color: #060D1A;
   color: #F8FAFC;
   font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
@@ -66,7 +67,7 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background-color: #000000;
+  background-color: #060D1A;
   font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -102,11 +103,11 @@ html.lenis body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #060D1A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #1E2E4A;
   border-radius: 3px;
 }
 
@@ -213,11 +214,11 @@ select:focus-visible {
 }
 
 /* Multi-stop metallic gold gradient matching official signature logo */
-.bg-gold-metallic {
+@utility bg-gold-metallic {
   background-image: linear-gradient(135deg, #b38728 0%, #fcf6ba 26%, #d4af37 52%, #9a6b0c 78%, #f7df84 100%);
 }
 
-.text-gold-metallic {
+@utility text-gold-metallic {
   background-image: linear-gradient(135deg, #fff4b8 0%, #e7be44 32%, #d4af37 58%, #9a6b0c 84%, #f7df84 100%);
   -webkit-background-clip: text;
   background-clip: text;

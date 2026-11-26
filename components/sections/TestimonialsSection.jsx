@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-20 sm:py-24 bg-[#000000] border-b border-white/10 relative font-sans overflow-hidden">
+    <section id="testimonials" className="py-[60px] bg-[#060D1A] border-b border-white/10 relative font-sans overflow-hidden">
       {/* Background lining texture */}
       <DarkSectionLining showTopBeam={true} showBottomBeam={true} />
 
@@ -162,7 +162,7 @@ export default function TestimonialsSection() {
                     key={`${item.id}-${idx}`}
                     className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-2.5"
                   >
-                    <article className="group h-full relative rounded-2xl bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-[#050505] border border-white/10 hover:border-[#D4AF37]/45 p-5 sm:p-6 flex flex-col justify-between overflow-hidden transition-all duration-500 shadow-[0_14px_35px_rgba(0,0,0,0.85)]">
+                    <article className="group h-full relative rounded-2xl bg-gradient-to-b from-[#101E38] via-[#0B1528] to-[#071020] border border-[#1E3256] hover:border-[#D4AF37]/50 p-5 sm:p-6 flex flex-col justify-between overflow-hidden transition-all duration-500 shadow-[0_14px_35px_rgba(0,0,0,0.55)]">
                       {/* Top Hover Accent Hairline */}
                       <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-[linear-gradient(90deg,transparent_0%,#9A6B0C_25%,#FCF6BA_50%,#D4AF37_75%,transparent_100%)] opacity-35 group-hover:opacity-100 transition-opacity duration-500" />
 

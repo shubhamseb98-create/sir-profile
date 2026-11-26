@@ -2,24 +2,37 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/data/site";
 import Button from "@/components/ui/Button";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { Compass, Target, Layers, TrendingUp, ShieldCheck, Zap } from "lucide-react";
+
+const PRINCIPLE_META = [
+  { icon: Compass, tag: "Strategic Clarity" },
+  { icon: Target, tag: "Accountability" },
+  { icon: Layers, tag: "Scalable Systems" },
+  { icon: TrendingUp, tag: "Commercial ROI" },
+  { icon: ShieldCheck, tag: "Hands-On Rigor" },
+  { icon: Zap, tag: "Execution Speed" },
+];
 
 export default function WhyWorkWithMe() {
   return (
-    <section id="why-work-with-me" className="min-h-screen py-6 sm:py-8 flex flex-col justify-center bg-[#FFFFFF] text-[#1E293B] relative overflow-hidden font-sans border-b border-slate-200">
+    <section
+      id="why-work-with-me"
+      className="py-[60px] bg-[#FFFFFF] text-[#1E293B] relative overflow-hidden font-sans border-b border-slate-200"
+    >
       {/* Decorative architectural background watermark */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[18rem] text-[#334155]/[0.03] select-none pointer-events-none font-bold font-sans">
         DA
       </div>
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-3 sm:mb-4 gap-3">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 sm:mb-10 gap-4">
           <SectionHeading
-            number="06"
             eyebrow="THE ENGAGEMENT PHILOSOPHY"
             title="Why Work With Me"
             description="Consulting without operational accountability is theoretical luxury. I partner directly with founders to convert strategic intent into commercial and systemized execution."
             light={true}
             compact={true}
+            animate={false}
             className="!mb-0 max-w-2xl"
           />
 
@@ -34,46 +47,63 @@ export default function WhyWorkWithMe() {
           </ScrollReveal>
         </div>
 
-        {/* 6 Core Engagement Principles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
-          {siteConfig.whyWorkWithMe.map((item, idx) => (
-            <ScrollReveal
-              key={item.number}
-              delay={idx * 0.08}
-              distance={25}
-              className="relative p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-[0_16px_34px_rgba(15,23,42,0.08)] hover:border-slate-400/70 transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
-            >
-              {/* Subtle Neutral Slate Hover Wash */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50/80 to-slate-100/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl z-0" />
-              <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-slate-400/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10" />
+        {/* 6 Core Engagement Principles Grid with Giant Watermark Counting */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 auto-rows-fr">
+          {siteConfig.whyWorkWithMe.map((item, idx) => {
+            const meta = PRINCIPLE_META[idx % PRINCIPLE_META.length];
+            const Icon = meta.icon;
+            return (
+              <ScrollReveal
+                key={item.number}
+                delay={idx * 0.06}
+                distance={24}
+                className="h-full"
+              >
+                <article className="group h-full relative rounded-2xl bg-[#FAFAFB] hover:bg-white border border-slate-200/90 hover:border-[#D4AF37]/60 p-6 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_16px_34px_rgba(15,23,42,0.08)]">
+                  <div>
+                    {/* Top Row: Refined Framed Icon + Pill Number */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-11 h-11 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#9A6B0C] group-hover:bg-[#0B1528] group-hover:border-[#0B1528] group-hover:text-[#F5E2A3] flex items-center justify-center transition-all duration-300">
+                        <Icon className="w-5 h-5 stroke-[1.75]" />
+                      </div>
+                      <span className="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-[10px] font-mono font-bold text-slate-600 group-hover:border-[#D4AF37]/60 group-hover:text-[#9A6B0C] transition-colors">
+                        {item.number}
+                      </span>
+                    </div>
 
-              <div className="relative z-10 flex flex-col justify-between h-full">
-                <div>
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="font-mono text-[11px] font-bold text-[#334155] group-hover:text-white tracking-widest px-2.5 py-0.5 rounded-full bg-[#334155]/10 group-hover:bg-slate-900 border border-[#334155]/20 group-hover:border-slate-900 transition-colors duration-300">
-                      {item.number}
-                    </span>
-                    <span className="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-slate-900 transition-colors duration-300" />
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-[#1E293B] group-hover:text-slate-950 mb-1.5 leading-snug transition-colors duration-300">
-                    {item.title}
-                  </h3>
+                  {/* Bottom Footer: Divider + Micro Label + Huge Outlined Watermark Counting */}
+                  <div className="relative mt-7 pt-4 border-t border-slate-200/80 flex items-center justify-between">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9A6B0C] relative z-10">
+                      {meta.tag}
+                    </span>
 
-                  <p className="text-[11px] sm:text-xs text-[#475569] group-hover:text-slate-700 leading-relaxed transition-colors duration-300 line-clamp-3">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-3 pt-2 border-t border-slate-100 group-hover:border-slate-200 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#475569]/80 group-hover:text-slate-900 font-semibold transition-colors duration-300">
-                  Non-Negotiable Principle
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+                    {/* Huge Architectural Outlined Numeral */}
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        color: "transparent",
+                        WebkitTextStroke: "1.5px rgba(15, 23, 42, 0.14)",
+                      }}
+                      className="pointer-events-none select-none font-black text-[58px] leading-none tracking-tighter -my-2 transition-opacity duration-300 opacity-85 group-hover:opacity-100"
+                    >
+                      {item.number}
+                    </span>
+                  </div>
+                </article>
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-

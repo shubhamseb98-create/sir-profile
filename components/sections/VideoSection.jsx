@@ -11,8 +11,9 @@ import {
   Play,
   CheckCircle2,
   Music2,
-  TrendingUp,
   ExternalLink,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -30,51 +31,42 @@ function InstagramIcon({ className = "w-4 h-4" }) {
 const reelsData = [
   {
     id: "reel-1",
-    title: "Fixing conversion bottlenecks across 50+ pan-India clinics with automated CRM",
-    founder: "Rajesh Sharma",
-    role: "MD, Healthcare Enterprises",
-    topic: "Enterprise CRM & SOPs",
-    videoSrc: "/videos/reels/healthcare-crm.mp4?v=20261001",
-    poster: "/images/supporting/testimonial-poster-1.jpg",
-    metric: "+320% Lead Conversion",
-    likes: "18.4K",
-    comments: "482",
-    shares: "1.2K",
-    duration: "0:45",
-    tags: ["CRM", "HealthcareScale", "SOPs"],
-    instagramUrl: "https://www.instagram.com/indiandheeraj/",
+    title: "Apne Business Ka X-Ray Karaya Hai? Diagnostic Bottleneck Audit",
+    topic: "Business Diagnostic",
+    metric: "Bottleneck Audit",
+    videoSrc: "/videos/reels/reel-xray.mp4",
+    poster: "/images/reels/reel-xray.jpg",
+    likes: "24.6K",
+    comments: "582",
+    shares: "3.1K",
+    instagramUrl:
+      "https://www.instagram.com/reel/DgKGyFchEgJ/?utm_source=ig_web_button_share_sheet",
   },
   {
     id: "reel-2",
-    title: "Structuring ₹18Cr+ in commercial hospitality deals through high-trust ecosystems",
-    founder: "Vikram Malhotra",
-    role: "Founder & CEO, Luxury Hospitality",
-    topic: "B2B Ecosystem Strategy",
-    videoSrc: "/videos/reels/hospitality-deal.mp4?v=20261001",
-    poster: "/images/supporting/testimonial-poster-2.jpg",
-    metric: "₹18 Cr+ Deal Value",
-    likes: "24.1K",
-    comments: "819",
-    shares: "3.4K",
-    duration: "0:52",
-    tags: ["Hospitality", "B2BDeals", "Networking"],
-    instagramUrl: "https://www.instagram.com/indiandheeraj/",
+    title: "5 Ways to Get New Customers for Any Business (SEO, BNI & Collaboration)",
+    topic: "Customer Acquisition",
+    metric: "5 Growth Levers",
+    videoSrc: "/videos/reels/reel-middle.mp4",
+    poster: "/images/reels/reel-middle.jpg",
+    likes: "28.4K",
+    comments: "720",
+    shares: "3.9K",
+    instagramUrl:
+      "https://www.instagram.com/reel/DgHyvA5vmGv/?utm_source=ig_web_button_share_sheet",
   },
   {
     id: "reel-3",
-    title: "From zero online inquiries to a steady stream of B2B institutional orders",
-    founder: "Amit Singhal",
-    role: "Director, B2B Manufacturing Corp",
-    topic: "Google Dominance & Funnels",
-    videoSrc: "/videos/reels/b2b-manufacturing.mp4?v=20261001",
-    poster: "/images/supporting/testimonial-poster-3.jpg",
-    metric: "4.8x Online RFQs",
-    likes: "15.9K",
-    comments: "394",
-    shares: "980",
-    duration: "0:38",
-    tags: ["DigitalGrowth", "B2BFunnels", "SEO"],
-    instagramUrl: "https://www.instagram.com/indiandheeraj/",
+    title: "Bina Ads Ke Organic Leads? SEO & Google Listing Ka Secret!",
+    topic: "Organic Leads & SEO",
+    metric: "High-Intent Inquiries",
+    videoSrc: "/videos/reels/reel-leads.mp4",
+    poster: "/images/reels/reel-leads.jpg",
+    likes: "19.8K",
+    comments: "416",
+    shares: "2.4K",
+    instagramUrl:
+      "https://www.instagram.com/reel/DfzKnWuJ-qQ/?utm_source=ig_web_button_share_sheet",
   },
 ];
 
@@ -85,7 +77,7 @@ function InstagramReelCard({ reel }) {
   const [progress, setProgress] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
 
-  // Auto-play on hover
+  // Play on hover
   const handleMouseEnter = () => {
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
@@ -107,7 +99,7 @@ function InstagramReelCard({ reel }) {
     }
   };
 
-  // Update progress bar
+  // Time progress bar
   const handleTimeUpdate = () => {
     if (videoRef.current) {
       const current = videoRef.current.currentTime;
@@ -116,6 +108,7 @@ function InstagramReelCard({ reel }) {
     }
   };
 
+  // Mute / Unmute
   const toggleMute = (e) => {
     e.stopPropagation();
     if (videoRef.current) {
@@ -125,10 +118,9 @@ function InstagramReelCard({ reel }) {
     }
   };
 
-  // Open Instagram reel URL when clicking card
+  // Click card to open on Instagram
   const handleCardClick = () => {
-    const url = reel.instagramUrl || "https://www.instagram.com/indiandheeraj/";
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.open(reel.instagramUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -136,7 +128,7 @@ function InstagramReelCard({ reel }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleCardClick}
-      className="group relative w-full max-w-[290px] sm:max-w-[310px] lg:max-w-[325px] mx-auto h-[450px] sm:h-[475px] lg:h-[495px] aspect-[9/16] rounded-[24px] overflow-hidden bg-black border border-white/10 hover:border-[#D4AF37] shadow-[0_20px_50px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-2 cursor-pointer select-none flex flex-col justify-between"
+      className="group relative snap-center shrink-0 w-[84vw] max-w-[320px] xs:max-w-[340px] md:w-full md:max-w-[340px] mx-auto h-[490px] xs:h-[530px] sm:h-[570px] rounded-[24px] overflow-hidden bg-[#081224] border border-white/12 hover:border-[#D4AF37] shadow-[0_22px_55px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-2 cursor-pointer select-none flex flex-col"
     >
       {/* ── 1. Video Element ── */}
       <video
@@ -148,26 +140,26 @@ function InstagramReelCard({ reel }) {
         loop
         preload="metadata"
         onTimeUpdate={handleTimeUpdate}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
       />
 
       {/* ── 2. Top & Bottom Contrast Gradients ── */}
       <div className="absolute inset-0 bg-black/15 pointer-events-none z-[4]" />
-      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/95 via-black/60 to-transparent pointer-events-none z-[5]" />
-      <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black via-black/85 via-45% to-transparent pointer-events-none z-[5]" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#060D1A]/95 via-[#060D1A]/55 to-transparent pointer-events-none z-[5]" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#060D1A]/95 via-[#060D1A]/75 to-transparent pointer-events-none z-[5]" />
 
       {/* ── 3. Top Instagram Header Bar ── */}
-      <div className="relative z-10 p-3.5 pt-3.5 flex items-center justify-between text-white">
-        {/* Creator Info (links to profile) */}
+      <div className="relative z-10 p-4 flex items-center justify-between text-white">
+        {/* Creator Info */}
         <div
           onClick={(e) => {
             e.stopPropagation();
             window.open("https://www.instagram.com/indiandheeraj/", "_blank", "noopener,noreferrer");
           }}
-          className="flex items-center gap-2 cursor-pointer group/author"
+          className="flex items-center gap-2.5 cursor-pointer group/author"
         >
-          {/* Avatar ring in metallic gold theme */}
-          <div className="relative w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-[#D4AF37] to-[#9E7E1E] group-hover/author:scale-105 transition-transform">
+          {/* Avatar ring in metallic gold */}
+          <div className="relative w-9 h-9 rounded-full p-0.5 bg-gradient-to-tr from-[#D4AF37] to-[#F5E6B3] group-hover/author:scale-105 transition-transform shadow-md">
             <div className="relative w-full h-full rounded-full overflow-hidden bg-black">
               <Image
                 src="/images/hero/dd.png"
@@ -178,15 +170,15 @@ function InstagramReelCard({ reel }) {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <span className="text-xs font-bold text-white tracking-tight group-hover/author:text-[#D4AF37] transition-colors">
                 indiandheeraj
               </span>
               <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]/20" />
             </div>
-            <div className="flex items-center gap-1 text-[9px] text-slate-300 font-mono">
+            <div className="flex items-center gap-1 text-[10px] text-slate-300 font-mono">
               <Music2 className="w-2.5 h-2.5 text-[#D4AF37]" />
-              <span className="truncate max-w-[110px]">Original audio</span>
+              <span className="truncate max-w-[130px]">Original audio</span>
             </div>
           </div>
         </div>
@@ -195,26 +187,23 @@ function InstagramReelCard({ reel }) {
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-          className="w-8 h-8 rounded-full bg-black/60 hover:bg-[#D4AF37] hover:text-black border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-colors"
+          className="w-9 h-9 rounded-full bg-black/60 hover:bg-[#D4AF37] hover:text-black border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-colors shadow-lg"
         >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#D4AF37]" />}
+          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[#D4AF37]" />}
         </button>
       </div>
 
       {/* ── 4. Center Play/Hover State Indicator ── */}
       {!isPlaying && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10 transition-opacity">
-          <div className="w-12 h-12 rounded-full bg-black/55 border border-white/25 flex items-center justify-center text-white backdrop-blur-md shadow-2xl group-hover:scale-110 transition-transform mb-2">
-            <Play className="w-5 h-5 fill-white ml-0.5" />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity">
+          <div className="w-14 h-14 rounded-full bg-black/65 border border-[#D4AF37]/50 flex items-center justify-center text-white backdrop-blur-md shadow-2xl group-hover:scale-110 group-hover:border-[#D4AF37] transition-all">
+            <Play className="w-6 h-6 fill-white ml-0.5 text-white" />
           </div>
-          <span className="text-[9px] font-mono tracking-wider uppercase text-white/90 bg-black/70 px-2.5 py-0.5 rounded-full border border-white/10 backdrop-blur-md">
-            Hover to play &bull; Click to open
-          </span>
         </div>
       )}
 
       {/* ── 5. Right Action Rail (Instagram Style) ── */}
-      <div className="absolute right-3 bottom-5 z-20 flex flex-col items-center gap-3 text-white">
+      <div className="absolute right-3.5 bottom-12 z-20 flex flex-col items-center gap-3 text-white">
         {/* Like */}
         <button
           onClick={(e) => {
@@ -223,69 +212,63 @@ function InstagramReelCard({ reel }) {
           }}
           className="flex flex-col items-center gap-0.5 group/btn"
         >
-          <div className={`w-8 h-8 rounded-full bg-black/50 border border-white/10 flex items-center justify-center backdrop-blur-md transition-transform group-hover/btn:scale-110 ${isLiked ? "text-[#D4AF37] border-[#D4AF37]/50" : "text-white"}`}>
+          <div className={`w-9 h-9 rounded-full bg-black/55 border border-white/15 flex items-center justify-center backdrop-blur-md transition-transform group-hover/btn:scale-110 ${isLiked ? "text-[#D4AF37] border-[#D4AF37]" : "text-white"}`}>
             <Heart className={`w-4 h-4 ${isLiked ? "fill-[#D4AF37] text-[#D4AF37]" : ""}`} />
           </div>
-          <span className="text-[8px] font-mono font-bold">{isLiked ? "18.5K" : reel.likes}</span>
+          <span className="text-[9px] font-mono font-bold">{isLiked ? "Liked" : reel.likes}</span>
         </button>
 
         {/* Comment */}
         <div className="flex flex-col items-center gap-0.5">
-          <div className="w-8 h-8 rounded-full bg-black/50 border border-white/10 flex items-center justify-center backdrop-blur-md">
+          <div className="w-9 h-9 rounded-full bg-black/55 border border-white/15 flex items-center justify-center backdrop-blur-md">
             <MessageCircle className="w-4 h-4 text-white" />
           </div>
-          <span className="text-[8px] font-mono font-bold">{reel.comments}</span>
+          <span className="text-[9px] font-mono font-bold">{reel.comments}</span>
         </div>
 
         {/* Share */}
         <div className="flex flex-col items-center gap-0.5">
-          <div className="w-8 h-8 rounded-full bg-black/50 border border-white/10 flex items-center justify-center backdrop-blur-md">
+          <div className="w-9 h-9 rounded-full bg-black/55 border border-white/15 flex items-center justify-center backdrop-blur-md">
             <Share2 className="w-4 h-4 text-white" />
           </div>
-          <span className="text-[8px] font-mono font-bold">{reel.shares}</span>
+          <span className="text-[9px] font-mono font-bold">{reel.shares}</span>
         </div>
 
         {/* Instagram Direct Link Icon */}
-        <div className="w-8 h-8 rounded-full bg-black/90 border border-[#D4AF37]/50 flex items-center justify-center backdrop-blur-md text-[#D4AF37] group-hover:scale-110 transition-transform">
-          <InstagramIcon className="w-3.5 h-3.5" />
+        <div className="w-9 h-9 rounded-full bg-black/85 border border-[#D4AF37]/60 flex items-center justify-center backdrop-blur-md text-[#D4AF37] group-hover:scale-110 transition-transform shadow-md">
+          <InstagramIcon className="w-4 h-4" />
         </div>
       </div>
 
-      {/* ── 6. Bottom Reel Caption & Progress Bar (Glued to Bottom Edge - NO GAP) ── */}
-      <div className="mt-auto relative z-10 w-full pointer-events-none">
-        <div className="p-3.5 pr-14 text-white pb-2.5 pointer-events-auto">
-          {/* Key Impact Metric Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-black/90 border border-[#D4AF37]/50 px-2.5 py-0.5 rounded-full mb-1.5 backdrop-blur-md shadow-md">
-            <TrendingUp className="w-3 h-3 text-[#D4AF37]" />
-            <span className="text-[9px] font-mono font-bold text-[#D4AF37]">{reel.metric}</span>
+      {/* ── 6. Bottom Reel Title & Caption Info (Aligned flush at bottom) ── */}
+      <div className="mt-auto relative z-10 w-full flex flex-col justify-end">
+        <div className="px-4 pb-3.5 pr-16 text-white flex flex-col gap-1.5 pointer-events-none">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#F5E6B3] backdrop-blur-md">
+              {reel.topic}
+            </span>
+            <span className="text-[10px] text-slate-300 font-mono">
+              {reel.metric}
+            </span>
           </div>
 
-          {/* Founder Tag */}
-          <div className="text-[11px] text-slate-200 font-semibold mb-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-            {reel.founder} &bull; <span className="text-[#D4AF37] font-bold">{reel.role}</span>
-          </div>
-
-          {/* Reel Title/Caption */}
-          <p className="text-xs font-semibold text-white line-clamp-2 leading-snug mb-1 drop-shadow-[0_2px_5px_rgba(0,0,0,0.95)]">
+          <h3 className="text-xs sm:text-sm font-semibold text-white/95 leading-snug line-clamp-2 drop-shadow-md min-h-[2.5rem] flex items-center">
             {reel.title}
-          </p>
+          </h3>
 
-          {/* Hashtags */}
-          <div className="flex flex-wrap gap-1 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
-            {reel.tags.map((tag) => (
-              <span key={tag} className="text-[8.5px] font-mono text-slate-300">
-                #{tag}
-              </span>
-            ))}
-          </div>
+          <span className="text-[11px] text-[#D4AF37] font-medium inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform pt-0.5">
+            Watch on Instagram <ExternalLink className="w-3 h-3" />
+          </span>
         </div>
 
-        {/* ── 7. Scrubbing Bottom Progress Bar ── */}
-        <div className="relative z-20 w-full h-[2px] bg-white/20 overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-[#DFBE54] via-[#D4AF37] to-[#E5C665] transition-all duration-100 ease-linear"
-            style={{ width: `${progress}%` }}
-          />
+        {/* ── 7. Clean Bottom Progress Bar ── */}
+        <div className="relative z-20 w-full pointer-events-none">
+          <div className="w-full h-[3px] bg-white/20 overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-[#DFBE54] via-[#D4AF37] to-[#E5C665] transition-all duration-100 ease-linear"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -300,16 +283,38 @@ export default function VideoSection({
   description = "Hover over any reel to auto-play instant insights on fixing bottlenecks, deal ecosystems, and B2B growth. Click any card to watch directly on Instagram.",
   className = "",
 }) {
+  const carouselRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const handleCarouselScroll = () => {
+    if (!carouselRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) return;
+    const ratio = scrollLeft / maxScroll;
+    const idx = Math.round(ratio * (reelsData.length - 1));
+    setActiveSlide(Math.min(Math.max(0, idx), reelsData.length - 1));
+  };
+
+  const scrollToSlide = (idx) => {
+    if (!carouselRef.current) return;
+    const card = carouselRef.current.children[idx];
+    if (card) {
+      card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      setActiveSlide(idx);
+    }
+  };
+
   return (
     <section
       id={id}
-      className={`relative min-h-screen py-[80px] bg-[#000000] border-b border-white/10 font-sans overflow-hidden flex flex-col justify-center ${className}`}
+      className={`relative py-[60px] bg-[#060D1A] border-b border-white/10 font-sans overflow-hidden ${className}`}
     >
       {/* ── Background Lining Texture & Subtle Glow ── */}
       <DarkSectionLining glowPosition="center" showTopBeam={true} showBottomBeam={false} />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center my-auto">
-        {/* ── Section Header (Compact for 100vh) ── */}
+        {/* ── Section Header ── */}
         <ScrollReveal distance={28} delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-8 sm:mb-10">
           <SectionHeading
             number={number}
@@ -335,11 +340,58 @@ export default function VideoSection({
           </a>
         </ScrollReveal>
 
-        {/* ── 3-Column Instagram Reels Grid ── */}
-        <ScrollReveal distance={35} delay={0.2} scale={0.98} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-center">
-          {reelsData.map((reel) => (
-            <InstagramReelCard key={reel.id} reel={reel} />
-          ))}
+        {/* ── Mobile Horizontal Swipe Carousel / Desktop 3-Column Grid ── */}
+        <ScrollReveal distance={35} delay={0.2} scale={0.98}>
+          <div
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+            className="flex md:grid md:grid-cols-2 lg:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-2 pt-1 -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 gap-4 sm:gap-7 justify-start md:justify-center items-center"
+            style={{
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            {reelsData.map((reel) => (
+              <InstagramReelCard key={reel.id} reel={reel} />
+            ))}
+          </div>
+
+          {/* ── Mobile Carousel Pagination Dots & Nav Controls ── */}
+          <div className="flex md:hidden items-center justify-center gap-3 mt-5">
+            <button
+              onClick={() => scrollToSlide(Math.max(0, activeSlide - 1))}
+              disabled={activeSlide === 0}
+              aria-label="Previous reel"
+              className="w-8 h-8 rounded-full bg-[#081224] border border-white/20 text-white disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center active:scale-95 transition-all shadow-md"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-1.5">
+              {reelsData.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollToSlide(idx)}
+                  aria-label={`Go to reel ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    activeSlide === idx
+                      ? "w-6 bg-[#D4AF37] shadow-[0_0_8px_#D4AF37]"
+                      : "w-2 bg-white/25 hover:bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => scrollToSlide(Math.min(reelsData.length - 1, activeSlide + 1))}
+              disabled={activeSlide === reelsData.length - 1}
+              aria-label="Next reel"
+              className="w-8 h-8 rounded-full bg-[#081224] border border-white/20 text-white disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center active:scale-95 transition-all shadow-md"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </ScrollReveal>
       </div>
     </section>

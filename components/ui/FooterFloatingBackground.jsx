@@ -161,18 +161,14 @@ export default function FooterFloatingBackground() {
       aria-hidden="true"
       className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0"
     >
-      {/* ── Soft whisper-subtle atmospheric glow (#D4AF37 neon tint) ── */}
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[180px] bg-[#D4AF37]/[0.06] blur-[110px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[450px] h-[180px] bg-[#9E7E1E]/[0.05] blur-[120px] rounded-full pointer-events-none" />
-
-      {/* ── Fluid Aurora Canvas Wave (Soft & Gentle) ── */}
+      {/* ── Fluid Aurora Canvas Wave (Soft & Crisp) ── */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none block opacity-75"
       />
 
-      {/* ── Top Border Divider Luminous Beam (#D4AF37 Neon) ── */}
-      <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent shadow-[0_0_15px_rgba(212,175,55,0.45)] pointer-events-none" />
+      {/* ── Top Border Divider Hairline ── */}
+      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent pointer-events-none" />
     </div>
   );
 }

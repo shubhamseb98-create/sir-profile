@@ -183,12 +183,18 @@ export default function Hero() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden bg-[#000000] font-sans pt-24 sm:pt-28 select-none"
+      className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden bg-[#060D1A] font-sans pt-24 sm:pt-28 select-none"
     >
       {/* Semantic Page Heading */}
       <h1 className="sr-only">
         Dheeraj Aggarwal — Business Consultant, Digital Expert &amp; Growth Specialist
       </h1>
+
+      {/* Atmospheric Midnight Navy Depth Backdrop */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_85%_70%_at_50%_38%,#0E1E3A_0%,#060D1A_75%)]"
+      />
 
       {/* ── 1. INTERACTIVE THREE.JS 3D WAVE & STUDIO DEPTH ── */}
       <div className="hero-intro-bg absolute inset-0 pointer-events-none z-[1] opacity-0">
@@ -205,15 +211,15 @@ export default function Hero() {
         }}
       />
 
-      {/* ── 2. GIANT EDITORIAL DISPLAY NAME BEHIND PORTRAIT (2 LINES) ── */}
+      {/* ── 2. ARCHITECTURAL CLEAN METALLIC GOLD DISPLAY NAME BEHIND PORTRAIT ── */}
       <div
         aria-hidden="true"
-        className="hero-editorial-name absolute bottom-[260px] sm:bottom-[clamp(225px,39vh,365px)] inset-x-0 flex justify-center items-center pointer-events-none select-none z-[2] px-4 sm:px-8"
+        className="hero-editorial-name absolute top-[30%] xs:top-[32%] sm:top-auto sm:bottom-[clamp(225px,39vh,365px)] inset-x-0 flex justify-center items-center pointer-events-none select-none z-[2] px-2 sm:px-8"
       >
         <div
-          className="flex flex-col items-center justify-center font-sans font-semibold uppercase tracking-[-0.02em] leading-[0.94] whitespace-nowrap drop-shadow-[0_14px_45px_rgba(0,0,0,0.95)]"
+          className="relative flex flex-col items-center justify-center font-[family-name:var(--font-hero)] font-extrabold uppercase tracking-[0.04em] sm:tracking-[0.06em] leading-[0.92] sm:leading-[0.94] whitespace-nowrap text-center"
           style={{
-            fontSize: "clamp(34px, 9.2vw, 134px)",
+            fontSize: "clamp(44px, 13vw, 128px)",
           }}
         >
           {DISPLAY_LINES.map((line, lineIdx) => (
@@ -223,9 +229,11 @@ export default function Hero() {
                   key={`${lineIdx}-${letter}-${idx}`}
                   style={{
                     backgroundImage:
-                      "linear-gradient(155deg, #FFF6C4 0%, #E7BE44 28%, #D4AF37 54%, #8F5E06 82%, #F7DF84 100%)",
+                      "linear-gradient(180deg, #FFF9DE 0%, #FCE79D 24%, #D4AF37 60%, #9C720B 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
                   }}
-                  className="hero-intro-letter inline-block pt-[0.04em] pb-[0.14em] -mb-[0.14em] pr-[0.06em] -mr-[0.06em] opacity-0 bg-clip-text text-transparent"
+                  className="hero-intro-letter inline-block pt-[0.04em] pb-[0.12em] -mb-[0.12em] pr-[0.06em] -mr-[0.06em] opacity-0 font-extrabold"
                 >
                   {letter}
                 </span>
@@ -236,7 +244,7 @@ export default function Hero() {
       </div>
 
       {/* ── 3. CENTER PORTRAIT CUTOUT (MASKED BOTTOM FADE — NO BLACK BOX OVERLAY) ── */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-end justify-center w-[300px] h-[390px] sm:w-auto sm:h-[clamp(400px,68vh,580px)] sm:aspect-[682/740]">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-end justify-center w-[290px] h-[450px] xs:w-[320px] xs:h-[490px] sm:w-auto sm:h-[clamp(400px,68vh,580px)] sm:aspect-[682/740]">
         <div ref={portraitRef} className="relative w-full h-full origin-bottom">
           <div
             className="hero-intro-portrait relative w-full h-full opacity-0 origin-bottom"
@@ -260,25 +268,25 @@ export default function Hero() {
       </div>
 
       {/* ── 4. BOTTOM-LEFT & BOTTOM-RIGHT EDITORIAL COLUMNS ── */}
-      <div className="hero-editorial-meta relative z-20 w-full max-w-[1280px] mx-auto px-6 pr-16 sm:px-12 md:px-16 lg:px-24 pb-10 sm:pb-16 md:pb-20 pt-6">
-        <div className="grid grid-cols-2 md:flex md:flex-row md:items-end justify-between gap-4 sm:gap-8">
+      <div className="hero-editorial-meta relative z-20 w-full max-w-[1280px] mx-auto px-4 xs:px-6 sm:px-12 md:px-16 lg:px-24 pb-6 sm:pb-16 md:pb-20 pt-4">
+        <div className="grid grid-cols-2 md:flex md:flex-row md:items-end justify-between gap-2 sm:gap-8 items-end">
           {/* Bottom Left: 4-Word Pillar Stack + Signature */}
           <div className="flex flex-col items-start text-left">
-            <div className="font-sans font-extrabold uppercase tracking-tight leading-[1.08] text-base sm:text-xl lg:text-[22px]">
+            <div className="font-sans font-extrabold uppercase tracking-tight leading-[1.08] text-xs xs:text-sm sm:text-xl lg:text-[22px]">
               <span className="hero-intro-left block text-white opacity-0">BRANDS.</span>
               <span className="hero-intro-left block text-white opacity-0">SYSTEMS.</span>
               <span className="hero-intro-left block text-white opacity-0">GROWTH.</span>
               <span className="hero-intro-left block text-gold-metallic opacity-0">IMPACT.</span>
             </div>
 
-            <div className="hero-intro-left mt-2.5 sm:mt-3 opacity-0">
+            <div className="hero-intro-left mt-1.5 xs:mt-2 sm:mt-3 opacity-0">
               <Image
                 src="/cl-logo/dheeraj-gold-logo.png"
                 alt="Dheeraj Aggarwal Signature"
                 width={150}
                 height={51}
                 unoptimized
-                className="h-7 sm:h-9 w-auto object-contain drop-shadow-[0_2px_10px_rgba(212,175,55,0.3)]"
+                className="h-5 xs:h-6 sm:h-9 w-auto object-contain drop-shadow-[0_2px_10px_rgba(212,175,55,0.3)]"
               />
             </div>
           </div>
@@ -291,17 +299,17 @@ export default function Hero() {
                 variant="primary"
                 size="md"
                 icon="right"
-                className="!rounded-md px-4 sm:px-5 py-2 sm:py-2.5 h-auto text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.14em]"
+                className="!rounded-md px-3 sm:px-5 py-1.5 sm:py-2.5 h-auto text-[10px] xs:text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.12em] sm:tracking-[0.14em]"
               >
                 LET&apos;S TALK
               </Button>
             </div>
 
-            <div className="mt-2.5 sm:mt-3.5">
-              <p className="hero-intro-right text-[11px] sm:text-sm font-semibold text-white/95 leading-snug opacity-0">
+            <div className="mt-1.5 xs:mt-2 sm:mt-3.5">
+              <p className="hero-intro-right text-[10px] xs:text-[11px] sm:text-sm font-semibold text-white/95 leading-snug opacity-0">
                 15+ Years of Experience
               </p>
-              <p className="hero-intro-right text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.14em] text-gold-metallic mt-0.5 opacity-0">
+              <p className="hero-intro-right text-[9px] xs:text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-gold-metallic mt-0.5 opacity-0">
                 BUSINESS CONSULTANT
               </p>
             </div>

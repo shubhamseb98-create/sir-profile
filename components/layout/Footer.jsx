@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#000000] border-t border-white/10 pt-14 sm:pt-18 md:pt-20 pb-8 sm:pb-12 text-white font-sans overflow-hidden">
+    <footer className="relative bg-[#060D1A] border-t border-white/10 py-[60px] text-white font-sans overflow-hidden">
       {/* ── Floating Luminous Glass Rings, Circles & Ambient Glow ── */}
       <FooterFloatingBackground />
 

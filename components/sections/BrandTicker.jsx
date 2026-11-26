@@ -48,7 +48,7 @@ export default function BrandTicker() {
   const tickerItems = [...brandLogos, ...brandLogos];
 
   return (
-    <section id="brand-ticker" className="py-16 sm:py-20 md:py-24 bg-[#FFFFFF] border-y border-slate-200 relative font-sans overflow-hidden select-none">
+    <section id="brand-ticker" className="py-[60px] bg-[#FFFFFF] border-y border-slate-200 relative font-sans overflow-hidden select-none">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center mb-8 sm:mb-12 relative z-10">
         <ScrollReveal distance={20} delay={0.1}>
           <SectionHeading
