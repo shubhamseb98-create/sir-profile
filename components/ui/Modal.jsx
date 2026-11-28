@@ -52,7 +52,7 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = "ma
       >
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-black/40">
           {title ? (
-            <h3 className="text-lg sm:text-xl font-bold text-white">{title}</h3>
+            <h3 className="text-lg sm:text-xl font-normal text-white">{title}</h3>
           ) : (
             <span />
           )}

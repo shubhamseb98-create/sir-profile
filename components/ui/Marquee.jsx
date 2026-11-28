@@ -28,26 +28,20 @@ export default function Marquee({
   return (
     <div
       className={cn(
-        "relative overflow-hidden w-full flex select-none [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]",
+        "relative overflow-hidden w-full select-none [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]",
         className
       )}
     >
       <div
         className={cn(
-          "flex shrink-0 items-center justify-around gap-8 min-w-full animate-marquee-slow",
+          "flex w-max animate-marquee-slow",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {children}
-      </div>
-      <div
-        aria-hidden="true"
-        className={cn(
-          "flex shrink-0 items-center justify-around gap-8 min-w-full animate-marquee-slow",
-          pauseOnHover && "hover:[animation-play-state:paused]"
-        )}
-      >
-        {children}
+        <div className="flex shrink-0 items-center gap-8 pr-8">{children}</div>
+        <div aria-hidden="true" className="flex shrink-0 items-center gap-8 pr-8">
+          {children}
+        </div>
       </div>
     </div>
   );

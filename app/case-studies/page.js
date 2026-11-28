@@ -23,6 +23,7 @@ export default function CaseStudiesPage() {
         title="Measurable Business Transformations Across Sectors."
         description="Detailed reviews of how strategic diagnostics, custom CRM architecture, and disciplined digital campaigns drove bottom-line growth."
         breadcrumbs={[{ label: "Case Studies" }]}
+        imageSrc="/images/transformations/karma-clinic-ops.jpg"
       />
 
       {/* Interactive Filter & Case Portfolio Grid (LIGHT - 60px padding) */}
@@ -50,8 +51,8 @@ export default function CaseStudiesPage() {
                   className={cn(
                     "text-xs px-3.5 py-2 rounded-full border transition-colors cursor-pointer font-medium",
                     isActive
-                      ? "bg-[#060D1A] text-[#F5E2A3] border-[#060D1A] font-semibold"
-                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
+                      ? "bg-[#04040A] text-[#93C5FD] border-[#04040A] font-semibold"
+                      : "bg-white text-slate-600 border-slate-200 hover:border-[#3B82F6]/60 hover:text-[#1D4ED8]"
                   )}
                 >
                   {cat}
@@ -73,7 +74,7 @@ export default function CaseStudiesPage() {
               <button
                 type="button"
                 onClick={() => setSelectedCategory("All")}
-                className="text-xs text-[#9A6B0C] font-bold uppercase tracking-wider underline cursor-pointer"
+                className="text-xs text-[#1D4ED8] hover:text-[#2563EB] font-bold uppercase tracking-wider underline cursor-pointer"
               >
                 Reset Filter
               </button>

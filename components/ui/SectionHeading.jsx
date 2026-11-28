@@ -13,50 +13,60 @@ export default function SectionHeading({
   light = false,
   compact = false,
   animate = true,
+  accent = "blue",
   className = "",
 }) {
   const isCenter = align === "center";
+  const isDeepIndigo = !light && accent === "indigo";
 
   const content = (
     <>
       {eyebrow && (
         <div
           className={cn(
-            "flex",
+            "flex items-center gap-3 max-w-full",
             isCenter && "justify-center",
             compact ? "mb-2.5" : "mb-3.5"
           )}
         >
-          <div
-            className={cn(
-              "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border max-w-full transition-all shadow-sm",
-              light
-                ? "bg-[#FFF8E7] border-[#F2D792] text-[#976409]"
-                : "bg-[#0B172C] border-[#D4AF37]/45 text-[#F6E3A8]"
-            )}
-          >
+          {isCenter && (
             <span
               aria-hidden="true"
               className={cn(
-                "w-1.5 h-1.5 rounded-full shrink-0",
-                light ? "bg-[#B4821E]" : "bg-[#D4AF37] shadow-[0_0_8px_#D4AF37]"
+                "hidden sm:inline-block h-px w-10 md:w-14 shrink-0",
+                light
+                  ? "bg-gradient-to-l from-[#3B82F6]/65 to-transparent"
+                  : "bg-gradient-to-l from-[#60A5FA]/60 to-transparent"
               )}
             />
-            <span
-              className={cn(
-                "text-[10px] sm:text-[11px] uppercase font-bold tracking-[0.16em] sm:tracking-[0.20em] leading-none",
-                light ? "text-[#976409]" : "text-[#F6E3A8]"
-              )}
-            >
-              {eyebrow}
-            </span>
-          </div>
+          )}
+          <span
+            className={cn(
+              "text-[10px] sm:text-[11px] uppercase font-medium tracking-[0.2em] leading-none truncate",
+              light
+                ? "text-[#1D4ED8]"
+                : isDeepIndigo
+                ? "text-[#E0E7FF]"
+                : "text-slate-200"
+            )}
+          >
+            {eyebrow}
+          </span>
+          <span
+            aria-hidden="true"
+            className={cn(
+              "hidden sm:inline-block h-px w-12 md:w-16 shrink-0",
+              light
+                ? "bg-gradient-to-r from-[#3B82F6]/65 to-transparent"
+                : "bg-gradient-to-r from-[#60A5FA]/60 to-transparent"
+            )}
+          />
         </div>
       )}
 
       <h2
         className={cn(
-          "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.18] tracking-tight",
+          "text-2xl sm:text-3xl md:text-4xl font-normal leading-[1.18] tracking-tight",
           light ? "text-[#0F172A]" : "text-white"
         )}
       >
@@ -66,8 +76,10 @@ export default function SectionHeading({
             highlightCount={2}
             highlightClassName={
               light
-                ? "text-[#B4821E] font-extrabold"
-                : "text-[#F5D57A] font-extrabold drop-shadow-[0_0_15px_rgba(212,175,55,0.35)]"
+                ? "text-[#3B82F6] font-normal"
+                : isDeepIndigo
+                ? "text-[#3B82F6] font-normal drop-shadow-[0_0_16px_rgba(99,102,241,0.4)]"
+                : "text-[#3B82F6] font-normal drop-shadow-[0_0_16px_rgba(59,130,246,0.38)]"
             }
           />
         ) : (

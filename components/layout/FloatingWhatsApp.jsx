@@ -49,7 +49,7 @@ export default function FloatingActionCluster() {
             onClick={scrollToTop}
             title="Scroll to top"
             aria-label="Scroll to top of page"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-black text-white hover:text-[#D4AF37] border border-white/20 hover:border-[#D4AF37] flex items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-200 hover:-translate-y-1 active:scale-95 cursor-pointer group"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-black text-white hover:text-[#93C5FD] border border-white/20 hover:border-[#60A5FA] flex items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-200 hover:-translate-y-1 active:scale-95 cursor-pointer group"
           >
             <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:-translate-y-0.5" />
           </motion.button>
@@ -61,9 +61,9 @@ export default function FloatingActionCluster() {
         href={`tel:${siteConfig.phoneRaw}`}
         title="Call Direct"
         aria-label={`Call Dheeraj Aggarwal directly at ${siteConfig.phoneDisplay}`}
-        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-black text-white hover:text-[#D4AF37] border border-white/20 hover:border-[#D4AF37] flex items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-200 hover:-translate-y-1 active:scale-95 group cursor-pointer"
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/90 hover:bg-black text-white hover:text-[#93C5FD] border border-white/20 hover:border-[#60A5FA] flex items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-200 hover:-translate-y-1 active:scale-95 group cursor-pointer"
       >
-        <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37] transition-transform group-hover:scale-110" />
+        <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#60A5FA] transition-transform group-hover:scale-110" />
       </a>
 
       {/* ── 3. WhatsApp Direct Circular Button ── */}

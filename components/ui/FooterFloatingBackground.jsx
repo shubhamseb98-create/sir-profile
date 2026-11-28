@@ -53,13 +53,13 @@ export default function FooterFloatingBackground() {
         // Base horizontal baseline for the aurora ribbons (anchored near bottom, below text)
         const baseH = height * 0.84;
 
-        // ── Ribbon 1: Subtle Gold Wave ──
+        // ── Ribbon 1: Subtle Royal Blue Wave ──
         ctx.save();
         const grad1 = ctx.createLinearGradient(0, height * 0.5, width, height);
-        grad1.addColorStop(0, "rgba(212,175,55, 0.0)");
-        grad1.addColorStop(0.3, "rgba(212,175,55, 0.03)");
-        grad1.addColorStop(0.7, "rgba(154, 107, 12, 0.025)");
-        grad1.addColorStop(1, "rgba(212,175,55, 0.0)");
+        grad1.addColorStop(0, "rgba(59,130,246, 0.0)");
+        grad1.addColorStop(0.3, "rgba(59,130,246, 0.05)");
+        grad1.addColorStop(0.7, "rgba(99, 102, 241, 0.04)");
+        grad1.addColorStop(1, "rgba(59,130,246, 0.0)");
 
         ctx.fillStyle = grad1;
         ctx.beginPath();
@@ -79,13 +79,13 @@ export default function FooterFloatingBackground() {
         ctx.fill();
         ctx.restore();
 
-        // ── Ribbon 2: Secondary Gold Ribbon ──
+        // ── Ribbon 2: Secondary Indigo-Blue Ribbon ──
         ctx.save();
         const grad2 = ctx.createLinearGradient(0, height * 0.55, width, height);
-        grad2.addColorStop(0, "rgba(212,175,55, 0.0)");
-        grad2.addColorStop(0.25, "rgba(212,175,55, 0.04)");
-        grad2.addColorStop(0.65, "rgba(252, 246, 186, 0.03)");
-        grad2.addColorStop(1, "rgba(212,175,55, 0.0)");
+        grad2.addColorStop(0, "rgba(96,165,250, 0.0)");
+        grad2.addColorStop(0.25, "rgba(96,165,250, 0.05)");
+        grad2.addColorStop(0.65, "rgba(147, 197, 253, 0.04)");
+        grad2.addColorStop(1, "rgba(99,102,241, 0.0)");
 
         ctx.fillStyle = grad2;
         ctx.beginPath();
@@ -108,9 +108,9 @@ export default function FooterFloatingBackground() {
         ctx.fill();
         ctx.restore();
 
-        // ── Ribbon 3: Crisp Metallic Crest Line (no blur glow) ──
+        // ── Ribbon 3: Crisp Electric Blue Crest Line ──
         ctx.save();
-        ctx.strokeStyle = "rgba(212,175,55, 0.16)";
+        ctx.strokeStyle = "rgba(96,165,250, 0.22)";
         ctx.lineWidth = 1;
 
         ctx.beginPath();
@@ -123,11 +123,11 @@ export default function FooterFloatingBackground() {
         }
         ctx.restore();
 
-        // ── Ribbon 4: Secondary Ultra-Faint Wave ──
+        // ── Ribbon 4: Secondary Subtle Indigo Wave ──
         ctx.save();
         ctx.shadowBlur = 4;
-        ctx.shadowColor = "rgba(163, 230, 53, 0.2)";
-        ctx.strokeStyle = "rgba(163, 230, 53, 0.1)";
+        ctx.shadowColor = "rgba(99, 102, 241, 0.25)";
+        ctx.strokeStyle = "rgba(129, 140, 248, 0.14)";
         ctx.lineWidth = 0.75;
 
         ctx.beginPath();
@@ -168,7 +168,7 @@ export default function FooterFloatingBackground() {
       />
 
       {/* ── Top Border Divider Hairline ── */}
-      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#60A5FA]/50 to-transparent pointer-events-none" />
     </div>
   );
 }

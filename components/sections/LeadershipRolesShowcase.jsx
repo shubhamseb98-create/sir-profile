@@ -64,8 +64,8 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                     className={cn(
                       "px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 shrink-0 cursor-pointer border",
                       isSelected
-                        ? "bg-[#060D1A] text-[#F5E2A3] border-[#060D1A] shadow-sm"
-                        : "bg-slate-50 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
+                        ? "bg-[#04040A] text-[#93C5FD] border-[#04040A] shadow-sm"
+                        : "bg-[#F8FAFC] text-slate-600 border-slate-200 hover:border-[#3B82F6]/60 hover:text-[#1D4ED8]"
                     )}
                   >
                     {r.name.split(" (")[0]}
@@ -82,7 +82,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                 type="button"
                 onClick={handlePrev}
                 aria-label="Previous role"
-                className="w-8 h-8 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-[#060D1A] hover:text-[#060D1A] flex items-center justify-center transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-[#2563EB] hover:text-[#1D4ED8] flex items-center justify-center transition-colors cursor-pointer"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
               </button>
@@ -90,7 +90,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                 type="button"
                 onClick={handleNext}
                 aria-label="Next role"
-                className="w-8 h-8 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-[#060D1A] hover:text-[#060D1A] flex items-center justify-center transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-[#2563EB] hover:text-[#1D4ED8] flex items-center justify-center transition-colors cursor-pointer"
               >
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -102,7 +102,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
         <article className="rounded-2xl bg-white border border-slate-200/90 shadow-[0_8px_30px_rgba(15,23,42,0.05)] overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-12 items-stretch">
             {/* Left Visual Frame (5 Cols) */}
-            <div className="md:col-span-5 relative min-h-[260px] sm:min-h-[340px] bg-[#060D1A]">
+            <div className="md:col-span-5 relative min-h-[260px] sm:min-h-[340px] bg-[#04040A]">
               <Image
                 src={imageSrc}
                 alt={currentRole.name}
@@ -111,10 +111,10 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                 sizes="(max-width: 768px) 100vw, 520px"
                 className="object-cover object-center transition-opacity duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/85 via-[#060D1A]/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#04040A]/85 via-[#04040A]/20 to-transparent pointer-events-none" />
 
               <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
-                <span className="text-[11px] uppercase tracking-[0.16em] text-[#F5E2A3] font-semibold block mb-1">
+                <span className="text-[11px] uppercase tracking-[0.16em] text-[#93C5FD] font-semibold block mb-1">
                   {currentRole.period}
                 </span>
                 <p className="text-xl sm:text-2xl font-bold leading-tight">
@@ -128,7 +128,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-200">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#9A6B0C] block">
+                    <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#1D4ED8] block">
                       {currentRole.title}
                     </span>
                     <span className="text-xs text-slate-500">
@@ -162,7 +162,7 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                         key={area}
                         className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#9A6B0C] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
                         <span>{area}</span>
                       </div>
                     ))}
@@ -170,8 +170,8 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
                 </div>
 
                 {/* Measured Impact Bar */}
-                <div className="p-4 rounded-xl bg-[#FAF9F6] border-l-2 border-[#D4AF37]">
-                  <span className="text-[10px] uppercase tracking-[0.14em] font-bold text-[#9A6B0C] block mb-0.5">
+                <div className="p-4 rounded-xl bg-[#EFF6FF] border-l-2 border-[#2563EB]">
+                  <span className="text-[10px] uppercase tracking-[0.14em] font-bold text-[#1D4ED8] block mb-0.5">
                     Verified Impact
                   </span>
                   <p className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
@@ -200,10 +200,10 @@ export default function LeadershipRolesShowcase({ roles = [] }) {
 
                 <Link
                   href={currentRole.href}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#060D1A] hover:bg-[#0F1E3A] text-white text-xs font-semibold transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#04040A] hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] text-white text-xs font-semibold transition-all shadow-sm"
                 >
                   <span>Explore Venture Details</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#93C5FD]" />
                 </Link>
               </div>
             </div>

@@ -15,26 +15,38 @@ export const metadata = {
 export default function AboutPage() {
   const philosophies = [
     {
+      tag: "Strategic Clarity",
+      image: "/images/inner/about-philosophy-clarity.jpg",
       title: "Clarity Before Marketing",
       desc: "Promoting an ill-defined offer burns capital. Strategic positioning and unit economics must always precede ad spend.",
     },
     {
+      tag: "Revenue Accountability",
+      image: "/images/cards/roas-analytics-real.jpg",
       title: "Digital Growth Connects to Revenue",
       desc: "Impressions and follower counts are vanity metrics unless they directly translate into qualified sales calls and cash flow.",
     },
     {
+      tag: "Repeatable Systems",
+      image: "/images/inner/about-sop-systems.jpg",
       title: "Systems and SOPs Create Freedom",
       desc: "Founder brilliance is unscalable without documented standard operating procedures. Value lies in repeatable processes.",
     },
     {
+      tag: "Trust Ecosystems",
+      image: "/images/inner/hhc-gala-networking.jpg",
       title: "High-Trust Communities Multiply Value",
       desc: "High-trust networks shorten sales cycles and multiply collaborative value. Genuine reciprocity builds enduring ecosystems.",
     },
     {
+      tag: "Operating Cadence",
+      image: "/images/inner/speaking-executive-workshop.jpg",
       title: "Execution Wins Over Ideas Alone",
       desc: "A brilliant slide deck without operational follow-through produces zero value. Disciplined weekly execution wins markets.",
     },
     {
+      tag: "Margin Protection",
+      image: "/images/hero/hero-panoramic-boardroom.jpg",
       title: "Sustainable & Measurable Velocity",
       desc: "Growth that compromises unit margins or overextends operational capacity is fragile. We engineer durable commercial momentum.",
     },
@@ -55,31 +67,37 @@ export default function AboutPage() {
     {
       title: "Integrity",
       tag: "Transparency",
+      image: "/images/inner/about-values-integrity.jpg",
       desc: "Absolute transparency with clients and partners. We never recommend campaigns a business does not genuinely need.",
     },
     {
       title: "Innovation",
       tag: "Advantage",
+      image: "/images/cards/brand-strategy-real.jpg",
       desc: "Staying ahead of algorithmic and consumer shifts to uncover unfair commercial advantages for our clients.",
     },
     {
       title: "Impact",
       tag: "Bottom Line",
+      image: "/images/cards/crm-operations-real.jpg",
       desc: "Evaluating success by bottom-line results: reduced inquiry lag, improved ROAS, and increased profitability.",
     },
     {
       title: "Continuous Learning",
       tag: "Sector Mastery",
+      image: "/images/transformations/karma-clinic-ops.jpg",
       desc: "Refining execution across varied sectors — from ayurvedic healthcare to luxury hospitality and manufacturing.",
     },
     {
       title: "Relationship Building",
       tag: "Trust Equity",
+      image: "/images/transformations/hhc-hospitality-roundtable.jpg",
       desc: "Nurturing deep commercial bonds grounded in mutual respect, ethical conduct, and reciprocal value creation.",
     },
     {
       title: "Giving Back",
       tag: "Mentorship",
+      image: "/images/inner/speaking-panel-moderation.jpg",
       desc: "Mentoring emerging MSME entrepreneurs, sharing practical operational playbooks, and cultivating business leaders.",
     },
   ];
@@ -140,7 +158,7 @@ export default function AboutPage() {
 
             {/* Clean Uncluttered Editorial Portrait Frame */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[400px] h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-slate-200 bg-[#060D1A] shadow-[0_12px_36px_rgba(15,23,42,0.08)]">
+              <div className="relative w-full max-w-[400px] h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-slate-200 bg-[#04040A] shadow-[0_12px_36px_rgba(15,23,42,0.08)]">
                 <Image
                   src="/images/hero/ddab.png"
                   alt="Dheeraj Aggarwal - Business Consultant & Growth Specialist"
@@ -155,9 +173,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Chronological Leadership Journey (DARK MIDNIGHT NAVY - 60px padding) */}
-      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
-        <DarkSectionLining />
+      {/* 3. Chronological Leadership Journey (OBSIDIAN & ROYAL BLUE - GSAP Interactive) */}
+      <section className="py-[60px] bg-[#04040A] border-b border-white/10 relative overflow-x-clip font-sans">
+        <DarkSectionLining variant="blue" />
 
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
@@ -174,8 +192,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. Professional Philosophy Ledger (LIGHT - 60px padding) */}
-      <section className="py-[60px] bg-[#FFFFFF] border-b border-slate-200 font-sans">
+      {/* 4. Professional Philosophy Editorial Cards (LIGHT - 60px padding) */}
+      <section className="py-[60px] bg-[#F8FAFC] border-b border-slate-200 font-sans">
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
           <SectionHeading
             eyebrow="GOVERNING PRINCIPLES"
@@ -187,35 +205,54 @@ export default function AboutPage() {
             className="!mb-8 sm:!mb-10"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 border-t border-slate-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {philosophies.map((item, idx) => (
-              <div
+              <article
                 key={item.title}
-                className="group py-6 border-b border-slate-200 flex items-start gap-5 transition-colors"
+                className="group rounded-2xl bg-white border border-slate-200/90 hover:border-[#3B82F6]/65 overflow-hidden flex flex-col justify-between transition-all duration-300 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_14px_30px_rgba(37,99,235,0.08)]"
               >
-                <span className="text-lg font-extrabold text-[#9A6B0C] tabular-nums shrink-0 pt-0.5">
-                  0{idx + 1}
-                </span>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 group-hover:text-[#9A6B0C] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    <div className="flex items-center gap-2.5 mb-2.5">
+                      <span className="font-mono text-xs font-bold text-[#1D4ED8] tabular-nums">
+                        0{idx + 1}
+                      </span>
+                      <span className="h-3 w-px bg-slate-200" />
+                      <span className="text-[11px] uppercase tracking-[0.14em] font-semibold text-slate-500">
+                        {item.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-normal text-slate-900 mb-2 group-hover:text-[#1D4ED8] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Key Capabilities & Core Values (DARK MIDNIGHT NAVY - 60px padding) */}
+      {/* 5. Key Capabilities & Core Values (OBSIDIAN & ROYAL BLUE - 60px padding) */}
       <section
         id="bni-leadership"
-        className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans"
+        className="py-[60px] bg-[#04040A] border-b border-white/10 relative overflow-hidden font-sans"
       >
-        <DarkSectionLining />
+        <DarkSectionLining variant="blue" />
 
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -234,14 +271,14 @@ export default function AboutPage() {
               <ul className="border-t border-white/12 divide-y divide-white/10">
                 {capabilities.map((cap) => (
                   <li key={cap} className="py-3.5 flex items-center gap-3 text-sm text-slate-100 font-medium">
-                    <Check className="w-4 h-4 text-[#D4AF37] shrink-0" strokeWidth={2.2} />
+                    <Check className="w-4 h-4 text-[#60A5FA] shrink-0" strokeWidth={2.2} />
                     <span>{cap}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Right: Personal Values Editorial Grid */}
+            {/* Right: Personal Values Editorial Visual Grid */}
             <div className="lg:col-span-7">
               <SectionHeading
                 eyebrow="ETHICAL FOUNDATION"
@@ -253,26 +290,39 @@ export default function AboutPage() {
                 className="!mb-6"
               />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 {values.map((v, idx) => (
                   <div
                     key={v.title}
-                    className="p-5 sm:p-6 rounded-2xl bg-[#0B1528] border border-white/10 hover:border-[#D4AF37]/50 transition-colors"
+                    className="group rounded-2xl overflow-hidden bg-[#090F1E] border border-white/10 hover:border-[#60A5FA]/55 transition-colors flex flex-col"
                   >
-                    <div className="flex items-center justify-between gap-2 mb-2.5">
-                      <span className="text-[11px] uppercase tracking-[0.16em] font-semibold text-[#D4AF37]">
-                        {v.tag}
-                      </span>
-                      <span className="text-xs font-bold text-slate-500 tabular-nums">
-                        0{idx + 1}
-                      </span>
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#04040A] border-b border-white/10">
+                      <Image
+                        src={v.image}
+                        alt={v.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 380px"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#090F1E]/80 via-transparent to-transparent pointer-events-none" />
                     </div>
-                    <h4 className="text-base sm:text-lg font-bold text-white mb-1.5">
-                      {v.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      {v.desc}
-                    </p>
+
+                    <div className="p-5">
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] uppercase tracking-[0.16em] font-semibold text-[#93C5FD]">
+                          {v.tag}
+                        </span>
+                        <span className="text-xs font-mono font-bold text-slate-400 tabular-nums">
+                          0{idx + 1}
+                        </span>
+                      </div>
+                      <h4 className="text-base sm:text-lg font-normal text-white mb-1.5">
+                        {v.title}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        {v.desc}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>

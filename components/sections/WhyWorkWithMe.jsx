@@ -41,7 +41,7 @@ export default function WhyWorkWithMe() {
   return (
     <section
       id="why-work-with-me"
-      className="py-16 sm:py-20 bg-[#F7F5EF] text-[#0F172A] relative overflow-hidden font-sans border-y border-[#E6E0D2]"
+      className="py-[60px] bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden font-sans border-y border-slate-200"
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-5">
@@ -78,35 +78,35 @@ export default function WhyWorkWithMe() {
                 distance={20}
                 className="h-full"
               >
-                <article className="group relative h-full rounded-2xl bg-white border border-[#E6E0D2] hover:border-[#D4AF37]/65 p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_2px_10px_rgba(6,13,26,0.03)] hover:shadow-[0_18px_36px_-14px_rgba(6,13,26,0.1)]">
-                  {/* Signature Expanding Gold Top Rule */}
+                <article className="group relative h-full rounded-2xl bg-white border border-slate-200 hover:border-[#3B82F6]/65 p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_2px_10px_rgba(4,4,10,0.03)] hover:shadow-[0_18px_36px_-14px_rgba(37,99,235,0.14)]">
+                  {/* Signature Expanding Royal-Blue Top Rule */}
                   <span
                     aria-hidden="true"
-                    className="absolute top-0 left-0 h-[3px] w-12 group-hover:w-full bg-gradient-to-r from-[#9A6B0C] via-[#D4AF37] to-[#E5C665] transition-all duration-500 ease-out"
+                    className="absolute top-0 left-0 h-[3px] w-12 group-hover:w-full bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#6366F1] transition-all duration-500 ease-out"
                   />
 
                   <div>
                     {/* Top Meta Bar: Single Clean Editorial Index + Subtle Icon Medallion */}
                     <div className="flex items-center justify-between gap-3 mb-6">
                       <div className="flex items-center gap-2.5">
-                        <span className="font-mono text-xs font-bold tracking-wider text-[#9A6B0C]">
+                        <span className="font-mono text-xs font-bold tracking-wider text-[#1D4ED8]">
                           {item.number}
                         </span>
                         <span
                           aria-hidden="true"
-                          className="h-3 w-px bg-[#DFD8C8]"
+                          className="h-3 w-px bg-slate-200"
                         />
                         <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                           {meta.tag}
                         </span>
                       </div>
 
-                      <div className="w-9 h-9 rounded-full bg-[#F7F5EF] border border-[#E5DEC9] text-[#060D1A] group-hover:bg-[#060D1A] group-hover:border-[#060D1A] group-hover:text-[#F5E2A3] flex items-center justify-center shrink-0 transition-colors duration-300">
+                      <div className="w-9 h-9 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#04040A] group-hover:bg-[#04040A] group-hover:border-[#04040A] group-hover:text-[#93C5FD] flex items-center justify-center shrink-0 transition-colors duration-300">
                         <Icon className="w-4 h-4 stroke-[1.8]" />
                       </div>
                     </div>
 
-                    <h3 className="text-[18px] sm:text-[19px] font-bold text-[#060D1A] mb-2.5 leading-snug tracking-[-0.015em]">
+                    <h3 className="text-[18px] sm:text-[19px] font-normal text-[#04040A] mb-2.5 leading-snug tracking-[-0.015em]">
                       {item.title}
                     </h3>
 
@@ -119,7 +119,7 @@ export default function WhyWorkWithMe() {
                   <div className="mt-6 pt-3.5 border-t border-slate-100 flex items-center gap-2.5">
                     <span
                       aria-hidden="true"
-                      className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0 group-hover:bg-[#9A6B0C] transition-colors"
+                      className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] shrink-0 group-hover:bg-[#1D4ED8] transition-colors"
                     />
                     <span className="text-xs font-medium text-slate-500 group-hover:text-slate-700 transition-colors">
                       {meta.focus}

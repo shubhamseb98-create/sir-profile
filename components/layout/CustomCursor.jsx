@@ -47,7 +47,7 @@ export default function CustomCursor() {
     <>
       {/* Precision Core Dot */}
       <div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-[#D4AF37] transition-opacity duration-200"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-[#60A5FA] transition-opacity duration-200"
         style={{
           width: isCaseStudy ? "0px" : "6px",
           height: isCaseStudy ? "0px" : "6px",
@@ -58,16 +58,16 @@ export default function CustomCursor() {
 
       {/* Follower Ring / View Label */}
       <div
-        className="pointer-events-none fixed top-0 left-0 z-[9998] rounded-full border border-[#D4AF37]/50 transition-all duration-150 ease-out flex items-center justify-center backdrop-blur-[1px]"
+        className="pointer-events-none fixed top-0 left-0 z-[9998] rounded-full border border-[#60A5FA]/50 transition-all duration-150 ease-out flex items-center justify-center backdrop-blur-[1px]"
         style={{
           width: isCaseStudy ? "72px" : isHovered ? "48px" : "28px",
           height: isCaseStudy ? "72px" : isHovered ? "48px" : "28px",
           backgroundColor: isCaseStudy
-            ? "#D4AF37"
+            ? "#3B82F6"
             : isHovered
-            ? "rgba(212,175,55, 0.15)"
+            ? "rgba(59, 130, 246, 0.16)"
             : "transparent",
-          borderColor: isCaseStudy ? "#D4AF37" : isHovered ? "#F5E2A3" : "rgba(212,175,55, 0.4)",
+          borderColor: isCaseStudy ? "#60A5FA" : isHovered ? "#93C5FD" : "rgba(96, 165, 250, 0.45)",
           transform: `translate3d(${pos.x - (isCaseStudy ? 36 : isHovered ? 24 : 14)}px, ${
             pos.y - (isCaseStudy ? 36 : isHovered ? 24 : 14)
           }px, 0)`,
@@ -75,7 +75,7 @@ export default function CustomCursor() {
         }}
       >
         {isCaseStudy && (
-          <span className="text-[11px] font-bold uppercase tracking-wider text-black">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-white">
             View
           </span>
         )}

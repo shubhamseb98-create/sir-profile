@@ -27,13 +27,13 @@ export default function SafeImage({
           className
         )}
       >
-        <div className="w-12 h-12 rounded-full border border-[#D4AF37]/30 flex items-center justify-center mb-3 bg-[#D4AF37]/10">
-          <span className="font-mono text-base text-[#D4AF37] font-bold">DA</span>
+        <div className="w-12 h-12 rounded-full border border-[#60A5FA]/35 flex items-center justify-center mb-3 bg-[#3B82F6]/12">
+          <span className="font-mono text-base text-[#93C5FD] font-bold">DA</span>
         </div>
         <p className="text-xs uppercase tracking-widest text-slate-400 font-mono">
           {alt || "Executive Portrait"}
         </p>
-        <span className="mt-2 text-[10px] tracking-wider uppercase text-[#D4AF37] font-mono bg-black/60 px-2 py-0.5 rounded border border-[#D4AF37]/20">
+        <span className="mt-2 text-[10px] tracking-wider uppercase text-[#93C5FD] font-mono bg-black/60 px-2 py-0.5 rounded border border-[#60A5FA]/25">
           {placeholderLabel}
         </span>
       </div>

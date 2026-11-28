@@ -1,317 +1,271 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Button from "@/components/ui/Button";
-import { initGSAP, gsap } from "@/lib/gsap";
-
-const HeroThreeScene = dynamic(() => import("@/components/ui/HeroThreeScene"), {
-  ssr: false,
-});
-
-const DISPLAY_LINES = [
-  ["D", "H", "E", "E", "R", "A", "J"],
-  ["A", "G", "G", "A", "R", "W", "A", "L"],
-];
 
 export default function Hero() {
-  const sectionRef = useRef(null);
-  const portraitRef = useRef(null);
-
-  // Staggered bottom-to-top entrance animation (synced with Preloader lift) + scroll parallax
-  useEffect(() => {
-    const { ScrollTrigger: st } = initGSAP();
-    if (!sectionRef.current) return;
-
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    let hasPlayedIntro = false;
-    let fallbackTimer = null;
-    let playEntranceRef = null;
-
-    const ctx = gsap.context(() => {
-      const revealTargets = [
-        ".hero-intro-letter",
-        ".hero-intro-portrait",
-        ".hero-intro-left",
-        ".hero-intro-right",
-        ".hero-intro-bg",
-      ];
-
-      if (prefersReducedMotion) {
-        gsap.set(revealTargets, { opacity: 1, y: 0, scale: 1 });
-      } else {
-        const playEntrance = () => {
-          if (hasPlayedIntro) return;
-          hasPlayedIntro = true;
-          if (fallbackTimer) {
-            clearTimeout(fallbackTimer);
-            fallbackTimer = null;
-          }
-
-          const introTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-          // 1. Three.js backdrop fades in gently
-          introTl.fromTo(
-            ".hero-intro-bg",
-            { opacity: 0 },
-            { opacity: 1, duration: 1.2, ease: "power2.out" },
-            0
-          );
-
-          // 2. First: DHEERAJ AGGARWAL text behind the portrait sweeps up slowly bottom-to-top
-          introTl.fromTo(
-            ".hero-intro-letter",
-            { y: 110, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.25,
-              stagger: 0.048,
-            },
-            0.15
-          );
-
-          // 3. Second: Center portrait rises slowly after background text appears
-          introTl.fromTo(
-            ".hero-intro-portrait",
-            { y: 130, opacity: 0, scale: 1.03 },
-            {
-              y: 0,
-              opacity: 1,
-              scale: 1,
-              duration: 1.45,
-            },
-            0.85
-          );
-
-          // 4. Third: Bottom-left pillars & signature enter one by one
-          introTl.fromTo(
-            ".hero-intro-left",
-            { y: 45, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.9,
-              stagger: 0.16,
-            },
-            1.75
-          );
-
-          // 5. Fourth: Bottom-right CTA & credentials enter one by one
-          introTl.fromTo(
-            ".hero-intro-right",
-            { y: 45, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.9,
-              stagger: 0.18,
-            },
-            2.35
-          );
-        };
-
-        playEntranceRef = playEntrance;
-
-        if (typeof window !== "undefined" && window.__DA_PRELOADER_EXITED__) {
-          playEntrance();
-        } else if (typeof window !== "undefined") {
-          window.addEventListener("da-preloader-exit", playEntrance, { once: true });
-          fallbackTimer = setTimeout(playEntrance, 3000);
-        }
-      }
-
-      // Scroll-out parallax on outer wrappers (independent of inner intro targets)
-      if (st) {
-        const scrollTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.2,
-          },
-        });
-
-        scrollTl.to(
-          ".hero-editorial-name",
-          {
-            y: -60,
-            opacity: 0.35,
-            ease: "none",
-          },
-          0
-        );
-
-        scrollTl.to(
-          ".hero-editorial-meta",
-          {
-            y: -25,
-            opacity: 0,
-            ease: "none",
-          },
-          0
-        );
-
-        if (portraitRef.current) {
-          scrollTl.to(
-            portraitRef.current,
-            {
-              y: 30,
-              scale: 0.97,
-              ease: "none",
-            },
-            0
-          );
-        }
-      }
-    }, sectionRef);
-
-    return () => {
-      if (typeof window !== "undefined" && playEntranceRef) {
-        window.removeEventListener("da-preloader-exit", playEntranceRef);
-      }
-      if (fallbackTimer) clearTimeout(fallbackTimer);
-      ctx.revert();
-    };
-  }, []);
+  const handleScrollDown = () => {
+    const target = document.getElementById("about-us");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
       id="top"
-      ref={sectionRef}
-      className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden bg-[#060D1A] font-sans pt-24 sm:pt-28 select-none"
+      className="relative min-h-[100svh] lg:h-[100svh] lg:min-h-[600px] lg:max-h-[900px] flex flex-col justify-center overflow-hidden bg-[#04060D] text-white font-sans pt-20 sm:pt-24 pb-10 lg:pb-0 select-none"
     >
-      {/* Semantic Page Heading */}
-      <h1 className="sr-only">
-        Dheeraj Aggarwal — Business Consultant, Digital Expert &amp; Growth Specialist
-      </h1>
-
-      {/* Atmospheric Midnight Navy Depth Backdrop */}
+      {/* ── 1. DARK OBSIDIAN STAGE + CROSSED BLUE GLASS BARS + BOTTOM WAVE GLOW ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_85%_70%_at_50%_38%,#0E1E3A_0%,#060D1A_75%)]"
-      />
-
-      {/* ── 1. INTERACTIVE THREE.JS 3D WAVE & STUDIO DEPTH ── */}
-      <div className="hero-intro-bg absolute inset-0 pointer-events-none z-[1] opacity-0">
-        <HeroThreeScene />
-      </div>
-
-      {/* Tactile Fine Film Grain Texture */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none opacity-[0.045] mix-blend-screen z-[1]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
-        }}
-      />
-
-      {/* ── 2. ARCHITECTURAL CLEAN METALLIC GOLD DISPLAY NAME BEHIND PORTRAIT ── */}
-      <div
-        aria-hidden="true"
-        className="hero-editorial-name absolute top-[30%] xs:top-[32%] sm:top-auto sm:bottom-[clamp(225px,39vh,365px)] inset-x-0 flex justify-center items-center pointer-events-none select-none z-[2] px-2 sm:px-8"
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden bg-[#04040A]"
       >
+        {/* Bottom-Only Mask on Generated Rounded Blue Waves Backdrop (Leaves Upper-Right Clean Pitch-Black for Crisp Bars) */}
         <div
-          className="relative flex flex-col items-center justify-center font-[family-name:var(--font-hero)] font-extrabold uppercase tracking-[0.04em] sm:tracking-[0.06em] leading-[0.92] sm:leading-[0.94] whitespace-nowrap text-center"
+          className="absolute inset-0"
           style={{
-            fontSize: "clamp(44px, 13vw, 128px)",
+            maskImage:
+              "radial-gradient(ellipse 88% 58% at 64% 96%, rgba(0,0,0,0.92) 25%, rgba(0,0,0,0.35) 56%, transparent 78%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 88% 58% at 64% 96%, rgba(0,0,0,0.92) 25%, rgba(0,0,0,0.35) 56%, transparent 78%)",
           }}
         >
-          {DISPLAY_LINES.map((line, lineIdx) => (
-            <div key={lineIdx} className="inline-flex items-baseline justify-center">
-              {line.map((letter, idx) => (
-                <span
-                  key={`${lineIdx}-${letter}-${idx}`}
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(180deg, #FFF9DE 0%, #FCE79D 24%, #D4AF37 60%, #9C720B 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                  className="hero-intro-letter inline-block pt-[0.04em] pb-[0.12em] -mb-[0.12em] pr-[0.06em] -mr-[0.06em] opacity-0 font-extrabold"
-                >
-                  {letter}
-                </span>
-              ))}
-            </div>
-          ))}
+          <Image
+            src="/images/hero/hero-blue-curves-bg.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-bottom opacity-85"
+          />
         </div>
-      </div>
 
-      {/* ── 3. CENTER PORTRAIT CUTOUT (MASKED BOTTOM FADE — NO BLACK BOX OVERLAY) ── */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-end justify-center w-[290px] h-[450px] xs:w-[320px] xs:h-[490px] sm:w-auto sm:h-[clamp(400px,68vh,580px)] sm:aspect-[682/740]">
-        <div ref={portraitRef} className="relative w-full h-full origin-bottom">
-          <div
-            className="hero-intro-portrait relative w-full h-full opacity-0 origin-bottom"
+        {/* Left-Side Vignette for Ultra-Sharp Typography Contrast */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, #04040A 0%, rgba(4,4,10,0.88) 38%, transparent 66%)",
+          }}
+        />
+
+        {/* Bar 1 (Upper Diagonal Strip Behind Head Extending Cleanly to Top Edge) */}
+        <div
+          className="hidden sm:block absolute -top-[4%] right-[22%] lg:right-[23%] w-[105px] md:w-[130px] lg:w-[155px] h-[110%]"
+          style={{
+            transform: "skewX(-30deg)",
+            transformOrigin: "top right",
+            background:
+              "linear-gradient(180deg, rgba(30, 58, 138, 0.28) 0%, rgba(79, 70, 229, 0.26) 42%, rgba(59, 130, 246, 0.14) 72%, rgba(4, 4, 10, 0) 100%)",
+            borderLeft: "1px solid rgba(96, 165, 250, 0.28)",
+          }}
+        />
+
+        {/* Bar 2 (Exact Flat-Top Tilted Box Right Below Top-Right CTA Button Behind Shoulder) */}
+        <div
+          className="hidden sm:block absolute top-[18%] right-[4%] lg:right-[5.5%] xl:right-[6.5%] w-[135px] md:w-[165px] lg:w-[195px] h-[88%]"
+          style={{
+            transform: "skewX(-28deg)",
+            transformOrigin: "top right",
+            background:
+              "linear-gradient(175deg, rgba(99, 102, 241, 0.56) 0%, rgba(59, 130, 246, 0.42) 32%, rgba(37, 99, 235, 0.2) 66%, rgba(4, 4, 10, 0) 96%)",
+            borderTop: "1.5px solid rgba(191, 219, 254, 0.48)",
+            borderRight: "1px solid rgba(96, 165, 250, 0.22)",
+            boxShadow:
+              "0 0 55px rgba(79, 70, 229, 0.42), inset 14px 0 32px -12px rgba(147, 197, 253, 0.45)",
+          }}
+        >
+          {/* Intense Razor-Bright Left Luminous Edge Beam Along Tilted Box Spine */}
+          <span
+            className="absolute inset-y-0 -left-[1px] w-[2px]"
             style={{
-              maskImage:
-                "linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.78) 6%, #000 14%, #000 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.78) 6%, #000 14%, #000 100%)",
+              background:
+                "linear-gradient(180deg, rgba(147, 197, 253, 0.25) 0%, rgba(239, 246, 255, 0.96) 26%, rgba(96, 165, 250, 0.85) 56%, rgba(59, 130, 246, 0.08) 92%)",
+              boxShadow:
+                "0 0 18px 3px rgba(96, 165, 250, 0.85), 0 0 42px 8px rgba(79, 70, 229, 0.65)",
             }}
-          >
-            <Image
-              src="/images/hero/dheeraj-studio-portrait.png"
-              alt="Dheeraj Aggarwal - Business Consultant & Growth Specialist"
-              fill
-              preload
-              unoptimized
-              className="object-cover object-top select-none pointer-events-none"
-            />
-          </div>
+          />
         </div>
+
+        {/* Focused Shoulder Optical Bloom Right Where Left Beam Emerges Behind Collar */}
+        <div
+          className="hidden sm:block absolute top-[28%] right-[16%] lg:right-[19%] w-[140px] h-[180px] rounded-full blur-[34px] opacity-75"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(219, 234, 254, 0.78) 0%, rgba(79, 70, 229, 0.48) 45%, transparent 78%)",
+          }}
+        />
+
+        {/* Bottom Smooth Edge Blend */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-20"
+          style={{
+            background:
+              "linear-gradient(to top, #04040A 0%, rgba(4,4,10,0.4) 55%, transparent 100%)",
+          }}
+        />
+
+        {/* Rounded Blue SVG Bottom Wave Accents & Crescent */}
+        <svg
+          viewBox="0 0 1440 900"
+          fill="none"
+          preserveAspectRatio="xMidYMid slice"
+          className="absolute inset-0 w-full h-full"
+        >
+          <defs>
+            <linearGradient id="blueRoundStroke" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.06" />
+              <stop offset="45%" stopColor="#60A5FA" stopOpacity="0.72" />
+              <stop offset="80%" stopColor="#A5B4FC" stopOpacity="0.92" />
+              <stop offset="100%" stopColor="#6366F1" stopOpacity="0.22" />
+            </linearGradient>
+
+            <linearGradient id="blueWaveMesh" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.04" />
+              <stop offset="50%" stopColor="#60A5FA" stopOpacity="0.34" />
+              <stop offset="100%" stopColor="#6366F1" stopOpacity="0.04" />
+            </linearGradient>
+
+            <filter id="blueRoundBloom" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Rounded Luminous Wave Curve Rising Gently Up Left Side of Portrait Waist */}
+          <path
+            d="M 555 910 C 655 775, 745 640, 840 485"
+            stroke="url(#blueRoundStroke)"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            filter="url(#blueRoundBloom)"
+            fill="none"
+          />
+
+          {/* Rounded Crescent Arch Sweeping Bottom-Right */}
+          <path
+            d="M 1075 910 C 1165 815, 1285 765, 1455 760"
+            stroke="url(#blueRoundStroke)"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            filter="url(#blueRoundBloom)"
+            fill="none"
+          />
+
+          {/* Smooth Rounded Bottom-Left Multi-Strand Contour Curves */}
+          <path
+            d="M -20 822 C 185 734, 345 734, 540 818"
+            stroke="url(#blueWaveMesh)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M -20 842 C 190 756, 355 758, 550 838"
+            stroke="url(#blueWaveMesh)"
+            strokeWidth="1"
+            strokeLinecap="round"
+            opacity="0.72"
+            fill="none"
+          />
+        </svg>
       </div>
 
-      {/* ── 4. BOTTOM-LEFT & BOTTOM-RIGHT EDITORIAL COLUMNS ── */}
-      <div className="hero-editorial-meta relative z-20 w-full max-w-[1280px] mx-auto px-4 xs:px-6 sm:px-12 md:px-16 lg:px-24 pb-6 sm:pb-16 md:pb-20 pt-4">
-        <div className="grid grid-cols-2 md:flex md:flex-row md:items-end justify-between gap-2 sm:gap-8 items-end">
-          {/* Bottom Left: 4-Word Pillar Stack + Signature */}
-          <div className="flex flex-col items-start text-left">
-            <div className="font-sans font-extrabold uppercase tracking-tight leading-[1.08] text-xs xs:text-sm sm:text-xl lg:text-[22px]">
-              <span className="hero-intro-left block text-white opacity-0">BRANDS.</span>
-              <span className="hero-intro-left block text-white opacity-0">SYSTEMS.</span>
-              <span className="hero-intro-left block text-white opacity-0">GROWTH.</span>
-              <span className="hero-intro-left block text-gold-metallic opacity-0">IMPACT.</span>
-            </div>
-
-            <div className="hero-intro-left mt-1.5 xs:mt-2 sm:mt-3 opacity-0">
-              <Image
-                src="/cl-logo/dheeraj-gold-logo.png"
-                alt="Dheeraj Aggarwal Signature"
-                width={150}
-                height={51}
-                unoptimized
-                className="h-5 xs:h-6 sm:h-9 w-auto object-contain drop-shadow-[0_2px_10px_rgba(212,175,55,0.3)]"
+      {/* ── 2. MAIN EDITORIAL HERO CONTAINER ── */}
+      <div className="relative z-10 flex-1 max-w-[1280px] w-full mx-auto px-4 sm:px-6 md:px-10 flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center w-full h-full">
+          {/* LEFT EDITORIAL COLUMN (Typographic Headline + Bio + CTAs + Scroll Down) */}
+          <div className="lg:col-span-6 flex flex-col items-start justify-center py-2 lg:pb-6 z-20">
+            {/* Eyebrow Uppercase Role + Hairline Rule */}
+            <div className="flex items-center gap-2.5 mb-3 max-w-full">
+              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-slate-200 truncate">
+                BUSINESS CONSULTANT &amp; GROWTH STRATEGIST
+              </span>
+              <span
+                aria-hidden="true"
+                className="hidden sm:inline-block h-px w-14 md:w-20 bg-gradient-to-r from-[#60A5FA]/60 to-transparent shrink-0"
               />
             </div>
-          </div>
 
-          {/* Bottom Right: Primary CTA + Experience & Title */}
-          <div className="flex flex-col items-end text-right">
-            <div className="hero-intro-right opacity-0">
+            {/* 3-Tier Editorial Name Stack */}
+            <h1 className="font-sans tracking-[-0.032em] leading-[0.97]">
+              <span className="block font-light text-slate-200 text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] mb-1">
+                Hello, I&apos;m
+              </span>
+              <span className="block font-normal text-white text-[40px] xs:text-[50px] sm:text-[60px] lg:text-[66px] xl:text-[76px] tracking-[-0.03em]">
+                Dheeraj
+              </span>
+              <span
+                className="block font-normal text-[40px] xs:text-[50px] sm:text-[60px] lg:text-[66px] xl:text-[76px] tracking-[-0.03em] pb-1"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(115deg, #DBEAFE 0%, #93C5FD 30%, #60A5FA 65%, #818CF8 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Aggarwal
+              </span>
+            </h1>
+
+            {/* Positioning Statement With Vertical Royal-Blue Bar */}
+            <div className="mt-3 sm:mt-4 pl-3.5 sm:pl-4 border-l-2 border-[#60A5FA] max-w-[440px]">
+              <p className="text-xs sm:text-sm md:text-[15px] text-slate-300 leading-relaxed font-normal">
+                Building stronger brands, scalable systems and measurable growth.
+              </p>
+            </div>
+
+            {/* Primary Pill CTA + Watch Intro Trigger */}
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3.5 sm:gap-5">
               <Button
                 href="/contact?type=strategy-call"
-                variant="primary"
+                variant="secondary"
                 size="md"
                 icon="right"
-                className="!rounded-md px-3 sm:px-5 py-1.5 sm:py-2.5 h-auto text-[10px] xs:text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.12em] sm:tracking-[0.14em]"
+                className="h-10 sm:h-11 px-5 sm:px-7 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#6366F1] border-[#93C5FD]/40 text-white hover:text-white hover:border-[#93C5FD]/75 hover:brightness-110 shadow-[0_0_28px_rgba(59,130,246,0.5)]"
               >
-                LET&apos;S TALK
+                Let&apos;s Work Together
               </Button>
             </div>
 
-            <div className="mt-1.5 xs:mt-2 sm:mt-3.5">
-              <p className="hero-intro-right text-[10px] xs:text-[11px] sm:text-sm font-semibold text-white/95 leading-snug opacity-0">
-                15+ Years of Experience
-              </p>
-              <p className="hero-intro-right text-[9px] xs:text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-gold-metallic mt-0.5 opacity-0">
-                BUSINESS CONSULTANT
-              </p>
+            {/* Clean Scroll Down Trigger Kept Clear of Corner Floating Badges */}
+            <button
+              type="button"
+              onClick={handleScrollDown}
+              className="mt-6 lg:mt-8 hidden sm:inline-flex items-center gap-2.5 text-[11px] font-medium text-slate-400 hover:text-[#93C5FD] transition-colors cursor-pointer group"
+            >
+              <span className="w-4 h-6 rounded-full border border-white/30 group-hover:border-[#60A5FA] flex items-start justify-center p-1 transition-colors">
+                <span className="w-0.5 h-1.5 rounded-full bg-[#60A5FA] animate-bounce" />
+              </span>
+              <span>Scroll Down</span>
+            </button>
+          </div>
+
+          {/* RIGHT PORTRAIT COLUMN (Existing Studio Portrait Positioned Cleanly Front of Tilted Glass Box) */}
+          <div className="lg:col-span-6 relative flex items-end justify-center lg:justify-end self-stretch min-h-[340px] sm:min-h-[420px] lg:min-h-0">
+            <div
+              className="relative h-[340px] xs:h-[380px] sm:h-[460px] lg:h-[clamp(440px,84svh,700px)] aspect-[682/740] lg:mr-14 xl:mr-20 pointer-events-none"
+              style={{
+                maskImage:
+                  "linear-gradient(to top, transparent 0%, rgba(0,0,0,0.85) 6%, #000 15%, #000 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to top, transparent 0%, rgba(0,0,0,0.85) 6%, #000 15%, #000 100%)",
+              }}
+            >
+              <Image
+                src="/images/hero/dheeraj-studio-portrait.png"
+                alt="Dheeraj Aggarwal - Business Consultant & Growth Specialist"
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 1024px) 390px, 660px"
+                className="object-cover object-top drop-shadow-[0_24px_45px_rgba(0,0,0,0.65)]"
+              />
             </div>
           </div>
         </div>

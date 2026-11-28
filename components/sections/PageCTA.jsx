@@ -1,6 +1,7 @@
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
 import { MessageCircle, Mail } from "lucide-react";
+import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -16,6 +17,7 @@ export default function PageCTA({
     label: "Explore Core Expertise",
     href: "#core-expertise",
   },
+  tertiaryAction = null,
   showAlternatives = true,
   className = "",
   light = true,
@@ -26,9 +28,12 @@ export default function PageCTA({
       className={`py-[60px] relative overflow-hidden font-sans ${
         light
           ? "bg-white border-t border-slate-200 text-slate-900"
-          : "bg-black border-t border-white/10 text-white"
+          : "bg-[#04040A] border-t border-white/10 text-white"
       } ${className}`}
     >
+      {!light && (
+        <DarkSectionLining variant="blue" glowPosition="center" showTopBeam={true} showBottomBeam={false} />
+      )}
       <ScrollReveal
         distance={35}
         delay={0.1}
@@ -40,17 +45,18 @@ export default function PageCTA({
           description={description}
           align="center"
           light={light}
+          compact={true}
           animate={false}
           className="!mb-0 mx-auto"
         />
 
         {/* Primary + Secondary Action Buttons */}
-        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+        <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3">
           <Button
             href={primaryAction.href}
             variant={light ? "light-primary" : "primary"}
-            size="md"
-            className="sm:px-8 sm:py-3.5 sm:text-base font-bold shadow-md hover:shadow-xl"
+            size="sm"
+            className="sm:h-10 sm:px-6 sm:text-sm font-bold shadow-md hover:shadow-xl"
           >
             {primaryAction.label}
           </Button>
@@ -58,12 +64,24 @@ export default function PageCTA({
           <Button
             href={secondaryAction.href}
             variant={light ? "light-secondary" : "secondary"}
-            size="md"
+            size="sm"
             icon="right"
-            className="sm:px-8 sm:py-3.5 sm:text-base"
+            className="sm:h-10 sm:px-6 sm:text-sm"
           >
             {secondaryAction.label}
           </Button>
+
+          {tertiaryAction && (
+            <Button
+              href={tertiaryAction.href}
+              variant={light ? "light-secondary" : "secondary"}
+              size="sm"
+              icon="right"
+              className="sm:h-10 sm:px-6 sm:text-sm"
+            >
+              {tertiaryAction.label}
+            </Button>
+          )}
         </div>
 
         {/* Alternative direct conversion channels */}
@@ -90,10 +108,10 @@ export default function PageCTA({
             <a
               href={`mailto:${siteConfig.contactEmail}`}
               className={`transition-colors flex items-center gap-1.5 font-medium ${
-                light ? "hover:text-black" : "hover:text-[#D4AF37]"
+                light ? "hover:text-[#1D4ED8]" : "hover:text-[#93C5FD]"
               }`}
             >
-              <Mail className="w-3.5 h-3.5 text-slate-500" />
+              <Mail className={`w-3.5 h-3.5 ${light ? "text-slate-500" : "text-[#93C5FD]/80"}`} />
               <span>Direct Email</span>
             </a>
           </div>

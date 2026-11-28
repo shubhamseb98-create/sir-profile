@@ -27,26 +27,32 @@ export default function HHCPage() {
   const communityPillars = [
     {
       title: "Executive Networking Meets",
+      image: "/images/inner/hhc-gala-networking.jpg",
       desc: "Curated monthly gatherings connecting hoteliers, F&B owners, and executive chefs in high-trust peer environments.",
     },
     {
       title: "Star Vendor Category Exclusivity",
+      image: "/images/transformations/hhc-hospitality-roundtable.jpg",
       desc: "Structured B2B access for vetted hospitality suppliers with category-limited representation to protect commercial ROI.",
     },
     {
       title: "High-Tea & Cocktail Roundtables",
+      image: "/images/roles/hhc-showcase.jpg",
       desc: "Exclusive leadership offsites and informal executive soirees designed for meaningful conversations without sales pitches.",
     },
     {
       title: "Hospitality Runs & Wellness Summits",
+      image: "/images/hero/hero-business-strategy.jpg",
       desc: "Industry-wide wellness runs, culinary showcases, and charity initiatives uniting the hospitality fraternity.",
     },
     {
       title: "Exhibition & Association Alliances",
+      image: "/images/roles/bni-showcase.jpg",
       desc: "Institutional collaborations with national trade expos, culinary forums, and hotelier associations.",
     },
     {
       title: "Structured Commercial Introductions",
+      image: "/images/inner/about-values-integrity.jpg",
       desc: "Direct, vetted introductions facilitating procurement negotiations and multi-property supplier agreements.",
     },
   ];
@@ -55,6 +61,7 @@ export default function HHCPage() {
     {
       tier: "Preferred Vendor Member",
       target: "Emerging Hospitality Suppliers",
+      image: "/images/hero/hero-panoramic-boardroom.jpg",
       features: [
         "Directory listing in the verified HHC supplier registry",
         "Access to monthly general networking meets",
@@ -67,6 +74,7 @@ export default function HHCPage() {
     {
       tier: "Star Partner (Category Exclusive)",
       target: "Established Enterprise Suppliers",
+      image: "/images/inner/hhc-gala-networking.jpg",
       featured: true,
       features: [
         "Strict category exclusivity (single partner per product category)",
@@ -121,7 +129,7 @@ export default function HHCPage() {
             </div>
 
             <div className="lg:col-span-7">
-              <span className="text-[11px] uppercase tracking-[0.16em] font-bold text-[#9A6B0C] block mb-3">
+              <span className="text-[11px] uppercase tracking-[0.16em] font-bold text-[#1D4ED8] block mb-3">
                 Co-Director Governance Charter
               </span>
 
@@ -129,9 +137,9 @@ export default function HHCPage() {
                 {leadershipResponsibilities.map((duty, idx) => (
                   <div
                     key={duty}
-                    className="p-5 border-r border-b border-slate-200 bg-white hover:bg-[#FAF9F6] transition-colors"
+                    className="p-5 border-r border-b border-slate-200 bg-white hover:bg-[#F8FAFC] transition-colors"
                   >
-                    <span className="text-xs font-bold text-[#9A6B0C] tabular-nums block mb-1.5">
+                    <span className="text-xs font-bold text-[#1D4ED8] tabular-nums block mb-1.5">
                       0{idx + 1}
                     </span>
                     <p className="text-xs sm:text-[13px] font-semibold text-slate-800 leading-snug">
@@ -145,9 +153,9 @@ export default function HHCPage() {
         </div>
       </section>
 
-      {/* 3. Community Platforms & Format Matrix (DARK MIDNIGHT NAVY - 60px padding) */}
-      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
-        <DarkSectionLining />
+      {/* 3. Community Platforms & Format Matrix (OBSIDIAN & ROYAL BLUE - 60px padding) */}
+      <section className="py-[60px] bg-[#04040A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining variant="blue" />
 
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
@@ -164,18 +172,31 @@ export default function HHCPage() {
             {communityPillars.map((pillar, idx) => (
               <article
                 key={pillar.title}
-                className="p-6 sm:p-7 rounded-2xl bg-[#0B1528] border border-white/12 hover:border-[#D4AF37]/60 transition-colors flex flex-col justify-between"
+                className="group rounded-2xl overflow-hidden bg-[#090F1E] border border-white/12 hover:border-[#60A5FA]/60 transition-colors flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#D4AF37] tabular-nums block mb-2.5">
-                    0{idx + 1}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    {pillar.desc}
-                  </p>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#04040A] border-b border-white/10">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#090F1E]/85 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  <div className="p-6 sm:p-7">
+                    <span className="text-xs font-mono font-bold text-[#60A5FA] tabular-nums block mb-2">
+                      0{idx + 1}
+                    </span>
+                    <h3 className="text-base sm:text-lg font-normal text-white mb-2">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {pillar.desc}
+                    </p>
+                  </div>
                 </div>
               </article>
             ))}
@@ -201,47 +222,60 @@ export default function HHCPage() {
             {vendorTiers.map((tier) => (
               <div
                 key={tier.tier}
-                className={`p-7 sm:p-8 rounded-2xl flex flex-col justify-between transition-colors ${
+                className={`group rounded-2xl overflow-hidden flex flex-col justify-between transition-colors ${
                   tier.featured
-                    ? "bg-[#FAF9F6] border-2 border-[#D4AF37] shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
-                    : "bg-white border border-slate-200 shadow-sm hover:border-slate-300"
+                    ? "bg-[#EFF6FF] border-2 border-[#3B82F6] shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+                    : "bg-white border border-slate-200 shadow-sm hover:border-[#3B82F6]/45"
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-200">
-                    <span className="text-[11px] uppercase tracking-[0.14em] text-[#9A6B0C] font-bold">
-                      {tier.target}
-                    </span>
-                    {tier.featured && (
-                      <span className="text-[10px] uppercase tracking-[0.14em] font-bold bg-[#060D1A] text-[#F5E2A3] px-3 py-0.5 rounded-full">
-                        Exclusive Tier
-                      </span>
-                    )}
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100 border-b border-slate-200">
+                    <Image
+                      src={tier.image}
+                      alt={tier.tier}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 450px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    />
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-5">
-                    {tier.tier}
-                  </h3>
+                  <div className="p-7 sm:p-8 pb-0">
+                    <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-200">
+                      <span className="text-[11px] uppercase tracking-[0.14em] text-[#1D4ED8] font-bold">
+                        {tier.target}
+                      </span>
+                      {tier.featured && (
+                        <span className="text-[10px] uppercase tracking-[0.14em] font-bold bg-[#04040A] text-[#93C5FD] px-3 py-0.5 rounded-full">
+                          Exclusive Tier
+                        </span>
+                      )}
+                    </div>
 
-                  <ul className="space-y-2.5 pt-4 border-t border-slate-200/80 mb-7">
-                    {tier.features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700">
-                        <Check className="w-4 h-4 text-[#9A6B0C] shrink-0 mt-0.5" strokeWidth={2.2} />
-                        <span className="leading-snug">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <h3 className="text-xl sm:text-2xl font-normal text-slate-900 mb-5">
+                      {tier.tier}
+                    </h3>
+
+                    <ul className="space-y-2.5 pt-4 border-t border-slate-200/80 mb-7">
+                      {tier.features.map((feat) => (
+                        <li key={feat} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700">
+                          <Check className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" strokeWidth={2.2} />
+                          <span className="leading-snug">{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                {/* Fixed contrast button on white surface */}
-                <Button
-                  href={tier.href}
-                  variant={tier.featured ? "light-primary" : "light-secondary"}
-                  size="md"
-                  className="w-full"
-                >
-                  {tier.ctaLabel}
-                </Button>
+                <div className="px-7 sm:px-8 pb-7 sm:pb-8">
+                  <Button
+                    href={tier.href}
+                    variant={tier.featured ? "light-primary" : "light-secondary"}
+                    size="md"
+                    className="w-full"
+                  >
+                    {tier.ctaLabel}
+                  </Button>
+                </div>
               </div>
             ))}
           </div>

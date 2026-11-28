@@ -1,4 +1,4 @@
-import { Inter, Outfit } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -11,17 +11,10 @@ import GSAPSectionRevealer from "@/components/layout/GSAPSectionRevealer";
 import PopupLeadForm from "@/components/ui/PopupLeadForm";
 import { siteConfig } from "@/data/site";
 
-// Variable font: omits weight array so all weights (300–700+) load cleanly in Turbopack
+// Variable font: loads all Inter weights cleanly (matching dheerajaggarwal.com)
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-// Variable architectural display font for clean frosted-glass Hero lettering
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -120,7 +113,7 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -129,7 +122,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         suppressHydrationWarning
-        className="bg-[#0F172A] text-[#F8FAFC] font-sans min-h-screen selection:bg-[#334155] selection:text-white antialiased w-full"
+        className={`${inter.className} bg-[#0F172A] text-[#F8FAFC] font-sans min-h-screen selection:bg-[#334155] selection:text-white antialiased w-full`}
       >
         {/* Skip to Main Content Accessibility Link */}
         <a
@@ -146,7 +139,7 @@ export default function RootLayout({ children }) {
         <CustomCursor />
 
         <SmoothScroll>
-          <div className="flex flex-col min-h-screen w-full">
+          <div className="flex flex-col min-h-screen w-full bg-[#FFFFFF]">
             <Header />
             <main id="main-content" className="flex-grow w-full">
               {children}

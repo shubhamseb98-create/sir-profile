@@ -49,11 +49,11 @@ export default function PrivacyPolicyPage() {
           <div className="border-t border-b border-slate-200 divide-y divide-slate-200">
             {articles.map((art) => (
               <article key={art.num} className="py-7 grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 items-start">
-                <span className="sm:col-span-2 text-sm font-bold text-[#9A6B0C] tabular-nums pt-0.5">
+                <span className="sm:col-span-2 text-sm font-bold text-[#1D4ED8] tabular-nums pt-0.5">
                   Clause {art.num}
                 </span>
                 <div className="sm:col-span-10">
-                  <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+                  <h2 className="text-lg sm:text-xl font-normal text-slate-900 mb-2">
                     {art.title}
                   </h2>
                   <p className="text-sm text-slate-600 leading-relaxed">
@@ -64,11 +64,11 @@ export default function PrivacyPolicyPage() {
             ))}
 
             <article className="py-7 grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 items-start">
-              <span className="sm:col-span-2 text-sm font-bold text-[#9A6B0C] tabular-nums pt-0.5">
+              <span className="sm:col-span-2 text-sm font-bold text-[#1D4ED8] tabular-nums pt-0.5">
                 Clause 04
               </span>
               <div className="sm:col-span-10">
-                <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+                <h2 className="text-lg sm:text-xl font-normal text-slate-900 mb-2">
                   Direct Contact
                 </h2>
                 <p className="text-sm text-slate-600 leading-relaxed">
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
                   records, contact Dheeraj Aggarwal&apos;s executive desk at{" "}
                   <a
                     href="mailto:contact@dheerajaggarwal.com"
-                    className="text-slate-900 font-semibold underline underline-offset-4 hover:text-[#9A6B0C] transition-colors"
+                    className="text-slate-900 font-semibold underline underline-offset-4 hover:text-[#1D4ED8] transition-colors"
                   >
                     contact@dheerajaggarwal.com
                   </a>

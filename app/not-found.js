@@ -7,15 +7,15 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="min-h-[75vh] flex flex-col justify-center items-center py-[60px] px-4 sm:px-6 text-center bg-[#060D1A] relative overflow-hidden font-sans">
-      <DarkSectionLining />
+    <section className="min-h-[75vh] flex flex-col justify-center items-center py-[60px] px-4 sm:px-6 text-center bg-[#04040A] relative overflow-hidden font-sans">
+      <DarkSectionLining variant="blue" />
 
       <div className="max-w-xl mx-auto relative z-10">
-        <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] block mb-3 font-semibold">
+        <span className="text-xs uppercase tracking-[0.2em] text-[#93C5FD] block mb-3 font-semibold">
           Error 404 • Resource Unavailable
         </span>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal text-white mb-4 tracking-tight">
           Page Not Found
         </h1>
 

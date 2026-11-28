@@ -23,8 +23,8 @@ export default function CaseStudyCard({ study, className = "", dark = false }) {
       className={cn(
         "group relative rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between font-sans",
         dark
-          ? "bg-[#0B1528] border-white/12 hover:border-[#D4AF37]/60 shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
-          : "bg-white border-slate-200/90 hover:border-[#D4AF37]/70 shadow-[0_4px_20px_rgba(15,23,42,0.04)] hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]",
+          ? "bg-[#090F1E] border-white/12 hover:border-[#60A5FA]/65 shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
+          : "bg-white border-slate-200/90 hover:border-[#3B82F6]/65 shadow-[0_4px_20px_rgba(15,23,42,0.04)] hover:shadow-[0_18px_40px_rgba(37,99,235,0.08)]",
         className
       )}
     >
@@ -33,7 +33,7 @@ export default function CaseStudyCard({ study, className = "", dark = false }) {
         <div
           className={cn(
             "relative h-52 sm:h-56 w-full overflow-hidden border-b",
-            dark ? "bg-[#060D1A] border-white/10" : "bg-slate-100 border-slate-200"
+            dark ? "bg-[#04040A] border-white/10" : "bg-slate-100 border-slate-200"
           )}
         >
           <Image
@@ -43,7 +43,7 @@ export default function CaseStudyCard({ study, className = "", dark = false }) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/70 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#04040A]/75 via-transparent to-transparent pointer-events-none" />
 
           {/* Clean Sector Metadata */}
           <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between gap-2 text-xs text-white">
@@ -62,7 +62,7 @@ export default function CaseStudyCard({ study, className = "", dark = false }) {
             <span
               className={cn(
                 "text-[10px] uppercase font-bold tracking-[0.16em]",
-                dark ? "text-[#F5E2A3]" : "text-[#9A6B0C]"
+                dark ? "text-[#93C5FD]" : "text-[#1D4ED8]"
               )}
             >
               {study.category}
@@ -80,10 +80,10 @@ export default function CaseStudyCard({ study, className = "", dark = false }) {
           <Link href={`/case-studies/${study.slug}`} className="block group/title">
             <h3
               className={cn(
-                "text-lg sm:text-xl font-bold leading-snug mb-2.5 transition-colors line-clamp-2",
+                "text-lg sm:text-xl font-normal leading-snug mb-2.5 transition-colors line-clamp-2",
                 dark
-                  ? "text-white group-hover/title:text-[#F5E2A3]"
-                  : "text-slate-900 group-hover/title:text-[#9A6B0C]"
+                  ? "text-white group-hover/title:text-[#93C5FD]"
+                  : "text-slate-900 group-hover/title:text-[#1D4ED8]"
               )}
             >
               {study.title}
@@ -109,7 +109,7 @@ export default function CaseStudyCard({ study, className = "", dark = false }) {
             <span
               className={cn(
                 "text-[11px] uppercase tracking-[0.14em] font-semibold block mb-1",
-                dark ? "text-[#D4AF37]" : "text-[#9A6B0C]"
+                dark ? "text-[#60A5FA]" : "text-[#2563EB]"
               )}
             >
               {study.results?.[0]?.metric || "Measured Outcome"}
@@ -131,8 +131,8 @@ export default function CaseStudyCard({ study, className = "", dark = false }) {
         className={cn(
           "px-6 py-3.5 border-t flex items-center justify-between text-xs font-semibold",
           dark
-            ? "border-white/10 bg-[#081020] text-slate-300 group-hover:text-[#F5E2A3]"
-            : "border-slate-200/80 bg-[#FAF9F6] text-slate-700 group-hover:text-[#9A6B0C]"
+            ? "border-white/10 bg-[#060B16] text-slate-300 group-hover:text-[#93C5FD]"
+            : "border-slate-200/80 bg-[#F8FAFC] text-slate-700 group-hover:text-[#1D4ED8]"
         )}
       >
         <Link

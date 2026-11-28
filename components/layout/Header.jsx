@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, ArrowUpRight, Briefcase, Building2, Users, Globe } from "lucide-react";
+import { ChevronDown, Menu, ArrowUpRight, Briefcase, Building2, Users, Globe, Mic, Calendar, Compass } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import MobileMenu from "./MobileMenu";
 import { trackStrategyCallClick } from "@/lib/analytics";
@@ -14,15 +14,25 @@ const getChildIcon = (label = "") => {
   const l = label.toLowerCase();
   if (l.includes("karma")) return Building2;
   if (l.includes("hhc") || l.includes("hospitality")) return Users;
-  if (l.includes("web tycoons")) return Globe;
+  if (l.includes("web tycoons") || l.includes("digital")) return Globe;
+  if (l.includes("speaking") || l.includes("keynote")) return Mic;
+  if (l.includes("strategy call")) return Calendar;
+  if (l.includes("consulting")) return Compass;
   return Briefcase;
+};
+
+const isRouteMatch = (pathname, href) => {
+  if (!href) return false;
+  const cleanHref = href.split("?")[0].split("#")[0];
+  if (cleanHref === "/") return pathname === "/";
+  return pathname === cleanHref || pathname.startsWith(cleanHref + "/");
 };
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
@@ -35,7 +45,7 @@ export default function Header() {
       if (currentScrollY > 150) {
         if (currentScrollY > lastScrollY.current + 8) {
           setIsVisible(false);
-          setDropdownOpen(false);
+          setOpenDropdown(null);
         } else if (currentScrollY < lastScrollY.current - 8) {
           setIsVisible(true);
         }
@@ -86,39 +96,44 @@ export default function Header() {
                 "h-11 sm:h-13 md:h-14 lg:h-[58px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]",
                 isScrolled
                   ? "drop-shadow-[0_1px_1px_rgba(0,0,0,0.42)]"
-                  : "drop-shadow-[0_2px_10px_rgba(212,175,55,0.22)]"
+                  : "drop-shadow-[0_2px_10px_rgba(59,130,246,0.22)]"
               )}
               priority
             />
           </Link>
 
           {/* Desktop Navigation - Transparent over Banner, Frosted White on Scroll */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 shrink-0">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 shrink-0">
             {siteConfig.navLinks.map((item) => {
-              const isActive = pathname === "/" && item.href === "/#top";
+              const isActive = isRouteMatch(pathname, item.href);
               const displayLabel = item.label === "Leadership & Ventures" ? "Ventures" : item.label;
 
               if (item.children) {
-                const isChildActive = false;
+                const isThisOpen = openDropdown === item.label;
+                const isChildActive =
+                  isActive || item.children.some((c) => isRouteMatch(pathname, c.href));
+
                 return (
                   <div
                     key={item.label}
                     className="relative"
-                    onMouseEnter={() => setDropdownOpen(true)}
-                    onMouseLeave={() => setDropdownOpen(false)}
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <button
                       type="button"
-                      onClick={() => setDropdownOpen((prev) => !prev)}
-                      aria-expanded={dropdownOpen}
+                      onClick={() =>
+                        setOpenDropdown((prev) => (prev === item.label ? null : item.label))
+                      }
+                      aria-expanded={isThisOpen}
                       className={cn(
-                        "flex items-center gap-1.5 px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap cursor-pointer",
-                        dropdownOpen || isChildActive
+                        "flex items-center gap-1 px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap cursor-pointer",
+                        isThisOpen || isChildActive
                           ? isScrolled
-                            ? "bg-black/90 backdrop-blur-md text-white font-semibold shadow-xs"
-                            : "bg-white/15 backdrop-blur-md text-[#F5E2A3] font-semibold border border-[#D4AF37]/40"
+                            ? "bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] font-semibold shadow-xs"
+                            : "bg-[#3B82F6]/15 backdrop-blur-md text-[#93C5FD] font-semibold border border-[#60A5FA]/45"
                           : isScrolled
-                            ? "text-slate-700 hover:text-black hover:bg-slate-100"
+                            ? "text-slate-700 hover:text-[#1D4ED8] hover:bg-slate-100"
                             : "text-slate-200 hover:text-white hover:bg-white/[0.08]"
                       )}
                     >
@@ -126,10 +141,14 @@ export default function Header() {
                       <ChevronDown
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200",
-                          dropdownOpen
-                            ? "rotate-180 text-[#D4AF37]"
+                          isThisOpen
+                            ? isScrolled
+                              ? "rotate-180 text-[#2563EB]"
+                              : "rotate-180 text-[#60A5FA]"
                             : isChildActive
-                            ? "text-white"
+                            ? isScrolled
+                              ? "text-[#1D4ED8]"
+                              : "text-[#93C5FD]"
                             : "text-slate-400"
                         )}
                         strokeWidth={2}
@@ -137,49 +156,49 @@ export default function Header() {
                     </button>
 
                     {/* Dropdown Menu */}
-                    {dropdownOpen && (
+                    {isThisOpen && (
                       <div className="absolute top-full left-0 w-[356px] pt-2.5 -mt-1 z-50">
-                        <div className="relative overflow-hidden bg-black/55 backdrop-blur-2xl backdrop-saturate-150 rounded-2xl p-2 shadow-[0_24px_60px_-12px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.2)] animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="relative overflow-hidden bg-[#04040A]/90 border border-white/12 backdrop-blur-2xl backdrop-saturate-150 rounded-2xl p-2 shadow-[0_24px_60px_-12px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.14)] animate-in fade-in slide-in-from-top-2 duration-200">
                           {/* Mini header tag */}
                           <div className="px-3 py-1.5 mb-1.5 border-b border-white/10 flex items-center justify-between">
                             <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-neutral-200">
-                              Ventures &amp; Leadership
+                              {item.label} Directory
                             </span>
-                            <span className="text-[10px] font-mono font-bold text-[#D4AF37]">
-                              4 Mandates
+                            <span className="text-[10px] font-mono font-bold text-[#93C5FD]">
+                              {item.children.length} Sections
                             </span>
                           </div>
 
                           <div className="space-y-1">
                             {item.children.map((child) => {
-                              const isChildCurrent = false;
+                              const isChildCurrent = isRouteMatch(pathname, child.href);
                               const Icon = getChildIcon(child.label);
 
                               return (
                                 <Link
                                   key={child.label}
                                   href={child.href}
-                                  onClick={() => setDropdownOpen(false)}
+                                  onClick={() => setOpenDropdown(null)}
                                   className={cn(
                                     "group relative flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 cursor-pointer overflow-hidden",
                                     isChildCurrent
-                                      ? "bg-white/15 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
-                                      : "hover:bg-white/[0.12] hover:backdrop-blur-md hover:shadow-[0_8px_24px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.22)] hover:translate-x-0.5"
+                                      ? "bg-[#2563EB]/20 backdrop-blur-md shadow-[inset_0_1px_0_rgba(147,197,253,0.25)]"
+                                      : "hover:bg-white/[0.08] hover:backdrop-blur-md hover:shadow-[0_8px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(147,197,253,0.18)] hover:translate-x-0.5"
                                   )}
                                 >
                                   {/* Subtle top specular glass reflection on hover */}
-                                  <div className="absolute inset-x-3 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+                                  <div className="absolute inset-x-3 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#60A5FA]/45 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
 
-                                  {/* Left metallic gold bar on hover */}
-                                  <div className="absolute left-0 top-2 bottom-2 w-1 bg-gold-metallic rounded-r opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                                  {/* Left royal-blue bar on hover */}
+                                  <div className="absolute left-0 top-2 bottom-2 w-1 bg-gradient-to-b from-[#3B82F6] to-[#6366F1] rounded-r opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
                                   {/* Icon Badge */}
                                   <div
                                     className={cn(
                                       "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 mt-0.5",
                                       isChildCurrent
-                                        ? "bg-[#D4AF37] text-black shadow-xs"
-                                        : "bg-white/10 text-neutral-200 group-hover:bg-[#D4AF37]/15 group-hover:text-[#D4AF37] group-hover:shadow-[inset_0_1px_0_rgba(212,175,55,0.3)] group-hover:scale-105"
+                                        ? "bg-[#2563EB] text-white shadow-xs"
+                                        : "bg-white/10 text-neutral-200 group-hover:bg-[#3B82F6]/20 group-hover:text-[#93C5FD] group-hover:shadow-[inset_0_1px_0_rgba(96,165,250,0.3)] group-hover:scale-105"
                                     )}
                                   >
                                     <Icon className="w-4 h-4" />
@@ -192,7 +211,7 @@ export default function Header() {
                                         className={cn(
                                           "text-xs font-bold leading-tight transition-colors duration-200",
                                           isChildCurrent
-                                            ? "text-[#D4AF37]"
+                                            ? "text-[#93C5FD]"
                                             : "text-white group-hover:text-white"
                                         )}
                                       >
@@ -202,8 +221,8 @@ export default function Header() {
                                         className={cn(
                                           "w-3.5 h-3.5 shrink-0 transition-all duration-200",
                                           isChildCurrent
-                                            ? "text-[#D4AF37] opacity-100"
-                                            : "text-neutral-300 opacity-0 group-hover:opacity-100 group-hover:text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                            ? "text-[#93C5FD] opacity-100"
+                                            : "text-neutral-300 opacity-0 group-hover:opacity-100 group-hover:text-[#93C5FD] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                         )}
                                       />
                                     </div>
@@ -234,13 +253,13 @@ export default function Header() {
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap",
+                    "px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-medium tracking-wide rounded-full transition-all whitespace-nowrap",
                     isActive
                       ? isScrolled
-                        ? "bg-slate-100 text-slate-900 font-semibold"
-                        : "bg-white/12 text-[#F5E2A3] font-semibold border border-[#D4AF37]/30"
+                        ? "bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] font-semibold"
+                        : "bg-[#3B82F6]/15 text-[#93C5FD] font-semibold border border-[#60A5FA]/45"
                       : isScrolled
-                        ? "text-slate-600 hover:text-[#334155] hover:bg-slate-100"
+                        ? "text-slate-600 hover:text-[#1D4ED8] hover:bg-slate-100"
                         : "text-slate-200 hover:text-white hover:bg-white/[0.08]"
                   )}
                 >
@@ -261,10 +280,10 @@ export default function Header() {
                 }
               }}
               className={cn(
-                "hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs tracking-wide transition-all whitespace-nowrap cursor-pointer",
+                "hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium tracking-wide text-white transition-all whitespace-nowrap cursor-pointer",
                 isScrolled
-                  ? "bg-black hover:bg-neutral-900 text-white font-semibold shadow-sm hover:shadow-md hover:shadow-black/25"
-                  : "bg-[linear-gradient(135deg,#B38728_0%,#FCF6BA_25%,#D4AF37_52%,#9A6B0C_78%,#F7DF84_100%)] text-[#060D1A] font-bold shadow-[0_6px_20px_rgba(212,175,55,0.28)] hover:brightness-105"
+                  ? "bg-[#1D4ED8] hover:bg-[#2563EB] border border-[#1E40AF]/40 shadow-[0_6px_16px_rgba(29,78,216,0.22)]"
+                  : "bg-gradient-to-r from-[#0F2557] via-[#1D4ED8] to-[#2563EB] hover:from-[#1D4ED8] hover:to-[#3B82F6] border border-[#60A5FA]/45 shadow-[0_6px_20px_rgba(29,78,216,0.32)]"
               )}
             >
               <span>Book a Strategy Call</span>
@@ -277,8 +296,8 @@ export default function Header() {
               className={cn(
                 "p-2 lg:hidden rounded-lg transition-colors",
                 isScrolled
-                  ? "text-slate-700 hover:text-[#334155] hover:bg-slate-100"
-                  : "text-white hover:text-[#F5E2A3] hover:bg-white/10"
+                  ? "text-slate-700 hover:text-[#1D4ED8] hover:bg-slate-100"
+                  : "text-white hover:text-[#93C5FD] hover:bg-white/10"
               )}
             >
               <Menu className="w-6 h-6" strokeWidth={2} />

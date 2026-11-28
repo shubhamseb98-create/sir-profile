@@ -24,7 +24,8 @@ export const posts = [
     pillar: "Business Growth",
     publishedDate: "2026-08-15",
     readTime: "6 min read",
-    author: "Dheeraj Aggarwal", 
+    author: "Dheeraj Aggarwal",
+    image: "/images/inner/about-sop-systems.jpg",
     excerpt:
       "Pouring advertising budget into a disorganized operational foundation only accelerates customer dissatisfaction. Here is why systems must precede marketing scale.",
     question: "Should a growing company invest in marketing campaigns or operational systems first?",
@@ -64,6 +65,7 @@ export const posts = [
     publishedDate: "2026-08-28",
     readTime: "5 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/cards/crm-operations-real.jpg",
     excerpt:
       "Lead generation is a vanity metric if it fails to convert into paying customers with sustainable unit economics. Understand the complete commercial equation.",
     question: "Why do high lead volumes frequently fail to translate into top-line business revenue?",
@@ -98,6 +100,7 @@ export const posts = [
     publishedDate: "2026-09-04",
     readTime: "7 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/cards/roas-analytics-real.jpg",
     excerpt:
       "Before demanding a larger budget, fix the conversion bottlenecks in your funnel. Practical strategies to double return on ad spend on your existing budget.",
     question: "How can a company dramatically improve Return on Ad Spend (ROAS) without spending more capital?",
@@ -127,6 +130,7 @@ export const posts = [
     publishedDate: "2026-09-10",
     readTime: "6 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/hero/hero-strategy-glass.jpg",
     excerpt:
       "A CRM is not a glorified digital phonebook. Here are the non-negotiable data fields, disposition stages, and executive metrics every commercial CRM must monitor.",
     question: "What capabilities distinguish an executive-grade CRM from a basic contact repository?",
@@ -156,6 +160,7 @@ export const posts = [
     publishedDate: "2026-09-14",
     readTime: "8 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/cards/leadership-governance-real.jpg",
     excerpt:
       "Eliminate confusion, reduce operational friction, and prepare your organization for regional expansion with these ten foundational standard operating procedures.",
     question: "Which operational procedures are essential for a founder to step back from daily firefighting?",
@@ -191,6 +196,7 @@ export const posts = [
     publishedDate: "2026-09-18",
     readTime: "6 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/supporting/testimonial-poster-1.jpg",
     excerpt:
       "People do business with people, not corporate logos. How founders can leverage thought leadership to attract premium clients, talent, and strategic alliances.",
     question: "Why should an executive or founder invest time in developing an individual personal brand?",
@@ -220,6 +226,7 @@ export const posts = [
     publishedDate: "2026-09-21",
     readTime: "5 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/transformations/webtycoons-studio.jpg",
     excerpt:
       "Managing multiple corporate and personal social channels without diluting brand authority. The hub-and-spoke content distribution model.",
     question: "How should multi-entity founders orchestrate their social content distribution?",
@@ -240,6 +247,7 @@ export const posts = [
     publishedDate: "2026-09-24",
     readTime: "6 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/inner/about-values-integrity.jpg",
     excerpt:
       "Why cold acquisition is the slowest way to grow. How win-win institutional alliances between non-competing enterprises unlock exponential growth.",
     question: "How can businesses forge alliances that generate consistent high-margin revenue?",
@@ -260,6 +268,7 @@ export const posts = [
     publishedDate: "2026-09-27",
     readTime: "7 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/inner/hhc-gala-networking.jpg",
     excerpt:
       "From transactional networking to enduring ecosystems. Lessons from scaling BNI leadership chapters and co-directing the Happy Hospitality Club.",
     question: "What makes an industry community commercially valuable and enduring?",
@@ -280,6 +289,7 @@ export const posts = [
     publishedDate: "2026-09-29",
     readTime: "6 min read",
     author: "Dheeraj Aggarwal",
+    image: "/images/hero/hero-corporate-boardroom-clean.jpg",
     excerpt:
       "SEO is ineffective if your website architecture, value proposition, and technical infrastructure are flawed. The prerequisite checklist before hiring an SEO agency.",
     question: "What must a business fix before expecting meaningful organic search results?",

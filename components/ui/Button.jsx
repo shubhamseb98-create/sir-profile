@@ -30,17 +30,17 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      "bg-[linear-gradient(135deg,#B38728_0%,#FCF6BA_25%,#D4AF37_52%,#9A6B0C_78%,#F7DF84_100%)] bg-[length:200%_auto] hover:bg-right text-black font-bold border border-[#FCF6BA]/45 shadow-md hover:shadow-lg hover:-translate-y-0.5",
+      "bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#6366F1] hover:brightness-110 text-white font-bold border border-[#93C5FD]/40 shadow-[0_0_24px_rgba(59,130,246,0.4)] hover:shadow-[0_0_32px_rgba(99,102,241,0.58)] hover:-translate-y-0.5",
     secondary:
-      "bg-transparent text-white border border-white/20 hover:border-[#D4AF37] hover:text-[#FCF6BA] hover:bg-[#D4AF37]/[0.08]",
+      "bg-transparent text-white border border-white/20 hover:border-[#60A5FA] hover:text-[#93C5FD] hover:bg-[#3B82F6]/[0.10]",
     outline:
-      "bg-transparent text-[#E5C665] border border-[#D4AF37]/45 hover:border-[#FCF6BA]/70 hover:bg-[#D4AF37]/12",
+      "bg-transparent text-[#93C5FD] border border-[#60A5FA]/45 hover:border-[#93C5FD]/75 hover:bg-[#3B82F6]/12",
     "light-primary":
-      "bg-black text-white font-semibold hover:bg-neutral-900 border border-black shadow-md hover:-translate-y-0.5",
+      "bg-[#04040A] text-white font-semibold hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] border border-[#04040A] hover:border-[#2563EB] shadow-md hover:-translate-y-0.5",
     "light-secondary":
-      "bg-white text-[#1E293B] border border-slate-300 hover:border-black hover:text-black shadow-sm hover:shadow hover:-translate-y-0.5",
+      "bg-white text-[#1E293B] border border-slate-300 hover:border-[#2563EB] hover:text-[#1D4ED8] hover:bg-[#EFF6FF]/50 shadow-sm hover:shadow hover:-translate-y-0.5",
     ghost:
-      "bg-transparent text-[#E5C665] hover:text-[#FCF6BA] hover:bg-white/[0.05]",
+      "bg-transparent text-[#93C5FD] hover:text-white hover:bg-white/[0.06]",
   };
 
   const iconElement =

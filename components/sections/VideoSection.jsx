@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Heart,
   MessageCircle,
@@ -128,7 +129,7 @@ function InstagramReelCard({ reel }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleCardClick}
-      className="group relative snap-center shrink-0 w-[84vw] max-w-[320px] xs:max-w-[340px] md:w-full md:max-w-[340px] mx-auto h-[490px] xs:h-[530px] sm:h-[570px] rounded-[24px] overflow-hidden bg-[#081224] border border-white/12 hover:border-[#D4AF37] shadow-[0_22px_55px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-2 cursor-pointer select-none flex flex-col"
+      className="group relative snap-center shrink-0 w-[84vw] max-w-[320px] xs:max-w-[340px] md:w-full md:max-w-[340px] mx-auto h-[500px] rounded-[24px] overflow-hidden bg-[#090F1E] border border-white/12 hover:border-[#60A5FA] shadow-[0_22px_55px_rgba(0,0,0,0.7),0_0_24px_rgba(59,130,246,0.12)] transition-all duration-300 hover:-translate-y-2 cursor-pointer select-none flex flex-col"
     >
       {/* ── 1. Video Element ── */}
       <video
@@ -145,8 +146,8 @@ function InstagramReelCard({ reel }) {
 
       {/* ── 2. Top & Bottom Contrast Gradients ── */}
       <div className="absolute inset-0 bg-black/15 pointer-events-none z-[4]" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#060D1A]/95 via-[#060D1A]/55 to-transparent pointer-events-none z-[5]" />
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#060D1A]/95 via-[#060D1A]/75 to-transparent pointer-events-none z-[5]" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#04040A]/95 via-[#04040A]/55 to-transparent pointer-events-none z-[5]" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#04040A]/95 via-[#04040A]/75 to-transparent pointer-events-none z-[5]" />
 
       {/* ── 3. Top Instagram Header Bar ── */}
       <div className="relative z-10 p-4 flex items-center justify-between text-white">
@@ -158,8 +159,8 @@ function InstagramReelCard({ reel }) {
           }}
           className="flex items-center gap-2.5 cursor-pointer group/author"
         >
-          {/* Avatar ring in metallic gold */}
-          <div className="relative w-9 h-9 rounded-full p-0.5 bg-gradient-to-tr from-[#D4AF37] to-[#F5E6B3] group-hover/author:scale-105 transition-transform shadow-md">
+          {/* Avatar ring in electric blue */}
+          <div className="relative w-9 h-9 rounded-full p-0.5 bg-gradient-to-tr from-[#3B82F6] to-[#93C5FD] group-hover/author:scale-105 transition-transform shadow-md">
             <div className="relative w-full h-full rounded-full overflow-hidden bg-black">
               <Image
                 src="/images/hero/dd.png"
@@ -171,13 +172,13 @@ function InstagramReelCard({ reel }) {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
-              <span className="text-xs font-bold text-white tracking-tight group-hover/author:text-[#D4AF37] transition-colors">
+              <span className="text-xs font-bold text-white tracking-tight group-hover/author:text-[#93C5FD] transition-colors">
                 indiandheeraj
               </span>
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]/20" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#60A5FA] fill-[#60A5FA]/20" />
             </div>
             <div className="flex items-center gap-1 text-[10px] text-slate-300 font-mono">
-              <Music2 className="w-2.5 h-2.5 text-[#D4AF37]" />
+              <Music2 className="w-2.5 h-2.5 text-[#60A5FA]" />
               <span className="truncate max-w-[130px]">Original audio</span>
             </div>
           </div>
@@ -187,16 +188,16 @@ function InstagramReelCard({ reel }) {
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-          className="w-9 h-9 rounded-full bg-black/60 hover:bg-[#D4AF37] hover:text-black border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-colors shadow-lg"
+          className="w-9 h-9 rounded-full bg-black/60 hover:bg-[#3B82F6] hover:text-white border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-colors shadow-lg"
         >
-          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[#D4AF37]" />}
+          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[#93C5FD]" />}
         </button>
       </div>
 
       {/* ── 4. Center Play/Hover State Indicator ── */}
       {!isPlaying && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity">
-          <div className="w-14 h-14 rounded-full bg-black/65 border border-[#D4AF37]/50 flex items-center justify-center text-white backdrop-blur-md shadow-2xl group-hover:scale-110 group-hover:border-[#D4AF37] transition-all">
+          <div className="w-14 h-14 rounded-full bg-black/65 border border-[#60A5FA]/50 flex items-center justify-center text-white backdrop-blur-md shadow-2xl group-hover:scale-110 group-hover:border-[#60A5FA] transition-all">
             <Play className="w-6 h-6 fill-white ml-0.5 text-white" />
           </div>
         </div>
@@ -212,8 +213,8 @@ function InstagramReelCard({ reel }) {
           }}
           className="flex flex-col items-center gap-0.5 group/btn"
         >
-          <div className={`w-9 h-9 rounded-full bg-black/55 border border-white/15 flex items-center justify-center backdrop-blur-md transition-transform group-hover/btn:scale-110 ${isLiked ? "text-[#D4AF37] border-[#D4AF37]" : "text-white"}`}>
-            <Heart className={`w-4 h-4 ${isLiked ? "fill-[#D4AF37] text-[#D4AF37]" : ""}`} />
+          <div className={`w-9 h-9 rounded-full bg-black/55 border border-white/15 flex items-center justify-center backdrop-blur-md transition-transform group-hover/btn:scale-110 ${isLiked ? "text-[#60A5FA] border-[#60A5FA]" : "text-white"}`}>
+            <Heart className={`w-4 h-4 ${isLiked ? "fill-[#60A5FA] text-[#60A5FA]" : ""}`} />
           </div>
           <span className="text-[9px] font-mono font-bold">{isLiked ? "Liked" : reel.likes}</span>
         </button>
@@ -235,7 +236,7 @@ function InstagramReelCard({ reel }) {
         </div>
 
         {/* Instagram Direct Link Icon */}
-        <div className="w-9 h-9 rounded-full bg-black/85 border border-[#D4AF37]/60 flex items-center justify-center backdrop-blur-md text-[#D4AF37] group-hover:scale-110 transition-transform shadow-md">
+        <div className="w-9 h-9 rounded-full bg-black/85 border border-[#60A5FA]/60 flex items-center justify-center backdrop-blur-md text-[#93C5FD] group-hover:scale-110 transition-transform shadow-md">
           <InstagramIcon className="w-4 h-4" />
         </div>
       </div>
@@ -244,7 +245,7 @@ function InstagramReelCard({ reel }) {
       <div className="mt-auto relative z-10 w-full flex flex-col justify-end">
         <div className="px-4 pb-3.5 pr-16 text-white flex flex-col gap-1.5 pointer-events-none">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#F5E6B3] backdrop-blur-md">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#3B82F6]/20 border border-[#60A5FA]/50 text-[#DBEAFE] backdrop-blur-md">
               {reel.topic}
             </span>
             <span className="text-[10px] text-slate-300 font-mono">
@@ -252,11 +253,11 @@ function InstagramReelCard({ reel }) {
             </span>
           </div>
 
-          <h3 className="text-xs sm:text-sm font-semibold text-white/95 leading-snug line-clamp-2 drop-shadow-md min-h-[2.5rem] flex items-center">
+          <h3 className="text-xs sm:text-sm font-normal text-white/95 leading-snug line-clamp-2 drop-shadow-md min-h-[2.5rem] flex items-center">
             {reel.title}
           </h3>
 
-          <span className="text-[11px] text-[#D4AF37] font-medium inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform pt-0.5">
+          <span className="text-[11px] text-[#93C5FD] font-medium inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform pt-0.5">
             Watch on Instagram <ExternalLink className="w-3 h-3" />
           </span>
         </div>
@@ -265,7 +266,7 @@ function InstagramReelCard({ reel }) {
         <div className="relative z-20 w-full pointer-events-none">
           <div className="w-full h-[3px] bg-white/20 overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#DFBE54] via-[#D4AF37] to-[#E5C665] transition-all duration-100 ease-linear"
+              className="h-full bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#818CF8] transition-all duration-100 ease-linear"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -308,14 +309,14 @@ export default function VideoSection({
   return (
     <section
       id={id}
-      className={`relative py-[60px] bg-[#060D1A] border-b border-white/10 font-sans overflow-hidden ${className}`}
+      className={`relative py-[60px] bg-[#04040A] border-b border-white/10 font-sans overflow-hidden ${className}`}
     >
-      {/* ── Background Lining Texture & Subtle Glow ── */}
-      <DarkSectionLining glowPosition="center" showTopBeam={true} showBottomBeam={false} />
+      {/* ── Background Lining Texture & Subtle Blue Glow ── */}
+      <DarkSectionLining variant="blue" glowPosition="center" showTopBeam={true} showBottomBeam={false} />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center my-auto">
         {/* ── Section Header ── */}
-        <ScrollReveal distance={28} delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-8 sm:mb-10">
+        <ScrollReveal distance={28} delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-5 sm:mb-6">
           <SectionHeading
             number={number}
             eyebrow={eyebrow}
@@ -327,17 +328,28 @@ export default function VideoSection({
             className="!mb-0 max-w-2xl"
           />
 
-          {/* Instagram Follow CTA Link */}
-          <a
-            href="https://www.instagram.com/indiandheeraj/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-black/90 border border-[#D4AF37]/40 hover:border-[#D4AF37] text-white hover:text-[#D4AF37] transition-all text-xs font-semibold backdrop-blur-md group self-start md:self-auto shadow-lg shrink-0"
-          >
-            <InstagramIcon className="w-3.5 h-3.5 text-[#D4AF37] group-hover:scale-110 transition-transform" />
-            <span>Watch More @indiandheeraj</span>
-            <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
+          {/* Instagram & Media Hub CTA Links */}
+          <div className="flex flex-wrap items-center gap-2.5 self-start md:self-auto shrink-0">
+            {id !== "video-endorsements" && (
+              <Link
+                href="/media"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/[0.06] border border-white/15 hover:border-[#60A5FA] text-slate-200 hover:text-[#DBEAFE] transition-all text-xs font-semibold backdrop-blur-md"
+              >
+                <span>Media &amp; Insights Hub</span>
+                <ExternalLink className="w-3 h-3 text-[#60A5FA]" />
+              </Link>
+            )}
+            <a
+              href="https://www.instagram.com/indiandheeraj/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-black/90 border border-[#60A5FA]/40 hover:border-[#60A5FA] text-white hover:text-[#93C5FD] transition-all text-xs font-semibold backdrop-blur-md group shadow-lg"
+            >
+              <InstagramIcon className="w-3.5 h-3.5 text-[#60A5FA] group-hover:scale-110 transition-transform" />
+              <span>Watch More @indiandheeraj</span>
+              <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#93C5FD] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </div>
         </ScrollReveal>
 
         {/* ── Mobile Horizontal Swipe Carousel / Desktop 3-Column Grid ── */}
@@ -363,7 +375,7 @@ export default function VideoSection({
               onClick={() => scrollToSlide(Math.max(0, activeSlide - 1))}
               disabled={activeSlide === 0}
               aria-label="Previous reel"
-              className="w-8 h-8 rounded-full bg-[#081224] border border-white/20 text-white disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center active:scale-95 transition-all shadow-md"
+              className="w-8 h-8 rounded-full bg-[#090F1E] border border-white/20 text-white disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center active:scale-95 transition-all shadow-md"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -376,7 +388,7 @@ export default function VideoSection({
                   aria-label={`Go to reel ${idx + 1}`}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     activeSlide === idx
-                      ? "w-6 bg-[#D4AF37] shadow-[0_0_8px_#D4AF37]"
+                      ? "w-6 bg-[#60A5FA] shadow-[0_0_8px_#3B82F6]"
                       : "w-2 bg-white/25 hover:bg-white/50"
                   }`}
                 />
@@ -387,7 +399,7 @@ export default function VideoSection({
               onClick={() => scrollToSlide(Math.min(reelsData.length - 1, activeSlide + 1))}
               disabled={activeSlide === reelsData.length - 1}
               aria-label="Next reel"
-              className="w-8 h-8 rounded-full bg-[#081224] border border-white/20 text-white disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center active:scale-95 transition-all shadow-md"
+              className="w-8 h-8 rounded-full bg-[#090F1E] border border-white/20 text-white disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center active:scale-95 transition-all shadow-md"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

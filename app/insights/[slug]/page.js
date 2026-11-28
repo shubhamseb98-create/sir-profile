@@ -78,6 +78,7 @@ export default async function InsightDetailPage({ params }) {
           { label: "Insights", href: "/insights" },
           { label: post.pillar },
         ]}
+        imageSrc={post.image || "/images/inner/about-philosophy-clarity.jpg"}
       />
 
       {/* Article Long-Form Editorial Column (LIGHT - 60px padding) */}
@@ -88,22 +89,36 @@ export default async function InsightDetailPage({ params }) {
             <span className="text-slate-900 font-semibold">By {post.author}</span>
             {post.publishedDate && (
               <span className="inline-flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-[#9A6B0C]" />
+                <Calendar className="w-3.5 h-3.5 text-[#1D4ED8]" />
                 {post.publishedDate}
               </span>
             )}
             {post.readTime && (
               <span className="inline-flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#9A6B0C]" />
+                <Clock className="w-3.5 h-3.5 text-[#1D4ED8]" />
                 {post.readTime}
               </span>
             )}
           </div>
 
+          {/* Featured Editorial Visual */}
+          {post.image && (
+            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-8 shadow-[0_8px_24px_rgba(15,23,42,0.06)]">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 760px"
+                className="object-cover"
+              />
+            </div>
+          )}
+
           {/* Executive Brief Callout */}
           {post.quickAnswer && (
-            <div className="p-6 rounded-2xl bg-[#FAF9F6] border-l-2 border-[#D4AF37] mb-10">
-              <span className="text-[11px] uppercase tracking-[0.16em] text-[#9A6B0C] font-bold block mb-2">
+            <div className="p-6 rounded-2xl bg-[#EFF6FF] border-l-2 border-[#2563EB] mb-10">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-[#1D4ED8] font-bold block mb-2">
                 Executive Summary
               </span>
               <p className="text-base sm:text-lg text-slate-900 font-semibold leading-relaxed">
@@ -116,7 +131,7 @@ export default async function InsightDetailPage({ params }) {
           <div className="space-y-10 text-slate-700 leading-relaxed">
             {post.sections?.map((section) => (
               <section key={section.heading} className="space-y-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-normal text-slate-900 tracking-tight">
                   {section.heading}
                 </h2>
 
@@ -133,7 +148,7 @@ export default async function InsightDetailPage({ params }) {
                         key={item}
                         className="py-3 flex items-start gap-3 text-sm text-slate-800"
                       >
-                        <Check className="w-4 h-4 text-[#9A6B0C] shrink-0 mt-0.5" strokeWidth={2.2} />
+                        <Check className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" strokeWidth={2.2} />
                         <span className="leading-snug">{item}</span>
                       </li>
                     ))}
@@ -145,9 +160,9 @@ export default async function InsightDetailPage({ params }) {
         </div>
       </section>
 
-      {/* Compact Author Dossier Strip with Portrait (DARK MIDNIGHT NAVY - 60px padding) */}
-      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
-        <DarkSectionLining />
+      {/* Compact Author Dossier Strip with Portrait (OBSIDIAN & ROYAL BLUE - 60px padding) */}
+      <section className="py-[60px] bg-[#04040A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining variant="blue" />
 
         <div className="max-w-[760px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
@@ -159,8 +174,8 @@ export default async function InsightDetailPage({ params }) {
             className="!mb-6"
           />
 
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#0B1528] border border-white/12 flex flex-col sm:flex-row sm:items-center gap-6">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-[#D4AF37]/50 shrink-0 bg-[#060D1A]">
+          <div className="p-6 sm:p-7 rounded-2xl bg-[#090F1E] border border-white/12 flex flex-col sm:flex-row sm:items-center gap-6">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-[#60A5FA]/50 shrink-0 bg-[#04040A]">
               <Image
                 src="/images/hero/dd.png"
                 alt="Dheeraj Aggarwal"
@@ -176,7 +191,7 @@ export default async function InsightDetailPage({ params }) {
               </p>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#F5E2A3] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#93C5FD] hover:text-white transition-colors"
               >
                 <span>View Full Executive Profile</span>
                 <ArrowRight className="w-3.5 h-3.5" />

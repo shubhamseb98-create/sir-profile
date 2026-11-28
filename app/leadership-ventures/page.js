@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PageCTA from "@/components/sections/PageCTA";
 import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
@@ -5,6 +6,12 @@ import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import { leadershipRoles, futureVentures } from "@/data/roles";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+
+const FUTURE_VENTURE_IMAGES = [
+  "/images/inner/speaking-executive-workshop.jpg",
+  "/images/inner/karma-panchakarma-center.jpg",
+  "/images/inner/hhc-gala-networking.jpg",
+];
 
 export const metadata = {
   title: "Leadership & Ventures | Dheeraj Aggarwal",
@@ -30,9 +37,9 @@ export default function LeadershipVenturesPage() {
       {/* 3. Future Ventures & Initiatives (DARK MIDNIGHT NAVY - 60px padding) */}
       <section
         id="future"
-        className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans"
+        className="py-[60px] bg-[#04040A] border-b border-white/10 relative overflow-hidden font-sans"
       >
-        <DarkSectionLining />
+        <DarkSectionLining variant="blue" />
 
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
@@ -49,37 +56,52 @@ export default function LeadershipVenturesPage() {
             {futureVentures.map((v, idx) => (
               <div
                 key={v.title}
-                className="p-6 sm:p-7 rounded-2xl bg-[#0B1528] border border-white/12 hover:border-[#D4AF37]/60 transition-colors flex flex-col justify-between"
+                className="group rounded-2xl overflow-hidden bg-[#090F1E] border border-white/12 hover:border-[#60A5FA]/60 transition-colors flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-white/10">
-                    <span className="text-[11px] uppercase tracking-[0.14em] text-[#D4AF37] font-bold">
-                      {v.category}
-                    </span>
-                    <span className="text-[11px] text-slate-300 font-medium px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">
-                      {v.status}
-                    </span>
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#04040A] border-b border-white/10">
+                    <Image
+                      src={
+                        FUTURE_VENTURE_IMAGES[idx % FUTURE_VENTURE_IMAGES.length]
+                      }
+                      alt={v.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#090F1E]/85 via-transparent to-transparent pointer-events-none" />
                   </div>
 
-                  <span className="text-xs font-bold text-slate-500 tabular-nums block mb-1">
-                    0{idx + 1}
-                  </span>
-                  <h3 className="text-xl font-bold text-white mb-2.5 leading-snug">
-                    {v.title}
-                  </h3>
+                  <div className="p-6 sm:p-7 pb-0">
+                    <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-white/10">
+                      <span className="text-[11px] uppercase tracking-[0.14em] text-[#93C5FD] font-bold">
+                        {v.category}
+                      </span>
+                      <span className="text-[11px] text-slate-300 font-medium px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">
+                        {v.status}
+                      </span>
+                    </div>
 
-                  <p className="text-sm text-slate-300 leading-relaxed">
-                    {v.description}
-                  </p>
+                    <span className="text-xs font-bold text-slate-400 tabular-nums block mb-1">
+                      0{idx + 1}
+                    </span>
+                    <h3 className="text-xl font-normal text-white mb-2.5 leading-snug">
+                      {v.title}
+                    </h3>
+
+                    <p className="text-sm text-slate-300 leading-relaxed">
+                      {v.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10">
+                <div className="p-6 sm:p-7 pt-4 mt-5 border-t border-white/10">
                   <Link
                     href="/contact?type=future-venture"
-                    className="text-xs uppercase tracking-[0.12em] text-[#F5E2A3] font-semibold flex items-center justify-between hover:text-white transition-colors"
+                    className="text-xs uppercase tracking-[0.12em] text-[#93C5FD] font-semibold flex items-center justify-between hover:text-white transition-colors"
                   >
                     <span>Express Collaborative Interest</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#D4AF37]" />
+                    <ArrowUpRight className="w-4 h-4 text-[#60A5FA]" />
                   </Link>
                 </div>
               </div>

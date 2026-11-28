@@ -15,6 +15,7 @@ export default function KarmaAyurvedaPage() {
   const capabilityPillars = [
     {
       id: "digital-leadership",
+      image: "/images/cards/digital-growth-real.jpg",
       title: "Digital Leadership & Performance",
       summary:
         "Providing strategic direction to digital teams, structuring organic patient education content, optimizing performance ad spend, and monitoring full-funnel ROAS.",
@@ -27,6 +28,7 @@ export default function KarmaAyurvedaPage() {
     },
     {
       id: "crm-architecture",
+      image: "/images/cards/crm-operations-real.jpg",
       title: "Enterprise CRM Strategy & Implementation",
       summary:
         "Architecting unified patient relationship management infrastructure to ensure zero lead leakage, automated follow-up cadences, and multi-branch tracking.",
@@ -39,6 +41,7 @@ export default function KarmaAyurvedaPage() {
     },
     {
       id: "sops-processes",
+      image: "/images/inner/about-sop-systems.jpg",
       title: "Clinical & Sales SOPs",
       summary:
         "Codifying front-desk, counseling desk, and clinic operations into standard operating procedures to eliminate founder dependency and ensure clinical consistency.",
@@ -51,6 +54,7 @@ export default function KarmaAyurvedaPage() {
     },
     {
       id: "franchise-expansion",
+      image: "/images/transformations/karma-clinic-ops.jpg",
       title: "Franchise & Regional Expansion",
       summary:
         "Structuring commercial franchise frameworks, operational playbooks, and localized marketing support to scale clinic presence into Tier-1 and Tier-2 Indian cities.",
@@ -63,6 +67,7 @@ export default function KarmaAyurvedaPage() {
     },
     {
       id: "hospital-tieups",
+      image: "/images/inner/karma-panchakarma-center.jpg",
       title: "Hospital Partnerships & Panchakarma Centers",
       summary:
         "Developing institutional partnerships with established hospitals to embed specialized Panchakarma and Ayurvedic wellness therapy wings.",
@@ -75,6 +80,7 @@ export default function KarmaAyurvedaPage() {
     },
     {
       id: "revenue-consulting",
+      image: "/images/cards/leadership-governance-real.jpg",
       title: "Revenue & Growth Consulting",
       summary:
         "Analyzing clinic-level economics, treatment package profitability, and conversion bottlenecks to unlock immediate margin improvements.",
@@ -111,21 +117,25 @@ export default function KarmaAyurvedaPage() {
   const initiativesTimeline = [
     {
       phase: "Phase 01",
+      image: "/images/cards/leadership-governance-real.jpg",
       title: "Operational Diagnostic & Systems Blueprint",
       desc: "Audited existing inquiry workflows, digital ad spend allocations, and counselor follow-up habits across branches.",
     },
     {
       phase: "Phase 02",
+      image: "/images/cards/crm-operations-real.jpg",
       title: "Enterprise CRM & WhatsApp Automation Rollout",
       desc: "Configured centralized lead capture, automated allocation trees, and executive management dashboards.",
     },
     {
       phase: "Phase 03",
+      image: "/images/inner/about-sop-systems.jpg",
       title: "Counseling & Clinical SOP Implementation",
       desc: "Trained branch teams on consultative communication scripts, patient intake protocols, and escalation guidelines.",
     },
     {
       phase: "Phase 04",
+      image: "/images/inner/karma-panchakarma-center.jpg",
       title: "Franchise Modeling & Hospital Strategic Alliances",
       desc: "Designed investor disclosure decks, territory unit economics, and integrative hospital partnership models.",
     },
@@ -180,31 +190,43 @@ export default function KarmaAyurvedaPage() {
               <article
                 key={pillar.id}
                 id={pillar.id}
-                className="p-6 sm:p-7 rounded-2xl bg-[#FAF9F6] border border-slate-200/90 hover:border-[#D4AF37]/70 transition-colors flex flex-col justify-between"
+                className="group rounded-2xl overflow-hidden bg-[#F8FAFC] border border-slate-200/90 hover:border-[#3B82F6]/65 transition-colors flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200">
-                    <span className="text-[11px] uppercase tracking-[0.16em] font-bold text-[#9A6B0C]">
-                      Pillar 0{idx + 1}
-                    </span>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-slate-200">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    />
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug">
-                    {pillar.title}
-                  </h3>
+                  <div className="p-6 sm:p-7">
+                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200">
+                      <span className="text-[11px] uppercase tracking-[0.16em] font-bold text-[#1D4ED8]">
+                        Pillar 0{idx + 1}
+                      </span>
+                    </div>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
-                    {pillar.summary}
-                  </p>
+                    <h3 className="text-lg font-normal text-slate-900 mb-2 leading-snug">
+                      {pillar.title}
+                    </h3>
 
-                  <ul className="space-y-2 pt-4 border-t border-slate-200/80">
-                    {pillar.deliverables.map((del) => (
-                      <li key={del} className="flex items-start gap-2 text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-[#9A6B0C] shrink-0 mt-0.5" strokeWidth={2.2} />
-                        <span>{del}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                      {pillar.summary}
+                    </p>
+
+                    <ul className="space-y-2 pt-4 border-t border-slate-200/80">
+                      {pillar.deliverables.map((del) => (
+                        <li key={del} className="flex items-start gap-2 text-xs text-slate-700">
+                          <Check className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" strokeWidth={2.2} />
+                          <span>{del}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </article>
             ))}
@@ -212,9 +234,9 @@ export default function KarmaAyurvedaPage() {
         </div>
       </section>
 
-      {/* 3. Transformation Case Snapshots (DARK MIDNIGHT NAVY - 60px padding) */}
-      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
-        <DarkSectionLining />
+      {/* 3. Transformation Case Snapshots (OBSIDIAN & ROYAL BLUE - 60px padding) */}
+      <section className="py-[60px] bg-[#04040A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining variant="blue" />
 
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
@@ -231,13 +253,13 @@ export default function KarmaAyurvedaPage() {
             {transformationStories.map((story, idx) => (
               <article
                 key={story.title}
-                className="p-6 sm:p-8 rounded-2xl bg-[#0B1528] border border-white/12"
+                className="p-6 sm:p-8 rounded-2xl bg-[#090F1E] border border-white/12 hover:border-[#60A5FA]/50 transition-colors"
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-2 pb-4 mb-5 border-b border-white/10">
-                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                  <h3 className="text-lg sm:text-xl font-normal text-white">
                     {story.title}
                   </h3>
-                  <span className="text-xs font-bold text-[#D4AF37] tabular-nums">
+                  <span className="text-xs font-bold text-[#60A5FA] tabular-nums">
                     Case Snapshot 0{idx + 1}
                   </span>
                 </div>
@@ -253,7 +275,7 @@ export default function KarmaAyurvedaPage() {
                   </div>
 
                   <div className="lg:px-2 lg:border-r lg:border-white/10">
-                    <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-[#F5E2A3] block mb-1.5">
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-[#93C5FD] block mb-1.5">
                       Strategic Intervention
                     </span>
                     <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
@@ -262,7 +284,7 @@ export default function KarmaAyurvedaPage() {
                   </div>
 
                   <div>
-                    <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-[#D4AF37] block mb-1.5">
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-bold text-[#60A5FA] block mb-1.5">
                       Measured Impact
                     </span>
                     <p className="text-xs sm:text-sm text-white font-medium leading-relaxed">
@@ -289,22 +311,33 @@ export default function KarmaAyurvedaPage() {
             className="!mb-8 sm:!mb-10"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-slate-200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {initiativesTimeline.map((item) => (
               <div
                 key={item.phase}
-                className="p-6 border-r border-b border-slate-200 bg-white flex flex-col justify-between"
+                className="group rounded-2xl overflow-hidden border border-slate-200 bg-white flex flex-col justify-between shadow-[0_2px_10px_rgba(15,23,42,0.03)]"
               >
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#9A6B0C] block mb-2">
-                    {item.phase}
-                  </span>
-                  <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 300px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#1D4ED8] block mb-2">
+                      {item.phase}
+                    </span>
+                    <h3 className="text-base font-normal text-slate-900 mb-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

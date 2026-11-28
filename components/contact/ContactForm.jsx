@@ -100,8 +100,8 @@ export default function ContactForm({ light = false }) {
   const inputClass = cn(
     "w-full rounded-xl px-4 py-2.5 text-sm border focus:outline-none transition-colors",
     light
-      ? "bg-[#FAF9F6] border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-[#060D1A] focus:bg-white"
-      : "bg-[#060D1A] border-white/15 text-white placeholder:text-slate-500 focus:border-[#D4AF37]"
+      ? "bg-[#F8FAFC] border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-[#2563EB] focus:bg-white"
+      : "bg-[#04040A] border-white/15 text-white placeholder:text-slate-500 focus:border-[#60A5FA]"
   );
 
   return (
@@ -110,7 +110,7 @@ export default function ContactForm({ light = false }) {
         "rounded-2xl p-6 sm:p-8 font-sans transition-all",
         light
           ? "bg-white border border-slate-200/90 shadow-[0_8px_30px_rgba(15,23,42,0.05)]"
-          : "bg-[#0B1528] border border-white/12 shadow-[0_18px_45px_rgba(0,0,0,0.45)]"
+          : "bg-[#090F1E] border border-white/12 shadow-[0_18px_45px_rgba(0,0,0,0.45)]"
       )}
     >
       {/* Form Header */}
@@ -124,12 +124,12 @@ export default function ContactForm({ light = false }) {
           <span
             className={cn(
               "text-[11px] font-bold uppercase tracking-[0.16em] block mb-0.5",
-              light ? "text-[#9A6B0C]" : "text-[#D4AF37]"
+              light ? "text-[#1D4ED8]" : "text-[#93C5FD]"
             )}
           >
             Confidential Consultation Brief
           </span>
-          <h3 className={cn("text-lg font-bold", light ? "text-slate-900" : "text-white")}>
+          <h3 className={cn("text-lg font-normal", light ? "text-slate-900" : "text-white")}>
             Submit Inquiry Parameters
           </h3>
         </div>
@@ -141,7 +141,7 @@ export default function ContactForm({ light = false }) {
               : "bg-white/5 border-white/15 text-slate-300"
           )}
         >
-          <ShieldCheck className={cn("w-3.5 h-3.5", light ? "text-[#9A6B0C]" : "text-[#D4AF37]")} />
+          <ShieldCheck className={cn("w-3.5 h-3.5", light ? "text-[#1D4ED8]" : "text-[#60A5FA]")} />
           24h Partner Review
         </span>
       </div>
@@ -150,7 +150,7 @@ export default function ContactForm({ light = false }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label htmlFor="name" className={labelClass}>
-              Full Name <span className="text-[#B4821E]">*</span>
+              Full Name <span className="text-[#3B82F6]">*</span>
             </label>
             <input
               id="name"
@@ -177,7 +177,7 @@ export default function ContactForm({ light = false }) {
 
           <div className="space-y-1.5">
             <label htmlFor="phone" className={labelClass}>
-              Phone / WhatsApp <span className="text-[#B4821E]">*</span>
+              Phone / WhatsApp <span className="text-[#3B82F6]">*</span>
             </label>
             <input
               id="phone"
@@ -191,7 +191,7 @@ export default function ContactForm({ light = false }) {
 
           <div className="space-y-1.5">
             <label htmlFor="email" className={labelClass}>
-              Business Email <span className="text-[#B4821E]">*</span>
+              Business Email <span className="text-[#3B82F6]">*</span>
             </label>
             <input
               id="email"
@@ -211,7 +211,7 @@ export default function ContactForm({ light = false }) {
 
           <div className="space-y-1.5">
             <label htmlFor="enquiryCategory" className={labelClass}>
-              Advisory Focus Area <span className="text-[#B4821E]">*</span>
+              Advisory Focus Area <span className="text-[#3B82F6]">*</span>
             </label>
             <select
               id="enquiryCategory"
@@ -219,7 +219,7 @@ export default function ContactForm({ light = false }) {
               className={cn(inputClass, "appearance-none cursor-pointer")}
             >
               {enquiryCategories.map((c) => (
-                <option key={c} value={c} className={light ? "bg-white text-slate-900" : "bg-[#060D1A] text-white"}>
+                <option key={c} value={c} className={light ? "bg-white text-slate-900" : "bg-[#04040A] text-white"}>
                   {c}
                 </option>
               ))}
@@ -242,7 +242,7 @@ export default function ContactForm({ light = false }) {
 
         <div className="space-y-1.5">
           <label htmlFor="businessChallenge" className={labelClass}>
-            Primary Growth Bottleneck / Objective <span className="text-[#B4821E]">*</span>
+            Primary Growth Bottleneck / Objective <span className="text-[#3B82F6]">*</span>
           </label>
           <textarea
             id="businessChallenge"
@@ -272,13 +272,13 @@ export default function ContactForm({ light = false }) {
               "p-3.5 rounded-xl flex items-start gap-2.5 text-xs font-medium border",
               submitStatus.type === "success"
                 ? light
-                  ? "bg-slate-50 border-[#D4AF37] text-slate-800"
-                  : "bg-[#060D1A] border-[#D4AF37] text-white"
+                  ? "bg-[#EFF6FF] border-[#3B82F6] text-slate-800"
+                  : "bg-[#04040A] border-[#3B82F6] text-white"
                 : "bg-red-50 border-red-200 text-red-700"
             )}
           >
             {submitStatus.type === "success" ? (
-              <Check className="w-4 h-4 text-[#9A6B0C] shrink-0 mt-0.5" />
+              <Check className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
             ) : (
               <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
             )}
@@ -293,8 +293,8 @@ export default function ContactForm({ light = false }) {
             className={cn(
               "w-full sm:w-auto px-8 py-3 rounded-full text-xs uppercase tracking-[0.14em] font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60",
               light
-                ? "bg-[#060D1A] hover:bg-[#0F1E3A] text-white shadow-md"
-                : "bg-gold-metallic text-[#060D1A] hover:brightness-105 shadow-md"
+                ? "bg-[#04040A] hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] text-white shadow-md"
+                : "bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#6366F1] text-white hover:brightness-110 shadow-[0_0_24px_rgba(37,99,235,0.4)]"
             )}
           >
             {isSubmitting ? (
@@ -308,7 +308,7 @@ export default function ContactForm({ light = false }) {
           </button>
 
           <p className={cn("text-[11px] flex items-center gap-1.5", light ? "text-slate-500" : "text-slate-400")}>
-            <ShieldCheck className="w-3.5 h-3.5 text-[#9A6B0C]" />
+            <ShieldCheck className={cn("w-3.5 h-3.5", light ? "text-[#1D4ED8]" : "text-[#60A5FA]")} />
             Confidentiality NDA Respected
           </p>
         </div>

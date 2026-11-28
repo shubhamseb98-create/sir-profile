@@ -26,21 +26,21 @@
   --font-sans: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-hero: var(--font-outfit), var(--font-inter), 'Inter', sans-serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-hero: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 :root {
-  --navbar-bg: #060D1A;
-  --hero-from: #060D1A;
-  --hero-to: #0A1628;
-  --btn-primary: #D4AF37;
-  --btn-hover: #E5C665;
-  --highlight: #D4AF37;
+  --navbar-bg: #04040A;
+  --hero-from: #04040A;
+  --hero-to: #090F1E;
+  --btn-primary: #2563EB;
+  --btn-hover: #3B82F6;
+  --highlight: #3B82F6;
   --section-light: #FFFFFF;
   --section-ice: #F8FAFC;
-  --section-dark: #060D1A;
-  --section-dark-card: #0B1528;
+  --section-dark: #04040A;
+  --section-dark-card: #090F1E;
   --text-main: #1E293B;
   --text-muted: #64748B;
   --text-dark-main: #F8FAFC;
@@ -50,7 +50,7 @@
 }
 
 html {
-  background-color: #060D1A;
+  background-color: #04040A;
   color: #F8FAFC;
   font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
@@ -67,7 +67,7 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background-color: #060D1A;
+  background-color: #04040A;
   font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -94,8 +94,8 @@ html.lenis body {
 }
 
 ::selection {
-  background-color: #D4AF37;
-  color: #000000;
+  background-color: #3B82F6;
+  color: #FFFFFF;
 }
 
 ::-webkit-scrollbar {
@@ -103,7 +103,7 @@ html.lenis body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #060D1A;
+  background: #04040A;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -112,7 +112,7 @@ html.lenis body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #60A5FA;
 }
 
 .modern-card {
@@ -158,7 +158,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid #60A5FA;
   outline-offset: 2px;
 }
 

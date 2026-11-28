@@ -17,10 +17,10 @@ export default function BreadcrumbHero({
 }) {
   return (
     <section
-      className={`relative bg-[#060D1A] text-white overflow-hidden pt-28 pb-12 md:pt-36 md:pb-14 border-b border-white/10 font-sans ${className}`}
+      className={`relative bg-[#04040A] text-white overflow-hidden pt-28 pb-12 md:pt-36 md:pb-14 border-b border-white/10 font-sans ${className}`}
     >
-      {/* Unified Midnight Navy Architectural Grid & Side Depth */}
-      <DarkSectionLining showTopBeam={false} showBottomBeam={true} />
+      {/* Unified Obsidian Architectural Grid & Royal-Blue Depth */}
+      <DarkSectionLining variant="blue" showTopBeam={false} showBottomBeam={true} />
 
       {/* Optional subtle monochrome architectural backdrop — kept restrained for clean legibility */}
       {imageSrc && (
@@ -33,7 +33,7 @@ export default function BreadcrumbHero({
             sizes="100vw"
             className="object-cover object-center opacity-[0.14] grayscale"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060D1A] via-[#060D1A]/85 to-[#060D1A]/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#04040A] via-[#04040A]/85 to-[#04040A]/75" />
         </div>
       )}
 
@@ -46,7 +46,7 @@ export default function BreadcrumbHero({
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#F5E2A3] transition-colors"
+            className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#93C5FD] transition-colors"
           >
             <Home className="w-3.5 h-3.5" />
             <span>Home</span>
@@ -60,12 +60,12 @@ export default function BreadcrumbHero({
                 {crumb.href && !isLast ? (
                   <Link
                     href={crumb.href}
-                    className="text-slate-300 hover:text-[#F5E2A3] transition-colors truncate max-w-[160px] sm:max-w-none"
+                    className="text-slate-300 hover:text-[#93C5FD] transition-colors truncate max-w-[160px] sm:max-w-none"
                   >
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className="text-[#E5C665] font-medium truncate max-w-[220px] sm:max-w-none">
+                  <span className="text-[#93C5FD] font-medium truncate max-w-[220px] sm:max-w-none">
                     {crumb.label}
                   </span>
                 )}
@@ -78,26 +78,29 @@ export default function BreadcrumbHero({
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-3 mb-3.5">
             {eyebrow && (
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#0B172C] text-[#F6E3A8]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0" />
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-bold leading-none">
+              <div className="flex items-center gap-2.5 max-w-full">
+                <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-slate-200 leading-none truncate">
                   {eyebrow}
                 </span>
+                <span
+                  aria-hidden="true"
+                  className="hidden sm:inline-block h-px w-12 md:w-16 bg-gradient-to-r from-[#60A5FA]/60 to-transparent shrink-0"
+                />
               </div>
             )}
             {badge && (
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#060D1A] bg-gold-metallic px-3 py-1 rounded-full">
-                {badge}
+              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.16em] text-[#93C5FD]">
+                • {badge}
               </span>
             )}
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.14] mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight leading-[1.14] mb-4">
             {typeof title === "string" ? (
               <RollingText
                 text={title}
                 highlightCount={2}
-                highlightClassName="text-[#F5D57A] font-extrabold"
+                highlightClassName="text-[#3B82F6] font-normal drop-shadow-[0_0_16px_rgba(59,130,246,0.38)]"
               />
             ) : (
               title

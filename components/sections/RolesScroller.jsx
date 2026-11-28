@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Menu } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Menu } from "lucide-react";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -154,7 +155,7 @@ export default function RolesScroller() {
   return (
     <section
       id="roles-ecosystems"
-      className="py-[60px] bg-[#060D1A] text-white relative font-sans overflow-hidden border-b border-white/10 select-none"
+      className="py-[60px] bg-[#04040A] text-white relative font-sans overflow-hidden border-b border-white/10 select-none"
     >
       {/* ── Background Lining Texture & Subtle Glow ── */}
       <DarkSectionLining glowPosition="split" showTopBeam={true} showBottomBeam={true} />
@@ -214,7 +215,7 @@ export default function RolesScroller() {
                 }}
                 className={`w-[88vw] sm:w-[74vw] md:w-[66vw] lg:w-[58vw] max-w-[900px] h-[220px] sm:h-[290px] md:h-[350px] rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer transition-[transform,opacity,border-color,box-shadow] duration-500 ease-out group ${
                   isCenter
-                    ? "shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-[#D4AF37]/45 border border-[#D4AF37]/35 opacity-100 pointer-events-auto"
+                    ? "shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_32px_rgba(59,130,246,0.22)] ring-1 ring-[#60A5FA]/50 border border-[#60A5FA]/40 opacity-100 pointer-events-auto"
                     : isAdjacent
                     ? "opacity-0 sm:opacity-35 sm:hover:opacity-75 border border-neutral-800 pointer-events-none sm:pointer-events-auto"
                     : "opacity-0 border border-neutral-800 pointer-events-none"
@@ -232,11 +233,11 @@ export default function RolesScroller() {
                 />
 
                 {/* Gradient overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/90 via-[#060D1A]/25 to-[#060D1A]/35 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#04040A]/90 via-[#04040A]/25 to-[#04040A]/35 pointer-events-none" />
 
                 {/* Top Header Row of Card */}
                 <div className="absolute top-3.5 sm:top-6 left-3.5 sm:left-6 right-3.5 sm:right-6 flex items-center justify-between z-10 pointer-events-none">
-                  <span className="text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-black/80 text-[#D4AF37] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-[#D4AF37]/30 backdrop-blur-md">
+                  <span className="text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-black/80 text-[#93C5FD] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-[#60A5FA]/35 backdrop-blur-md">
                     {item.role}
                   </span>
 
@@ -252,10 +253,10 @@ export default function RolesScroller() {
                     isCenter ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <span className="text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-bold mb-1.5 sm:mb-2 drop-shadow-md">
+                  <span className="text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#93C5FD] font-bold mb-1.5 sm:mb-2 drop-shadow-md">
                     {item.badge}
                   </span>
-                  <h3 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg max-w-xl">
+                  <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight drop-shadow-lg max-w-xl">
                     {item.name}
                   </h3>
                   <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-slate-200/90 max-w-md line-clamp-2 drop-shadow-md hidden sm:block">
@@ -279,15 +280,33 @@ export default function RolesScroller() {
 
         {/* Bottom Bar: Locked Height Prevents Vertical Section Jump on Text Change */}
         <div className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-16 mt-3 sm:mt-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          {/* Bottom Left: Title & Subtitle */}
-          <div className="min-w-0">
-            <h4 className="text-base sm:text-lg md:text-xl font-bold text-white mb-0.5 truncate">
-              {activeVenture.name}
-            </h4>
+          {/* Bottom Left: Title, Subtitle & Explore Inner Link */}
+          <div className="min-w-0 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
+            <div className="min-w-0">
+              <h4 className="text-base sm:text-lg md:text-xl font-normal text-white mb-0.5 truncate">
+                {activeVenture.name}
+              </h4>
 
-            <p className="text-xs sm:text-sm text-slate-400 font-normal truncate">
-              {activeVenture.subtitle}
-            </p>
+              <p className="text-xs sm:text-sm text-slate-400 font-normal truncate">
+                {activeVenture.subtitle}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2.5 shrink-0">
+              <Link
+                href={activeVenture.href || "/leadership-ventures"}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#3B82F6]/15 hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#6366F1] border border-[#60A5FA]/45 text-[#DBEAFE] hover:text-white text-xs font-semibold transition-all"
+              >
+                <span>Explore Role</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                href="/leadership-ventures"
+                className="inline-flex items-center gap-1 text-xs font-medium text-slate-300 hover:text-white transition-colors"
+              >
+                <span>All Ventures</span>
+              </Link>
+            </div>
           </div>
 
           {/* Bottom Right: Circular Navigation Arrows */}
@@ -299,7 +318,7 @@ export default function RolesScroller() {
                 setTimeout(() => setIsPaused(false), 3000);
               }}
               aria-label="Previous Showcase"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-800 bg-black/80 text-white hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/15 bg-black/80 text-white hover:border-[#60A5FA] hover:text-[#93C5FD] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.75} />
             </button>
@@ -311,7 +330,7 @@ export default function RolesScroller() {
                 setTimeout(() => setIsPaused(false), 3000);
               }}
               aria-label="Next Showcase"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-800 bg-black/80 text-white hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/15 bg-black/80 text-white hover:border-[#60A5FA] hover:text-[#93C5FD] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md backdrop-blur-md"
             >
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.75} />
             </button>

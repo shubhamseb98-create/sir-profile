@@ -49,11 +49,11 @@ export default function TermsPage() {
           <div className="border-t border-b border-slate-200 divide-y divide-slate-200">
             {clauses.map((clause) => (
               <article key={clause.num} className="py-7 grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 items-start">
-                <span className="sm:col-span-2 text-sm font-bold text-[#9A6B0C] tabular-nums pt-0.5">
+                <span className="sm:col-span-2 text-sm font-bold text-[#1D4ED8] tabular-nums pt-0.5">
                   Clause {clause.num}
                 </span>
                 <div className="sm:col-span-10">
-                  <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+                  <h2 className="text-lg sm:text-xl font-normal text-slate-900 mb-2">
                     {clause.title}
                   </h2>
                   <p className="text-sm text-slate-600 leading-relaxed">

@@ -24,7 +24,7 @@ export default function MobileMenu({ isOpen, onClose }) {
   return (
     <aside
       aria-label="Mobile Navigation"
-      className="fixed inset-0 z-[100] bg-[#060D1A]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-300"
+      className="fixed inset-0 z-[100] bg-[#04040A]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-300"
     >
       {/* Header bar inside menu */}
       <div className="flex items-center justify-between border-b border-white/10 pb-5">
@@ -40,7 +40,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             width={200}
             height={68}
             unoptimized
-            className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(212,175,55,0.28)]"
+            className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(59,130,246,0.28)]"
             priority
           />
         </Link>
@@ -61,26 +61,26 @@ export default function MobileMenu({ isOpen, onClose }) {
               <Link
                 href={item.href}
                 onClick={onClose}
-                className="group flex items-center justify-between text-2xl sm:text-3xl font-bold text-white hover:text-[#D4AF37] transition-colors"
+                className="group flex items-center justify-between text-2xl sm:text-3xl font-normal text-white hover:text-[#93C5FD] transition-colors"
               >
                 <span>{item.label}</span>
-                <span className="text-xs font-mono text-slate-500 group-hover:text-[#D4AF37]">
+                <span className="text-xs font-mono text-slate-500 group-hover:text-[#93C5FD]">
                   0{idx + 1}
                 </span>
               </Link>
 
               {/* Sub-links if available */}
               {item.children && (
-                <div className="ml-4 mt-2.5 pl-3 border-l border-[#D4AF37]/30 flex flex-col gap-2">
-                  {item.children.slice(1).map((child) => (
+                <div className="ml-4 mt-2.5 pl-3 border-l border-[#3B82F6]/35 flex flex-col gap-2">
+                  {item.children.map((child) => (
                     <Link
                       key={child.label}
                       href={child.href}
                       onClick={onClose}
-                      className="text-sm font-sans text-slate-300 hover:text-[#D4AF37] transition-colors flex items-center gap-1.5"
+                      className="text-sm font-sans text-slate-300 hover:text-[#93C5FD] transition-colors flex items-center gap-1.5"
                     >
                       <span>{child.label}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#60A5FA]" />
                     </Link>
                   ))}
                 </div>
@@ -101,7 +101,7 @@ export default function MobileMenu({ isOpen, onClose }) {
               window.dispatchEvent(new CustomEvent("open-lead-modal"));
             }
           }}
-          className="w-full text-center bg-gold-metallic text-black font-bold py-3.5 px-6 rounded-full text-sm shadow-lg transition-all cursor-pointer"
+          className="w-full text-center bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#6366F1] hover:brightness-110 text-white font-semibold py-3.5 px-6 rounded-full text-sm border border-[#93C5FD]/40 shadow-[0_0_24px_rgba(37,99,235,0.4)] transition-all cursor-pointer"
         >
           Book a Strategy Call
         </button>

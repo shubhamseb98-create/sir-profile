@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PageCTA from "@/components/sections/PageCTA";
@@ -10,6 +11,7 @@ import BreadcrumbHero from "@/components/ui/BreadcrumbHero";
 import VideoSection from "@/components/sections/VideoSection";
 import DarkSectionLining from "@/components/ui/DarkSectionLining";
 import { writtenTestimonials } from "@/data/testimonials";
+import { siteConfig } from "@/data/site";
 import {
   Maximize2,
   X,
@@ -17,6 +19,8 @@ import {
   ChevronRight,
   Star,
   CheckCircle2,
+  ArrowDown,
+  ArrowUpRight,
 } from "lucide-react";
 
 export default function MediaPage() {
@@ -132,6 +136,36 @@ export default function MediaPage() {
     },
   ];
 
+  const mediaFormats = [
+    {
+      index: "01",
+      image: "/images/supporting/testimonial-poster-2.jpg",
+      tag: "@indiandheeraj • Instagram Reels",
+      title: "Short-Form Business Diagnostics",
+      desc: "60-second straight-talk breakdowns on auditing operational bottlenecks, capturing high-intent Google demand, and scaling customer acquisition without ad waste.",
+      href: "#video-endorsements",
+      cta: "Watch Reels Below",
+    },
+    {
+      index: "02",
+      image: "/images/inner/speaking-panel-moderation.jpg",
+      tag: "50+ National Sessions",
+      title: "Keynotes, Conclaves & Workshops",
+      desc: "Actionable stage talks and closed-door promoter roundtables covering CRM systems, documented SOPs, unit economics, and repeatable branch expansion.",
+      href: "/speaking",
+      cta: "Explore Speaking Topics",
+    },
+    {
+      index: "03",
+      image: "/images/transformations/karma-clinic-ops.jpg",
+      tag: "Operating Ventures & Advisories",
+      title: "Live Ecosystem Case Briefings",
+      desc: "Documented transformation notes from pan-India healthcare clinics, a 15+ year digital engineering agency, and founder-led hospitality networks.",
+      href: "/case-studies",
+      cta: "View Case Studies",
+    },
+  ];
+
   return (
     <>
       <BreadcrumbHero
@@ -141,6 +175,121 @@ export default function MediaPage() {
         breadcrumbs={[{ label: "Media & Testimonials" }]}
         imageSrc="/images/roles/keynote-speaker-showcase.jpg"
       />
+
+      {/* 1.5 White Editorial Media Overview & Verified Footprint */}
+      <section className="py-[60px] bg-[#FFFFFF] text-[#0F172A] border-b border-slate-200 font-sans">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left Column: Brief + Verified Proof Metrics */}
+            <div className="lg:col-span-5">
+              <SectionHeading
+                eyebrow="PUBLIC BRIEFING & PROOF"
+                title="Measured Impact Beyond the Stage"
+                description="Every reel, keynote, and executive briefing comes directly from active advisory work across healthcare chains, digital systems, and founder ecosystems."
+                light={true}
+                compact={true}
+                animate={false}
+                className="!mb-6"
+              />
+
+              <div className="grid grid-cols-2 gap-3.5 mb-6">
+                {siteConfig.metrics.map((m) => (
+                  <div
+                    key={m.label}
+                    className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200/90"
+                  >
+                    <div className="text-2xl sm:text-[26px] font-extrabold tracking-tight text-[#04040A] tabular-nums">
+                      {m.value.toLocaleString()}
+                      <span className="text-[#2563EB]">{m.suffix}</span>
+                    </div>
+                    <p className="mt-1 text-xs text-slate-600 leading-snug">
+                      {m.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="#video-endorsements"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#04040A] hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] text-white text-xs font-semibold tracking-wide transition-all"
+                >
+                  <span>Watch Founder Reels</span>
+                  <ArrowDown className="w-3.5 h-3.5 text-[#93C5FD]" />
+                </a>
+                <Link
+                  href="/contact?type=speaking"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-slate-300 bg-white hover:border-[#2563EB] hover:text-[#1D4ED8] text-slate-800 text-xs font-semibold tracking-wide transition-colors"
+                >
+                  <span>Media &amp; Speaking Desk</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Curated Editorial Formats List */}
+            <div className="lg:col-span-7 divide-y divide-slate-200 border-y border-slate-200 bg-white">
+              {mediaFormats.map((item) => {
+                const isHash = item.href.startsWith("#");
+                return (
+                  <div
+                    key={item.index}
+                    className="py-5 sm:py-6 first:pt-5 last:pb-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 group"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 max-w-xl">
+                      <div className="relative w-full sm:w-32 aspect-[16/10] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 140px"
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                        />
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-mono text-xs font-bold tracking-wider text-[#1D4ED8]">
+                            {item.index}
+                          </span>
+                          <span className="h-3 w-px bg-slate-300" />
+                          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                            {item.tag}
+                          </span>
+                        </div>
+                        <h3 className="text-base sm:text-lg font-normal text-[#04040A] mb-1.5">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs sm:text-[13.5px] text-slate-600 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {isHash ? (
+                      <a
+                        href={item.href}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#1D4ED8] hover:text-[#04040A] whitespace-nowrap sm:pt-1 shrink-0 transition-colors"
+                      >
+                        <span>{item.cta}</span>
+                        <ArrowDown className="w-3.5 h-3.5" />
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#1D4ED8] hover:text-[#04040A] whitespace-nowrap sm:pt-1 shrink-0 transition-colors"
+                      >
+                        <span>{item.cta}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 2. Instagram Reels Showcase (Unified Homepage VideoSection - DARK MIDNIGHT NAVY) */}
       <VideoSection
@@ -175,7 +324,7 @@ export default function MediaPage() {
                     prev === 0 ? totalTestimonialSlides - 1 : prev - 1
                   )
                 }
-                className="w-9 h-9 rounded-full border border-slate-300 bg-white hover:border-[#060D1A] hover:bg-[#060D1A] hover:text-white transition-colors flex items-center justify-center text-slate-700 cursor-pointer"
+                className="w-9 h-9 rounded-full border border-slate-300 bg-white hover:border-[#2563EB] hover:bg-[#04040A] hover:text-white transition-colors flex items-center justify-center text-slate-700 cursor-pointer"
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -185,7 +334,7 @@ export default function MediaPage() {
                 onClick={() =>
                   setTestimonialSlide((prev) => (prev + 1) % totalTestimonialSlides)
                 }
-                className="w-9 h-9 rounded-full bg-[#060D1A] text-white hover:bg-[#0F1E3A] transition-colors flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 rounded-full bg-[#04040A] text-white hover:bg-[#2563EB] transition-colors flex items-center justify-center cursor-pointer"
                 aria-label="Next testimonials"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -205,7 +354,7 @@ export default function MediaPage() {
               {currentTestimonials.map((t) => (
                 <article
                   key={t.id}
-                  className="p-6 sm:p-7 rounded-2xl bg-[#FAF9F6] border border-slate-200/90 hover:border-[#D4AF37]/70 flex flex-col justify-between transition-colors"
+                  className="p-6 sm:p-7 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#3B82F6]/65 flex flex-col justify-between transition-colors"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-4">
@@ -213,12 +362,12 @@ export default function MediaPage() {
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
-                            className="w-3.5 h-3.5 fill-[#D4AF37] text-[#D4AF37]"
+                            className="w-3.5 h-3.5 fill-[#2563EB] text-[#2563EB]"
                           />
                         ))}
                       </div>
 
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#9A6B0C]">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1D4ED8]">
                         {t.engagementType}
                       </span>
                     </div>
@@ -228,8 +377,8 @@ export default function MediaPage() {
                     </p>
 
                     {t.resultHighlight && (
-                      <div className="p-3.5 rounded-xl bg-white border-l-2 border-[#D4AF37] flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#9A6B0C] mt-0.5 shrink-0" />
+                      <div className="p-3.5 rounded-xl bg-white border-l-2 border-[#2563EB] flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-[#2563EB] mt-0.5 shrink-0" />
                         <span className="text-xs font-medium text-slate-700 leading-snug">
                           <strong className="text-slate-900">Outcome:</strong>{" "}
                           {t.resultHighlight}
@@ -240,7 +389,7 @@ export default function MediaPage() {
 
                   <div className="pt-4 mt-5 border-t border-slate-200 flex items-center justify-between gap-3">
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">
+                      <h4 className="text-sm font-normal text-slate-900">
                         {t.author}
                       </h4>
                       <p className="text-xs text-slate-500">
@@ -262,7 +411,7 @@ export default function MediaPage() {
                 onClick={() => setTestimonialSlide(idx)}
                 className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   testimonialSlide === idx
-                    ? "w-8 bg-[#060D1A]"
+                    ? "w-8 bg-[#2563EB]"
                     : "w-2 bg-slate-300 hover:bg-slate-500"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
@@ -272,9 +421,9 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* 4. Visual Media Gallery (DARK MIDNIGHT NAVY - 60px padding) */}
-      <section className="py-[60px] bg-[#060D1A] border-b border-white/10 relative overflow-hidden font-sans">
-        <DarkSectionLining />
+      {/* 4. Visual Media Gallery (OBSIDIAN & ROYAL BLUE - 60px padding) */}
+      <section className="py-[60px] bg-[#04040A] border-b border-white/10 relative overflow-hidden font-sans">
+        <DarkSectionLining variant="blue" />
 
         <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <SectionHeading
@@ -292,7 +441,7 @@ export default function MediaPage() {
               <div
                 key={m.id}
                 onClick={() => setLightboxIndex(idx)}
-                className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/12 hover:border-[#D4AF37]/70 transition-all duration-300 cursor-pointer bg-[#0B1528]"
+                className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/12 hover:border-[#60A5FA]/70 transition-all duration-300 cursor-pointer bg-[#090F1E]"
               >
                 <SafeImage
                   src={m.image}
@@ -302,17 +451,17 @@ export default function MediaPage() {
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060D1A]/90 via-[#060D1A]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none">
-                  <span className="text-[10px] uppercase tracking-[0.14em] text-[#F5E2A3] font-bold block mb-0.5">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#04040A]/90 via-[#04040A]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none">
+                  <span className="text-[10px] uppercase tracking-[0.14em] text-[#93C5FD] font-bold block mb-0.5">
                     {m.category}
                   </span>
-                  <h4 className="text-sm font-bold text-white leading-tight line-clamp-1">
+                  <h4 className="text-sm font-normal text-white leading-tight line-clamp-1">
                     {m.title}
                   </h4>
                 </div>
 
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#060D1A]/80 border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                  <Maximize2 className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#04040A]/80 border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  <Maximize2 className="w-3.5 h-3.5 text-[#60A5FA]" />
                 </div>
               </div>
             ))}
@@ -340,10 +489,10 @@ export default function MediaPage() {
                 className="py-5 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
               >
                 <div className="md:col-span-5 flex items-baseline gap-4">
-                  <span className="text-sm font-bold text-[#9A6B0C] tabular-nums shrink-0">
+                  <span className="text-sm font-bold text-[#1D4ED8] tabular-nums shrink-0">
                     0{idx + 1}
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                  <h3 className="text-base sm:text-lg font-normal text-slate-900">
                     {rec.title}
                   </h3>
                 </div>
@@ -361,14 +510,14 @@ export default function MediaPage() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-[100] bg-[#060D1A]/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none"
+          className="fixed inset-0 z-[100] bg-[#04040A]/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none"
         >
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto z-20">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-[#D4AF37] text-[#060D1A] font-bold text-[10px] sm:text-xs uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#2563EB] to-[#6366F1] text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider">
                 {mediaGallery[lightboxIndex].category}
               </span>
-              <h3 className="text-white font-bold text-sm sm:text-base md:text-lg truncate max-w-[200px] sm:max-w-md">
+              <h3 className="text-white font-normal text-sm sm:text-base md:text-lg truncate max-w-[200px] sm:max-w-md">
                 {mediaGallery[lightboxIndex].title}
               </h3>
             </div>
@@ -395,12 +544,12 @@ export default function MediaPage() {
                 setLightboxIndex((prev) => (prev - 1 + mediaGallery.length) % mediaGallery.length)
               }
               aria-label="Previous image"
-              className="absolute left-2 sm:-left-6 md:-left-12 z-30 w-11 h-11 rounded-full bg-[#060D1A]/90 hover:bg-[#D4AF37] hover:text-[#060D1A] border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute left-2 sm:-left-6 md:-left-12 z-30 w-11 h-11 rounded-full bg-[#04040A]/90 hover:bg-[#3B82F6] hover:text-white border border-white/20 hover:border-[#60A5FA] text-white flex items-center justify-center transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <div className="relative w-full h-[52vh] sm:h-[62vh] md:h-[66vh] rounded-2xl overflow-hidden border border-white/15 bg-[#0B1528]">
+            <div className="relative w-full h-[52vh] sm:h-[62vh] md:h-[66vh] rounded-2xl overflow-hidden border border-white/15 bg-[#090F1E]">
               <Image
                 src={mediaGallery[lightboxIndex].image}
                 alt={mediaGallery[lightboxIndex].title}
@@ -415,7 +564,7 @@ export default function MediaPage() {
               type="button"
               onClick={() => setLightboxIndex((prev) => (prev + 1) % mediaGallery.length)}
               aria-label="Next image"
-              className="absolute right-2 sm:-right-6 md:-right-12 z-30 w-11 h-11 rounded-full bg-[#060D1A]/90 hover:bg-[#D4AF37] hover:text-[#060D1A] border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute right-2 sm:-right-6 md:-right-12 z-30 w-11 h-11 rounded-full bg-[#04040A]/90 hover:bg-[#3B82F6] hover:text-white border border-white/20 hover:border-[#60A5FA] text-white flex items-center justify-center transition-colors cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -434,7 +583,7 @@ export default function MediaPage() {
                   onClick={() => setLightboxIndex(idx)}
                   className={`relative w-14 h-9 sm:w-16 sm:h-10 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shrink-0 ${
                     lightboxIndex === idx
-                      ? "border-[#D4AF37] scale-105"
+                      ? "border-[#60A5FA] scale-105"
                       : "border-white/20 opacity-45 hover:opacity-100"
                   }`}
                 >
