@@ -294,7 +294,7 @@ export default function ContactForm({ light = false }) {
               "w-full sm:w-auto px-8 py-3 rounded-full text-xs uppercase tracking-[0.14em] font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60",
               light
                 ? "bg-[#04040A] hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] text-white shadow-md"
-                : "bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#6366F1] text-white hover:brightness-110 shadow-[0_0_24px_rgba(37,99,235,0.4)]"
+                : "bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white hover:brightness-110 shadow-[0_8px_22px_rgba(37,99,235,0.35)]"
             )}
           >
             {isSubmitting ? (

@@ -514,7 +514,7 @@ export default function MediaPage() {
         >
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto z-20">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#2563EB] to-[#6366F1] text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider">
                 {mediaGallery[lightboxIndex].category}
               </span>
               <h3 className="text-white font-normal text-sm sm:text-base md:text-lg truncate max-w-[200px] sm:max-w-md">

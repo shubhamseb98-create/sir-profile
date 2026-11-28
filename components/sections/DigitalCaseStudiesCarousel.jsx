@@ -74,7 +74,7 @@ export default function DigitalCaseStudiesCarousel({ studies = [] }) {
                   onClick={() => setActiveIndex(idx)}
                   className={`px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide border transition-all cursor-pointer ${
                     active
-                      ? "bg-gradient-to-r from-[#2563EB] to-[#6366F1] text-white border-[#93C5FD]/50 shadow-sm"
+                      ? "bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white border-[#93C5FD]/50 shadow-sm"
                       : "bg-[#090F1E] text-slate-300 border-white/12 hover:border-[#60A5FA]/50 hover:text-white"
                   }`}
                 >

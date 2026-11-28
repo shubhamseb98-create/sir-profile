@@ -119,7 +119,7 @@ export default function EngagementModelsCarousel({ models = [] }) {
               type="button"
               onClick={nextSlide}
               aria-label="Next engagement model"
-              className="w-9 h-9 rounded-full bg-gradient-to-r from-[#2563EB] to-[#6366F1] border border-[#93C5FD]/45 hover:brightness-110 text-white flex items-center justify-center transition-all cursor-pointer active:scale-95"
+              className="w-9 h-9 rounded-full bg-gradient-to-r from-[#2563EB] to-[#4F46E5] border border-[#93C5FD]/45 hover:brightness-110 text-white flex items-center justify-center transition-all cursor-pointer active:scale-95"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -175,7 +175,7 @@ export default function EngagementModelsCarousel({ models = [] }) {
                           {model.duration}
                         </span>
                         {model.featured ? (
-                          <span className="text-[9.5px] uppercase tracking-[0.12em] font-bold bg-gradient-to-r from-[#2563EB] to-[#6366F1] text-white px-2.5 py-0.5 rounded-full border border-[#93C5FD]/40">
+                          <span className="text-[9.5px] uppercase tracking-[0.12em] font-bold bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white px-2.5 py-0.5 rounded-full border border-[#93C5FD]/40">
                             Most Selected
                           </span>
                         ) : (

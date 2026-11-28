@@ -295,7 +295,7 @@ export default function RolesScroller() {
             <div className="flex items-center gap-2.5 shrink-0">
               <Link
                 href={activeVenture.href || "/leadership-ventures"}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#3B82F6]/15 hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#6366F1] border border-[#60A5FA]/45 text-[#DBEAFE] hover:text-white text-xs font-semibold transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#3B82F6]/15 hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] border border-[#60A5FA]/45 text-[#DBEAFE] hover:text-white text-xs font-semibold transition-all"
               >
                 <span>Explore Role</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

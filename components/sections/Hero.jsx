@@ -227,7 +227,7 @@ export default function Hero() {
                 variant="secondary"
                 size="md"
                 icon="right"
-                className="h-10 sm:h-11 px-5 sm:px-7 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#6366F1] border-[#93C5FD]/40 text-white hover:text-white hover:border-[#93C5FD]/75 hover:brightness-110 shadow-[0_0_28px_rgba(59,130,246,0.5)]"
+                className="h-10 sm:h-11 px-5 sm:px-7 text-xs sm:text-sm font-semibold bg-gradient-to-r from-[#2563EB] to-[#4F46E5] border-[#93C5FD]/40 text-white hover:text-white hover:border-[#93C5FD]/75 hover:brightness-110 shadow-[0_8px_24px_rgba(37,99,235,0.42)]"
               >
                 Let&apos;s Work Together
               </Button>

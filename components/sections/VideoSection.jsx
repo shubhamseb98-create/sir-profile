@@ -2,7 +2,6 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Heart,
   MessageCircle,
@@ -328,17 +327,8 @@ export default function VideoSection({
             className="!mb-0 max-w-2xl"
           />
 
-          {/* Instagram & Media Hub CTA Links */}
+          {/* Instagram CTA Link */}
           <div className="flex flex-wrap items-center gap-2.5 self-start md:self-auto shrink-0">
-            {id !== "video-endorsements" && (
-              <Link
-                href="/media"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/[0.06] border border-white/15 hover:border-[#60A5FA] text-slate-200 hover:text-[#DBEAFE] transition-all text-xs font-semibold backdrop-blur-md"
-              >
-                <span>Media &amp; Insights Hub</span>
-                <ExternalLink className="w-3 h-3 text-[#60A5FA]" />
-              </Link>
-            )}
             <a
               href="https://www.instagram.com/indiandheeraj/"
               target="_blank"

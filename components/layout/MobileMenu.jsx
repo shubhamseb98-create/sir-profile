@@ -101,7 +101,7 @@ export default function MobileMenu({ isOpen, onClose }) {
               window.dispatchEvent(new CustomEvent("open-lead-modal"));
             }
           }}
-          className="w-full text-center bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#6366F1] hover:brightness-110 text-white font-semibold py-3.5 px-6 rounded-full text-sm border border-[#93C5FD]/40 shadow-[0_0_24px_rgba(37,99,235,0.4)] transition-all cursor-pointer"
+          className="w-full text-center bg-gradient-to-r from-[#2563EB] to-[#4F46E5] hover:brightness-110 text-white font-semibold py-3.5 px-6 rounded-full text-sm border border-[#93C5FD]/40 shadow-[0_8px_22px_rgba(37,99,235,0.38)] transition-all cursor-pointer"
         >
           Book a Strategy Call
         </button>

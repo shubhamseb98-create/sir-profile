@@ -30,7 +30,7 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      "bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#6366F1] hover:brightness-110 text-white font-bold border border-[#93C5FD]/40 shadow-[0_0_24px_rgba(59,130,246,0.4)] hover:shadow-[0_0_32px_rgba(99,102,241,0.58)] hover:-translate-y-0.5",
+      "bg-gradient-to-r from-[#2563EB] to-[#4F46E5] hover:brightness-110 text-white font-semibold border border-[#93C5FD]/40 shadow-[0_8px_22px_rgba(37,99,235,0.32)] hover:shadow-[0_12px_28px_rgba(79,70,229,0.48)] hover:-translate-y-0.5",
     secondary:
       "bg-transparent text-white border border-white/20 hover:border-[#60A5FA] hover:text-[#93C5FD] hover:bg-[#3B82F6]/[0.10]",
     outline:

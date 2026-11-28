@@ -266,8 +266,8 @@ export default function Timeline({ light = false }) {
                         "flex-1 py-1.5 rounded-lg text-[11px] font-mono font-bold transition-all cursor-pointer border",
                         isCurrent
                           ? light
-                            ? "bg-[#2563EB] text-white border-[#2563EB] shadow-sm"
-                            : "bg-gradient-to-r from-[#2563EB] to-[#6366F1] text-white border-[#93C5FD]/50 shadow-sm"
+                            ? "bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white border-[#2563EB] shadow-sm"
+                            : "bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white border-[#93C5FD]/50 shadow-sm"
                           : light
                             ? "bg-[#F8FAFC] text-slate-600 border-slate-200 hover:border-[#3B82F6]/60 hover:text-[#1D4ED8]"
                             : "bg-white/[0.04] text-slate-400 border-white/10 hover:border-[#60A5FA]/50 hover:text-white"

@@ -298,7 +298,7 @@ export default function PopupLeadForm() {
                               onClick={() => setSelectedPractice(practice)}
                               className={`text-[9.5px] sm:text-[10px] px-2.5 py-1 rounded-lg border transition-all duration-150 ${
                                 selectedPractice === practice
-                                  ? "bg-gradient-to-r from-[#2563EB] to-[#6366F1] text-white font-bold border-[#93C5FD]/50 shadow-sm"
+                                  ? "bg-gradient-to-r from-[#2563EB] to-[#4F46E5] text-white font-bold border-[#93C5FD]/50 shadow-sm"
                                   : "bg-white/[0.03] text-slate-300 border-white/10 hover:border-white/25 hover:text-white"
                               }`}
                             >
@@ -391,7 +391,7 @@ export default function PopupLeadForm() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full mt-1.5 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#6366F1] hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-[#93C5FD]/40 shadow-[0_0_24px_rgba(59,130,246,0.35)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-150 active:scale-98 disabled:opacity-50 cursor-pointer"
+                        className="w-full mt-1.5 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#2563EB] to-[#4F46E5] hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-[#93C5FD]/40 shadow-[0_8px_22px_rgba(37,99,235,0.35)] hover:shadow-[0_10px_28px_rgba(79,70,229,0.5)] transition-all duration-150 active:scale-98 disabled:opacity-50 cursor-pointer"
                       >
                         {isSubmitting ? (
                           <span>Submitting...</span>

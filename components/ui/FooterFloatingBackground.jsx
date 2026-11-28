@@ -164,11 +164,8 @@ export default function FooterFloatingBackground() {
       {/* ── Fluid Aurora Canvas Wave (Soft & Crisp) ── */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none block opacity-75"
+        className="absolute inset-0 w-full h-full pointer-events-none block opacity-45"
       />
-
-      {/* ── Top Border Divider Hairline ── */}
-      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#60A5FA]/50 to-transparent pointer-events-none" />
     </div>
   );
 }

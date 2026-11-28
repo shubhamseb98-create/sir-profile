@@ -145,7 +145,7 @@ export default function TransformationsStack() {
 
             <Link
               href="/case-studies"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#6366F1] border border-white/15 hover:border-[#60A5FA] text-[#DBEAFE] hover:text-white text-xs font-semibold transition-all self-start md:self-auto shrink-0"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] border border-white/15 hover:border-[#60A5FA] text-[#DBEAFE] hover:text-white text-xs font-semibold transition-all self-start md:self-auto shrink-0"
             >
               <span>All Case Studies</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -283,7 +283,7 @@ export default function TransformationsStack() {
 
                           <Link
                             href={`/case-studies/${study.slug}`}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#6366F1] border border-white/10 hover:border-[#60A5FA] text-[#DBEAFE] hover:text-white text-[11px] font-semibold whitespace-nowrap shrink-0 transition-all self-start sm:self-center"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#4F46E5] border border-white/10 hover:border-[#60A5FA] text-[#DBEAFE] hover:text-white text-[11px] font-semibold whitespace-nowrap shrink-0 transition-all self-start sm:self-center"
                           >
                             <span>Read Case Dossier</span>
                             <ArrowUpRight className="w-3.5 h-3.5" />
